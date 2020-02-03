@@ -1,0 +1,1 @@
+C:\DEV\Eval-Edu\CMS.NET\Implementation\TTOS_DEV\Components\Bussiness\CMS.Bussiness\obj\Debug\EVE.Bussiness.csprojAssemblyReference.cache

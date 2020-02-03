@@ -1,0 +1,36 @@
+C:\DEV\Eval-Edu\CMS.NET\Implementation\TTOS_DEV\Components\APIs\API Gateway\CMS.ApiGateway\bin\Debug\netcoreapp2.2\appsettings.Development.json
+C:\DEV\Eval-Edu\CMS.NET\Implementation\TTOS_DEV\Components\APIs\API Gateway\CMS.ApiGateway\bin\Debug\netcoreapp2.2\appsettings.json
+C:\DEV\Eval-Edu\CMS.NET\Implementation\TTOS_DEV\Components\APIs\API Gateway\CMS.ApiGateway\bin\Debug\netcoreapp2.2\ocelot.Development.json
+C:\DEV\Eval-Edu\CMS.NET\Implementation\TTOS_DEV\Components\APIs\API Gateway\CMS.ApiGateway\bin\Debug\netcoreapp2.2\ocelot.json
+C:\DEV\Eval-Edu\CMS.NET\Implementation\TTOS_DEV\Components\APIs\API Gateway\CMS.ApiGateway\bin\Debug\netcoreapp2.2\Properties\launchSettings.json
+C:\DEV\Eval-Edu\CMS.NET\Implementation\TTOS_DEV\Components\APIs\API Gateway\CMS.ApiGateway\bin\Debug\netcoreapp2.2\EVE.ApiGateway.deps.json
+C:\DEV\Eval-Edu\CMS.NET\Implementation\TTOS_DEV\Components\APIs\API Gateway\CMS.ApiGateway\bin\Debug\netcoreapp2.2\EVE.ApiGateway.runtimeconfig.json
+C:\DEV\Eval-Edu\CMS.NET\Implementation\TTOS_DEV\Components\APIs\API Gateway\CMS.ApiGateway\bin\Debug\netcoreapp2.2\EVE.ApiGateway.runtimeconfig.dev.json
+C:\DEV\Eval-Edu\CMS.NET\Implementation\TTOS_DEV\Components\APIs\API Gateway\CMS.ApiGateway\bin\Debug\netcoreapp2.2\EVE.ApiGateway.dll
+C:\DEV\Eval-Edu\CMS.NET\Implementation\TTOS_DEV\Components\APIs\API Gateway\CMS.ApiGateway\bin\Debug\netcoreapp2.2\EVE.ApiGateway.pdb
+C:\DEV\Eval-Edu\CMS.NET\Implementation\TTOS_DEV\Components\APIs\API Gateway\CMS.ApiGateway\obj\Debug\netcoreapp2.2\EVE.ApiGateway.csprojAssemblyReference.cache
+C:\DEV\Eval-Edu\CMS.NET\Implementation\TTOS_DEV\Components\APIs\API Gateway\CMS.ApiGateway\obj\Debug\netcoreapp2.2\EVE.ApiGateway.AssemblyInfoInputs.cache
+C:\DEV\Eval-Edu\CMS.NET\Implementation\TTOS_DEV\Components\APIs\API Gateway\CMS.ApiGateway\obj\Debug\netcoreapp2.2\EVE.ApiGateway.AssemblyInfo.cs
+C:\DEV\Eval-Edu\CMS.NET\Implementation\TTOS_DEV\Components\APIs\API Gateway\CMS.ApiGateway\obj\Debug\netcoreapp2.2\EVE.ApiGateway.dll
+C:\DEV\Eval-Edu\CMS.NET\Implementation\TTOS_DEV\Components\APIs\API Gateway\CMS.ApiGateway\obj\Debug\netcoreapp2.2\EVE.ApiGateway.pdb
+C:\DEV\Eval-Edu\CMS.NET\Implementation\TTOS_DEV\Components\APIs\API Gateway\CMS.ApiGateway\obj\Debug\netcoreapp2.2\EVE.ApiGateway.RazorAssemblyInfo.cache
+C:\DEV\Eval-Edu\CMS.NET\Implementation\TTOS_DEV\Components\APIs\API Gateway\CMS.ApiGateway\obj\Debug\netcoreapp2.2\EVE.ApiGateway.RazorAssemblyInfo.cs
+C:\DEV\Eval-Edu\CMS.NET\Implementation\TTOS_DEV\Components\APIs\API Gateway\CMS.ApiGateway\obj\Debug\netcoreapp2.2\EVE.ApiGateway.RazorTargetAssemblyInfo.cache
+C:\DEV\Eval-Edu\CMS.NET\Implementation\TTOS_DEV\Components\APIs\EVE.ApiGateway\bin\Debug\netcoreapp2.2\appsettings.Development.json
+C:\DEV\Eval-Edu\CMS.NET\Implementation\TTOS_DEV\Components\APIs\EVE.ApiGateway\bin\Debug\netcoreapp2.2\appsettings.json
+C:\DEV\Eval-Edu\CMS.NET\Implementation\TTOS_DEV\Components\APIs\EVE.ApiGateway\bin\Debug\netcoreapp2.2\ocelot.Development.json
+C:\DEV\Eval-Edu\CMS.NET\Implementation\TTOS_DEV\Components\APIs\EVE.ApiGateway\bin\Debug\netcoreapp2.2\ocelot.json
+C:\DEV\Eval-Edu\CMS.NET\Implementation\TTOS_DEV\Components\APIs\EVE.ApiGateway\bin\Debug\netcoreapp2.2\Properties\launchSettings.json
+C:\DEV\Eval-Edu\CMS.NET\Implementation\TTOS_DEV\Components\APIs\EVE.ApiGateway\bin\Debug\netcoreapp2.2\EVE.ApiGateway.deps.json
+C:\DEV\Eval-Edu\CMS.NET\Implementation\TTOS_DEV\Components\APIs\EVE.ApiGateway\bin\Debug\netcoreapp2.2\EVE.ApiGateway.runtimeconfig.json
+C:\DEV\Eval-Edu\CMS.NET\Implementation\TTOS_DEV\Components\APIs\EVE.ApiGateway\bin\Debug\netcoreapp2.2\EVE.ApiGateway.runtimeconfig.dev.json
+C:\DEV\Eval-Edu\CMS.NET\Implementation\TTOS_DEV\Components\APIs\EVE.ApiGateway\bin\Debug\netcoreapp2.2\EVE.ApiGateway.dll
+C:\DEV\Eval-Edu\CMS.NET\Implementation\TTOS_DEV\Components\APIs\EVE.ApiGateway\bin\Debug\netcoreapp2.2\EVE.ApiGateway.pdb
+C:\DEV\Eval-Edu\CMS.NET\Implementation\TTOS_DEV\Components\APIs\EVE.ApiGateway\obj\Debug\netcoreapp2.2\EVE.ApiGateway.csprojAssemblyReference.cache
+C:\DEV\Eval-Edu\CMS.NET\Implementation\TTOS_DEV\Components\APIs\EVE.ApiGateway\obj\Debug\netcoreapp2.2\EVE.ApiGateway.RazorAssemblyInfo.cache
+C:\DEV\Eval-Edu\CMS.NET\Implementation\TTOS_DEV\Components\APIs\EVE.ApiGateway\obj\Debug\netcoreapp2.2\EVE.ApiGateway.RazorAssemblyInfo.cs
+C:\DEV\Eval-Edu\CMS.NET\Implementation\TTOS_DEV\Components\APIs\EVE.ApiGateway\obj\Debug\netcoreapp2.2\EVE.ApiGateway.AssemblyInfoInputs.cache
+C:\DEV\Eval-Edu\CMS.NET\Implementation\TTOS_DEV\Components\APIs\EVE.ApiGateway\obj\Debug\netcoreapp2.2\EVE.ApiGateway.AssemblyInfo.cs
+C:\DEV\Eval-Edu\CMS.NET\Implementation\TTOS_DEV\Components\APIs\EVE.ApiGateway\obj\Debug\netcoreapp2.2\EVE.ApiGateway.RazorTargetAssemblyInfo.cache
+C:\DEV\Eval-Edu\CMS.NET\Implementation\TTOS_DEV\Components\APIs\EVE.ApiGateway\obj\Debug\netcoreapp2.2\EVE.ApiGateway.dll
+C:\DEV\Eval-Edu\CMS.NET\Implementation\TTOS_DEV\Components\APIs\EVE.ApiGateway\obj\Debug\netcoreapp2.2\EVE.ApiGateway.pdb

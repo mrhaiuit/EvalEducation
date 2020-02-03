@@ -1,0 +1,74 @@
+{
+  "ReRoutes": [
+    {
+      "DownstreamPathTemplate": "/api/{controller}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7000
+        }
+      ],
+      "UpstreamPathTemplate": "/authentication/{controller}"
+    },
+    {
+      "DownstreamPathTemplate": "/api/{controller}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7001
+        }
+      ],
+      "UpstreamPathTemplate": "/catalog/{controller}"
+    },
+    {
+      "DownstreamPathTemplate": "/api/{controller}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7002
+        }
+      ],
+      "UpstreamPathTemplate": "/config/{controller}"
+    },
+    {
+      "DownstreamPathTemplate": "/api/{controller}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7003
+        }
+      ],
+      "UpstreamPathTemplate": "/gate/{controller}"
+    },
+    {
+      "DownstreamPathTemplate": "/api/{controller}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7004
+        }
+      ],
+      "UpstreamPathTemplate": "/container/{controller}"
+    },
+    {
+      "DownstreamPathTemplate": "/api/{controller}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7005
+        }
+      ],
+      "UpstreamPathTemplate": "/vessel/{controller}"
+    }
+  ],
+    "GlobalConfiguration": {
+        "BaseUrl": "http://localhost:8000"
+
+      }
+  }

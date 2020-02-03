@@ -1,0 +1,1153 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="EVE.Data.Store" Provider="Oracle.ManagedDataAccess.Client" ProviderManifestToken="11.2" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="AGENT">
+    <Key>
+      <PropertyRef Name="SITE_ID" />
+      <PropertyRef Name="AGENT" />
+      <PropertyRef Name="LINE_OPER" />
+    </Key>
+    <Property Name="SITE_ID" Type="char" MaxLength="6" Nullable="false" />
+    <Property Name="AGENT" Type="char" MaxLength="3" Nullable="false" />
+    <Property Name="LINE_OPER" Type="char" MaxLength="7" Nullable="false" />
+    <Property Name="LINE_PRINT_SEPARATE" Type="char" MaxLength="1" />
+    <Property Name="AS_AT_TS" Type="date" />
+    <Property Name="EXPIRY_TS" Type="date" />
+    <Property Name="CONT_TYPE" Type="char" MaxLength="2" />
+    <Property Name="FEL" Type="char" MaxLength="1" />
+    <Property Name="UPD_TS" Type="date" />
+  </EntityType>
+  <EntityType Name="CONVERT_TO_ISO">
+    <Key>
+      <PropertyRef Name="ISO" />
+    </Key>
+    <Property Name="ISO" Type="char" MaxLength="4" Nullable="false" />
+    <Property Name="USE_DEFAULT" Type="char" MaxLength="1" />
+    <Property Name="DESCR" Type="varchar2" MaxLength="100" />
+    <Property Name="LENGTH" Type="number" Precision="9" Scale="3" />
+    <Property Name="HEIGHT" Type="number" Precision="9" Scale="3" />
+    <Property Name="TARE" Type="number" Precision="9" Scale="3" />
+    <Property Name="WIDTH" Type="number" Precision="9" Scale="3" />
+    <Property Name="UPD_TS" Type="date" />
+    <Property Name="CUSTOMS_ISO" Type="char" MaxLength="4" />
+    <Property Name="CTR_FLG" Type="char" MaxLength="1" />
+    <Property Name="REEFER_FLG" Type="char" MaxLength="1" />
+    <Property Name="CTR_TYPE" Type="char" MaxLength="2" />
+    <Property Name="TOPX_ISO" Type="char" MaxLength="4" />
+  </EntityType>
+  <EntityType Name="CUSTOMER">
+    <Key>
+      <PropertyRef Name="CUST_REG_NO" />
+    </Key>
+    <Property Name="SITE_ID" Type="char" MaxLength="6" Nullable="false" />
+    <Property Name="CUST_REG_NO" Type="char" MaxLength="20" Nullable="false" />
+    <Property Name="TAX_FILE_NO" Type="char" MaxLength="20" Nullable="false" />
+    <Property Name="CUST_TYPE" Type="char" MaxLength="3" />
+    <Property Name="FULL_NAME" Type="varchar2" MaxLength="300" Nullable="false" />
+    <Property Name="PHONE" Type="char" MaxLength="20" />
+    <Property Name="FAX" Type="char" MaxLength="20" />
+    <Property Name="MOBILE" Type="char" MaxLength="20" />
+    <Property Name="ADDR1" Type="varchar2" MaxLength="300" />
+    <Property Name="ADDR2" Type="varchar2" MaxLength="150" />
+    <Property Name="ADDR3" Type="varchar2" MaxLength="150" />
+    <Property Name="ADDR4" Type="varchar2" MaxLength="150" />
+    <Property Name="EMAIL" Type="varchar2" MaxLength="500" />
+    <Property Name="CONTACT_NAME" Type="varchar2" MaxLength="60" />
+    <Property Name="ACC_NO" Type="char" MaxLength="15" />
+    <Property Name="STOP_YN" Type="char" MaxLength="1" />
+    <Property Name="OPER_NAME" Type="varchar2" MaxLength="25" />
+    <Property Name="UPD_TS" Type="date" />
+    <Property Name="PAY_COD" Type="char" MaxLength="1" />
+    <Property Name="IS_FREIGHT_FORWARDER" Type="char" MaxLength="1" />
+    <Property Name="COUNTRY" Type="char" MaxLength="2" />
+    <Property Name="LICENSE_NUMBER" Type="char" MaxLength="20" />
+    <Property Name="BANK_ID" Type="char" MaxLength="12" />
+    <Property Name="CUST_GROUP" Type="char" MaxLength="12" />
+    <Property Name="MAX_STORAGE_DAYS" Type="number" Precision="4" Scale="0" />
+    <Property Name="COMMENTS" Type="varchar2" MaxLength="250" />
+    <Property Name="CMID" Type="char" MaxLength="25" />
+    <Property Name="ACC_CATEGORY" Type="char" MaxLength="1" />
+    <Property Name="EXACT_PROC_FLG" Type="char" MaxLength="1" />
+    <Property Name="IS_TOKEN_REG" Type="char" MaxLength="1" />
+    <Property Name="EMAIL_THC" Type="varchar2" MaxLength="50" />
+    <Property Name="E_INVOICE_ISSUE_FLG" Type="char" MaxLength="1" />
+    <Property Name="AGENT_CODE" Type="char" MaxLength="7" />
+    <Property Name="BILL_AGENT" Type="char" MaxLength="3" />
+  </EntityType>
+  <EntityType Name="DEPOT">
+    <Key>
+      <PropertyRef Name="SITE_ID" />
+      <PropertyRef Name="DEPOT" />
+    </Key>
+    <Property Name="SITE_ID" Type="char" MaxLength="6" Nullable="false" />
+    <Property Name="DEPOT" Type="char" MaxLength="10" Nullable="false" />
+    <Property Name="DEPOT_NAME" Type="varchar2" MaxLength="50" />
+    <Property Name="ADDRESS" Type="varchar2" MaxLength="200" />
+    <Property Name="IS_VIRTUAL" Type="char" MaxLength="1" />
+    <Property Name="IS_LINKED" Type="char" MaxLength="1" />
+    <Property Name="AS_AT_TS" Type="date" />
+    <Property Name="EXPIRY_TS" Type="date" />
+    <Property Name="IS_MANAGE_CLOSING_TS" Type="char" MaxLength="1" />
+    <Property Name="DEFAULT_INT_CLOSING_TS" Type="number" Precision="4" Scale="0" />
+    <Property Name="DEFAULT_DOM_CLOSING_TS" Type="number" Precision="4" Scale="0" />
+    <Property Name="SITE_CODE" Type="char" MaxLength="6" />
+    <Property Name="IS_PORT" Type="char" MaxLength="1" />
+  </EntityType>
+  <EntityType Name="ITEM">
+    <Key>
+      <PropertyRef Name="ITEM_KEY" />
+    </Key>
+    <Property Name="SITE_ID" Type="char" MaxLength="6" />
+    <Property Name="OWNER" Type="char" MaxLength="6" />
+    <Property Name="ITEM_KEY" Type="number" Precision="9" Scale="0" Nullable="false" />
+    <Property Name="ITEM_NO" Type="char" MaxLength="12" />
+    <Property Name="FEL" Type="char" MaxLength="1" />
+    <Property Name="AGENT" Type="char" MaxLength="3" />
+    <Property Name="LINE_OPER" Type="char" MaxLength="7" />
+    <Property Name="ARR_BY" Type="char" MaxLength="1" />
+    <Property Name="ARR_CAR" Type="char" MaxLength="12" />
+    <Property Name="ARR_TS" Type="date" />
+    <Property Name="DEP_BY" Type="char" MaxLength="1" />
+    <Property Name="DEP_CAR" Type="char" MaxLength="12" />
+    <Property Name="DEP_TS" Type="date" />
+    <Property Name="CATEGORY" Type="char" MaxLength="1" />
+    <Property Name="BILL_OF_LADING" Type="char" MaxLength="20" />
+    <Property Name="BOOK_NO" Type="char" MaxLength="20" />
+    <Property Name="CONSIGNEE" Type="char" MaxLength="20" />
+    <Property Name="CONSIGNOR" Type="char" MaxLength="20" />
+    <Property Name="GROSS" Type="number" Precision="9" Scale="3" />
+    <Property Name="CARGO_WEIGHT" Type="number" Precision="9" Scale="3" />
+    <Property Name="CTR_OWNER" Type="char" MaxLength="6" />
+    <Property Name="CUSTOM_CHECK_FLG" Type="char" MaxLength="1" />
+    <Property Name="ORG_PORT" Type="char" MaxLength="5" />
+    <Property Name="LOAD_PORT" Type="char" MaxLength="5" />
+    <Property Name="DISCH_PORT" Type="char" MaxLength="5" />
+    <Property Name="LL_DISCH_PORT" Type="char" MaxLength="5" />
+    <Property Name="FDISCH_PORT" Type="char" MaxLength="5" />
+    <Property Name="FIN_DEST" Type="char" MaxLength="6" />
+    <Property Name="IS_ATTACH" Type="char" MaxLength="1" />
+    <Property Name="IS_CFS" Type="char" MaxLength="1" />
+    <Property Name="IS_COMMENTS" Type="char" MaxLength="1" />
+    <Property Name="IS_CONSOLE" Type="char" MaxLength="1" />
+    <Property Name="IS_CTR" Type="char" MaxLength="1" />
+    <Property Name="IS_DAMAGED" Type="char" MaxLength="1" />
+    <Property Name="IS_DANGEROUS" Type="char" MaxLength="1" />
+    <Property Name="IS_DOOR_OPEN" Type="char" MaxLength="1" />
+    <Property Name="IS_FCL_ADD" Type="char" MaxLength="1" />
+    <Property Name="IS_FOLDED" Type="char" MaxLength="1" />
+    <Property Name="IS_OOG" Type="char" MaxLength="1" />
+    <Property Name="IS_PRETRIP" Type="char" MaxLength="1" />
+    <Property Name="IS_REEFER" Type="char" MaxLength="1" />
+    <Property Name="IS_SHORING" Type="char" MaxLength="1" />
+    <Property Name="IS_TOPPING" Type="char" MaxLength="1" />
+    <Property Name="ORIG_ISO" Type="char" MaxLength="4" />
+    <Property Name="ISO" Type="char" MaxLength="4" />
+    <Property Name="ITEM_TYPE" Type="char" MaxLength="2" />
+    <Property Name="LENGTH" Type="number" Precision="9" Scale="3" />
+    <Property Name="HEIGHT" Type="number" Precision="9" Scale="3" />
+    <Property Name="TARE" Type="number" Precision="9" Scale="3" />
+    <Property Name="MAX_GROSS" Type="number" Precision="9" Scale="3" />
+    <Property Name="MANIFEST_NO" Type="char" MaxLength="20" />
+    <Property Name="OPER_NAME" Type="char" MaxLength="25" />
+    <Property Name="ECN_NO" Type="char" MaxLength="20" />
+    <Property Name="ICN_NO" Type="char" MaxLength="20" />
+    <Property Name="PLACE_OF_DELIVERY" Type="char" MaxLength="8" />
+    <Property Name="PLACE_OF_RECEIPT" Type="char" MaxLength="8" />
+    <Property Name="RELEASE_NO" Type="char" MaxLength="20" />
+    <Property Name="SEAL_NO_CURRENT" Type="char" MaxLength="20" />
+    <Property Name="SPEC_HNDL" Type="varchar2" MaxLength="100" />
+    <Property Name="HIST_FLG" Type="char" MaxLength="1" />
+    <Property Name="ORG_CRT_TS" Type="date" />
+    <Property Name="UPD_TS" Type="date" />
+    <Property Name="UPD_CNT" Type="number" Precision="9" Scale="0" />
+    <Property Name="CUST_RELEASE_MARK" Type="char" MaxLength="1" />
+    <Property Name="TRANSFER_CD" Type="char" MaxLength="2" />
+    <Property Name="REASON_FOR_TRANSFER" Type="varchar2" MaxLength="70" />
+    <Property Name="EXP_CTR_REMARK" Type="varchar2" MaxLength="100" />
+    <Property Name="COPRAR_DISCHARGE" Type="char" MaxLength="1" />
+    <Property Name="TERMINAL_ID" Type="char" MaxLength="12" />
+    <Property Name="OP_TERMINAL" Type="char" MaxLength="6" />
+    <Property Name="OP_SUBTERMINAL" Type="char" MaxLength="3" />
+    <Property Name="GRADE" Type="char" MaxLength="3" />
+    <Property Name="RA_KEY" Type="number" Precision="9" Scale="0" />
+    <Property Name="BOOK_KEY" Type="number" Precision="9" Scale="0" />
+    <Property Name="BB_ID" Type="char" MaxLength="17" />
+    <Property Name="BUNDLE_TO" Type="number" Precision="9" Scale="0" />
+    <Property Name="UNBUNDLE_FROM" Type="number" Precision="9" Scale="0" />
+    <Property Name="CHARGES_TO_DT" Type="date" />
+    <Property Name="FREE_DAYS" Type="number" Precision="9" Scale="0" Nullable="false" />
+    <Property Name="DIRECT_IMPORT_DELIVERY" Type="char" MaxLength="1" />
+    <Property Name="SLOT_CODE" Type="char" MaxLength="7" />
+    <Property Name="SLOT_CODE_OUT" Type="char" MaxLength="7" />
+    <Property Name="ORG_ARR_CAR" Type="char" MaxLength="12" />
+    <Property Name="ORG_ARR_TS" Type="date" />
+    <Property Name="ORG_IN_VOYAGE" Type="char" MaxLength="12" Nullable="false" />
+    <Property Name="DELIVERY_METHOD" Type="char" MaxLength="12" />
+    <Property Name="DIRECT_LOAD_FLG" Type="char" MaxLength="1" />
+    <Property Name="TURNING_CHE" Type="char" MaxLength="3" />
+    <Property Name="CUST_REG_NO" Type="char" MaxLength="20" />
+    <Property Name="EXIT_VES_CD" Type="char" MaxLength="3" />
+    <Property Name="EXIT_VOYAGE" Type="char" MaxLength="12" />
+    <Property Name="DEPOT_ARR_TS" Type="date" />
+    <Property Name="DOMESTIC" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="EXPORT_CONFIRMED" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="EXPORT_CONFIRMED_TS" Type="date" Nullable="false" />
+    <Property Name="COPRAR_LOAD" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="SPECIAL_HDL_CODE" Type="char" MaxLength="4" Nullable="false" />
+    <Property Name="INTER_MOVE_CODE" Type="char" MaxLength="10" Nullable="false" />
+    <Property Name="SPECIAL_GEAR" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="RESTOW_TYPE" Type="char" MaxLength="5" Nullable="false" />
+    <Property Name="EIR_ID" Type="char" MaxLength="20" Nullable="false" />
+    <Property Name="CMID" Type="char" MaxLength="20" Nullable="false" />
+    <Property Name="EXPIRY_DATE" Type="date" Nullable="false" />
+    <Property Name="INSPECT_BY_R" Type="char" MaxLength="12" Nullable="false" />
+    <Property Name="INSPECT_BY_D" Type="char" MaxLength="12" Nullable="false" />
+    <Property Name="PORT_TRANS_BATCH_NO" Type="char" MaxLength="20" Nullable="false" />
+    <Property Name="BOOK_ASSIGN_BY" Type="char" MaxLength="20" Nullable="false" />
+    <Property Name="RAIL_CUSTOM_STATUS" Type="char" MaxLength="10" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ITEM_CHARGES">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="ITEM_KEY" Type="number" Precision="12" Scale="0" />
+    <Property Name="CHARGE_CD" Type="char" MaxLength="12" />
+    <Property Name="DESCR" Type="varchar2" MaxLength="100" />
+    <Property Name="QUANTITY" Type="number" Precision="13" Scale="3" />
+    <Property Name="CALCULATED_AMOUNT_TMP" Type="number" Precision="9" Scale="3" />
+    <Property Name="BILLED_AMOUNT_TMP" Type="number" Precision="9" Scale="3" />
+    <Property Name="CURRENCY" Type="char" MaxLength="3" />
+    <Property Name="INTERNAL_BOOK_NUMBER" Type="char" MaxLength="20" />
+    <Property Name="INVOICE_NO" Type="char" MaxLength="20" />
+    <Property Name="INVOICE_DT" Type="date" />
+    <Property Name="OPER_NAME" Type="varchar2" MaxLength="25" />
+    <Property Name="CRT_TS" Type="date" />
+    <Property Name="UPD_TS" Type="date" />
+    <Property Name="DEMDET_PAID_TO_DT" Type="date" />
+    <Property Name="INVOICE_PRE_CHAR" Type="varchar2" MaxLength="10" />
+    <Property Name="REASON" Type="varchar2" MaxLength="500" />
+    <Property Name="IS_CANCELLED" Type="char" MaxLength="1" />
+    <Property Name="SITE_ID" Type="char" MaxLength="6" />
+    <Property Name="BILL_LENGTH" Type="char" MaxLength="2" />
+    <Property Name="BILL_STS" Type="char" MaxLength="1" />
+    <Property Name="BILL_TYPE" Type="char" MaxLength="2" />
+    <Property Name="IS_DEMDET" Type="char" MaxLength="1" />
+    <Property Name="LINE_OPER" Type="char" MaxLength="7" />
+    <Property Name="CHARGES_TO_DT" Type="date" />
+    <Property Name="DEMDET_DESC" Type="varchar2" MaxLength="50" />
+    <Property Name="RA_NO" Type="char" MaxLength="20" />
+    <Property Name="UNIT_CODE" Type="char" MaxLength="6" />
+    <Property Name="EIR_ID" Type="char" MaxLength="20" />
+    <Property Name="HAZ_FLG" Type="char" MaxLength="1" />
+    <Property Name="HAZ_CLASS" Type="char" MaxLength="5" />
+    <Property Name="OOG_FLG" Type="char" MaxLength="1" />
+    <Property Name="OOW_FLG" Type="char" MaxLength="1" />
+    <Property Name="RATE" Type="number" Precision="15" Scale="5" />
+    <Property Name="TAX_RATE" Type="number" Precision="15" Scale="5" />
+    <Property Name="DEMDET_BATCH_ID" Type="number" Precision="10" Scale="0" />
+    <Property Name="CHARGE_BATCH_ID" Type="char" MaxLength="12" />
+    <Property Name="AGENT" Type="char" MaxLength="3" />
+    <Property Name="CALCULATED_AMOUNT" Type="number" Precision="15" Scale="3" />
+    <Property Name="BILLED_AMOUNT" Type="number" Precision="15" Scale="3" />
+    <Property Name="BILLED_TAX_AMOUNT" Type="number" Precision="15" Scale="3" />
+    <Property Name="CALCULATED_DISCOUNT" Type="number" Precision="12" Scale="3" />
+    <Property Name="INVDETAIL_ID" Type="number" Precision="38" Scale="0" />
+    <Property Name="RATE_ID" Type="number" Precision="9" Scale="0" />
+    <Property Name="EXEC_TS" Type="date" />
+    <Property Name="DISCOUNT_RATE" Type="number" Precision="3" Scale="1" />
+    <Property Name="SERVICE_CHARGE" Type="char" MaxLength="12" />
+    <Property Name="COMMITTED_FLG" Type="char" MaxLength="1" />
+    <Property Name="COMMITTED_TS" Type="date" />
+    <Property Name="USER_CONFIRM" Type="varchar2" MaxLength="25" />
+    <Property Name="IP_ADDRESS" Type="char" MaxLength="30" />
+  </EntityType>
+  <EntityType Name="ITEM_DAMAGE">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="ITEM_KEY" Type="number" Precision="12" Scale="0" />
+    <Property Name="DAMAGE_CD" Type="char" MaxLength="2" />
+    <Property Name="DAMAGE_SEQ" Type="number" Precision="4" Scale="0" />
+    <Property Name="DAMAGE_DESC" Type="varchar2" MaxLength="100" />
+    <Property Name="MAN_HOUR_REPAIRS" Type="number" Precision="6" Scale="3" />
+    <Property Name="FIXEDUP_TS" Type="date" />
+    <Property Name="FIXEDUP_OPER" Type="varchar2" MaxLength="25" />
+    <Property Name="CRT_TS" Type="date" />
+    <Property Name="CHARGE_TO" Type="char" MaxLength="1" />
+    <Property Name="INSPECT_BY" Type="char" MaxLength="60" />
+    <Property Name="DAMAGE_LOC" Type="char" MaxLength="20" />
+    <Property Name="UPD_CNT" Type="number" Precision="9" Scale="0" />
+    <Property Name="DAMAGE_BY" Type="char" MaxLength="12" />
+    <Property Name="SERVICE_PROVIDER" Type="char" MaxLength="12" />
+    <Property Name="DAMAGE_INSPECT_LOCATION" Type="char" MaxLength="1" />
+    <Property Name="DAMAGE_DIMENSION" Type="char" MaxLength="50" />
+    <Property Name="SERVICE_CD" Type="char" MaxLength="3" />
+    <Property Name="SERVICE_KEY" Type="number" Precision="38" Scale="0" />
+  </EntityType>
+  <EntityType Name="ITEM_LOCATION">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="ITEM_KEY" Type="number" Precision="12" Scale="0" Nullable="false" />
+    <Property Name="SEQ" Type="number" Precision="4" Scale="0" Nullable="false" />
+    <Property Name="STK_PCH" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="STK_REF" Type="char" MaxLength="12" Nullable="false" />
+    <Property Name="STK_CLASS" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="LOC_3D" Type="char" MaxLength="15" Nullable="false" />
+    <Property Name="STACK" Type="char" MaxLength="3" Nullable="false" />
+    <Property Name="X" Type="char" MaxLength="3" Nullable="false" />
+    <Property Name="Y" Type="char" MaxLength="3" Nullable="false" />
+    <Property Name="Z" Type="char" MaxLength="2" Nullable="false" />
+    <Property Name="CHE_ID" Type="char" MaxLength="3" Nullable="false" />
+    <Property Name="CHE_OPER" Type="char" MaxLength="25" Nullable="false" />
+    <Property Name="CAR_CHE_ID" Type="char" MaxLength="3" Nullable="false" />
+    <Property Name="CAR_CHE_OPER" Type="char" MaxLength="25" Nullable="false" />
+    <Property Name="CRT_TS" Type="date" Nullable="false" />
+    <Property Name="UPD_TS" Type="date" Nullable="false" />
+    <Property Name="CONSOL_FLG" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="INTERNAL_MOVE_CD" Type="char" MaxLength="10" Nullable="false" />
+    <Property Name="EXEC_TS" Type="date" Nullable="false" />
+    <Property Name="MOVE_TYPE" Type="char" MaxLength="4" Nullable="false" />
+    <Property Name="PREV_LOC" Type="char" MaxLength="17" Nullable="false" />
+    <Property Name="CAR_CHE_OPER2" Type="char" MaxLength="25" Nullable="false" />
+    <Property Name="PREV_ID" Type="number" Precision="12" Scale="0" Nullable="false" />
+    <Property Name="TRUCK_INT_ID" Type="char" MaxLength="10" Nullable="false" />
+    <Property Name="STK_REF2" Type="char" MaxLength="12" />
+  </EntityType>
+  <EntityType Name="ITEM_OOG">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="ITEM_KEY" Type="number" Precision="12" Scale="0" />
+    <Property Name="OOG_BACK" Type="number" Precision="5" Scale="0" />
+    <Property Name="OOG_FRONT" Type="number" Precision="5" Scale="0" />
+    <Property Name="OOG_HEIGHT" Type="number" Precision="5" Scale="0" />
+    <Property Name="OOG_LEFT" Type="number" Precision="5" Scale="0" />
+    <Property Name="OOG_LENGTH" Type="number" Precision="5" Scale="0" />
+    <Property Name="OOG_RIGHT" Type="number" Precision="5" Scale="0" />
+    <Property Name="OOG_TOP" Type="number" Precision="5" Scale="0" />
+    <Property Name="OOG_WIDTH" Type="number" Precision="5" Scale="0" />
+    <Property Name="UPD_TS" Type="date" />
+    <Property Name="LEN_UNIT" Type="char" MaxLength="2" />
+    <Property Name="BB_NUM" Type="number" Precision="5" Scale="0" />
+    <Property Name="BB_TYPE" Type="char" MaxLength="5" />
+    <Property Name="UPD_CNT" Type="number" Precision="9" Scale="0" />
+    <Property Name="CABLE_REQUIRED" Type="char" MaxLength="1" />
+    <Property Name="OOG_WEIGHT_FLG" Type="char" MaxLength="1" />
+    <Property Name="OOG_HEIGHT_FLG" Type="char" MaxLength="1" />
+    <Property Name="OOG_LENGTH_FLG" Type="char" MaxLength="1" />
+    <Property Name="OOG_WIDTH_FLG" Type="char" MaxLength="1" />
+  </EntityType>
+  <EntityType Name="ITEM_REEFER">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ITEM_KEY" Type="number" Precision="9" Scale="0" />
+    <Property Name="CHILLED_TEMP" Type="number" Precision="5" Scale="1" />
+    <Property Name="FLASHPOINT_TEMP" Type="number" Precision="5" Scale="1" />
+    <Property Name="FLASHPOINT_TYPE" Type="char" MaxLength="1" />
+    <Property Name="FROZEN_TEMP" Type="number" Precision="5" Scale="1" />
+    <Property Name="RFR_TRANS_TEMP" Type="number" Precision="5" Scale="1" />
+    <Property Name="RFR_TYPE" Type="char" MaxLength="1" />
+    <Property Name="UPD_TS" Type="date" />
+    <Property Name="CHILLED_TYPE" Type="char" MaxLength="1" />
+    <Property Name="FROZEN_TYPE" Type="char" MaxLength="1" />
+    <Property Name="INGATE_TEMP" Type="number" Precision="5" Scale="1" />
+    <Property Name="IG_TEMP_TYPE" Type="char" MaxLength="1" />
+    <Property Name="OUTGATE_TEMP" Type="number" Precision="5" Scale="1" />
+    <Property Name="OG_TEMP_TYPE" Type="char" MaxLength="1" />
+    <Property Name="PRETRIP_INSPECTION" Type="number" Precision="4" Scale="0" />
+    <Property Name="PRE_COOLING" Type="number" Precision="4" Scale="0" />
+    <Property Name="PTIDATE" Type="date" />
+    <Property Name="NUMBER_PROBES" Type="number" Precision="4" Scale="0" />
+    <Property Name="HUMIDITY" Type="number" Precision="4" Scale="0" />
+    <Property Name="O2" Type="number" Precision="4" Scale="0" />
+    <Property Name="CO2" Type="number" Precision="4" Scale="0" />
+    <Property Name="PLUG_TS" Type="date" />
+    <Property Name="UNPLUG_TS" Type="date" />
+    <Property Name="RFR_CHART_COUNT" Type="number" Precision="4" Scale="0" />
+    <Property Name="MIN_TEMP" Type="number" Precision="5" Scale="1" />
+    <Property Name="MAX_TEMP" Type="number" Precision="5" Scale="1" />
+    <Property Name="IS_CONNECTED" Type="char" MaxLength="1" />
+    <Property Name="CONAIR" Type="char" MaxLength="1" />
+    <Property Name="TEMP_UNIT" Type="char" MaxLength="1" />
+    <Property Name="UPD_CNT" Type="number" Precision="9" Scale="0" />
+    <Property Name="NO_PLUGIN_REQUIRED" Type="char" MaxLength="1" />
+    <Property Name="TEMP_CONTROL_SETTING" Type="char" MaxLength="1" />
+    <Property Name="NON_SNP_PTI_FLG" Type="char" MaxLength="1" />
+    <Property Name="YEAR_MADE" Type="char" MaxLength="4" />
+    <Property Name="MODEL_MADE" Type="char" MaxLength="50" />
+    <Property Name="VENTILATION" Type="char" MaxLength="1" />
+    <Property Name="SETTING_TEMP" Type="number" Precision="5" Scale="1" />
+    <Property Name="VENT_VOLUMETRIC_RATE" Type="number" Precision="4" Scale="0" />
+    <Property Name="VENT_VOLUMETRIC_UNIT" Type="char" MaxLength="2" />
+    <Property Name="REEFER_CHECKING_OK" Type="char" MaxLength="1" />
+    <Property Name="ID" Type="number" Precision="10" Scale="0" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'EVE4.LINE_OPER' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="LINE_OPER">
+    <Key>
+      <PropertyRef Name="LINE_OPER" />
+      <PropertyRef Name="SITE_ID" />
+    </Key>
+    <Property Name="LINE_OPER" Type="char" MaxLength="7" Nullable="false" />
+    <Property Name="SITE_ID" Type="char" MaxLength="6" Nullable="false" />
+    <Property Name="CUST_TYPE" Type="char" MaxLength="3" />
+    <Property Name="FULL_NAME" Type="varchar2" MaxLength="60" />
+    <Property Name="PHONE" Type="char" MaxLength="20" />
+    <Property Name="FAX" Type="char" MaxLength="20" />
+    <Property Name="MOBILE" Type="char" MaxLength="20" />
+    <Property Name="ADDR1" Type="varchar2" MaxLength="100" />
+    <Property Name="ADDR2" Type="varchar2" MaxLength="100" />
+    <Property Name="ADDR3" Type="varchar2" MaxLength="100" />
+    <Property Name="ADDR4" Type="varchar2" MaxLength="100" />
+    <Property Name="EMAIL" Type="varchar2" MaxLength="50" />
+    <Property Name="CONTACT_NAME" Type="varchar2" MaxLength="60" />
+    <Property Name="ACC_NO" Type="char" MaxLength="20" />
+    <Property Name="STOP_YN" Type="char" MaxLength="1" />
+    <Property Name="OPER_NAME" Type="varchar2" MaxLength="50" />
+    <Property Name="UPD_TS" Type="date" />
+    <Property Name="DEFAULT_DETENTION_DAYS" Type="number" Precision="4" Scale="1" />
+    <Property Name="CUSTOMS_LOP_CODE" Type="char" MaxLength="10" />
+    <Property Name="DISCH_DAY_INCLUDED" Type="char" MaxLength="1" />
+    <Property Name="CUST_PM_FREEDAYS" Type="number" Precision="3" Scale="1" />
+    <Property Name="IMP_PLUG_ON" Type="char" MaxLength="1" />
+    <Property Name="IMP_PLUG_OFF" Type="char" MaxLength="1" />
+    <Property Name="EXP_PLUG_ON" Type="char" MaxLength="1" />
+    <Property Name="EXP_PLUG_OFF" Type="char" MaxLength="1" />
+    <Property Name="FTP_HOST" Type="char" MaxLength="30" />
+    <Property Name="FTP_USER_NAME" Type="varchar2" MaxLength="100" />
+    <Property Name="FTP_PASSWORD" Type="char" MaxLength="30" />
+    <Property Name="FTP_IN_PATH" Type="char" MaxLength="50" />
+    <Property Name="FTP_OUT_PATH" Type="char" MaxLength="50" />
+    <Property Name="FTP_IN_ACTIVE_FLG" Type="char" MaxLength="1" />
+    <Property Name="FTP_OUT_ACTIVE_FLG" Type="char" MaxLength="1" />
+    <Property Name="FTP_OUT_EDIFACT" Type="char" MaxLength="1" />
+    <Property Name="FLATFILE_OUT_FLG" Type="char" MaxLength="1" />
+    <Property Name="TOPS_LINE_OPER" Type="char" MaxLength="7" />
+    <Property Name="MAX_STORAGE_DAYS" Type="number" Precision="3" Scale="1" />
+    <Property Name="SLOT_CODE" Type="char" MaxLength="3" />
+    <Property Name="DEPOT" Type="char" MaxLength="5" />
+    <Property Name="EXTENSION_TIME_CONV" Type="char" MaxLength="5" />
+    <Property Name="EXTENSION_TIME_FR" Type="char" MaxLength="5" />
+    <Property Name="EXTENSION_TIME_TO" Type="char" MaxLength="5" />
+    <Property Name="CONV_LINER_MTY" Type="varchar2" MaxLength="7" />
+    <Property Name="TEMP_UPPER" Type="number" Precision="3" Scale="1" />
+    <Property Name="TEMP_LOWER" Type="number" Precision="3" Scale="1" />
+    <Property Name="LINER_SHORT_NAME" Type="varchar2" MaxLength="60" />
+    <Property Name="YARD_AREA_EMPTY_DELV" Type="char" MaxLength="5" />
+    <Property Name="EXPIRE_FLG" Type="char" MaxLength="1" />
+    <Property Name="CHANGE_INV_VND" Type="char" MaxLength="1" />
+  </EntityType>
+  <EntityType Name="LOGON_USER">
+    <Key>
+      <PropertyRef Name="LOGON_ID" />
+    </Key>
+    <Property Name="IP_ADDRESS" Type="char" MaxLength="30" />
+    <Property Name="HOST_NAME" Type="char" MaxLength="30" />
+    <Property Name="USER_NAME" Type="char" MaxLength="100" Nullable="false" />
+    <Property Name="LOGON_DATE" Type="date" Nullable="false" />
+    <Property Name="USER_ID" Type="char" MaxLength="25" Nullable="false" />
+    <Property Name="VERSION" Type="char" MaxLength="15" />
+    <Property Name="LAST_LANGUAGE" Type="char" MaxLength="30" />
+    <Property Name="LAST_SITE_ID" Type="char" MaxLength="6" />
+    <Property Name="LAST_USER_CLASS" Type="char" MaxLength="4" />
+    <Property Name="LAST_DB" Type="char" MaxLength="30" />
+    <Property Name="CRT_TS" Type="date" Nullable="false" />
+    <Property Name="UPD_TS" Type="date" Nullable="false" />
+    <Property Name="REMARKS" Type="varchar2" MaxLength="250" />
+    <Property Name="LOGON_ID" Type="raw" MaxLength="16" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MENU_GROUP">
+    <Key>
+      <PropertyRef Name="MENU_MODULE" />
+      <PropertyRef Name="GROUP_CODE" />
+    </Key>
+    <Property Name="MENU_MODULE" Type="char" MaxLength="12" Nullable="false" />
+    <Property Name="GROUP_CODE" Type="char" MaxLength="20" Nullable="false" />
+    <Property Name="GROUP_NAME" Type="varchar2" MaxLength="150" Nullable="false" />
+    <Property Name="IDX" Type="number" Precision="4" Scale="0" />
+    <Property Name="IMAGE" Type="varchar2" MaxLength="200" />
+    <Property Name="CRT_TS" Type="date" />
+    <Property Name="UPD_TS" Type="date" />
+  </EntityType>
+  <EntityType Name="MENU_ITEM">
+    <Key>
+      <PropertyRef Name="MENU_MODULE" />
+      <PropertyRef Name="GROUP_CODE" />
+      <PropertyRef Name="MENU_ITEM_CODE" />
+    </Key>
+    <Property Name="MENU_MODULE" Type="char" MaxLength="12" Nullable="false" />
+    <Property Name="GROUP_CODE" Type="char" MaxLength="20" Nullable="false" />
+    <Property Name="MENU_ITEM_CODE" Type="char" MaxLength="6" Nullable="false" />
+    <Property Name="MENU_ITEM_NAME" Type="nvarchar2" MaxLength="100" Nullable="false" />
+    <Property Name="DESCR" Type="nvarchar2" MaxLength="100" />
+    <Property Name="FORM_CODE" Type="varchar2" MaxLength="100" Nullable="false" />
+    <Property Name="DISPLAY_TYPE" Type="number" Precision="4" Scale="0" Nullable="false" />
+    <Property Name="IDX" Type="number" Precision="4" Scale="0" />
+    <Property Name="IMAGE" Type="varchar2" MaxLength="200" />
+    <Property Name="CRT_TS" Type="date" />
+    <Property Name="UPD_TS" Type="date" />
+  </EntityType>
+  <EntityType Name="MENU_ITEM_ACTION">
+    <Key>
+      <PropertyRef Name="MENU_ITEM_ACTION_CODE" />
+    </Key>
+    <Property Name="MENU_ITEM_ACTION_CODE" Type="char" MaxLength="50" Nullable="false" />
+    <Property Name="MENU_ITEM_CODE" Type="char" MaxLength="6" Nullable="false" />
+    <Property Name="FORM_ACTION" Type="char" MaxLength="12" Nullable="false" />
+    <Property Name="DESCR" Type="nvarchar2" MaxLength="100" />
+    <Property Name="CRT_TS" Type="date" />
+    <Property Name="UPD_TS" Type="date" />
+  </EntityType>
+  <EntityType Name="MENU_MODULE">
+    <Key>
+      <PropertyRef Name="MODULE_CODE" />
+    </Key>
+    <Property Name="MODULE_CODE" Type="char" MaxLength="12" Nullable="false" />
+    <Property Name="MODULE_NAME" Type="varchar2" MaxLength="100" Nullable="false" />
+    <Property Name="IDX" Type="number" Precision="4" Scale="0" />
+    <Property Name="CRT_TS" Type="date" />
+    <Property Name="UPD_TS" Type="date" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'EVE4.OPER_OPTIONS' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="OPER_OPTIONS">
+    <Key>
+      <PropertyRef Name="SITE_ID" />
+      <PropertyRef Name="OPER_CLASS" />
+      <PropertyRef Name="MODULE_CODE" />
+      <PropertyRef Name="MNU_CODE" />
+      <PropertyRef Name="MNU_ITEM" />
+      <PropertyRef Name="MNU_ITEM_LOCAL" />
+      <PropertyRef Name="READ_ONLY" />
+      <PropertyRef Name="UPD_TS" />
+    </Key>
+    <Property Name="SITE_ID" Type="char" MaxLength="6" Nullable="false" />
+    <Property Name="OPER_CLASS" Type="char" MaxLength="6" Nullable="false" />
+    <Property Name="MODULE_CODE" Type="char" MaxLength="12" Nullable="false" />
+    <Property Name="MNU_CODE" Type="char" MaxLength="6" Nullable="false" />
+    <Property Name="MNU_ITEM" Type="varchar2" MaxLength="128" Nullable="false" />
+    <Property Name="MNU_ITEM_LOCAL" Type="varchar2" MaxLength="128" Nullable="false" />
+    <Property Name="READ_ONLY" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="UPD_TS" Type="date" Nullable="false" />
+  </EntityType>
+  <EntityType Name="OPERATION_METHOD">
+    <Key>
+      <PropertyRef Name="OPERATION_METHOD" />
+    </Key>
+    <Property Name="OPERATION_METHOD" Type="char" MaxLength="20" Nullable="false" />
+    <Property Name="CHARGE_CD" Type="char" MaxLength="12" Nullable="false" />
+    <Property Name="CATEGORY" Type="char" MaxLength="50" />
+    <Property Name="SPEC_HDL_CD" Type="char" MaxLength="4" />
+    <Property Name="OPERATION_NAME" Type="varchar2" MaxLength="50" Nullable="false" />
+    <Property Name="CRT_TS" Type="date" Nullable="false" />
+    <Property Name="SITE_ID" Type="char" MaxLength="6" Nullable="false" />
+    <Property Name="OPERATION_TYPE" Type="varchar2" MaxLength="12" Nullable="false" />
+    <Property Name="TERMINAL_ID" Type="char" MaxLength="12" />
+    <Property Name="MOVE_REASON_CD" Type="char" MaxLength="4" />
+    <Property Name="DIRECT_IMP_EXP" Type="char" MaxLength="1" />
+    <Property Name="PLACE_OF_RECEIPT" Type="char" MaxLength="3" />
+    <Property Name="PLACE_OF_DELIVERY" Type="char" MaxLength="3" />
+    <Property Name="OUT_VOYAGE_INFO_FLG" Type="char" MaxLength="1" />
+    <Property Name="CUSTOM_CHECKED_FLG" Type="char" MaxLength="1" />
+    <Property Name="SEAL_NO_FLG" Type="char" MaxLength="1" />
+    <Property Name="GATE_FLG" Type="char" MaxLength="1" />
+    <Property Name="TRANFER_LINK_DEPOT" Type="char" MaxLength="1" />
+    <Property Name="DO_YARD_CONSOL_REG" Type="char" MaxLength="1" />
+    <Property Name="GROUP_REPORT" Type="char" MaxLength="2" />
+    <Property Name="IS_USED" Type="char" MaxLength="1" />
+    <Property Name="IS_BARGE_OPER" Type="char" MaxLength="1" />
+  </EntityType>
+  <EntityType Name="OPERATOR">
+    <Key>
+      <PropertyRef Name="SITE_ID" />
+      <PropertyRef Name="OPER_NAME" />
+    </Key>
+    <Property Name="SITE_ID" Type="char" MaxLength="6" Nullable="false" />
+    <Property Name="OWNER" Type="char" MaxLength="6" />
+    <Property Name="EMPLOYEE_NO" Type="varchar2" MaxLength="30" Nullable="false" />
+    <Property Name="OPER_NAME" Type="char" MaxLength="25" Nullable="false" />
+    <Property Name="OPER_NO" Type="varchar2" MaxLength="30" />
+    <Property Name="OPER_CLASS_1" Type="char" MaxLength="4" />
+    <Property Name="OPER_CLASS_2" Type="char" MaxLength="4" />
+    <Property Name="OPER_CLASS_3" Type="char" MaxLength="4" />
+    <Property Name="OPER_CLASS_4" Type="char" MaxLength="4" />
+    <Property Name="OPER_PWD" Type="char" MaxLength="25" Nullable="false" />
+    <Property Name="FULL_NAME" Type="varchar2" MaxLength="100" Nullable="false" />
+    <Property Name="ADDR1" Type="varchar2" MaxLength="50" />
+    <Property Name="ADDR2" Type="varchar2" MaxLength="50" />
+    <Property Name="UPD_TS" Type="date" />
+    <Property Name="LAST_LOGIN_TS" Type="date" />
+    <Property Name="LAST_LOGOUT_TS" Type="date" />
+    <Property Name="IP_ADDRESS" Type="varchar2" MaxLength="30" />
+    <Property Name="DEPT_CODE" Type="varchar2" MaxLength="12" />
+    <Property Name="SUB_DEPT_CODE" Type="char" MaxLength="6" />
+    <Property Name="LAST_UPD_PWD_TS" Type="date" />
+  </EntityType>
+  <EntityType Name="OPERATOR_USER_CLASS_SITES">
+    <Key>
+      <PropertyRef Name="SITE_ID" />
+      <PropertyRef Name="OPERATOR" />
+      <PropertyRef Name="OPER_CLASS" />
+    </Key>
+    <Property Name="SITE_ID" Type="char" MaxLength="6" Nullable="false" />
+    <Property Name="OPERATOR" Type="char" MaxLength="25" Nullable="false" />
+    <Property Name="OPER_CLASS" Type="char" MaxLength="4" Nullable="false" />
+    <Property Name="CRT_TS" Type="date" Nullable="false" />
+    <Property Name="UPD_TS" Type="date" />
+  </EntityType>
+  <EntityType Name="PORTCODE">
+    <Key>
+      <PropertyRef Name="PORT" />
+    </Key>
+    <Property Name="PORT" Type="char" MaxLength="5" Nullable="false" />
+    <Property Name="UN_PORT" Type="char" MaxLength="3" Nullable="false" />
+    <Property Name="UN_COUNTRY" Type="char" MaxLength="2" Nullable="false" />
+    <Property Name="DESCR" Type="varchar2" MaxLength="100" Nullable="false" />
+    <Property Name="UPD_TS" Type="date" Nullable="false" />
+    <Property Name="TERMINAL_FLG" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="UN_PORTCODE" Type="char" MaxLength="5" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PREGATE_TRANSACT">
+    <Key>
+      <PropertyRef Name="EIR_ID" />
+    </Key>
+    <Property Name="SITE_ID" Type="char" MaxLength="6" Nullable="false" />
+    <Property Name="EIR_ID" Type="char" MaxLength="20" Nullable="false" />
+    <Property Name="BATCH_ID" Type="char" MaxLength="12" Nullable="false" />
+    <Property Name="R_D" Type="char" MaxLength="1" />
+    <Property Name="STORAGE_EXPIRY_TS" Type="date" />
+    <Property Name="CUSTOM_EXPIRY_TS" Type="date" />
+    <Property Name="TERMINAL_EXPIRY_TS" Type="date" />
+    <Property Name="LINER_EXPIRY_TS" Type="date" />
+    <Property Name="HIST_FLG" Type="char" MaxLength="1" />
+    <Property Name="CRT_TS" Type="date" />
+    <Property Name="ORDER_NO" Type="char" MaxLength="20" />
+    <Property Name="OPERATION_METHOD" Type="char" MaxLength="20" />
+    <Property Name="REMARKS" Type="varchar2" MaxLength="250" />
+    <Property Name="RA_NO" Type="char" MaxLength="20" />
+    <Property Name="PICKUP_TS" Type="date" />
+    <Property Name="AREA" Type="char" MaxLength="5" />
+    <Property Name="RECEIVAL_PLACE" Type="char" MaxLength="5" />
+    <Property Name="ITEM_NO" Type="char" MaxLength="12" />
+    <Property Name="ISO_CODE" Type="char" MaxLength="4" />
+    <Property Name="CTR_LENGTH" Type="char" MaxLength="2" />
+    <Property Name="CTR_HEIGHT" Type="number" Precision="9" Scale="3" />
+    <Property Name="CTR_TYPE" Type="char" MaxLength="2" />
+    <Property Name="OPERATION_TYPE" Type="char" MaxLength="12" />
+    <Property Name="LINE_OPER" Type="char" MaxLength="7" />
+    <Property Name="REL_NO" Type="number" Precision="9" Scale="0" />
+    <Property Name="TFC_CODE" Type="char" MaxLength="12" />
+    <Property Name="CONSIGNOR" Type="char" MaxLength="20" />
+    <Property Name="PLACE_OF_DELIVERY" Type="char" MaxLength="8" />
+    <Property Name="LL_POD" Type="char" MaxLength="5" />
+    <Property Name="BOOK_NO" Type="char" MaxLength="20" />
+    <Property Name="CREATED_BY" Type="char" MaxLength="12" />
+    <Property Name="GROSS" Type="number" Precision="9" Scale="3" />
+    <Property Name="REFEER_EXPIRY_TS" Type="date" />
+    <Property Name="VES_CD" Type="char" MaxLength="12" />
+    <Property Name="FPOD" Type="char" MaxLength="5" />
+    <Property Name="VES_ID" Type="char" MaxLength="12" />
+    <Property Name="OUT_VOYAGE" Type="char" MaxLength="15" />
+    <Property Name="SEAL_NO" Type="char" MaxLength="20" />
+    <Property Name="TEMPERATURE" Type="number" Precision="9" Scale="3" />
+    <Property Name="FEL" Type="char" MaxLength="1" />
+    <Property Name="ORG_ARR_CAR" Type="char" MaxLength="12" />
+    <Property Name="ORG_IN_VOYAGE" Type="char" MaxLength="12" />
+    <Property Name="ORG_ARR_TS" Type="date" />
+    <Property Name="ORG_ARR_BY" Type="char" MaxLength="1" />
+    <Property Name="EXIT_DEP_CAR" Type="char" MaxLength="12" />
+    <Property Name="EXIT_POD" Type="char" MaxLength="5" />
+    <Property Name="EXIT_FPOD" Type="char" MaxLength="5" />
+    <Property Name="EXIT_DEP_BY" Type="char" MaxLength="1" />
+    <Property Name="CATEGORY" Type="char" MaxLength="1" />
+    <Property Name="REG_OUTSIDE" Type="char" MaxLength="1" />
+    <Property Name="KEY_INTF" Type="char" MaxLength="12" />
+    <Property Name="NOT_USED" Type="number" Precision="9" Scale="3" />
+    <Property Name="DELV_OUT_GATE_TS" Type="date" />
+    <Property Name="RA_KEY" Type="number" Precision="12" Scale="0" />
+    <Property Name="SERVICE" Type="char" MaxLength="12" />
+    <Property Name="ITEM_KEY" Type="number" Precision="9" Scale="0" />
+    <Property Name="HAZ_FLG" Type="char" MaxLength="1" />
+    <Property Name="FL_FLG" Type="char" MaxLength="1" />
+    <Property Name="OOG_FLG" Type="char" MaxLength="1" />
+    <Property Name="RFR_FLG" Type="char" MaxLength="1" />
+    <Property Name="OOW_FLG" Type="char" MaxLength="1" />
+    <Property Name="MANAGE_BY" Type="char" MaxLength="3" />
+    <Property Name="PRINTED_CNT" Type="number" Precision="9" Scale="0" />
+    <Property Name="TRANSFER_REASON_CD" Type="char" MaxLength="2" />
+    <Property Name="STORAGE_AS_AT_TS" Type="date" />
+    <Property Name="OWNER" Type="char" MaxLength="6" />
+    <Property Name="GATE_NO" Type="char" MaxLength="3" />
+    <Property Name="ARR_VES_NAME" Type="varchar2" MaxLength="100" />
+    <Property Name="BILL_OF_LADING" Type="char" MaxLength="35" />
+    <Property Name="INTEGRATE_INV_FLG" Type="char" MaxLength="1" />
+    <Property Name="INTEGRATE_INV_TRANS_ID" Type="varchar2" MaxLength="60" />
+    <Property Name="INTEGRATE_INV_MSG" Type="varchar2" MaxLength="1000" />
+    <Property Name="SLOT_CODE" Type="char" MaxLength="7" />
+    <Property Name="EPORT_REGISTER_BY" Type="number" Precision="9" Scale="0" />
+    <Property Name="ID_VCDL" Type="number" Precision="9" Scale="0" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'EVE4.SITE_CONFIG' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="SITE_CONFIG">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="SITE_ID" />
+      <PropertyRef Name="FEATURE_ID" />
+      <PropertyRef Name="PARTNER_ID" />
+      <PropertyRef Name="PARAM_NAME" />
+      <PropertyRef Name="PARAM_VALUE" />
+      <PropertyRef Name="PARAM_ENCRYPT_KEY" />
+      <PropertyRef Name="CRT_TS" />
+    </Key>
+    <Property Name="ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="SITE_ID" Type="char" MaxLength="6" Nullable="false" />
+    <Property Name="FEATURE_ID" Type="varchar2" MaxLength="50" Nullable="false" />
+    <Property Name="PARTNER_ID" Type="varchar2" MaxLength="50" Nullable="false" />
+    <Property Name="PARAM_NAME" Type="varchar2" MaxLength="200" Nullable="false" />
+    <Property Name="PARAM_VALUE" Type="varchar2" MaxLength="300" Nullable="false" />
+    <Property Name="PARAM_ENCRYPT_KEY" Type="varchar2" MaxLength="50" Nullable="false" />
+    <Property Name="CRT_TS" Type="date" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SITE_DEF">
+    <Key>
+      <PropertyRef Name="SITE_ID" />
+    </Key>
+    <Property Name="SITE_ID" Type="char" MaxLength="6" Nullable="false" />
+    <Property Name="OPERATOR" Type="varchar2" MaxLength="50" />
+    <Property Name="OPERATOR2" Type="varchar2" MaxLength="50" />
+    <Property Name="RL_START_GRID" Type="number" Precision="4" Scale="0" />
+    <Property Name="RL_END_GRID" Type="number" Precision="4" Scale="0" />
+    <Property Name="RL_GRID_SIZE" Type="number" Precision="9" Scale="3" />
+    <Property Name="RL_NUMBER_OF_LINES" Type="number" Precision="4" Scale="0" />
+    <Property Name="BT_START_GRID" Type="number" Precision="4" Scale="0" />
+    <Property Name="BT_END_GRID" Type="number" Precision="4" Scale="0" />
+    <Property Name="BT_GRID_SIZE" Type="number" Precision="9" Scale="3" />
+    <Property Name="STAR_PORT" Type="char" MaxLength="1" />
+    <Property Name="FAX" Type="char" MaxLength="20" />
+    <Property Name="PHONE" Type="char" MaxLength="20" />
+    <Property Name="ADDR1" Type="varchar2" MaxLength="50" />
+    <Property Name="ADDR2" Type="varchar2" MaxLength="50" />
+    <Property Name="ADDR3" Type="varchar2" MaxLength="50" />
+    <Property Name="ADDR4" Type="varchar2" MaxLength="50" />
+    <Property Name="POSTCODE" Type="char" MaxLength="10" />
+    <Property Name="STATE" Type="char" MaxLength="3" />
+    <Property Name="COUNTRY" Type="char" MaxLength="2" />
+    <Property Name="EMAIL" Type="char" MaxLength="50" />
+    <Property Name="TAX_RATE" Type="number" Precision="9" Scale="3" />
+    <Property Name="STAMP_DUTY" Type="number" Precision="9" Scale="3" />
+    <Property Name="CONTAINER_AREA" Type="char" MaxLength="8" />
+    <Property Name="DWELL_TIME_MIN" Type="number" Precision="4" Scale="0" />
+    <Property Name="DWELL_TIME_MAX" Type="number" Precision="4" Scale="0" />
+    <Property Name="OW_20" Type="number" Precision="9" Scale="3" />
+    <Property Name="OW_40" Type="number" Precision="9" Scale="3" />
+    <Property Name="OW_45" Type="number" Precision="9" Scale="3" />
+    <Property Name="MSGOFDAY" Type="varchar2" MaxLength="200" />
+    <Property Name="UPD_TS" Type="date" />
+    <Property Name="VERSION_DT" Type="date" />
+    <Property Name="PORT_CD" Type="char" MaxLength="3" />
+    <Property Name="HOME_PORT" Type="char" MaxLength="5" />
+    <Property Name="EDI_SENDER_CODE" Type="char" MaxLength="30" />
+    <Property Name="EDI_RECEIVER_CODE" Type="char" MaxLength="30" />
+    <Property Name="CTR_YARD" Type="char" MaxLength="8" />
+    <Property Name="CUSTOMS_YARD_CD" Type="char" MaxLength="10" />
+    <Property Name="CUSTOMS_CFS_CD" Type="char" MaxLength="10" />
+    <Property Name="STN_CD" Type="char" MaxLength="9" />
+    <Property Name="TERMINAL_ID" Type="char" MaxLength="10" />
+    <Property Name="SHUNT_YARD_STN_CD" Type="char" MaxLength="6" />
+    <Property Name="RELEASE_DT_SPAN" Type="number" Precision="4" Scale="0" />
+    <Property Name="EDI_ERR" Type="varchar2" MaxLength="100" />
+    <Property Name="EDI_TS" Type="date" />
+    <Property Name="EDI_ERR2" Type="varchar2" MaxLength="100" />
+    <Property Name="EARLY_TIME" Type="number" Precision="4" Scale="0" />
+    <Property Name="LATE_TIME" Type="number" Precision="4" Scale="0" />
+    <Property Name="CONTROL_VERSION" Type="char" MaxLength="100" />
+    <Property Name="USE_BATCH_MODE" Type="char" MaxLength="1" />
+    <Property Name="UPDATE_VERSION_TS" Type="date" />
+    <Property Name="APPLY_VGM_FLG" Type="char" MaxLength="1" />
+  </EntityType>
+  <EntityType Name="SYS_CODES">
+    <Key>
+      <PropertyRef Name="CODE_TP" />
+      <PropertyRef Name="CODE_REF" />
+    </Key>
+    <Property Name="SITE_ID" Type="char" MaxLength="3" Nullable="false" />
+    <Property Name="CODE_TP" Type="char" MaxLength="12" Nullable="false" />
+    <Property Name="CODE_REF" Type="char" MaxLength="20" Nullable="false" />
+    <Property Name="DESCR" Type="varchar2" MaxLength="100" />
+    <Property Name="CRT_TS" Type="date" />
+    <Property Name="UPD_TS" Type="date" />
+    <Property Name="LOCAL_DESCR" Type="varchar2" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="TRK_MASTER">
+    <Key>
+      <PropertyRef Name="TRK_ID" />
+    </Key>
+    <Property Name="SITE_ID" Type="char" MaxLength="6" Nullable="false" />
+    <Property Name="TRK_ID" Type="char" MaxLength="12" Nullable="false" />
+    <Property Name="TRK_HEAD" Type="number" Precision="9" Scale="3" />
+    <Property Name="TRK_COMPANY_NAME" Type="varchar2" MaxLength="200" />
+    <Property Name="TRK_USE" Type="char" MaxLength="1" />
+    <Property Name="CRT_TS" Type="date" />
+    <Property Name="MAX_SLOT" Type="number" Precision="4" Scale="0" />
+    <Property Name="TARE" Type="number" Precision="9" Scale="3" />
+    <Property Name="MAX_GROSS" Type="number" Precision="9" Scale="3" />
+    <Property Name="DATA_SOURCE" Type="char" MaxLength="20" />
+    <Property Name="REGISTER_EXPIRY_TS" Type="date" />
+    <Property Name="REMARKS" Type="varchar2" MaxLength="250" />
+    <Property Name="BAT_NO" Type="char" MaxLength="12" />
+    <Property Name="INTF_BAT_NO" Type="char" MaxLength="6" />
+    <Property Name="UPD_BAT_BY" Type="varchar2" MaxLength="35" />
+    <Property Name="UPD_BAT_TS" Type="date" />
+    <Property Name="TRK_INT_FLG" Type="char" MaxLength="1" />
+    <Property Name="INTERNAL_TRK_ID" Type="char" MaxLength="12" />
+    <Property Name="TRUCK_NO" Type="char" MaxLength="12" />
+    <Property Name="SERIAL_NO" Type="varchar2" MaxLength="35" />
+  </EntityType>
+  <EntityType Name="TRK_TRANSACT">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="TRK_KEY" Type="number" Precision="9" Scale="0" Nullable="false" />
+    <Property Name="ITEM_KEY" Type="number" Precision="9" Scale="0" Nullable="false" />
+    <Property Name="R_D" Type="char" MaxLength="1" />
+    <Property Name="OPER_NAME" Type="varchar2" MaxLength="25" />
+    <Property Name="IG_OPER_NAME" Type="char" MaxLength="25" />
+    <Property Name="OG_OPER_NAME" Type="char" MaxLength="25" />
+    <Property Name="COMPL_TS" Type="date" />
+    <Property Name="UPD_TS" Type="date" />
+    <Property Name="EIR_FLG" Type="char" MaxLength="1" />
+    <Property Name="LANE_NO" Type="number" Precision="9" Scale="0" />
+    <Property Name="CARRIER_TYPE" Type="char" MaxLength="11" />
+    <Property Name="HIST_FLG" Type="char" MaxLength="1" />
+    <Property Name="CTNR_ON_TRUCK" Type="char" MaxLength="1" />
+    <Property Name="CRT_TS" Type="date" />
+    <Property Name="EIR_ID" Type="char" MaxLength="20" />
+    <Property Name="EIR_IG_TS" Type="date" />
+    <Property Name="EIR_OG_TS" Type="date" />
+    <Property Name="TRUCK_LOAD_WEIGHT" Type="number" Precision="9" Scale="3" />
+  </EntityType>
+  <EntityType Name="TRUCK">
+    <Key>
+      <PropertyRef Name="TRK_KEY" />
+    </Key>
+    <Property Name="SITE_ID" Type="char" MaxLength="6" Nullable="false" />
+    <Property Name="TRK_KEY" Type="number" Precision="9" Scale="0" Nullable="false" />
+    <Property Name="TRK_ID" Type="char" MaxLength="12" Nullable="false" />
+    <Property Name="INSTRUCTION" Type="varchar2" MaxLength="50" />
+    <Property Name="GATE_IN_NO" Type="char" MaxLength="3" />
+    <Property Name="IG_TS" Type="date" />
+    <Property Name="GATE_OUT_NO" Type="char" MaxLength="3" />
+    <Property Name="OG_TS" Type="date" />
+    <Property Name="UPD_TS" Type="date" />
+    <Property Name="HIST_FLG" Type="char" MaxLength="1" />
+    <Property Name="OPER_NAME" Type="char" MaxLength="10" />
+    <Property Name="GROSS" Type="number" Precision="9" Scale="3" />
+    <Property Name="OG_SECURITY_TS" Type="date" />
+    <Property Name="SECURITY_NAME" Type="char" MaxLength="10" />
+    <Property Name="TRK_LOC" Type="char" MaxLength="8" />
+    <Property Name="TRK_SIZE" Type="number" Precision="4" Scale="0" />
+    <Property Name="TRK_USE" Type="char" MaxLength="2" />
+    <Property Name="ERROR_MSG" Type="varchar2" MaxLength="30" />
+    <Property Name="TRUCKER_NAME" Type="char" MaxLength="70" />
+    <Property Name="IS_TEMP_TRK" Type="char" MaxLength="1" />
+    <Property Name="LIC_PLATE_NO" Type="char" MaxLength="20" />
+    <Property Name="TARE" Type="number" Precision="9" Scale="3" />
+    <Property Name="CHASSIS_NO" Type="char" MaxLength="20" />
+    <Property Name="DRIVER_ID" Type="char" MaxLength="12" />
+    <Property Name="LANE_NO_IN" Type="char" MaxLength="3" />
+    <Property Name="LANE_NO_OUT" Type="char" MaxLength="3" />
+    <Property Name="BAT_NO" Type="char" MaxLength="20" />
+    <Property Name="TRK_HEAD" Type="number" Precision="9" Scale="3" />
+    <Property Name="CTR_WT_1" Type="number" Precision="9" Scale="3" />
+    <Property Name="CTR_WT_2" Type="number" Precision="9" Scale="3" />
+    <Property Name="ACTUAL_CTR_WT_1" Type="number" Precision="9" Scale="3" />
+    <Property Name="ACTUAL_CTR_WT_2" Type="number" Precision="9" Scale="3" />
+    <Property Name="CTR_QTY" Type="number" Precision="4" Scale="0" />
+    <Property Name="INSPECT_BY" Type="char" MaxLength="12" />
+    <Property Name="TRUCK_MAX_GROSS" Type="number" Precision="9" Scale="3" />
+    <Property Name="CHASSIS_MAX_GROSS" Type="number" Precision="9" Scale="3" />
+    <Property Name="CHASSIS_GROSS" Type="number" Precision="9" Scale="3" />
+    <Property Name="FREE_CHARGE_HOURS" Type="number" Precision="9" Scale="3" />
+    <Property Name="FREE_CHARGE_USER" Type="varchar2" MaxLength="50" />
+    <Property Name="FREE_CHARGE_DESC" Type="varchar2" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="USER_CLASS_FORM_ACTION">
+    <Key>
+      <PropertyRef Name="USER_CLASS" />
+      <PropertyRef Name="MENU_ITEM_ACTION_CODE" />
+    </Key>
+    <Property Name="USER_CLASS" Type="char" MaxLength="12" Nullable="false" />
+    <Property Name="MENU_ITEM_ACTION_CODE" Type="char" MaxLength="50" Nullable="false" />
+    <Property Name="DISPLAY_FLG" Type="char" MaxLength="12" Nullable="false" />
+    <Property Name="IDX" Type="number" Precision="4" Scale="0" Nullable="false" />
+    <Property Name="DESCR" Type="nvarchar2" MaxLength="100" />
+    <Property Name="CRT_TS" Type="date" />
+    <Property Name="UPD_TS" Type="date" />
+  </EntityType>
+  <EntityType Name="USER_CLASS_MENU_ITEM">
+    <Key>
+      <PropertyRef Name="USER_CLASS" />
+      <PropertyRef Name="MENU_ITEM_CODE" />
+    </Key>
+    <Property Name="USER_CLASS" Type="char" MaxLength="12" Nullable="false" />
+    <Property Name="MENU_ITEM_CODE" Type="char" MaxLength="6" Nullable="false" />
+    <Property Name="CRT_TS" Type="date" />
+  </EntityType>
+  <EntityType Name="VESSELS">
+    <Key>
+      <PropertyRef Name="VES_CD" />
+    </Key>
+    <Property Name="SITE_ID" Type="char" MaxLength="6" Nullable="false" />
+    <Property Name="VES_CD" Type="char" MaxLength="4" Nullable="false" />
+    <Property Name="VES_CLASS" Type="char" MaxLength="10" Nullable="false" />
+    <Property Name="VES_TYPE" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="VES_NAME" Type="varchar2" MaxLength="50" Nullable="false" />
+    <Property Name="HATCH_TYPE" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="SWL_GEAR" Type="number" Precision="9" Scale="3" Nullable="false" />
+    <Property Name="DRAFT" Type="number" Precision="9" Scale="3" Nullable="false" />
+    <Property Name="CALL_SIGN" Type="char" MaxLength="20" Nullable="false" />
+    <Property Name="LLOYDS_NO" Type="char" MaxLength="20" Nullable="false" />
+    <Property Name="REG_FLG" Type="char" MaxLength="15" Nullable="false" />
+    <Property Name="GROSS_TONS" Type="number" Precision="9" Scale="3" Nullable="false" />
+    <Property Name="DWT" Type="number" Precision="9" Scale="3" Nullable="false" />
+    <Property Name="VES_LEN" Type="number" Precision="9" Scale="3" Nullable="false" />
+    <Property Name="CRANES" Type="number" Precision="4" Scale="0" Nullable="false" />
+    <Property Name="NOMINAL_TEU" Type="number" Precision="6" Scale="0" Nullable="false" />
+    <Property Name="STOWAGE_ON_DECK" Type="number" Precision="6" Scale="0" Nullable="false" />
+    <Property Name="STOWAGE_BELOW_DECK" Type="number" Precision="6" Scale="0" Nullable="false" />
+    <Property Name="ALT_ON_DECK" Type="number" Precision="6" Scale="0" Nullable="false" />
+    <Property Name="ALT_BELOW_DECK" Type="number" Precision="6" Scale="0" Nullable="false" />
+    <Property Name="FOURTYFIVE_FTS" Type="number" Precision="6" Scale="0" Nullable="false" />
+    <Property Name="INTAKE_14T" Type="number" Precision="6" Scale="0" Nullable="false" />
+    <Property Name="STACK_WT_HATCH20" Type="number" Precision="6" Scale="0" Nullable="false" />
+    <Property Name="STACK_WT_HATCH40" Type="number" Precision="6" Scale="0" Nullable="false" />
+    <Property Name="STACK_WT_HOLD20" Type="number" Precision="6" Scale="0" Nullable="false" />
+    <Property Name="STACK_WT_HOLD40" Type="number" Precision="6" Scale="0" Nullable="false" />
+    <Property Name="RF_PLUGS" Type="number" Precision="6" Scale="0" Nullable="false" />
+    <Property Name="HOLDS" Type="number" Precision="6" Scale="0" Nullable="false" />
+    <Property Name="HATCHES" Type="number" Precision="4" Scale="0" Nullable="false" />
+    <Property Name="SPEED" Type="number" Precision="7" Scale="1" Nullable="false" />
+    <Property Name="UPD_TS" Type="date" Nullable="false" />
+    <Property Name="PREFER_BERTH_NO" Type="char" MaxLength="3" Nullable="false" />
+    <Property Name="PREFER_BERTH_SIDE" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="SAFE_DISTANCE_FWD" Type="number" Precision="12" Scale="3" Nullable="false" />
+    <Property Name="SAFE_DISTANCE_AFT" Type="number" Precision="12" Scale="3" Nullable="false" />
+    <Property Name="REMARKS" Type="varchar2" MaxLength="1000" Nullable="false" />
+    <Property Name="VES_BREADTH" Type="number" Precision="12" Scale="3" Nullable="false" />
+    <Property Name="MAX_TEU" Type="number" Precision="9" Scale="0" Nullable="false" />
+    <Property Name="GROSS" Type="number" Precision="12" Scale="3" Nullable="false" />
+    <Property Name="MAX_DRAFT" Type="number" Precision="12" Scale="3" Nullable="false" />
+    <Property Name="BEAM" Type="number" Precision="12" Scale="3" Nullable="false" />
+    <Property Name="CRANE_RATE" Type="number" Precision="4" Scale="0" Nullable="false" />
+    <Property Name="UPD_CNT" Type="number" Precision="9" Scale="0" Nullable="false" />
+    <Property Name="MANUFACT_YEAR" Type="char" MaxLength="4" Nullable="false" />
+    <Property Name="IS_VIRTUAL" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="INTERFACE_TOPX" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="LINE_OPER" Type="char" MaxLength="7" Nullable="false" />
+    <Property Name="MAX_DAY_SCHEDULE" Type="number" Precision="4" Scale="0" Nullable="false" />
+    <Property Name="LOOP_DAYS" Type="number" Precision="4" Scale="0" Nullable="false" />
+    <Property Name="IS_USED" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="REGIST_EXPIRY_DATE" Type="date" Nullable="false" />
+    <Property Name="MAX_TEU_FULL" Type="number" Precision="9" Scale="0" Nullable="false" />
+    <Property Name="VES_IMO_NUMBER" Type="char" MaxLength="12" Nullable="false" />
+    <Property Name="VES_PORT" Type="varchar2" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'EVE4.YARD_AREA' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="YARD_AREA">
+    <Key>
+      <PropertyRef Name="AREA" />
+      <PropertyRef Name="STACK" />
+      <PropertyRef Name="SITE_ID" />
+    </Key>
+    <Property Name="AREA" Type="char" MaxLength="5" Nullable="false" />
+    <Property Name="STACK" Type="char" MaxLength="3" Nullable="false" />
+    <Property Name="CRT_TS" Type="date" Nullable="false" />
+    <Property Name="SITE_ID" Type="char" MaxLength="6" Nullable="false" />
+    <Property Name="UPD_TS" Type="date" />
+    <Property Name="X1" Type="char" MaxLength="3" Nullable="false" />
+    <Property Name="X2" Type="char" MaxLength="3" Nullable="false" />
+    <Property Name="REGION" Type="char" MaxLength="3" Nullable="false" />
+    <Property Name="FR_DATE" Type="date" />
+    <Property Name="TO_DATE" Type="date" />
+    <Property Name="CUSTOM_AREA" Type="char" MaxLength="1" />
+    <Property Name="MANAGE_BY" Type="char" MaxLength="3" />
+    <Property Name="CFS_AREA" Type="char" MaxLength="1" />
+    <Property Name="STUFF_STRIP_AREA" Type="char" MaxLength="1" />
+    <Property Name="MAX_TEU" Type="number" Precision="9" Scale="0" />
+    <Property Name="DIRECT_LOAD_DISCH_AREA" Type="char" MaxLength="1" />
+    <Property Name="EXPORT_AREA" Type="char" MaxLength="1" />
+    <Property Name="SCAN_AREA" Type="char" MaxLength="1" />
+    <Property Name="PTI_AREA" Type="char" MaxLength="1" />
+    <Property Name="WEIGHTING_AREA" Type="char" MaxLength="1" />
+    <Property Name="CTN_TYPE" Type="char" MaxLength="3" />
+    <Property Name="IS_VIRTUAL_HEAP_STACK" Type="char" MaxLength="1" />
+    <Property Name="VHS_TYPE" Type="char" MaxLength="2" />
+    <Property Name="MAX_TEU80" Type="number" Precision="9" Scale="0" />
+    <Property Name="MAX_TEU90" Type="number" Precision="9" Scale="0" />
+  </EntityType>
+  <Association Name="FK_MENU_ITEM_USER_CLASS_ACTION">
+    <End Role="MENU_ITEM_ACTION" Type="Self.MENU_ITEM_ACTION" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="USER_CLASS_FORM_ACTION" Type="Self.USER_CLASS_FORM_ACTION" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MENU_ITEM_ACTION">
+        <PropertyRef Name="MENU_ITEM_ACTION_CODE" />
+      </Principal>
+      <Dependent Role="USER_CLASS_FORM_ACTION">
+        <PropertyRef Name="MENU_ITEM_ACTION_CODE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <!--Errors Found During Generation:
+warning 6035: The relationship 'FK_USER_CLASS_MENU_ITEM' has columns that are not part of the key of the table on the primary side of the relationship. The relationship was excluded.
+        <Association Name="FK_USER_CLASS_MENU_ITEM" />-->
+  <EntityContainer Name="EVEDataStoreContainer">
+    <EntitySet Name="AGENT" EntityType="Self.AGENT" Schema="EVE4" store:Type="Tables" />
+    <EntitySet Name="CONVERT_TO_ISO" EntityType="Self.CONVERT_TO_ISO" Schema="EVE4" store:Type="Tables" />
+    <EntitySet Name="CUSTOMER" EntityType="Self.CUSTOMER" Schema="EVE4" store:Type="Tables" />
+    <EntitySet Name="DEPOT" EntityType="Self.DEPOT" Schema="EVE4" store:Type="Tables" />
+    <EntitySet Name="ITEM" EntityType="Self.ITEM" Schema="EVE4" store:Type="Tables" />
+    <EntitySet Name="ITEM_CHARGES" EntityType="Self.ITEM_CHARGES" Schema="EVE4" store:Type="Tables" />
+    <EntitySet Name="ITEM_DAMAGE" EntityType="Self.ITEM_DAMAGE" Schema="EVE4" store:Type="Tables" />
+    <EntitySet Name="ITEM_LOCATION" EntityType="Self.ITEM_LOCATION" Schema="EVE4" store:Type="Tables" />
+    <EntitySet Name="ITEM_OOG" EntityType="Self.ITEM_OOG" Schema="EVE4" store:Type="Tables" />
+    <EntitySet Name="ITEM_REEFER" EntityType="Self.ITEM_REEFER" Schema="EVE4" store:Type="Tables" />
+    <EntitySet Name="LOGON_USER" EntityType="Self.LOGON_USER" Schema="EVE4" store:Type="Tables" />
+    <EntitySet Name="MENU_GROUP" EntityType="Self.MENU_GROUP" Schema="EVE4" store:Type="Tables" />
+    <EntitySet Name="MENU_ITEM" EntityType="Self.MENU_ITEM" Schema="EVE4" store:Type="Tables" />
+    <EntitySet Name="MENU_ITEM_ACTION" EntityType="Self.MENU_ITEM_ACTION" Schema="EVE4" store:Type="Tables" />
+    <EntitySet Name="MENU_MODULE" EntityType="Self.MENU_MODULE" Schema="EVE4" store:Type="Tables" />
+    <EntitySet Name="OPERATION_METHOD" EntityType="Self.OPERATION_METHOD" Schema="EVE4" store:Type="Tables" />
+    <EntitySet Name="OPERATOR" EntityType="Self.OPERATOR" Schema="EVE4" store:Type="Tables" />
+    <EntitySet Name="OPERATOR_USER_CLASS_SITES" EntityType="Self.OPERATOR_USER_CLASS_SITES" Schema="EVE4" store:Type="Tables" />
+    <EntitySet Name="PORTCODE" EntityType="Self.PORTCODE" Schema="EVE4" store:Type="Tables" />
+    <EntitySet Name="PREGATE_TRANSACT" EntityType="Self.PREGATE_TRANSACT" Schema="EVE4" store:Type="Tables" />
+    <EntitySet Name="SITE_DEF" EntityType="Self.SITE_DEF" Schema="EVE4" store:Type="Tables" />
+    <EntitySet Name="SYS_CODES" EntityType="Self.SYS_CODES" Schema="EVE4" store:Type="Tables" />
+    <EntitySet Name="TRK_MASTER" EntityType="Self.TRK_MASTER" Schema="EVE4" store:Type="Tables" />
+    <EntitySet Name="TRK_TRANSACT" EntityType="Self.TRK_TRANSACT" Schema="EVE4" store:Type="Tables" />
+    <EntitySet Name="TRUCK" EntityType="Self.TRUCK" Schema="EVE4" store:Type="Tables" />
+    <EntitySet Name="USER_CLASS_FORM_ACTION" EntityType="Self.USER_CLASS_FORM_ACTION" Schema="EVE4" store:Type="Tables" />
+    <EntitySet Name="USER_CLASS_MENU_ITEM" EntityType="Self.USER_CLASS_MENU_ITEM" Schema="EVE4" store:Type="Tables" />
+    <EntitySet Name="VESSELS" EntityType="Self.VESSELS" Schema="EVE4" store:Type="Tables" />
+    <EntitySet Name="LINE_OPER" EntityType="Self.LINE_OPER" store:Type="Tables" store:Schema="EVE4">
+      <DefiningQuery>SELECT 
+"LINE_OPER"."LINE_OPER" AS "LINE_OPER", 
+"LINE_OPER"."SITE_ID" AS "SITE_ID", 
+"LINE_OPER"."CUST_TYPE" AS "CUST_TYPE", 
+"LINE_OPER"."FULL_NAME" AS "FULL_NAME", 
+"LINE_OPER"."PHONE" AS "PHONE", 
+"LINE_OPER"."FAX" AS "FAX", 
+"LINE_OPER"."MOBILE" AS "MOBILE", 
+"LINE_OPER"."ADDR1" AS "ADDR1", 
+"LINE_OPER"."ADDR2" AS "ADDR2", 
+"LINE_OPER"."ADDR3" AS "ADDR3", 
+"LINE_OPER"."ADDR4" AS "ADDR4", 
+"LINE_OPER"."EMAIL" AS "EMAIL", 
+"LINE_OPER"."CONTACT_NAME" AS "CONTACT_NAME", 
+"LINE_OPER"."ACC_NO" AS "ACC_NO", 
+"LINE_OPER"."STOP_YN" AS "STOP_YN", 
+"LINE_OPER"."OPER_NAME" AS "OPER_NAME", 
+"LINE_OPER"."UPD_TS" AS "UPD_TS", 
+"LINE_OPER"."DEFAULT_DETENTION_DAYS" AS "DEFAULT_DETENTION_DAYS", 
+"LINE_OPER"."CUSTOMS_LOP_CODE" AS "CUSTOMS_LOP_CODE", 
+"LINE_OPER"."DISCH_DAY_INCLUDED" AS "DISCH_DAY_INCLUDED", 
+"LINE_OPER"."CUST_PM_FREEDAYS" AS "CUST_PM_FREEDAYS", 
+"LINE_OPER"."IMP_PLUG_ON" AS "IMP_PLUG_ON", 
+"LINE_OPER"."IMP_PLUG_OFF" AS "IMP_PLUG_OFF", 
+"LINE_OPER"."EXP_PLUG_ON" AS "EXP_PLUG_ON", 
+"LINE_OPER"."EXP_PLUG_OFF" AS "EXP_PLUG_OFF", 
+"LINE_OPER"."FTP_HOST" AS "FTP_HOST", 
+"LINE_OPER"."FTP_USER_NAME" AS "FTP_USER_NAME", 
+"LINE_OPER"."FTP_PASSWORD" AS "FTP_PASSWORD", 
+"LINE_OPER"."FTP_IN_PATH" AS "FTP_IN_PATH", 
+"LINE_OPER"."FTP_OUT_PATH" AS "FTP_OUT_PATH", 
+"LINE_OPER"."FTP_IN_ACTIVE_FLG" AS "FTP_IN_ACTIVE_FLG", 
+"LINE_OPER"."FTP_OUT_ACTIVE_FLG" AS "FTP_OUT_ACTIVE_FLG", 
+"LINE_OPER"."FTP_OUT_EDIFACT" AS "FTP_OUT_EDIFACT", 
+"LINE_OPER"."FLATFILE_OUT_FLG" AS "FLATFILE_OUT_FLG", 
+"LINE_OPER"."TOPS_LINE_OPER" AS "TOPS_LINE_OPER", 
+"LINE_OPER"."MAX_STORAGE_DAYS" AS "MAX_STORAGE_DAYS", 
+"LINE_OPER"."SLOT_CODE" AS "SLOT_CODE", 
+"LINE_OPER"."DEPOT" AS "DEPOT", 
+"LINE_OPER"."EXTENSION_TIME_CONV" AS "EXTENSION_TIME_CONV", 
+"LINE_OPER"."EXTENSION_TIME_FR" AS "EXTENSION_TIME_FR", 
+"LINE_OPER"."EXTENSION_TIME_TO" AS "EXTENSION_TIME_TO", 
+"LINE_OPER"."CONV_LINER_MTY" AS "CONV_LINER_MTY", 
+"LINE_OPER"."TEMP_UPPER" AS "TEMP_UPPER", 
+"LINE_OPER"."TEMP_LOWER" AS "TEMP_LOWER", 
+"LINE_OPER"."LINER_SHORT_NAME" AS "LINER_SHORT_NAME", 
+"LINE_OPER"."YARD_AREA_EMPTY_DELV" AS "YARD_AREA_EMPTY_DELV", 
+"LINE_OPER"."EXPIRE_FLG" AS "EXPIRE_FLG", 
+"LINE_OPER"."CHANGE_INV_VND" AS "CHANGE_INV_VND"
+FROM "EVE4"."LINE_OPER" "LINE_OPER"</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="OPER_OPTIONS" EntityType="Self.OPER_OPTIONS" store:Type="Tables" store:Schema="EVE4">
+      <DefiningQuery>SELECT 
+"OPER_OPTIONS"."SITE_ID" AS "SITE_ID", 
+"OPER_OPTIONS"."OPER_CLASS" AS "OPER_CLASS", 
+"OPER_OPTIONS"."MODULE_CODE" AS "MODULE_CODE", 
+"OPER_OPTIONS"."MNU_CODE" AS "MNU_CODE", 
+"OPER_OPTIONS"."MNU_ITEM" AS "MNU_ITEM", 
+"OPER_OPTIONS"."MNU_ITEM_LOCAL" AS "MNU_ITEM_LOCAL", 
+"OPER_OPTIONS"."READ_ONLY" AS "READ_ONLY", 
+"OPER_OPTIONS"."UPD_TS" AS "UPD_TS"
+FROM "EVE4"."OPER_OPTIONS" "OPER_OPTIONS"</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="SITE_CONFIG" EntityType="Self.SITE_CONFIG" store:Type="Tables" store:Schema="EVE4">
+      <DefiningQuery>SELECT 
+"SITE_CONFIG"."ID" AS "ID", 
+"SITE_CONFIG"."SITE_ID" AS "SITE_ID", 
+"SITE_CONFIG"."FEATURE_ID" AS "FEATURE_ID", 
+"SITE_CONFIG"."PARTNER_ID" AS "PARTNER_ID", 
+"SITE_CONFIG"."PARAM_NAME" AS "PARAM_NAME", 
+"SITE_CONFIG"."PARAM_VALUE" AS "PARAM_VALUE", 
+"SITE_CONFIG"."PARAM_ENCRYPT_KEY" AS "PARAM_ENCRYPT_KEY", 
+"SITE_CONFIG"."CRT_TS" AS "CRT_TS"
+FROM "EVE4"."SITE_CONFIG" "SITE_CONFIG"</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="YARD_AREA" EntityType="Self.YARD_AREA" store:Type="Tables" store:Schema="EVE4">
+      <DefiningQuery>SELECT 
+"YARD_AREA"."AREA" AS "AREA", 
+"YARD_AREA"."STACK" AS "STACK", 
+"YARD_AREA"."CRT_TS" AS "CRT_TS", 
+"YARD_AREA"."SITE_ID" AS "SITE_ID", 
+"YARD_AREA"."UPD_TS" AS "UPD_TS", 
+"YARD_AREA"."X1" AS "X1", 
+"YARD_AREA"."X2" AS "X2", 
+"YARD_AREA"."REGION" AS "REGION", 
+"YARD_AREA"."FR_DATE" AS "FR_DATE", 
+"YARD_AREA"."TO_DATE" AS "TO_DATE", 
+"YARD_AREA"."CUSTOM_AREA" AS "CUSTOM_AREA", 
+"YARD_AREA"."MANAGE_BY" AS "MANAGE_BY", 
+"YARD_AREA"."CFS_AREA" AS "CFS_AREA", 
+"YARD_AREA"."STUFF_STRIP_AREA" AS "STUFF_STRIP_AREA", 
+"YARD_AREA"."MAX_TEU" AS "MAX_TEU", 
+"YARD_AREA"."DIRECT_LOAD_DISCH_AREA" AS "DIRECT_LOAD_DISCH_AREA", 
+"YARD_AREA"."EXPORT_AREA" AS "EXPORT_AREA", 
+"YARD_AREA"."SCAN_AREA" AS "SCAN_AREA", 
+"YARD_AREA"."PTI_AREA" AS "PTI_AREA", 
+"YARD_AREA"."WEIGHTING_AREA" AS "WEIGHTING_AREA", 
+"YARD_AREA"."CTN_TYPE" AS "CTN_TYPE", 
+"YARD_AREA"."IS_VIRTUAL_HEAP_STACK" AS "IS_VIRTUAL_HEAP_STACK", 
+"YARD_AREA"."VHS_TYPE" AS "VHS_TYPE", 
+"YARD_AREA"."MAX_TEU80" AS "MAX_TEU80", 
+"YARD_AREA"."MAX_TEU90" AS "MAX_TEU90"
+FROM "EVE4"."YARD_AREA" "YARD_AREA"</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK_MENU_ITEM_USER_CLASS_ACTION" Association="Self.FK_MENU_ITEM_USER_CLASS_ACTION">
+      <End Role="MENU_ITEM_ACTION" EntitySet="MENU_ITEM_ACTION" />
+      <End Role="USER_CLASS_FORM_ACTION" EntitySet="USER_CLASS_FORM_ACTION" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

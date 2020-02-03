@@ -1,0 +1,994 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="EVEDataStoreContainer" CdmEntityContainer="EVEEntities">
+    <EntitySetMapping Name="CONVERT_TO_ISO">
+      <EntityTypeMapping TypeName="EVE.Data.CONVERT_TO_ISO">
+        <MappingFragment StoreEntitySet="CONVERT_TO_ISO">
+          <ScalarProperty Name="TOPX_ISO" ColumnName="TOPX_ISO" />
+          <ScalarProperty Name="CTR_TYPE" ColumnName="CTR_TYPE" />
+          <ScalarProperty Name="REEFER_FLG" ColumnName="REEFER_FLG" />
+          <ScalarProperty Name="CTR_FLG" ColumnName="CTR_FLG" />
+          <ScalarProperty Name="CUSTOMS_ISO" ColumnName="CUSTOMS_ISO" />
+          <ScalarProperty Name="UPD_TS" ColumnName="UPD_TS" />
+          <ScalarProperty Name="WIDTH" ColumnName="WIDTH" />
+          <ScalarProperty Name="TARE" ColumnName="TARE" />
+          <ScalarProperty Name="HEIGHT" ColumnName="HEIGHT" />
+          <ScalarProperty Name="LENGTH" ColumnName="LENGTH" />
+          <ScalarProperty Name="DESCR" ColumnName="DESCR" />
+          <ScalarProperty Name="USE_DEFAULT" ColumnName="USE_DEFAULT" />
+          <ScalarProperty Name="ISO" ColumnName="ISO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DEPOTs">
+      <EntityTypeMapping TypeName="EVE.Data.DEPOT">
+        <MappingFragment StoreEntitySet="DEPOT">
+          <ScalarProperty Name="IS_PORT" ColumnName="IS_PORT" />
+          <ScalarProperty Name="SITE_CODE" ColumnName="SITE_CODE" />
+          <ScalarProperty Name="DEFAULT_DOM_CLOSING_TS" ColumnName="DEFAULT_DOM_CLOSING_TS" />
+          <ScalarProperty Name="DEFAULT_INT_CLOSING_TS" ColumnName="DEFAULT_INT_CLOSING_TS" />
+          <ScalarProperty Name="IS_MANAGE_CLOSING_TS" ColumnName="IS_MANAGE_CLOSING_TS" />
+          <ScalarProperty Name="EXPIRY_TS" ColumnName="EXPIRY_TS" />
+          <ScalarProperty Name="AS_AT_TS" ColumnName="AS_AT_TS" />
+          <ScalarProperty Name="IS_LINKED" ColumnName="IS_LINKED" />
+          <ScalarProperty Name="IS_VIRTUAL" ColumnName="IS_VIRTUAL" />
+          <ScalarProperty Name="ADDRESS" ColumnName="ADDRESS" />
+          <ScalarProperty Name="DEPOT_NAME" ColumnName="DEPOT_NAME" />
+          <ScalarProperty Name="DEPOT1" ColumnName="DEPOT" />
+          <ScalarProperty Name="SITE_ID" ColumnName="SITE_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ITEM_REEFER">
+      <EntityTypeMapping TypeName="EVE.Data.ITEM_REEFER">
+        <MappingFragment StoreEntitySet="ITEM_REEFER">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="REEFER_CHECKING_OK" ColumnName="REEFER_CHECKING_OK" />
+          <ScalarProperty Name="VENT_VOLUMETRIC_UNIT" ColumnName="VENT_VOLUMETRIC_UNIT" />
+          <ScalarProperty Name="VENT_VOLUMETRIC_RATE" ColumnName="VENT_VOLUMETRIC_RATE" />
+          <ScalarProperty Name="SETTING_TEMP" ColumnName="SETTING_TEMP" />
+          <ScalarProperty Name="VENTILATION" ColumnName="VENTILATION" />
+          <ScalarProperty Name="MODEL_MADE" ColumnName="MODEL_MADE" />
+          <ScalarProperty Name="YEAR_MADE" ColumnName="YEAR_MADE" />
+          <ScalarProperty Name="NON_SNP_PTI_FLG" ColumnName="NON_SNP_PTI_FLG" />
+          <ScalarProperty Name="TEMP_CONTROL_SETTING" ColumnName="TEMP_CONTROL_SETTING" />
+          <ScalarProperty Name="NO_PLUGIN_REQUIRED" ColumnName="NO_PLUGIN_REQUIRED" />
+          <ScalarProperty Name="UPD_CNT" ColumnName="UPD_CNT" />
+          <ScalarProperty Name="TEMP_UNIT" ColumnName="TEMP_UNIT" />
+          <ScalarProperty Name="CONAIR" ColumnName="CONAIR" />
+          <ScalarProperty Name="IS_CONNECTED" ColumnName="IS_CONNECTED" />
+          <ScalarProperty Name="MAX_TEMP" ColumnName="MAX_TEMP" />
+          <ScalarProperty Name="MIN_TEMP" ColumnName="MIN_TEMP" />
+          <ScalarProperty Name="RFR_CHART_COUNT" ColumnName="RFR_CHART_COUNT" />
+          <ScalarProperty Name="UNPLUG_TS" ColumnName="UNPLUG_TS" />
+          <ScalarProperty Name="PLUG_TS" ColumnName="PLUG_TS" />
+          <ScalarProperty Name="CO2" ColumnName="CO2" />
+          <ScalarProperty Name="O2" ColumnName="O2" />
+          <ScalarProperty Name="HUMIDITY" ColumnName="HUMIDITY" />
+          <ScalarProperty Name="NUMBER_PROBES" ColumnName="NUMBER_PROBES" />
+          <ScalarProperty Name="PTIDATE" ColumnName="PTIDATE" />
+          <ScalarProperty Name="PRE_COOLING" ColumnName="PRE_COOLING" />
+          <ScalarProperty Name="PRETRIP_INSPECTION" ColumnName="PRETRIP_INSPECTION" />
+          <ScalarProperty Name="OG_TEMP_TYPE" ColumnName="OG_TEMP_TYPE" />
+          <ScalarProperty Name="OUTGATE_TEMP" ColumnName="OUTGATE_TEMP" />
+          <ScalarProperty Name="IG_TEMP_TYPE" ColumnName="IG_TEMP_TYPE" />
+          <ScalarProperty Name="INGATE_TEMP" ColumnName="INGATE_TEMP" />
+          <ScalarProperty Name="FROZEN_TYPE" ColumnName="FROZEN_TYPE" />
+          <ScalarProperty Name="CHILLED_TYPE" ColumnName="CHILLED_TYPE" />
+          <ScalarProperty Name="UPD_TS" ColumnName="UPD_TS" />
+          <ScalarProperty Name="RFR_TYPE" ColumnName="RFR_TYPE" />
+          <ScalarProperty Name="RFR_TRANS_TEMP" ColumnName="RFR_TRANS_TEMP" />
+          <ScalarProperty Name="FROZEN_TEMP" ColumnName="FROZEN_TEMP" />
+          <ScalarProperty Name="FLASHPOINT_TYPE" ColumnName="FLASHPOINT_TYPE" />
+          <ScalarProperty Name="FLASHPOINT_TEMP" ColumnName="FLASHPOINT_TEMP" />
+          <ScalarProperty Name="CHILLED_TEMP" ColumnName="CHILLED_TEMP" />
+          <ScalarProperty Name="ITEM_KEY" ColumnName="ITEM_KEY" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LINE_OPER">
+      <EntityTypeMapping TypeName="EVE.Data.LINE_OPER">
+        <MappingFragment StoreEntitySet="LINE_OPER">
+          <ScalarProperty Name="CHANGE_INV_VND" ColumnName="CHANGE_INV_VND" />
+          <ScalarProperty Name="EXPIRE_FLG" ColumnName="EXPIRE_FLG" />
+          <ScalarProperty Name="YARD_AREA_EMPTY_DELV" ColumnName="YARD_AREA_EMPTY_DELV" />
+          <ScalarProperty Name="LINER_SHORT_NAME" ColumnName="LINER_SHORT_NAME" />
+          <ScalarProperty Name="TEMP_LOWER" ColumnName="TEMP_LOWER" />
+          <ScalarProperty Name="TEMP_UPPER" ColumnName="TEMP_UPPER" />
+          <ScalarProperty Name="CONV_LINER_MTY" ColumnName="CONV_LINER_MTY" />
+          <ScalarProperty Name="EXTENSION_TIME_TO" ColumnName="EXTENSION_TIME_TO" />
+          <ScalarProperty Name="EXTENSION_TIME_FR" ColumnName="EXTENSION_TIME_FR" />
+          <ScalarProperty Name="EXTENSION_TIME_CONV" ColumnName="EXTENSION_TIME_CONV" />
+          <ScalarProperty Name="DEPOT" ColumnName="DEPOT" />
+          <ScalarProperty Name="SLOT_CODE" ColumnName="SLOT_CODE" />
+          <ScalarProperty Name="MAX_STORAGE_DAYS" ColumnName="MAX_STORAGE_DAYS" />
+          <ScalarProperty Name="TOPS_LINE_OPER" ColumnName="TOPS_LINE_OPER" />
+          <ScalarProperty Name="FLATFILE_OUT_FLG" ColumnName="FLATFILE_OUT_FLG" />
+          <ScalarProperty Name="FTP_OUT_EDIFACT" ColumnName="FTP_OUT_EDIFACT" />
+          <ScalarProperty Name="FTP_OUT_ACTIVE_FLG" ColumnName="FTP_OUT_ACTIVE_FLG" />
+          <ScalarProperty Name="FTP_IN_ACTIVE_FLG" ColumnName="FTP_IN_ACTIVE_FLG" />
+          <ScalarProperty Name="FTP_OUT_PATH" ColumnName="FTP_OUT_PATH" />
+          <ScalarProperty Name="FTP_IN_PATH" ColumnName="FTP_IN_PATH" />
+          <ScalarProperty Name="FTP_PASSWORD" ColumnName="FTP_PASSWORD" />
+          <ScalarProperty Name="FTP_USER_NAME" ColumnName="FTP_USER_NAME" />
+          <ScalarProperty Name="FTP_HOST" ColumnName="FTP_HOST" />
+          <ScalarProperty Name="EXP_PLUG_OFF" ColumnName="EXP_PLUG_OFF" />
+          <ScalarProperty Name="EXP_PLUG_ON" ColumnName="EXP_PLUG_ON" />
+          <ScalarProperty Name="IMP_PLUG_OFF" ColumnName="IMP_PLUG_OFF" />
+          <ScalarProperty Name="IMP_PLUG_ON" ColumnName="IMP_PLUG_ON" />
+          <ScalarProperty Name="CUST_PM_FREEDAYS" ColumnName="CUST_PM_FREEDAYS" />
+          <ScalarProperty Name="DISCH_DAY_INCLUDED" ColumnName="DISCH_DAY_INCLUDED" />
+          <ScalarProperty Name="CUSTOMS_LOP_CODE" ColumnName="CUSTOMS_LOP_CODE" />
+          <ScalarProperty Name="DEFAULT_DETENTION_DAYS" ColumnName="DEFAULT_DETENTION_DAYS" />
+          <ScalarProperty Name="UPD_TS" ColumnName="UPD_TS" />
+          <ScalarProperty Name="OPER_NAME" ColumnName="OPER_NAME" />
+          <ScalarProperty Name="STOP_YN" ColumnName="STOP_YN" />
+          <ScalarProperty Name="ACC_NO" ColumnName="ACC_NO" />
+          <ScalarProperty Name="CONTACT_NAME" ColumnName="CONTACT_NAME" />
+          <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+          <ScalarProperty Name="ADDR4" ColumnName="ADDR4" />
+          <ScalarProperty Name="ADDR3" ColumnName="ADDR3" />
+          <ScalarProperty Name="ADDR2" ColumnName="ADDR2" />
+          <ScalarProperty Name="ADDR1" ColumnName="ADDR1" />
+          <ScalarProperty Name="MOBILE" ColumnName="MOBILE" />
+          <ScalarProperty Name="FAX" ColumnName="FAX" />
+          <ScalarProperty Name="PHONE" ColumnName="PHONE" />
+          <ScalarProperty Name="FULL_NAME" ColumnName="FULL_NAME" />
+          <ScalarProperty Name="CUST_TYPE" ColumnName="CUST_TYPE" />
+          <ScalarProperty Name="SITE_ID" ColumnName="SITE_ID" />
+          <ScalarProperty Name="LINE_OPER1" ColumnName="LINE_OPER" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OPERATION_METHOD">
+      <EntityTypeMapping TypeName="EVE.Data.OPERATION_METHOD">
+        <MappingFragment StoreEntitySet="OPERATION_METHOD">
+          <ScalarProperty Name="IS_BARGE_OPER" ColumnName="IS_BARGE_OPER" />
+          <ScalarProperty Name="IS_USED" ColumnName="IS_USED" />
+          <ScalarProperty Name="GROUP_REPORT" ColumnName="GROUP_REPORT" />
+          <ScalarProperty Name="DO_YARD_CONSOL_REG" ColumnName="DO_YARD_CONSOL_REG" />
+          <ScalarProperty Name="TRANFER_LINK_DEPOT" ColumnName="TRANFER_LINK_DEPOT" />
+          <ScalarProperty Name="GATE_FLG" ColumnName="GATE_FLG" />
+          <ScalarProperty Name="SEAL_NO_FLG" ColumnName="SEAL_NO_FLG" />
+          <ScalarProperty Name="CUSTOM_CHECKED_FLG" ColumnName="CUSTOM_CHECKED_FLG" />
+          <ScalarProperty Name="OUT_VOYAGE_INFO_FLG" ColumnName="OUT_VOYAGE_INFO_FLG" />
+          <ScalarProperty Name="PLACE_OF_DELIVERY" ColumnName="PLACE_OF_DELIVERY" />
+          <ScalarProperty Name="PLACE_OF_RECEIPT" ColumnName="PLACE_OF_RECEIPT" />
+          <ScalarProperty Name="DIRECT_IMP_EXP" ColumnName="DIRECT_IMP_EXP" />
+          <ScalarProperty Name="MOVE_REASON_CD" ColumnName="MOVE_REASON_CD" />
+          <ScalarProperty Name="TERMINAL_ID" ColumnName="TERMINAL_ID" />
+          <ScalarProperty Name="OPERATION_TYPE" ColumnName="OPERATION_TYPE" />
+          <ScalarProperty Name="SITE_ID" ColumnName="SITE_ID" />
+          <ScalarProperty Name="CRT_TS" ColumnName="CRT_TS" />
+          <ScalarProperty Name="OPERATION_NAME" ColumnName="OPERATION_NAME" />
+          <ScalarProperty Name="SPEC_HDL_CD" ColumnName="SPEC_HDL_CD" />
+          <ScalarProperty Name="CATEGORY" ColumnName="CATEGORY" />
+          <ScalarProperty Name="CHARGE_CD" ColumnName="CHARGE_CD" />
+          <ScalarProperty Name="OPERATION_METHOD1" ColumnName="OPERATION_METHOD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="YARD_AREA">
+      <EntityTypeMapping TypeName="EVE.Data.YARD_AREA">
+        <MappingFragment StoreEntitySet="YARD_AREA">
+          <ScalarProperty Name="MAX_TEU90" ColumnName="MAX_TEU90" />
+          <ScalarProperty Name="MAX_TEU80" ColumnName="MAX_TEU80" />
+          <ScalarProperty Name="VHS_TYPE" ColumnName="VHS_TYPE" />
+          <ScalarProperty Name="IS_VIRTUAL_HEAP_STACK" ColumnName="IS_VIRTUAL_HEAP_STACK" />
+          <ScalarProperty Name="CTN_TYPE" ColumnName="CTN_TYPE" />
+          <ScalarProperty Name="WEIGHTING_AREA" ColumnName="WEIGHTING_AREA" />
+          <ScalarProperty Name="PTI_AREA" ColumnName="PTI_AREA" />
+          <ScalarProperty Name="SCAN_AREA" ColumnName="SCAN_AREA" />
+          <ScalarProperty Name="EXPORT_AREA" ColumnName="EXPORT_AREA" />
+          <ScalarProperty Name="DIRECT_LOAD_DISCH_AREA" ColumnName="DIRECT_LOAD_DISCH_AREA" />
+          <ScalarProperty Name="MAX_TEU" ColumnName="MAX_TEU" />
+          <ScalarProperty Name="STUFF_STRIP_AREA" ColumnName="STUFF_STRIP_AREA" />
+          <ScalarProperty Name="CFS_AREA" ColumnName="CFS_AREA" />
+          <ScalarProperty Name="MANAGE_BY" ColumnName="MANAGE_BY" />
+          <ScalarProperty Name="CUSTOM_AREA" ColumnName="CUSTOM_AREA" />
+          <ScalarProperty Name="TO_DATE" ColumnName="TO_DATE" />
+          <ScalarProperty Name="FR_DATE" ColumnName="FR_DATE" />
+          <ScalarProperty Name="REGION" ColumnName="REGION" />
+          <ScalarProperty Name="X2" ColumnName="X2" />
+          <ScalarProperty Name="X1" ColumnName="X1" />
+          <ScalarProperty Name="UPD_TS" ColumnName="UPD_TS" />
+          <ScalarProperty Name="SITE_ID" ColumnName="SITE_ID" />
+          <ScalarProperty Name="CRT_TS" ColumnName="CRT_TS" />
+          <ScalarProperty Name="STACK" ColumnName="STACK" />
+          <ScalarProperty Name="AREA" ColumnName="AREA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CUSTOMERs">
+      <EntityTypeMapping TypeName="EVE.Data.CUSTOMER">
+        <MappingFragment StoreEntitySet="CUSTOMER">
+          <ScalarProperty Name="BILL_AGENT" ColumnName="BILL_AGENT" />
+          <ScalarProperty Name="AGENT_CODE" ColumnName="AGENT_CODE" />
+          <ScalarProperty Name="E_INVOICE_ISSUE_FLG" ColumnName="E_INVOICE_ISSUE_FLG" />
+          <ScalarProperty Name="EMAIL_THC" ColumnName="EMAIL_THC" />
+          <ScalarProperty Name="IS_TOKEN_REG" ColumnName="IS_TOKEN_REG" />
+          <ScalarProperty Name="EXACT_PROC_FLG" ColumnName="EXACT_PROC_FLG" />
+          <ScalarProperty Name="ACC_CATEGORY" ColumnName="ACC_CATEGORY" />
+          <ScalarProperty Name="CMID" ColumnName="CMID" />
+          <ScalarProperty Name="COMMENTS" ColumnName="COMMENTS" />
+          <ScalarProperty Name="MAX_STORAGE_DAYS" ColumnName="MAX_STORAGE_DAYS" />
+          <ScalarProperty Name="CUST_GROUP" ColumnName="CUST_GROUP" />
+          <ScalarProperty Name="BANK_ID" ColumnName="BANK_ID" />
+          <ScalarProperty Name="LICENSE_NUMBER" ColumnName="LICENSE_NUMBER" />
+          <ScalarProperty Name="COUNTRY" ColumnName="COUNTRY" />
+          <ScalarProperty Name="IS_FREIGHT_FORWARDER" ColumnName="IS_FREIGHT_FORWARDER" />
+          <ScalarProperty Name="PAY_COD" ColumnName="PAY_COD" />
+          <ScalarProperty Name="UPD_TS" ColumnName="UPD_TS" />
+          <ScalarProperty Name="OPER_NAME" ColumnName="OPER_NAME" />
+          <ScalarProperty Name="STOP_YN" ColumnName="STOP_YN" />
+          <ScalarProperty Name="ACC_NO" ColumnName="ACC_NO" />
+          <ScalarProperty Name="CONTACT_NAME" ColumnName="CONTACT_NAME" />
+          <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+          <ScalarProperty Name="ADDR4" ColumnName="ADDR4" />
+          <ScalarProperty Name="ADDR3" ColumnName="ADDR3" />
+          <ScalarProperty Name="ADDR2" ColumnName="ADDR2" />
+          <ScalarProperty Name="ADDR1" ColumnName="ADDR1" />
+          <ScalarProperty Name="MOBILE" ColumnName="MOBILE" />
+          <ScalarProperty Name="FAX" ColumnName="FAX" />
+          <ScalarProperty Name="PHONE" ColumnName="PHONE" />
+          <ScalarProperty Name="FULL_NAME" ColumnName="FULL_NAME" />
+          <ScalarProperty Name="CUST_TYPE" ColumnName="CUST_TYPE" />
+          <ScalarProperty Name="TAX_FILE_NO" ColumnName="TAX_FILE_NO" />
+          <ScalarProperty Name="CUST_REG_NO" ColumnName="CUST_REG_NO" />
+          <ScalarProperty Name="SITE_ID" ColumnName="SITE_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OPERATOR_USER_CLASS_SITES">
+      <EntityTypeMapping TypeName="EVE.Data.OPERATOR_USER_CLASS_SITES">
+        <MappingFragment StoreEntitySet="OPERATOR_USER_CLASS_SITES">
+          <ScalarProperty Name="UPD_TS" ColumnName="UPD_TS" />
+          <ScalarProperty Name="CRT_TS" ColumnName="CRT_TS" />
+          <ScalarProperty Name="OPER_CLASS" ColumnName="OPER_CLASS" />
+          <ScalarProperty Name="OPERATOR" ColumnName="OPERATOR" />
+          <ScalarProperty Name="SITE_ID" ColumnName="SITE_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ITEMs">
+      <EntityTypeMapping TypeName="EVE.Data.ITEM">
+        <MappingFragment StoreEntitySet="ITEM">
+          <ScalarProperty Name="RAIL_CUSTOM_STATUS" ColumnName="RAIL_CUSTOM_STATUS" />
+          <ScalarProperty Name="BOOK_ASSIGN_BY" ColumnName="BOOK_ASSIGN_BY" />
+          <ScalarProperty Name="PORT_TRANS_BATCH_NO" ColumnName="PORT_TRANS_BATCH_NO" />
+          <ScalarProperty Name="INSPECT_BY_D" ColumnName="INSPECT_BY_D" />
+          <ScalarProperty Name="INSPECT_BY_R" ColumnName="INSPECT_BY_R" />
+          <ScalarProperty Name="EXPIRY_DATE" ColumnName="EXPIRY_DATE" />
+          <ScalarProperty Name="CMID" ColumnName="CMID" />
+          <ScalarProperty Name="EIR_ID" ColumnName="EIR_ID" />
+          <ScalarProperty Name="RESTOW_TYPE" ColumnName="RESTOW_TYPE" />
+          <ScalarProperty Name="SPECIAL_GEAR" ColumnName="SPECIAL_GEAR" />
+          <ScalarProperty Name="INTER_MOVE_CODE" ColumnName="INTER_MOVE_CODE" />
+          <ScalarProperty Name="SPECIAL_HDL_CODE" ColumnName="SPECIAL_HDL_CODE" />
+          <ScalarProperty Name="COPRAR_LOAD" ColumnName="COPRAR_LOAD" />
+          <ScalarProperty Name="EXPORT_CONFIRMED_TS" ColumnName="EXPORT_CONFIRMED_TS" />
+          <ScalarProperty Name="EXPORT_CONFIRMED" ColumnName="EXPORT_CONFIRMED" />
+          <ScalarProperty Name="DOMESTIC" ColumnName="DOMESTIC" />
+          <ScalarProperty Name="DEPOT_ARR_TS" ColumnName="DEPOT_ARR_TS" />
+          <ScalarProperty Name="EXIT_VOYAGE" ColumnName="EXIT_VOYAGE" />
+          <ScalarProperty Name="EXIT_VES_CD" ColumnName="EXIT_VES_CD" />
+          <ScalarProperty Name="CUST_REG_NO" ColumnName="CUST_REG_NO" />
+          <ScalarProperty Name="TURNING_CHE" ColumnName="TURNING_CHE" />
+          <ScalarProperty Name="DIRECT_LOAD_FLG" ColumnName="DIRECT_LOAD_FLG" />
+          <ScalarProperty Name="DELIVERY_METHOD" ColumnName="DELIVERY_METHOD" />
+          <ScalarProperty Name="ORG_IN_VOYAGE" ColumnName="ORG_IN_VOYAGE" />
+          <ScalarProperty Name="ORG_ARR_TS" ColumnName="ORG_ARR_TS" />
+          <ScalarProperty Name="ORG_ARR_CAR" ColumnName="ORG_ARR_CAR" />
+          <ScalarProperty Name="SLOT_CODE_OUT" ColumnName="SLOT_CODE_OUT" />
+          <ScalarProperty Name="SLOT_CODE" ColumnName="SLOT_CODE" />
+          <ScalarProperty Name="DIRECT_IMPORT_DELIVERY" ColumnName="DIRECT_IMPORT_DELIVERY" />
+          <ScalarProperty Name="FREE_DAYS" ColumnName="FREE_DAYS" />
+          <ScalarProperty Name="CHARGES_TO_DT" ColumnName="CHARGES_TO_DT" />
+          <ScalarProperty Name="UNBUNDLE_FROM" ColumnName="UNBUNDLE_FROM" />
+          <ScalarProperty Name="BUNDLE_TO" ColumnName="BUNDLE_TO" />
+          <ScalarProperty Name="BB_ID" ColumnName="BB_ID" />
+          <ScalarProperty Name="BOOK_KEY" ColumnName="BOOK_KEY" />
+          <ScalarProperty Name="RA_KEY" ColumnName="RA_KEY" />
+          <ScalarProperty Name="GRADE" ColumnName="GRADE" />
+          <ScalarProperty Name="OP_SUBTERMINAL" ColumnName="OP_SUBTERMINAL" />
+          <ScalarProperty Name="OP_TERMINAL" ColumnName="OP_TERMINAL" />
+          <ScalarProperty Name="TERMINAL_ID" ColumnName="TERMINAL_ID" />
+          <ScalarProperty Name="COPRAR_DISCHARGE" ColumnName="COPRAR_DISCHARGE" />
+          <ScalarProperty Name="EXP_CTR_REMARK" ColumnName="EXP_CTR_REMARK" />
+          <ScalarProperty Name="REASON_FOR_TRANSFER" ColumnName="REASON_FOR_TRANSFER" />
+          <ScalarProperty Name="TRANSFER_CD" ColumnName="TRANSFER_CD" />
+          <ScalarProperty Name="CUST_RELEASE_MARK" ColumnName="CUST_RELEASE_MARK" />
+          <ScalarProperty Name="UPD_CNT" ColumnName="UPD_CNT" />
+          <ScalarProperty Name="UPD_TS" ColumnName="UPD_TS" />
+          <ScalarProperty Name="ORG_CRT_TS" ColumnName="ORG_CRT_TS" />
+          <ScalarProperty Name="HIST_FLG" ColumnName="HIST_FLG" />
+          <ScalarProperty Name="SPEC_HNDL" ColumnName="SPEC_HNDL" />
+          <ScalarProperty Name="SEAL_NO_CURRENT" ColumnName="SEAL_NO_CURRENT" />
+          <ScalarProperty Name="RELEASE_NO" ColumnName="RELEASE_NO" />
+          <ScalarProperty Name="PLACE_OF_RECEIPT" ColumnName="PLACE_OF_RECEIPT" />
+          <ScalarProperty Name="PLACE_OF_DELIVERY" ColumnName="PLACE_OF_DELIVERY" />
+          <ScalarProperty Name="ICN_NO" ColumnName="ICN_NO" />
+          <ScalarProperty Name="ECN_NO" ColumnName="ECN_NO" />
+          <ScalarProperty Name="OPER_NAME" ColumnName="OPER_NAME" />
+          <ScalarProperty Name="MANIFEST_NO" ColumnName="MANIFEST_NO" />
+          <ScalarProperty Name="MAX_GROSS" ColumnName="MAX_GROSS" />
+          <ScalarProperty Name="TARE" ColumnName="TARE" />
+          <ScalarProperty Name="HEIGHT" ColumnName="HEIGHT" />
+          <ScalarProperty Name="LENGTH" ColumnName="LENGTH" />
+          <ScalarProperty Name="ITEM_TYPE" ColumnName="ITEM_TYPE" />
+          <ScalarProperty Name="ISO" ColumnName="ISO" />
+          <ScalarProperty Name="ORIG_ISO" ColumnName="ORIG_ISO" />
+          <ScalarProperty Name="IS_TOPPING" ColumnName="IS_TOPPING" />
+          <ScalarProperty Name="IS_SHORING" ColumnName="IS_SHORING" />
+          <ScalarProperty Name="IS_REEFER" ColumnName="IS_REEFER" />
+          <ScalarProperty Name="IS_PRETRIP" ColumnName="IS_PRETRIP" />
+          <ScalarProperty Name="IS_OOG" ColumnName="IS_OOG" />
+          <ScalarProperty Name="IS_FOLDED" ColumnName="IS_FOLDED" />
+          <ScalarProperty Name="IS_FCL_ADD" ColumnName="IS_FCL_ADD" />
+          <ScalarProperty Name="IS_DOOR_OPEN" ColumnName="IS_DOOR_OPEN" />
+          <ScalarProperty Name="IS_DANGEROUS" ColumnName="IS_DANGEROUS" />
+          <ScalarProperty Name="IS_DAMAGED" ColumnName="IS_DAMAGED" />
+          <ScalarProperty Name="IS_CTR" ColumnName="IS_CTR" />
+          <ScalarProperty Name="IS_CONSOLE" ColumnName="IS_CONSOLE" />
+          <ScalarProperty Name="IS_COMMENTS" ColumnName="IS_COMMENTS" />
+          <ScalarProperty Name="IS_CFS" ColumnName="IS_CFS" />
+          <ScalarProperty Name="IS_ATTACH" ColumnName="IS_ATTACH" />
+          <ScalarProperty Name="FIN_DEST" ColumnName="FIN_DEST" />
+          <ScalarProperty Name="FDISCH_PORT" ColumnName="FDISCH_PORT" />
+          <ScalarProperty Name="LL_DISCH_PORT" ColumnName="LL_DISCH_PORT" />
+          <ScalarProperty Name="DISCH_PORT" ColumnName="DISCH_PORT" />
+          <ScalarProperty Name="LOAD_PORT" ColumnName="LOAD_PORT" />
+          <ScalarProperty Name="ORG_PORT" ColumnName="ORG_PORT" />
+          <ScalarProperty Name="CUSTOM_CHECK_FLG" ColumnName="CUSTOM_CHECK_FLG" />
+          <ScalarProperty Name="CTR_OWNER" ColumnName="CTR_OWNER" />
+          <ScalarProperty Name="CARGO_WEIGHT" ColumnName="CARGO_WEIGHT" />
+          <ScalarProperty Name="GROSS" ColumnName="GROSS" />
+          <ScalarProperty Name="CONSIGNOR" ColumnName="CONSIGNOR" />
+          <ScalarProperty Name="CONSIGNEE" ColumnName="CONSIGNEE" />
+          <ScalarProperty Name="BOOK_NO" ColumnName="BOOK_NO" />
+          <ScalarProperty Name="BILL_OF_LADING" ColumnName="BILL_OF_LADING" />
+          <ScalarProperty Name="CATEGORY" ColumnName="CATEGORY" />
+          <ScalarProperty Name="DEP_TS" ColumnName="DEP_TS" />
+          <ScalarProperty Name="DEP_CAR" ColumnName="DEP_CAR" />
+          <ScalarProperty Name="DEP_BY" ColumnName="DEP_BY" />
+          <ScalarProperty Name="ARR_TS" ColumnName="ARR_TS" />
+          <ScalarProperty Name="ARR_CAR" ColumnName="ARR_CAR" />
+          <ScalarProperty Name="ARR_BY" ColumnName="ARR_BY" />
+          <ScalarProperty Name="LINE_OPER" ColumnName="LINE_OPER" />
+          <ScalarProperty Name="AGENT" ColumnName="AGENT" />
+          <ScalarProperty Name="FEL" ColumnName="FEL" />
+          <ScalarProperty Name="ITEM_NO" ColumnName="ITEM_NO" />
+          <ScalarProperty Name="ITEM_KEY" ColumnName="ITEM_KEY" />
+          <ScalarProperty Name="OWNER" ColumnName="OWNER" />
+          <ScalarProperty Name="SITE_ID" ColumnName="SITE_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OPERATORs">
+      <EntityTypeMapping TypeName="EVE.Data.OPERATOR">
+        <MappingFragment StoreEntitySet="OPERATOR">
+          <ScalarProperty Name="LAST_UPD_PWD_TS" ColumnName="LAST_UPD_PWD_TS" />
+          <ScalarProperty Name="SUB_DEPT_CODE" ColumnName="SUB_DEPT_CODE" />
+          <ScalarProperty Name="DEPT_CODE" ColumnName="DEPT_CODE" />
+          <ScalarProperty Name="IP_ADDRESS" ColumnName="IP_ADDRESS" />
+          <ScalarProperty Name="LAST_LOGOUT_TS" ColumnName="LAST_LOGOUT_TS" />
+          <ScalarProperty Name="LAST_LOGIN_TS" ColumnName="LAST_LOGIN_TS" />
+          <ScalarProperty Name="UPD_TS" ColumnName="UPD_TS" />
+          <ScalarProperty Name="ADDR2" ColumnName="ADDR2" />
+          <ScalarProperty Name="ADDR1" ColumnName="ADDR1" />
+          <ScalarProperty Name="FULL_NAME" ColumnName="FULL_NAME" />
+          <ScalarProperty Name="OPER_PWD" ColumnName="OPER_PWD" />
+          <ScalarProperty Name="OPER_CLASS_4" ColumnName="OPER_CLASS_4" />
+          <ScalarProperty Name="OPER_CLASS_3" ColumnName="OPER_CLASS_3" />
+          <ScalarProperty Name="OPER_CLASS_2" ColumnName="OPER_CLASS_2" />
+          <ScalarProperty Name="OPER_CLASS_1" ColumnName="OPER_CLASS_1" />
+          <ScalarProperty Name="OPER_NO" ColumnName="OPER_NO" />
+          <ScalarProperty Name="OPER_NAME" ColumnName="OPER_NAME" />
+          <ScalarProperty Name="EMPLOYEE_NO" ColumnName="EMPLOYEE_NO" />
+          <ScalarProperty Name="OWNER" ColumnName="OWNER" />
+          <ScalarProperty Name="SITE_ID" ColumnName="SITE_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MENU_GROUP">
+      <EntityTypeMapping TypeName="EVE.Data.MENU_GROUP">
+        <MappingFragment StoreEntitySet="MENU_GROUP">
+          <ScalarProperty Name="UPD_TS" ColumnName="UPD_TS" />
+          <ScalarProperty Name="CRT_TS" ColumnName="CRT_TS" />
+          <ScalarProperty Name="IMAGE" ColumnName="IMAGE" />
+          <ScalarProperty Name="IDX" ColumnName="IDX" />
+          <ScalarProperty Name="GROUP_NAME" ColumnName="GROUP_NAME" />
+          <ScalarProperty Name="GROUP_CODE" ColumnName="GROUP_CODE" />
+          <ScalarProperty Name="MENU_MODULE" ColumnName="MENU_MODULE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OPER_OPTIONS">
+      <EntityTypeMapping TypeName="EVE.Data.OPER_OPTIONS">
+        <MappingFragment StoreEntitySet="OPER_OPTIONS">
+          <ScalarProperty Name="UPD_TS" ColumnName="UPD_TS" />
+          <ScalarProperty Name="READ_ONLY" ColumnName="READ_ONLY" />
+          <ScalarProperty Name="MNU_ITEM_LOCAL" ColumnName="MNU_ITEM_LOCAL" />
+          <ScalarProperty Name="MNU_ITEM" ColumnName="MNU_ITEM" />
+          <ScalarProperty Name="MNU_CODE" ColumnName="MNU_CODE" />
+          <ScalarProperty Name="MODULE_CODE" ColumnName="MODULE_CODE" />
+          <ScalarProperty Name="OPER_CLASS" ColumnName="OPER_CLASS" />
+          <ScalarProperty Name="SITE_ID" ColumnName="SITE_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AGENTs">
+      <EntityTypeMapping TypeName="EVE.Data.AGENT">
+        <MappingFragment StoreEntitySet="AGENT">
+          <ScalarProperty Name="UPD_TS" ColumnName="UPD_TS" />
+          <ScalarProperty Name="FEL" ColumnName="FEL" />
+          <ScalarProperty Name="CONT_TYPE" ColumnName="CONT_TYPE" />
+          <ScalarProperty Name="EXPIRY_TS" ColumnName="EXPIRY_TS" />
+          <ScalarProperty Name="AS_AT_TS" ColumnName="AS_AT_TS" />
+          <ScalarProperty Name="LINE_PRINT_SEPARATE" ColumnName="LINE_PRINT_SEPARATE" />
+          <ScalarProperty Name="LINE_OPER" ColumnName="LINE_OPER" />
+          <ScalarProperty Name="AGENT1" ColumnName="AGENT" />
+          <ScalarProperty Name="SITE_ID" ColumnName="SITE_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SYS_CODES">
+      <EntityTypeMapping TypeName="EVE.Data.SYS_CODES">
+        <MappingFragment StoreEntitySet="SYS_CODES">
+          <ScalarProperty Name="LOCAL_DESCR" ColumnName="LOCAL_DESCR" />
+          <ScalarProperty Name="UPD_TS" ColumnName="UPD_TS" />
+          <ScalarProperty Name="CRT_TS" ColumnName="CRT_TS" />
+          <ScalarProperty Name="DESCR" ColumnName="DESCR" />
+          <ScalarProperty Name="CODE_REF" ColumnName="CODE_REF" />
+          <ScalarProperty Name="CODE_TP" ColumnName="CODE_TP" />
+          <ScalarProperty Name="SITE_ID" ColumnName="SITE_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SITE_CONFIG">
+      <EntityTypeMapping TypeName="EVE.Data.SITE_CONFIG">
+        <MappingFragment StoreEntitySet="SITE_CONFIG">
+          <ScalarProperty Name="CRT_TS" ColumnName="CRT_TS" />
+          <ScalarProperty Name="PARAM_ENCRYPT_KEY" ColumnName="PARAM_ENCRYPT_KEY" />
+          <ScalarProperty Name="PARAM_VALUE" ColumnName="PARAM_VALUE" />
+          <ScalarProperty Name="PARAM_NAME" ColumnName="PARAM_NAME" />
+          <ScalarProperty Name="PARTNER_ID" ColumnName="PARTNER_ID" />
+          <ScalarProperty Name="FEATURE_ID" ColumnName="FEATURE_ID" />
+          <ScalarProperty Name="SITE_ID" ColumnName="SITE_ID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SITE_DEF">
+      <EntityTypeMapping TypeName="EVE.Data.SITE_DEF">
+        <MappingFragment StoreEntitySet="SITE_DEF">
+          <ScalarProperty Name="APPLY_VGM_FLG" ColumnName="APPLY_VGM_FLG" />
+          <ScalarProperty Name="UPDATE_VERSION_TS" ColumnName="UPDATE_VERSION_TS" />
+          <ScalarProperty Name="USE_BATCH_MODE" ColumnName="USE_BATCH_MODE" />
+          <ScalarProperty Name="CONTROL_VERSION" ColumnName="CONTROL_VERSION" />
+          <ScalarProperty Name="LATE_TIME" ColumnName="LATE_TIME" />
+          <ScalarProperty Name="EARLY_TIME" ColumnName="EARLY_TIME" />
+          <ScalarProperty Name="EDI_ERR2" ColumnName="EDI_ERR2" />
+          <ScalarProperty Name="EDI_TS" ColumnName="EDI_TS" />
+          <ScalarProperty Name="EDI_ERR" ColumnName="EDI_ERR" />
+          <ScalarProperty Name="RELEASE_DT_SPAN" ColumnName="RELEASE_DT_SPAN" />
+          <ScalarProperty Name="SHUNT_YARD_STN_CD" ColumnName="SHUNT_YARD_STN_CD" />
+          <ScalarProperty Name="TERMINAL_ID" ColumnName="TERMINAL_ID" />
+          <ScalarProperty Name="STN_CD" ColumnName="STN_CD" />
+          <ScalarProperty Name="CUSTOMS_CFS_CD" ColumnName="CUSTOMS_CFS_CD" />
+          <ScalarProperty Name="CUSTOMS_YARD_CD" ColumnName="CUSTOMS_YARD_CD" />
+          <ScalarProperty Name="CTR_YARD" ColumnName="CTR_YARD" />
+          <ScalarProperty Name="EDI_RECEIVER_CODE" ColumnName="EDI_RECEIVER_CODE" />
+          <ScalarProperty Name="EDI_SENDER_CODE" ColumnName="EDI_SENDER_CODE" />
+          <ScalarProperty Name="HOME_PORT" ColumnName="HOME_PORT" />
+          <ScalarProperty Name="PORT_CD" ColumnName="PORT_CD" />
+          <ScalarProperty Name="VERSION_DT" ColumnName="VERSION_DT" />
+          <ScalarProperty Name="UPD_TS" ColumnName="UPD_TS" />
+          <ScalarProperty Name="MSGOFDAY" ColumnName="MSGOFDAY" />
+          <ScalarProperty Name="OW_45" ColumnName="OW_45" />
+          <ScalarProperty Name="OW_40" ColumnName="OW_40" />
+          <ScalarProperty Name="OW_20" ColumnName="OW_20" />
+          <ScalarProperty Name="DWELL_TIME_MAX" ColumnName="DWELL_TIME_MAX" />
+          <ScalarProperty Name="DWELL_TIME_MIN" ColumnName="DWELL_TIME_MIN" />
+          <ScalarProperty Name="CONTAINER_AREA" ColumnName="CONTAINER_AREA" />
+          <ScalarProperty Name="STAMP_DUTY" ColumnName="STAMP_DUTY" />
+          <ScalarProperty Name="TAX_RATE" ColumnName="TAX_RATE" />
+          <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+          <ScalarProperty Name="COUNTRY" ColumnName="COUNTRY" />
+          <ScalarProperty Name="STATE" ColumnName="STATE" />
+          <ScalarProperty Name="POSTCODE" ColumnName="POSTCODE" />
+          <ScalarProperty Name="ADDR4" ColumnName="ADDR4" />
+          <ScalarProperty Name="ADDR3" ColumnName="ADDR3" />
+          <ScalarProperty Name="ADDR2" ColumnName="ADDR2" />
+          <ScalarProperty Name="ADDR1" ColumnName="ADDR1" />
+          <ScalarProperty Name="PHONE" ColumnName="PHONE" />
+          <ScalarProperty Name="FAX" ColumnName="FAX" />
+          <ScalarProperty Name="STAR_PORT" ColumnName="STAR_PORT" />
+          <ScalarProperty Name="BT_GRID_SIZE" ColumnName="BT_GRID_SIZE" />
+          <ScalarProperty Name="BT_END_GRID" ColumnName="BT_END_GRID" />
+          <ScalarProperty Name="BT_START_GRID" ColumnName="BT_START_GRID" />
+          <ScalarProperty Name="RL_NUMBER_OF_LINES" ColumnName="RL_NUMBER_OF_LINES" />
+          <ScalarProperty Name="RL_GRID_SIZE" ColumnName="RL_GRID_SIZE" />
+          <ScalarProperty Name="RL_END_GRID" ColumnName="RL_END_GRID" />
+          <ScalarProperty Name="RL_START_GRID" ColumnName="RL_START_GRID" />
+          <ScalarProperty Name="OPERATOR2" ColumnName="OPERATOR2" />
+          <ScalarProperty Name="OPERATOR" ColumnName="OPERATOR" />
+          <ScalarProperty Name="SITE_ID" ColumnName="SITE_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MENU_MODULE">
+      <EntityTypeMapping TypeName="EVE.Data.MENU_MODULE">
+        <MappingFragment StoreEntitySet="MENU_MODULE">
+          <ScalarProperty Name="UPD_TS" ColumnName="UPD_TS" />
+          <ScalarProperty Name="CRT_TS" ColumnName="CRT_TS" />
+          <ScalarProperty Name="IDX" ColumnName="IDX" />
+          <ScalarProperty Name="MODULE_NAME" ColumnName="MODULE_NAME" />
+          <ScalarProperty Name="MODULE_CODE" ColumnName="MODULE_CODE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MENU_ITEM_ACTION">
+      <EntityTypeMapping TypeName="EVE.Data.MENU_ITEM_ACTION">
+        <MappingFragment StoreEntitySet="MENU_ITEM_ACTION">
+          <ScalarProperty Name="UPD_TS" ColumnName="UPD_TS" />
+          <ScalarProperty Name="CRT_TS" ColumnName="CRT_TS" />
+          <ScalarProperty Name="DESCR" ColumnName="DESCR" />
+          <ScalarProperty Name="FORM_ACTION" ColumnName="FORM_ACTION" />
+          <ScalarProperty Name="MENU_ITEM_CODE" ColumnName="MENU_ITEM_CODE" />
+          <ScalarProperty Name="MENU_ITEM_ACTION_CODE" ColumnName="MENU_ITEM_ACTION_CODE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="USER_CLASS_FORM_ACTION">
+      <EntityTypeMapping TypeName="EVE.Data.USER_CLASS_FORM_ACTION">
+        <MappingFragment StoreEntitySet="USER_CLASS_FORM_ACTION">
+          <ScalarProperty Name="UPD_TS" ColumnName="UPD_TS" />
+          <ScalarProperty Name="CRT_TS" ColumnName="CRT_TS" />
+          <ScalarProperty Name="DESCR" ColumnName="DESCR" />
+          <ScalarProperty Name="IDX" ColumnName="IDX" />
+          <ScalarProperty Name="DISPLAY_FLG" ColumnName="DISPLAY_FLG" />
+          <ScalarProperty Name="MENU_ITEM_ACTION_CODE" ColumnName="MENU_ITEM_ACTION_CODE" />
+          <ScalarProperty Name="USER_CLASS" ColumnName="USER_CLASS" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LOGON_USER">
+      <EntityTypeMapping TypeName="EVE.Data.LOGON_USER">
+        <MappingFragment StoreEntitySet="LOGON_USER">
+          <ScalarProperty Name="LOGON_ID" ColumnName="LOGON_ID" />
+          <ScalarProperty Name="REMARKS" ColumnName="REMARKS" />
+          <ScalarProperty Name="UPD_TS" ColumnName="UPD_TS" />
+          <ScalarProperty Name="CRT_TS" ColumnName="CRT_TS" />
+          <ScalarProperty Name="LAST_DB" ColumnName="LAST_DB" />
+          <ScalarProperty Name="LAST_USER_CLASS" ColumnName="LAST_USER_CLASS" />
+          <ScalarProperty Name="LAST_SITE_ID" ColumnName="LAST_SITE_ID" />
+          <ScalarProperty Name="LAST_LANGUAGE" ColumnName="LAST_LANGUAGE" />
+          <ScalarProperty Name="VERSION" ColumnName="VERSION" />
+          <ScalarProperty Name="USER_ID" ColumnName="USER_ID" />
+          <ScalarProperty Name="LOGON_DATE" ColumnName="LOGON_DATE" />
+          <ScalarProperty Name="USER_NAME" ColumnName="USER_NAME" />
+          <ScalarProperty Name="HOST_NAME" ColumnName="HOST_NAME" />
+          <ScalarProperty Name="IP_ADDRESS" ColumnName="IP_ADDRESS" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TRUCKs">
+      <EntityTypeMapping TypeName="EVE.Data.TRUCK">
+        <MappingFragment StoreEntitySet="TRUCK">
+          <ScalarProperty Name="FREE_CHARGE_DESC" ColumnName="FREE_CHARGE_DESC" />
+          <ScalarProperty Name="FREE_CHARGE_USER" ColumnName="FREE_CHARGE_USER" />
+          <ScalarProperty Name="FREE_CHARGE_HOURS" ColumnName="FREE_CHARGE_HOURS" />
+          <ScalarProperty Name="CHASSIS_GROSS" ColumnName="CHASSIS_GROSS" />
+          <ScalarProperty Name="CHASSIS_MAX_GROSS" ColumnName="CHASSIS_MAX_GROSS" />
+          <ScalarProperty Name="TRUCK_MAX_GROSS" ColumnName="TRUCK_MAX_GROSS" />
+          <ScalarProperty Name="INSPECT_BY" ColumnName="INSPECT_BY" />
+          <ScalarProperty Name="CTR_QTY" ColumnName="CTR_QTY" />
+          <ScalarProperty Name="ACTUAL_CTR_WT_2" ColumnName="ACTUAL_CTR_WT_2" />
+          <ScalarProperty Name="ACTUAL_CTR_WT_1" ColumnName="ACTUAL_CTR_WT_1" />
+          <ScalarProperty Name="CTR_WT_2" ColumnName="CTR_WT_2" />
+          <ScalarProperty Name="CTR_WT_1" ColumnName="CTR_WT_1" />
+          <ScalarProperty Name="TRK_HEAD" ColumnName="TRK_HEAD" />
+          <ScalarProperty Name="BAT_NO" ColumnName="BAT_NO" />
+          <ScalarProperty Name="LANE_NO_OUT" ColumnName="LANE_NO_OUT" />
+          <ScalarProperty Name="LANE_NO_IN" ColumnName="LANE_NO_IN" />
+          <ScalarProperty Name="DRIVER_ID" ColumnName="DRIVER_ID" />
+          <ScalarProperty Name="CHASSIS_NO" ColumnName="CHASSIS_NO" />
+          <ScalarProperty Name="TARE" ColumnName="TARE" />
+          <ScalarProperty Name="LIC_PLATE_NO" ColumnName="LIC_PLATE_NO" />
+          <ScalarProperty Name="IS_TEMP_TRK" ColumnName="IS_TEMP_TRK" />
+          <ScalarProperty Name="TRUCKER_NAME" ColumnName="TRUCKER_NAME" />
+          <ScalarProperty Name="ERROR_MSG" ColumnName="ERROR_MSG" />
+          <ScalarProperty Name="TRK_USE" ColumnName="TRK_USE" />
+          <ScalarProperty Name="TRK_SIZE" ColumnName="TRK_SIZE" />
+          <ScalarProperty Name="TRK_LOC" ColumnName="TRK_LOC" />
+          <ScalarProperty Name="SECURITY_NAME" ColumnName="SECURITY_NAME" />
+          <ScalarProperty Name="OG_SECURITY_TS" ColumnName="OG_SECURITY_TS" />
+          <ScalarProperty Name="GROSS" ColumnName="GROSS" />
+          <ScalarProperty Name="OPER_NAME" ColumnName="OPER_NAME" />
+          <ScalarProperty Name="HIST_FLG" ColumnName="HIST_FLG" />
+          <ScalarProperty Name="UPD_TS" ColumnName="UPD_TS" />
+          <ScalarProperty Name="OG_TS" ColumnName="OG_TS" />
+          <ScalarProperty Name="GATE_OUT_NO" ColumnName="GATE_OUT_NO" />
+          <ScalarProperty Name="IG_TS" ColumnName="IG_TS" />
+          <ScalarProperty Name="GATE_IN_NO" ColumnName="GATE_IN_NO" />
+          <ScalarProperty Name="INSTRUCTION" ColumnName="INSTRUCTION" />
+          <ScalarProperty Name="TRK_ID" ColumnName="TRK_ID" />
+          <ScalarProperty Name="TRK_KEY" ColumnName="TRK_KEY" />
+          <ScalarProperty Name="SITE_ID" ColumnName="SITE_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MENU_ITEM">
+      <EntityTypeMapping TypeName="EVE.Data.MENU_ITEM">
+        <MappingFragment StoreEntitySet="MENU_ITEM">
+          <ScalarProperty Name="UPD_TS" ColumnName="UPD_TS" />
+          <ScalarProperty Name="CRT_TS" ColumnName="CRT_TS" />
+          <ScalarProperty Name="IMAGE" ColumnName="IMAGE" />
+          <ScalarProperty Name="IDX" ColumnName="IDX" />
+          <ScalarProperty Name="DISPLAY_TYPE" ColumnName="DISPLAY_TYPE" />
+          <ScalarProperty Name="FORM_CODE" ColumnName="FORM_CODE" />
+          <ScalarProperty Name="DESCR" ColumnName="DESCR" />
+          <ScalarProperty Name="MENU_ITEM_NAME" ColumnName="MENU_ITEM_NAME" />
+          <ScalarProperty Name="MENU_ITEM_CODE" ColumnName="MENU_ITEM_CODE" />
+          <ScalarProperty Name="GROUP_CODE" ColumnName="GROUP_CODE" />
+          <ScalarProperty Name="MENU_MODULE" ColumnName="MENU_MODULE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="USER_CLASS_MENU_ITEM">
+      <EntityTypeMapping TypeName="EVE.Data.USER_CLASS_MENU_ITEM">
+        <MappingFragment StoreEntitySet="USER_CLASS_MENU_ITEM">
+          <ScalarProperty Name="CRT_TS" ColumnName="CRT_TS" />
+          <ScalarProperty Name="MENU_ITEM_CODE" ColumnName="MENU_ITEM_CODE" />
+          <ScalarProperty Name="USER_CLASS" ColumnName="USER_CLASS" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TRK_TRANSACT">
+      <EntityTypeMapping TypeName="EVE.Data.TRK_TRANSACT">
+        <MappingFragment StoreEntitySet="TRK_TRANSACT">
+          <ScalarProperty Name="TRUCK_LOAD_WEIGHT" ColumnName="TRUCK_LOAD_WEIGHT" />
+          <ScalarProperty Name="EIR_OG_TS" ColumnName="EIR_OG_TS" />
+          <ScalarProperty Name="EIR_IG_TS" ColumnName="EIR_IG_TS" />
+          <ScalarProperty Name="EIR_ID" ColumnName="EIR_ID" />
+          <ScalarProperty Name="CRT_TS" ColumnName="CRT_TS" />
+          <ScalarProperty Name="CTNR_ON_TRUCK" ColumnName="CTNR_ON_TRUCK" />
+          <ScalarProperty Name="HIST_FLG" ColumnName="HIST_FLG" />
+          <ScalarProperty Name="CARRIER_TYPE" ColumnName="CARRIER_TYPE" />
+          <ScalarProperty Name="LANE_NO" ColumnName="LANE_NO" />
+          <ScalarProperty Name="EIR_FLG" ColumnName="EIR_FLG" />
+          <ScalarProperty Name="UPD_TS" ColumnName="UPD_TS" />
+          <ScalarProperty Name="COMPL_TS" ColumnName="COMPL_TS" />
+          <ScalarProperty Name="OG_OPER_NAME" ColumnName="OG_OPER_NAME" />
+          <ScalarProperty Name="IG_OPER_NAME" ColumnName="IG_OPER_NAME" />
+          <ScalarProperty Name="OPER_NAME" ColumnName="OPER_NAME" />
+          <ScalarProperty Name="R_D" ColumnName="R_D" />
+          <ScalarProperty Name="ITEM_KEY" ColumnName="ITEM_KEY" />
+          <ScalarProperty Name="TRK_KEY" ColumnName="TRK_KEY" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PREGATE_TRANSACT">
+      <EntityTypeMapping TypeName="EVE.Data.PREGATE_TRANSACT">
+        <MappingFragment StoreEntitySet="PREGATE_TRANSACT">
+          <ScalarProperty Name="ID_VCDL" ColumnName="ID_VCDL" />
+          <ScalarProperty Name="EPORT_REGISTER_BY" ColumnName="EPORT_REGISTER_BY" />
+          <ScalarProperty Name="SLOT_CODE" ColumnName="SLOT_CODE" />
+          <ScalarProperty Name="INTEGRATE_INV_MSG" ColumnName="INTEGRATE_INV_MSG" />
+          <ScalarProperty Name="INTEGRATE_INV_TRANS_ID" ColumnName="INTEGRATE_INV_TRANS_ID" />
+          <ScalarProperty Name="INTEGRATE_INV_FLG" ColumnName="INTEGRATE_INV_FLG" />
+          <ScalarProperty Name="BILL_OF_LADING" ColumnName="BILL_OF_LADING" />
+          <ScalarProperty Name="ARR_VES_NAME" ColumnName="ARR_VES_NAME" />
+          <ScalarProperty Name="GATE_NO" ColumnName="GATE_NO" />
+          <ScalarProperty Name="OWNER" ColumnName="OWNER" />
+          <ScalarProperty Name="STORAGE_AS_AT_TS" ColumnName="STORAGE_AS_AT_TS" />
+          <ScalarProperty Name="TRANSFER_REASON_CD" ColumnName="TRANSFER_REASON_CD" />
+          <ScalarProperty Name="PRINTED_CNT" ColumnName="PRINTED_CNT" />
+          <ScalarProperty Name="MANAGE_BY" ColumnName="MANAGE_BY" />
+          <ScalarProperty Name="OOW_FLG" ColumnName="OOW_FLG" />
+          <ScalarProperty Name="RFR_FLG" ColumnName="RFR_FLG" />
+          <ScalarProperty Name="OOG_FLG" ColumnName="OOG_FLG" />
+          <ScalarProperty Name="FL_FLG" ColumnName="FL_FLG" />
+          <ScalarProperty Name="HAZ_FLG" ColumnName="HAZ_FLG" />
+          <ScalarProperty Name="ITEM_KEY" ColumnName="ITEM_KEY" />
+          <ScalarProperty Name="SERVICE" ColumnName="SERVICE" />
+          <ScalarProperty Name="RA_KEY" ColumnName="RA_KEY" />
+          <ScalarProperty Name="DELV_OUT_GATE_TS" ColumnName="DELV_OUT_GATE_TS" />
+          <ScalarProperty Name="NOT_USED" ColumnName="NOT_USED" />
+          <ScalarProperty Name="KEY_INTF" ColumnName="KEY_INTF" />
+          <ScalarProperty Name="REG_OUTSIDE" ColumnName="REG_OUTSIDE" />
+          <ScalarProperty Name="CATEGORY" ColumnName="CATEGORY" />
+          <ScalarProperty Name="EXIT_DEP_BY" ColumnName="EXIT_DEP_BY" />
+          <ScalarProperty Name="EXIT_FPOD" ColumnName="EXIT_FPOD" />
+          <ScalarProperty Name="EXIT_POD" ColumnName="EXIT_POD" />
+          <ScalarProperty Name="EXIT_DEP_CAR" ColumnName="EXIT_DEP_CAR" />
+          <ScalarProperty Name="ORG_ARR_BY" ColumnName="ORG_ARR_BY" />
+          <ScalarProperty Name="ORG_ARR_TS" ColumnName="ORG_ARR_TS" />
+          <ScalarProperty Name="ORG_IN_VOYAGE" ColumnName="ORG_IN_VOYAGE" />
+          <ScalarProperty Name="ORG_ARR_CAR" ColumnName="ORG_ARR_CAR" />
+          <ScalarProperty Name="FEL" ColumnName="FEL" />
+          <ScalarProperty Name="TEMPERATURE" ColumnName="TEMPERATURE" />
+          <ScalarProperty Name="SEAL_NO" ColumnName="SEAL_NO" />
+          <ScalarProperty Name="OUT_VOYAGE" ColumnName="OUT_VOYAGE" />
+          <ScalarProperty Name="VES_ID" ColumnName="VES_ID" />
+          <ScalarProperty Name="FPOD" ColumnName="FPOD" />
+          <ScalarProperty Name="VES_CD" ColumnName="VES_CD" />
+          <ScalarProperty Name="REFEER_EXPIRY_TS" ColumnName="REFEER_EXPIRY_TS" />
+          <ScalarProperty Name="GROSS" ColumnName="GROSS" />
+          <ScalarProperty Name="CREATED_BY" ColumnName="CREATED_BY" />
+          <ScalarProperty Name="BOOK_NO" ColumnName="BOOK_NO" />
+          <ScalarProperty Name="LL_POD" ColumnName="LL_POD" />
+          <ScalarProperty Name="PLACE_OF_DELIVERY" ColumnName="PLACE_OF_DELIVERY" />
+          <ScalarProperty Name="CONSIGNOR" ColumnName="CONSIGNOR" />
+          <ScalarProperty Name="TFC_CODE" ColumnName="TFC_CODE" />
+          <ScalarProperty Name="REL_NO" ColumnName="REL_NO" />
+          <ScalarProperty Name="LINE_OPER" ColumnName="LINE_OPER" />
+          <ScalarProperty Name="OPERATION_TYPE" ColumnName="OPERATION_TYPE" />
+          <ScalarProperty Name="CTR_TYPE" ColumnName="CTR_TYPE" />
+          <ScalarProperty Name="CTR_HEIGHT" ColumnName="CTR_HEIGHT" />
+          <ScalarProperty Name="CTR_LENGTH" ColumnName="CTR_LENGTH" />
+          <ScalarProperty Name="ISO_CODE" ColumnName="ISO_CODE" />
+          <ScalarProperty Name="ITEM_NO" ColumnName="ITEM_NO" />
+          <ScalarProperty Name="RECEIVAL_PLACE" ColumnName="RECEIVAL_PLACE" />
+          <ScalarProperty Name="AREA" ColumnName="AREA" />
+          <ScalarProperty Name="PICKUP_TS" ColumnName="PICKUP_TS" />
+          <ScalarProperty Name="RA_NO" ColumnName="RA_NO" />
+          <ScalarProperty Name="REMARKS" ColumnName="REMARKS" />
+          <ScalarProperty Name="OPERATION_METHOD" ColumnName="OPERATION_METHOD" />
+          <ScalarProperty Name="ORDER_NO" ColumnName="ORDER_NO" />
+          <ScalarProperty Name="CRT_TS" ColumnName="CRT_TS" />
+          <ScalarProperty Name="HIST_FLG" ColumnName="HIST_FLG" />
+          <ScalarProperty Name="LINER_EXPIRY_TS" ColumnName="LINER_EXPIRY_TS" />
+          <ScalarProperty Name="TERMINAL_EXPIRY_TS" ColumnName="TERMINAL_EXPIRY_TS" />
+          <ScalarProperty Name="CUSTOM_EXPIRY_TS" ColumnName="CUSTOM_EXPIRY_TS" />
+          <ScalarProperty Name="STORAGE_EXPIRY_TS" ColumnName="STORAGE_EXPIRY_TS" />
+          <ScalarProperty Name="R_D" ColumnName="R_D" />
+          <ScalarProperty Name="BATCH_ID" ColumnName="BATCH_ID" />
+          <ScalarProperty Name="EIR_ID" ColumnName="EIR_ID" />
+          <ScalarProperty Name="SITE_ID" ColumnName="SITE_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TRK_MASTER">
+      <EntityTypeMapping TypeName="EVE.Data.TRK_MASTER">
+        <MappingFragment StoreEntitySet="TRK_MASTER">
+          <ScalarProperty Name="SERIAL_NO" ColumnName="SERIAL_NO" />
+          <ScalarProperty Name="TRUCK_NO" ColumnName="TRUCK_NO" />
+          <ScalarProperty Name="INTERNAL_TRK_ID" ColumnName="INTERNAL_TRK_ID" />
+          <ScalarProperty Name="TRK_INT_FLG" ColumnName="TRK_INT_FLG" />
+          <ScalarProperty Name="UPD_BAT_TS" ColumnName="UPD_BAT_TS" />
+          <ScalarProperty Name="UPD_BAT_BY" ColumnName="UPD_BAT_BY" />
+          <ScalarProperty Name="INTF_BAT_NO" ColumnName="INTF_BAT_NO" />
+          <ScalarProperty Name="BAT_NO" ColumnName="BAT_NO" />
+          <ScalarProperty Name="REMARKS" ColumnName="REMARKS" />
+          <ScalarProperty Name="REGISTER_EXPIRY_TS" ColumnName="REGISTER_EXPIRY_TS" />
+          <ScalarProperty Name="DATA_SOURCE" ColumnName="DATA_SOURCE" />
+          <ScalarProperty Name="MAX_GROSS" ColumnName="MAX_GROSS" />
+          <ScalarProperty Name="TARE" ColumnName="TARE" />
+          <ScalarProperty Name="MAX_SLOT" ColumnName="MAX_SLOT" />
+          <ScalarProperty Name="CRT_TS" ColumnName="CRT_TS" />
+          <ScalarProperty Name="TRK_USE" ColumnName="TRK_USE" />
+          <ScalarProperty Name="TRK_COMPANY_NAME" ColumnName="TRK_COMPANY_NAME" />
+          <ScalarProperty Name="TRK_HEAD" ColumnName="TRK_HEAD" />
+          <ScalarProperty Name="TRK_ID" ColumnName="TRK_ID" />
+          <ScalarProperty Name="SITE_ID" ColumnName="SITE_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ITEM_CHARGES">
+      <EntityTypeMapping TypeName="EVE.Data.ITEM_CHARGES">
+        <MappingFragment StoreEntitySet="ITEM_CHARGES">
+          <ScalarProperty Name="IP_ADDRESS" ColumnName="IP_ADDRESS" />
+          <ScalarProperty Name="USER_CONFIRM" ColumnName="USER_CONFIRM" />
+          <ScalarProperty Name="COMMITTED_TS" ColumnName="COMMITTED_TS" />
+          <ScalarProperty Name="COMMITTED_FLG" ColumnName="COMMITTED_FLG" />
+          <ScalarProperty Name="SERVICE_CHARGE" ColumnName="SERVICE_CHARGE" />
+          <ScalarProperty Name="DISCOUNT_RATE" ColumnName="DISCOUNT_RATE" />
+          <ScalarProperty Name="EXEC_TS" ColumnName="EXEC_TS" />
+          <ScalarProperty Name="RATE_ID" ColumnName="RATE_ID" />
+          <ScalarProperty Name="INVDETAIL_ID" ColumnName="INVDETAIL_ID" />
+          <ScalarProperty Name="CALCULATED_DISCOUNT" ColumnName="CALCULATED_DISCOUNT" />
+          <ScalarProperty Name="BILLED_TAX_AMOUNT" ColumnName="BILLED_TAX_AMOUNT" />
+          <ScalarProperty Name="BILLED_AMOUNT" ColumnName="BILLED_AMOUNT" />
+          <ScalarProperty Name="CALCULATED_AMOUNT" ColumnName="CALCULATED_AMOUNT" />
+          <ScalarProperty Name="AGENT" ColumnName="AGENT" />
+          <ScalarProperty Name="CHARGE_BATCH_ID" ColumnName="CHARGE_BATCH_ID" />
+          <ScalarProperty Name="DEMDET_BATCH_ID" ColumnName="DEMDET_BATCH_ID" />
+          <ScalarProperty Name="TAX_RATE" ColumnName="TAX_RATE" />
+          <ScalarProperty Name="RATE" ColumnName="RATE" />
+          <ScalarProperty Name="OOW_FLG" ColumnName="OOW_FLG" />
+          <ScalarProperty Name="OOG_FLG" ColumnName="OOG_FLG" />
+          <ScalarProperty Name="HAZ_CLASS" ColumnName="HAZ_CLASS" />
+          <ScalarProperty Name="HAZ_FLG" ColumnName="HAZ_FLG" />
+          <ScalarProperty Name="EIR_ID" ColumnName="EIR_ID" />
+          <ScalarProperty Name="UNIT_CODE" ColumnName="UNIT_CODE" />
+          <ScalarProperty Name="RA_NO" ColumnName="RA_NO" />
+          <ScalarProperty Name="DEMDET_DESC" ColumnName="DEMDET_DESC" />
+          <ScalarProperty Name="CHARGES_TO_DT" ColumnName="CHARGES_TO_DT" />
+          <ScalarProperty Name="LINE_OPER" ColumnName="LINE_OPER" />
+          <ScalarProperty Name="IS_DEMDET" ColumnName="IS_DEMDET" />
+          <ScalarProperty Name="BILL_TYPE" ColumnName="BILL_TYPE" />
+          <ScalarProperty Name="BILL_STS" ColumnName="BILL_STS" />
+          <ScalarProperty Name="BILL_LENGTH" ColumnName="BILL_LENGTH" />
+          <ScalarProperty Name="SITE_ID" ColumnName="SITE_ID" />
+          <ScalarProperty Name="IS_CANCELLED" ColumnName="IS_CANCELLED" />
+          <ScalarProperty Name="REASON" ColumnName="REASON" />
+          <ScalarProperty Name="INVOICE_PRE_CHAR" ColumnName="INVOICE_PRE_CHAR" />
+          <ScalarProperty Name="DEMDET_PAID_TO_DT" ColumnName="DEMDET_PAID_TO_DT" />
+          <ScalarProperty Name="UPD_TS" ColumnName="UPD_TS" />
+          <ScalarProperty Name="CRT_TS" ColumnName="CRT_TS" />
+          <ScalarProperty Name="OPER_NAME" ColumnName="OPER_NAME" />
+          <ScalarProperty Name="INVOICE_DT" ColumnName="INVOICE_DT" />
+          <ScalarProperty Name="INVOICE_NO" ColumnName="INVOICE_NO" />
+          <ScalarProperty Name="INTERNAL_BOOK_NUMBER" ColumnName="INTERNAL_BOOK_NUMBER" />
+          <ScalarProperty Name="CURRENCY" ColumnName="CURRENCY" />
+          <ScalarProperty Name="BILLED_AMOUNT_TMP" ColumnName="BILLED_AMOUNT_TMP" />
+          <ScalarProperty Name="CALCULATED_AMOUNT_TMP" ColumnName="CALCULATED_AMOUNT_TMP" />
+          <ScalarProperty Name="QUANTITY" ColumnName="QUANTITY" />
+          <ScalarProperty Name="DESCR" ColumnName="DESCR" />
+          <ScalarProperty Name="CHARGE_CD" ColumnName="CHARGE_CD" />
+          <ScalarProperty Name="ITEM_KEY" ColumnName="ITEM_KEY" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ITEM_OOG">
+      <EntityTypeMapping TypeName="EVE.Data.ITEM_OOG">
+        <MappingFragment StoreEntitySet="ITEM_OOG">
+          <ScalarProperty Name="OOG_WIDTH_FLG" ColumnName="OOG_WIDTH_FLG" />
+          <ScalarProperty Name="OOG_LENGTH_FLG" ColumnName="OOG_LENGTH_FLG" />
+          <ScalarProperty Name="OOG_HEIGHT_FLG" ColumnName="OOG_HEIGHT_FLG" />
+          <ScalarProperty Name="OOG_WEIGHT_FLG" ColumnName="OOG_WEIGHT_FLG" />
+          <ScalarProperty Name="CABLE_REQUIRED" ColumnName="CABLE_REQUIRED" />
+          <ScalarProperty Name="UPD_CNT" ColumnName="UPD_CNT" />
+          <ScalarProperty Name="BB_TYPE" ColumnName="BB_TYPE" />
+          <ScalarProperty Name="BB_NUM" ColumnName="BB_NUM" />
+          <ScalarProperty Name="LEN_UNIT" ColumnName="LEN_UNIT" />
+          <ScalarProperty Name="UPD_TS" ColumnName="UPD_TS" />
+          <ScalarProperty Name="OOG_WIDTH" ColumnName="OOG_WIDTH" />
+          <ScalarProperty Name="OOG_TOP" ColumnName="OOG_TOP" />
+          <ScalarProperty Name="OOG_RIGHT" ColumnName="OOG_RIGHT" />
+          <ScalarProperty Name="OOG_LENGTH" ColumnName="OOG_LENGTH" />
+          <ScalarProperty Name="OOG_LEFT" ColumnName="OOG_LEFT" />
+          <ScalarProperty Name="OOG_HEIGHT" ColumnName="OOG_HEIGHT" />
+          <ScalarProperty Name="OOG_FRONT" ColumnName="OOG_FRONT" />
+          <ScalarProperty Name="OOG_BACK" ColumnName="OOG_BACK" />
+          <ScalarProperty Name="ITEM_KEY" ColumnName="ITEM_KEY" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ITEM_DAMAGE">
+      <EntityTypeMapping TypeName="EVE.Data.ITEM_DAMAGE">
+        <MappingFragment StoreEntitySet="ITEM_DAMAGE">
+          <ScalarProperty Name="SERVICE_KEY" ColumnName="SERVICE_KEY" />
+          <ScalarProperty Name="SERVICE_CD" ColumnName="SERVICE_CD" />
+          <ScalarProperty Name="DAMAGE_DIMENSION" ColumnName="DAMAGE_DIMENSION" />
+          <ScalarProperty Name="DAMAGE_INSPECT_LOCATION" ColumnName="DAMAGE_INSPECT_LOCATION" />
+          <ScalarProperty Name="SERVICE_PROVIDER" ColumnName="SERVICE_PROVIDER" />
+          <ScalarProperty Name="DAMAGE_BY" ColumnName="DAMAGE_BY" />
+          <ScalarProperty Name="UPD_CNT" ColumnName="UPD_CNT" />
+          <ScalarProperty Name="DAMAGE_LOC" ColumnName="DAMAGE_LOC" />
+          <ScalarProperty Name="INSPECT_BY" ColumnName="INSPECT_BY" />
+          <ScalarProperty Name="CHARGE_TO" ColumnName="CHARGE_TO" />
+          <ScalarProperty Name="CRT_TS" ColumnName="CRT_TS" />
+          <ScalarProperty Name="FIXEDUP_OPER" ColumnName="FIXEDUP_OPER" />
+          <ScalarProperty Name="FIXEDUP_TS" ColumnName="FIXEDUP_TS" />
+          <ScalarProperty Name="MAN_HOUR_REPAIRS" ColumnName="MAN_HOUR_REPAIRS" />
+          <ScalarProperty Name="DAMAGE_DESC" ColumnName="DAMAGE_DESC" />
+          <ScalarProperty Name="DAMAGE_SEQ" ColumnName="DAMAGE_SEQ" />
+          <ScalarProperty Name="DAMAGE_CD" ColumnName="DAMAGE_CD" />
+          <ScalarProperty Name="ITEM_KEY" ColumnName="ITEM_KEY" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ITEM_LOCATION">
+      <EntityTypeMapping TypeName="EVE.Data.ITEM_LOCATION">
+        <MappingFragment StoreEntitySet="ITEM_LOCATION">
+          <ScalarProperty Name="STK_REF2" ColumnName="STK_REF2" />
+          <ScalarProperty Name="TRUCK_INT_ID" ColumnName="TRUCK_INT_ID" />
+          <ScalarProperty Name="PREV_ID" ColumnName="PREV_ID" />
+          <ScalarProperty Name="CAR_CHE_OPER2" ColumnName="CAR_CHE_OPER2" />
+          <ScalarProperty Name="PREV_LOC" ColumnName="PREV_LOC" />
+          <ScalarProperty Name="MOVE_TYPE" ColumnName="MOVE_TYPE" />
+          <ScalarProperty Name="EXEC_TS" ColumnName="EXEC_TS" />
+          <ScalarProperty Name="INTERNAL_MOVE_CD" ColumnName="INTERNAL_MOVE_CD" />
+          <ScalarProperty Name="CONSOL_FLG" ColumnName="CONSOL_FLG" />
+          <ScalarProperty Name="UPD_TS" ColumnName="UPD_TS" />
+          <ScalarProperty Name="CRT_TS" ColumnName="CRT_TS" />
+          <ScalarProperty Name="CAR_CHE_OPER" ColumnName="CAR_CHE_OPER" />
+          <ScalarProperty Name="CAR_CHE_ID" ColumnName="CAR_CHE_ID" />
+          <ScalarProperty Name="CHE_OPER" ColumnName="CHE_OPER" />
+          <ScalarProperty Name="CHE_ID" ColumnName="CHE_ID" />
+          <ScalarProperty Name="Z" ColumnName="Z" />
+          <ScalarProperty Name="Y" ColumnName="Y" />
+          <ScalarProperty Name="X" ColumnName="X" />
+          <ScalarProperty Name="STACK" ColumnName="STACK" />
+          <ScalarProperty Name="LOC_3D" ColumnName="LOC_3D" />
+          <ScalarProperty Name="STK_CLASS" ColumnName="STK_CLASS" />
+          <ScalarProperty Name="STK_REF" ColumnName="STK_REF" />
+          <ScalarProperty Name="STK_PCH" ColumnName="STK_PCH" />
+          <ScalarProperty Name="SEQ" ColumnName="SEQ" />
+          <ScalarProperty Name="ITEM_KEY" ColumnName="ITEM_KEY" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VESSELS">
+      <EntityTypeMapping TypeName="EVE.Data.VESSEL">
+        <MappingFragment StoreEntitySet="VESSELS">
+          <ScalarProperty Name="VES_PORT" ColumnName="VES_PORT" />
+          <ScalarProperty Name="VES_IMO_NUMBER" ColumnName="VES_IMO_NUMBER" />
+          <ScalarProperty Name="MAX_TEU_FULL" ColumnName="MAX_TEU_FULL" />
+          <ScalarProperty Name="REGIST_EXPIRY_DATE" ColumnName="REGIST_EXPIRY_DATE" />
+          <ScalarProperty Name="IS_USED" ColumnName="IS_USED" />
+          <ScalarProperty Name="LOOP_DAYS" ColumnName="LOOP_DAYS" />
+          <ScalarProperty Name="MAX_DAY_SCHEDULE" ColumnName="MAX_DAY_SCHEDULE" />
+          <ScalarProperty Name="LINE_OPER" ColumnName="LINE_OPER" />
+          <ScalarProperty Name="INTERFACE_TOPX" ColumnName="INTERFACE_TOPX" />
+          <ScalarProperty Name="IS_VIRTUAL" ColumnName="IS_VIRTUAL" />
+          <ScalarProperty Name="MANUFACT_YEAR" ColumnName="MANUFACT_YEAR" />
+          <ScalarProperty Name="UPD_CNT" ColumnName="UPD_CNT" />
+          <ScalarProperty Name="CRANE_RATE" ColumnName="CRANE_RATE" />
+          <ScalarProperty Name="BEAM" ColumnName="BEAM" />
+          <ScalarProperty Name="MAX_DRAFT" ColumnName="MAX_DRAFT" />
+          <ScalarProperty Name="GROSS" ColumnName="GROSS" />
+          <ScalarProperty Name="MAX_TEU" ColumnName="MAX_TEU" />
+          <ScalarProperty Name="VES_BREADTH" ColumnName="VES_BREADTH" />
+          <ScalarProperty Name="REMARKS" ColumnName="REMARKS" />
+          <ScalarProperty Name="SAFE_DISTANCE_AFT" ColumnName="SAFE_DISTANCE_AFT" />
+          <ScalarProperty Name="SAFE_DISTANCE_FWD" ColumnName="SAFE_DISTANCE_FWD" />
+          <ScalarProperty Name="PREFER_BERTH_SIDE" ColumnName="PREFER_BERTH_SIDE" />
+          <ScalarProperty Name="PREFER_BERTH_NO" ColumnName="PREFER_BERTH_NO" />
+          <ScalarProperty Name="UPD_TS" ColumnName="UPD_TS" />
+          <ScalarProperty Name="SPEED" ColumnName="SPEED" />
+          <ScalarProperty Name="HATCHES" ColumnName="HATCHES" />
+          <ScalarProperty Name="HOLDS" ColumnName="HOLDS" />
+          <ScalarProperty Name="RF_PLUGS" ColumnName="RF_PLUGS" />
+          <ScalarProperty Name="STACK_WT_HOLD40" ColumnName="STACK_WT_HOLD40" />
+          <ScalarProperty Name="STACK_WT_HOLD20" ColumnName="STACK_WT_HOLD20" />
+          <ScalarProperty Name="STACK_WT_HATCH40" ColumnName="STACK_WT_HATCH40" />
+          <ScalarProperty Name="STACK_WT_HATCH20" ColumnName="STACK_WT_HATCH20" />
+          <ScalarProperty Name="INTAKE_14T" ColumnName="INTAKE_14T" />
+          <ScalarProperty Name="FOURTYFIVE_FTS" ColumnName="FOURTYFIVE_FTS" />
+          <ScalarProperty Name="ALT_BELOW_DECK" ColumnName="ALT_BELOW_DECK" />
+          <ScalarProperty Name="ALT_ON_DECK" ColumnName="ALT_ON_DECK" />
+          <ScalarProperty Name="STOWAGE_BELOW_DECK" ColumnName="STOWAGE_BELOW_DECK" />
+          <ScalarProperty Name="STOWAGE_ON_DECK" ColumnName="STOWAGE_ON_DECK" />
+          <ScalarProperty Name="NOMINAL_TEU" ColumnName="NOMINAL_TEU" />
+          <ScalarProperty Name="CRANES" ColumnName="CRANES" />
+          <ScalarProperty Name="VES_LEN" ColumnName="VES_LEN" />
+          <ScalarProperty Name="DWT" ColumnName="DWT" />
+          <ScalarProperty Name="GROSS_TONS" ColumnName="GROSS_TONS" />
+          <ScalarProperty Name="REG_FLG" ColumnName="REG_FLG" />
+          <ScalarProperty Name="LLOYDS_NO" ColumnName="LLOYDS_NO" />
+          <ScalarProperty Name="CALL_SIGN" ColumnName="CALL_SIGN" />
+          <ScalarProperty Name="DRAFT" ColumnName="DRAFT" />
+          <ScalarProperty Name="SWL_GEAR" ColumnName="SWL_GEAR" />
+          <ScalarProperty Name="HATCH_TYPE" ColumnName="HATCH_TYPE" />
+          <ScalarProperty Name="VES_NAME" ColumnName="VES_NAME" />
+          <ScalarProperty Name="VES_TYPE" ColumnName="VES_TYPE" />
+          <ScalarProperty Name="VES_CLASS" ColumnName="VES_CLASS" />
+          <ScalarProperty Name="VES_CD" ColumnName="VES_CD" />
+          <ScalarProperty Name="SITE_ID" ColumnName="SITE_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PORTCODEs">
+      <EntityTypeMapping TypeName="EVE.Data.PORTCODE">
+        <MappingFragment StoreEntitySet="PORTCODE">
+          <ScalarProperty Name="UN_PORTCODE" ColumnName="UN_PORTCODE" />
+          <ScalarProperty Name="TERMINAL_FLG" ColumnName="TERMINAL_FLG" />
+          <ScalarProperty Name="UPD_TS" ColumnName="UPD_TS" />
+          <ScalarProperty Name="DESCR" ColumnName="DESCR" />
+          <ScalarProperty Name="UN_COUNTRY" ColumnName="UN_COUNTRY" />
+          <ScalarProperty Name="UN_PORT" ColumnName="UN_PORT" />
+          <ScalarProperty Name="PORT" ColumnName="PORT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

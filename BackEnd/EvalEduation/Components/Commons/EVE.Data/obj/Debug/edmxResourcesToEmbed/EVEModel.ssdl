@@ -1,0 +1,770 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="EVEModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Country">
+    <Key>
+      <PropertyRef Name="CountryCode" />
+    </Key>
+    <Property Name="CountryCode" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="CountryName" Type="nvarchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="District">
+    <Key>
+      <PropertyRef Name="DistrictInt" />
+    </Key>
+    <Property Name="DistrictInt" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DistrictName" Type="nvarchar" MaxLength="50" />
+    <Property Name="ProvinceId" Type="int" />
+    <Property Name="Idx" Type="int" />
+  </EntityType>
+  <EntityType Name="EduDepartment">
+    <Key>
+      <PropertyRef Name="EduDepartmentId" />
+    </Key>
+    <Property Name="EduDepartmentId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EduDepartmentName" Type="nvarchar" MaxLength="500" />
+    <Property Name="DistrictId" Type="int" />
+    <Property Name="EduProvinceId" Type="int" />
+    <Property Name="Address" Type="nvarchar" MaxLength="500" />
+    <Property Name="Idx" Type="int" />
+  </EntityType>
+  <EntityType Name="EduProvince">
+    <Key>
+      <PropertyRef Name="EduProvinceId" />
+    </Key>
+    <Property Name="EduProvinceId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EduProvinceName" Type="nvarchar" MaxLength="500" />
+    <Property Name="Idx" Type="int" />
+    <Property Name="ProvinceId" Type="int" />
+    <Property Name="MinistryofEducationaCode" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Employee">
+    <Key>
+      <PropertyRef Name="EmployeeId" />
+    </Key>
+    <Property Name="EmployeeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EmployeeCode" Type="varchar" MaxLength="50" />
+    <Property Name="Password" Type="varchar" MaxLength="500" />
+    <Property Name="EmployeeName" Type="nvarchar" MaxLength="500" />
+    <Property Name="Address" Type="nvarchar" MaxLength="50" />
+    <Property Name="PhoneNumber" Type="varchar" MaxLength="50" />
+    <Property Name="MinistryofEducationaCode" Type="varchar" MaxLength="50" />
+    <Property Name="EduProvinceId" Type="int" />
+    <Property Name="EduDepartmentId" Type="int" />
+    <Property Name="SchoolId" Type="int" />
+    <Property Name="Active" Type="bit" />
+    <Property Name="Remarks" Type="nvarchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="EvalCriteria">
+    <Key>
+      <PropertyRef Name="EvalCriteriaId" />
+    </Key>
+    <Property Name="EvalCriteriaId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EvalStandardId" Type="int" />
+    <Property Name="EvalCriteriaName" Type="nvarchar" MaxLength="500" />
+    <Property Name="Idx" Type="nchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="EvalDetail">
+    <Key>
+      <PropertyRef Name="EvalDetailId" />
+    </Key>
+    <Property Name="EvalDetailId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EvalMasterId" Type="int" />
+    <Property Name="EvalCriteriaId" Type="int" />
+    <Property Name="EmployeeId" Type="int" />
+    <Property Name="EvalResultCode" Type="varchar" MaxLength="50" />
+    <Property Name="Sample" Type="nvarchar(max)" />
+    <Property Name="Attachment" Type="varchar" MaxLength="300" />
+    <Property Name="EvalForEmployee" Type="int" />
+  </EntityType>
+  <EntityType Name="EvalGuide">
+    <Key>
+      <PropertyRef Name="EvalResultCode" />
+      <PropertyRef Name="EvalCriteriaId" />
+    </Key>
+    <Property Name="EvalResultCode" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="EvalCriteriaId" Type="int" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" MaxLength="4000" />
+    <Property Name="Sample" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="EvalMaster">
+    <Key>
+      <PropertyRef Name="EvalMasterId" />
+    </Key>
+    <Property Name="EvalMasterId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Year" Type="int" />
+    <Property Name="EvalTypeCode" Type="varchar" MaxLength="50" />
+    <Property Name="SchoolId" Type="int" />
+    <Property Name="FromDate" Type="datetime" />
+    <Property Name="ToDate" Type="datetime" />
+    <Property Name="Remark" Type="nvarchar" MaxLength="4000" />
+    <Property Name="Active" Type="bit" />
+    <Property Name="EvalStateCode" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="EvalResult">
+    <Key>
+      <PropertyRef Name="EvalResultCode" />
+    </Key>
+    <Property Name="EvalResultCode" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="EvalResultName" Type="nvarchar" MaxLength="500" />
+    <Property Name="Remark" Type="nvarchar(max)" />
+    <Property Name="Idx" Type="int" />
+  </EntityType>
+  <EntityType Name="EvalStandard">
+    <Key>
+      <PropertyRef Name="EvalStandardId" />
+    </Key>
+    <Property Name="EvalStandardId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EvalStandardName" Type="nvarchar" MaxLength="200" />
+    <Property Name="SchoolLevelCode" Type="varchar" MaxLength="50" />
+    <Property Name="EvalTypeCode" Type="varchar" MaxLength="50" />
+    <Property Name="Idx" Type="int" />
+  </EntityType>
+  <EntityType Name="EvalState">
+    <Key>
+      <PropertyRef Name="EvalStateCode" />
+    </Key>
+    <Property Name="EvalStateCode" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="EvalStateName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Idx" Type="int" />
+  </EntityType>
+  <EntityType Name="EvalType">
+    <Key>
+      <PropertyRef Name="EvalTypeCode" />
+    </Key>
+    <Property Name="EvalTypeCode" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="EvalTypeName" Type="nvarchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="Forms">
+    <Key>
+      <PropertyRef Name="FormCode" />
+    </Key>
+    <Property Name="FormCode" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="FormName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Idx" Type="int" />
+  </EntityType>
+  <EntityType Name="LoginUser">
+    <Key>
+      <PropertyRef Name="LoginID" />
+    </Key>
+    <Property Name="LoginID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="IpAddress" Type="char" MaxLength="30" />
+    <Property Name="HostName" Type="char" MaxLength="30" />
+    <Property Name="UserName" Type="char" MaxLength="100" Nullable="false" />
+    <Property Name="LoginDate" Type="date" Nullable="false" />
+    <Property Name="UserId" Type="char" MaxLength="25" Nullable="false" />
+    <Property Name="Version" Type="char" MaxLength="15" />
+    <Property Name="UserGroup" Type="char" MaxLength="4" />
+    <Property Name="CrtTs" Type="date" Nullable="false" />
+    <Property Name="UpdTs" Type="date" Nullable="false" />
+    <Property Name="Remarks" Type="nvarchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="MinistryofEducation">
+    <Key>
+      <PropertyRef Name="MinistryofEducationaCode" />
+    </Key>
+    <Property Name="MinistryofEducationaCode" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="MinistryofEducationaName" Type="nvarchar" MaxLength="500" />
+    <Property Name="Address" Type="nvarchar" MaxLength="500" />
+    <Property Name="PhoneNumber" Type="varchar" MaxLength="20" />
+    <Property Name="HotLine" Type="varchar" MaxLength="20" />
+    <Property Name="CountryCode" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Province">
+    <Key>
+      <PropertyRef Name="ProvinceId" />
+    </Key>
+    <Property Name="ProvinceId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProvinceName" Type="nvarchar" MaxLength="200" />
+    <Property Name="CountryCode" Type="varchar" MaxLength="50" />
+    <Property Name="Idx" Type="int" />
+    <Property Name="PostCode" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="School">
+    <Key>
+      <PropertyRef Name="SchoolId" />
+    </Key>
+    <Property Name="SchoolId" Type="int" Nullable="false" />
+    <Property Name="School" Type="nvarchar" MaxLength="500" />
+    <Property Name="Address" Type="nvarchar" MaxLength="500" />
+    <Property Name="EduDepartmentId" Type="int" />
+    <Property Name="EduProvinceId" Type="int" />
+    <Property Name="SchoolLevelCode" Type="varchar" MaxLength="50" />
+    <Property Name="PhoneNumber" Type="varchar" MaxLength="20" />
+    <Property Name="HotLine" Type="varchar" MaxLength="20" />
+    <Property Name="MinistryofEducationaCode" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="SchoolLevel">
+    <Key>
+      <PropertyRef Name="SchoolLevelCode" />
+    </Key>
+    <Property Name="SchoolLevelCode" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="SchoolLevelName" Type="nvarchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="UserGroup">
+    <Key>
+      <PropertyRef Name="UserGroupCode" />
+    </Key>
+    <Property Name="UserGroupCode" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="UserGroupName" Type="nvarchar" MaxLength="200" />
+    <Property Name="Idx" Type="int" />
+  </EntityType>
+  <EntityType Name="UserGroup_Employee">
+    <Key>
+      <PropertyRef Name="UserGroupCode" />
+      <PropertyRef Name="EmployeeId" />
+    </Key>
+    <Property Name="UserGroupCode" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="EmployeeId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UserGroup_Form">
+    <Key>
+      <PropertyRef Name="UserGroupCode" />
+      <PropertyRef Name="FromCode" />
+    </Key>
+    <Property Name="UserGroupCode" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="FromCode" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Ward">
+    <Key>
+      <PropertyRef Name="WardId" />
+    </Key>
+    <Property Name="WardId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="WardName" Type="nvarchar" MaxLength="500" />
+    <Property Name="DistrictId" Type="int" />
+    <Property Name="Idx" Type="int" />
+  </EntityType>
+  <Association Name="FK_District_Province">
+    <End Role="Province" Type="Self.Province" Multiplicity="0..1" />
+    <End Role="District" Type="Self.District" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Province">
+        <PropertyRef Name="ProvinceId" />
+      </Principal>
+      <Dependent Role="District">
+        <PropertyRef Name="ProvinceId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EduDepartment_District">
+    <End Role="District" Type="Self.District" Multiplicity="0..1" />
+    <End Role="EduDepartment" Type="Self.EduDepartment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="District">
+        <PropertyRef Name="DistrictInt" />
+      </Principal>
+      <Dependent Role="EduDepartment">
+        <PropertyRef Name="DistrictId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EduDepartment_EduProvince">
+    <End Role="EduProvince" Type="Self.EduProvince" Multiplicity="0..1" />
+    <End Role="EduDepartment" Type="Self.EduDepartment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EduProvince">
+        <PropertyRef Name="EduProvinceId" />
+      </Principal>
+      <Dependent Role="EduDepartment">
+        <PropertyRef Name="EduProvinceId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EduProvince_MinistryofEducation">
+    <End Role="MinistryofEducation" Type="Self.MinistryofEducation" Multiplicity="0..1" />
+    <End Role="EduProvince" Type="Self.EduProvince" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MinistryofEducation">
+        <PropertyRef Name="MinistryofEducationaCode" />
+      </Principal>
+      <Dependent Role="EduProvince">
+        <PropertyRef Name="MinistryofEducationaCode" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EduProvince_Province">
+    <End Role="Province" Type="Self.Province" Multiplicity="0..1" />
+    <End Role="EduProvince" Type="Self.EduProvince" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Province">
+        <PropertyRef Name="ProvinceId" />
+      </Principal>
+      <Dependent Role="EduProvince">
+        <PropertyRef Name="ProvinceId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Employee_EduDepartment">
+    <End Role="EduDepartment" Type="Self.EduDepartment" Multiplicity="0..1" />
+    <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EduDepartment">
+        <PropertyRef Name="EduDepartmentId" />
+      </Principal>
+      <Dependent Role="Employee">
+        <PropertyRef Name="EduDepartmentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Employee_EduProvince">
+    <End Role="EduProvince" Type="Self.EduProvince" Multiplicity="0..1" />
+    <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EduProvince">
+        <PropertyRef Name="EduProvinceId" />
+      </Principal>
+      <Dependent Role="Employee">
+        <PropertyRef Name="EduProvinceId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Employee_MinistryofEducation">
+    <End Role="MinistryofEducation" Type="Self.MinistryofEducation" Multiplicity="0..1" />
+    <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MinistryofEducation">
+        <PropertyRef Name="MinistryofEducationaCode" />
+      </Principal>
+      <Dependent Role="Employee">
+        <PropertyRef Name="MinistryofEducationaCode" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Employee_School">
+    <End Role="School" Type="Self.School" Multiplicity="0..1" />
+    <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="School">
+        <PropertyRef Name="SchoolId" />
+      </Principal>
+      <Dependent Role="Employee">
+        <PropertyRef Name="SchoolId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EvalCriteria_EvalStandard">
+    <End Role="EvalStandard" Type="Self.EvalStandard" Multiplicity="0..1" />
+    <End Role="EvalCriteria" Type="Self.EvalCriteria" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EvalStandard">
+        <PropertyRef Name="EvalStandardId" />
+      </Principal>
+      <Dependent Role="EvalCriteria">
+        <PropertyRef Name="EvalStandardId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EvalDetail_Employee">
+    <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
+    <End Role="EvalDetail" Type="Self.EvalDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="EmployeeId" />
+      </Principal>
+      <Dependent Role="EvalDetail">
+        <PropertyRef Name="EmployeeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EvalDetail_EvalMaster">
+    <End Role="EvalMaster" Type="Self.EvalMaster" Multiplicity="0..1" />
+    <End Role="EvalDetail" Type="Self.EvalDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EvalMaster">
+        <PropertyRef Name="EvalMasterId" />
+      </Principal>
+      <Dependent Role="EvalDetail">
+        <PropertyRef Name="EvalMasterId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EvalDetail_EvalResult">
+    <End Role="EvalResult" Type="Self.EvalResult" Multiplicity="0..1" />
+    <End Role="EvalDetail" Type="Self.EvalDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EvalResult">
+        <PropertyRef Name="EvalResultCode" />
+      </Principal>
+      <Dependent Role="EvalDetail">
+        <PropertyRef Name="EvalResultCode" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EvalGuide_EvalCriteria">
+    <End Role="EvalCriteria" Type="Self.EvalCriteria" Multiplicity="1" />
+    <End Role="EvalGuide" Type="Self.EvalGuide" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EvalCriteria">
+        <PropertyRef Name="EvalCriteriaId" />
+      </Principal>
+      <Dependent Role="EvalGuide">
+        <PropertyRef Name="EvalCriteriaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EvalGuide_EvalResult">
+    <End Role="EvalResult" Type="Self.EvalResult" Multiplicity="1" />
+    <End Role="EvalGuide" Type="Self.EvalGuide" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EvalResult">
+        <PropertyRef Name="EvalResultCode" />
+      </Principal>
+      <Dependent Role="EvalGuide">
+        <PropertyRef Name="EvalResultCode" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EvalMaster_EvalState">
+    <End Role="EvalState" Type="Self.EvalState" Multiplicity="0..1" />
+    <End Role="EvalMaster" Type="Self.EvalMaster" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EvalState">
+        <PropertyRef Name="EvalStateCode" />
+      </Principal>
+      <Dependent Role="EvalMaster">
+        <PropertyRef Name="EvalStateCode" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EvalMaster_EvalType">
+    <End Role="EvalType" Type="Self.EvalType" Multiplicity="0..1" />
+    <End Role="EvalMaster" Type="Self.EvalMaster" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EvalType">
+        <PropertyRef Name="EvalTypeCode" />
+      </Principal>
+      <Dependent Role="EvalMaster">
+        <PropertyRef Name="EvalTypeCode" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EvalMaster_School">
+    <End Role="School" Type="Self.School" Multiplicity="0..1" />
+    <End Role="EvalMaster" Type="Self.EvalMaster" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="School">
+        <PropertyRef Name="SchoolId" />
+      </Principal>
+      <Dependent Role="EvalMaster">
+        <PropertyRef Name="SchoolId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EvalStandard_EvalType">
+    <End Role="EvalType" Type="Self.EvalType" Multiplicity="0..1" />
+    <End Role="EvalStandard" Type="Self.EvalStandard" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EvalType">
+        <PropertyRef Name="EvalTypeCode" />
+      </Principal>
+      <Dependent Role="EvalStandard">
+        <PropertyRef Name="EvalTypeCode" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EvalStandard_SchoolLevel">
+    <End Role="SchoolLevel" Type="Self.SchoolLevel" Multiplicity="0..1" />
+    <End Role="EvalStandard" Type="Self.EvalStandard" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SchoolLevel">
+        <PropertyRef Name="SchoolLevelCode" />
+      </Principal>
+      <Dependent Role="EvalStandard">
+        <PropertyRef Name="SchoolLevelCode" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MinistryofEducation_Country">
+    <End Role="Country" Type="Self.Country" Multiplicity="0..1" />
+    <End Role="MinistryofEducation" Type="Self.MinistryofEducation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Country">
+        <PropertyRef Name="CountryCode" />
+      </Principal>
+      <Dependent Role="MinistryofEducation">
+        <PropertyRef Name="CountryCode" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Province_Country">
+    <End Role="Country" Type="Self.Country" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Province" Type="Self.Province" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Country">
+        <PropertyRef Name="CountryCode" />
+      </Principal>
+      <Dependent Role="Province">
+        <PropertyRef Name="CountryCode" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_School_EduDepartment">
+    <End Role="EduDepartment" Type="Self.EduDepartment" Multiplicity="0..1" />
+    <End Role="School" Type="Self.School" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EduDepartment">
+        <PropertyRef Name="EduDepartmentId" />
+      </Principal>
+      <Dependent Role="School">
+        <PropertyRef Name="EduDepartmentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_School_EduProvince">
+    <End Role="EduProvince" Type="Self.EduProvince" Multiplicity="0..1" />
+    <End Role="School" Type="Self.School" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EduProvince">
+        <PropertyRef Name="EduProvinceId" />
+      </Principal>
+      <Dependent Role="School">
+        <PropertyRef Name="EduProvinceId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_School_MinistryofEducation">
+    <End Role="MinistryofEducation" Type="Self.MinistryofEducation" Multiplicity="0..1" />
+    <End Role="School" Type="Self.School" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MinistryofEducation">
+        <PropertyRef Name="MinistryofEducationaCode" />
+      </Principal>
+      <Dependent Role="School">
+        <PropertyRef Name="MinistryofEducationaCode" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_School_SchoolLevel">
+    <End Role="SchoolLevel" Type="Self.SchoolLevel" Multiplicity="0..1" />
+    <End Role="School" Type="Self.School" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SchoolLevel">
+        <PropertyRef Name="SchoolLevelCode" />
+      </Principal>
+      <Dependent Role="School">
+        <PropertyRef Name="SchoolLevelCode" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserGroup_Employee_Employee">
+    <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
+    <End Role="UserGroup_Employee" Type="Self.UserGroup_Employee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="EmployeeId" />
+      </Principal>
+      <Dependent Role="UserGroup_Employee">
+        <PropertyRef Name="EmployeeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserGroup_Employee_UserGroup">
+    <End Role="UserGroup" Type="Self.UserGroup" Multiplicity="1" />
+    <End Role="UserGroup_Employee" Type="Self.UserGroup_Employee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserGroup">
+        <PropertyRef Name="UserGroupCode" />
+      </Principal>
+      <Dependent Role="UserGroup_Employee">
+        <PropertyRef Name="UserGroupCode" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserGroup_Form_Form">
+    <End Role="Forms" Type="Self.Forms" Multiplicity="1" />
+    <End Role="UserGroup_Form" Type="Self.UserGroup_Form" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Forms">
+        <PropertyRef Name="FormCode" />
+      </Principal>
+      <Dependent Role="UserGroup_Form">
+        <PropertyRef Name="FromCode" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserGroup_Form_UserGroup">
+    <End Role="UserGroup" Type="Self.UserGroup" Multiplicity="1" />
+    <End Role="UserGroup_Form" Type="Self.UserGroup_Form" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserGroup">
+        <PropertyRef Name="UserGroupCode" />
+      </Principal>
+      <Dependent Role="UserGroup_Form">
+        <PropertyRef Name="UserGroupCode" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Ward_District">
+    <End Role="District" Type="Self.District" Multiplicity="0..1" />
+    <End Role="Ward" Type="Self.Ward" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="District">
+        <PropertyRef Name="DistrictInt" />
+      </Principal>
+      <Dependent Role="Ward">
+        <PropertyRef Name="DistrictId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="EVEModelStoreContainer">
+    <EntitySet Name="Country" EntityType="Self.Country" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="District" EntityType="Self.District" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EduDepartment" EntityType="Self.EduDepartment" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EduProvince" EntityType="Self.EduProvince" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Employee" EntityType="Self.Employee" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EvalCriteria" EntityType="Self.EvalCriteria" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EvalDetail" EntityType="Self.EvalDetail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EvalGuide" EntityType="Self.EvalGuide" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EvalMaster" EntityType="Self.EvalMaster" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EvalResult" EntityType="Self.EvalResult" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EvalStandard" EntityType="Self.EvalStandard" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EvalState" EntityType="Self.EvalState" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EvalType" EntityType="Self.EvalType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Forms" EntityType="Self.Forms" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LoginUser" EntityType="Self.LoginUser" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MinistryofEducation" EntityType="Self.MinistryofEducation" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Province" EntityType="Self.Province" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="School" EntityType="Self.School" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SchoolLevel" EntityType="Self.SchoolLevel" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserGroup" EntityType="Self.UserGroup" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserGroup_Employee" EntityType="Self.UserGroup_Employee" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserGroup_Form" EntityType="Self.UserGroup_Form" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Ward" EntityType="Self.Ward" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_District_Province" Association="Self.FK_District_Province">
+      <End Role="Province" EntitySet="Province" />
+      <End Role="District" EntitySet="District" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EduDepartment_District" Association="Self.FK_EduDepartment_District">
+      <End Role="District" EntitySet="District" />
+      <End Role="EduDepartment" EntitySet="EduDepartment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EduDepartment_EduProvince" Association="Self.FK_EduDepartment_EduProvince">
+      <End Role="EduProvince" EntitySet="EduProvince" />
+      <End Role="EduDepartment" EntitySet="EduDepartment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EduProvince_MinistryofEducation" Association="Self.FK_EduProvince_MinistryofEducation">
+      <End Role="MinistryofEducation" EntitySet="MinistryofEducation" />
+      <End Role="EduProvince" EntitySet="EduProvince" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EduProvince_Province" Association="Self.FK_EduProvince_Province">
+      <End Role="Province" EntitySet="Province" />
+      <End Role="EduProvince" EntitySet="EduProvince" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Employee_EduDepartment" Association="Self.FK_Employee_EduDepartment">
+      <End Role="EduDepartment" EntitySet="EduDepartment" />
+      <End Role="Employee" EntitySet="Employee" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Employee_EduProvince" Association="Self.FK_Employee_EduProvince">
+      <End Role="EduProvince" EntitySet="EduProvince" />
+      <End Role="Employee" EntitySet="Employee" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Employee_MinistryofEducation" Association="Self.FK_Employee_MinistryofEducation">
+      <End Role="MinistryofEducation" EntitySet="MinistryofEducation" />
+      <End Role="Employee" EntitySet="Employee" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Employee_School" Association="Self.FK_Employee_School">
+      <End Role="School" EntitySet="School" />
+      <End Role="Employee" EntitySet="Employee" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EvalCriteria_EvalStandard" Association="Self.FK_EvalCriteria_EvalStandard">
+      <End Role="EvalStandard" EntitySet="EvalStandard" />
+      <End Role="EvalCriteria" EntitySet="EvalCriteria" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EvalDetail_Employee" Association="Self.FK_EvalDetail_Employee">
+      <End Role="Employee" EntitySet="Employee" />
+      <End Role="EvalDetail" EntitySet="EvalDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EvalDetail_EvalMaster" Association="Self.FK_EvalDetail_EvalMaster">
+      <End Role="EvalMaster" EntitySet="EvalMaster" />
+      <End Role="EvalDetail" EntitySet="EvalDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EvalDetail_EvalResult" Association="Self.FK_EvalDetail_EvalResult">
+      <End Role="EvalResult" EntitySet="EvalResult" />
+      <End Role="EvalDetail" EntitySet="EvalDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EvalGuide_EvalCriteria" Association="Self.FK_EvalGuide_EvalCriteria">
+      <End Role="EvalCriteria" EntitySet="EvalCriteria" />
+      <End Role="EvalGuide" EntitySet="EvalGuide" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EvalGuide_EvalResult" Association="Self.FK_EvalGuide_EvalResult">
+      <End Role="EvalResult" EntitySet="EvalResult" />
+      <End Role="EvalGuide" EntitySet="EvalGuide" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EvalMaster_EvalState" Association="Self.FK_EvalMaster_EvalState">
+      <End Role="EvalState" EntitySet="EvalState" />
+      <End Role="EvalMaster" EntitySet="EvalMaster" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EvalMaster_EvalType" Association="Self.FK_EvalMaster_EvalType">
+      <End Role="EvalType" EntitySet="EvalType" />
+      <End Role="EvalMaster" EntitySet="EvalMaster" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EvalMaster_School" Association="Self.FK_EvalMaster_School">
+      <End Role="School" EntitySet="School" />
+      <End Role="EvalMaster" EntitySet="EvalMaster" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EvalStandard_EvalType" Association="Self.FK_EvalStandard_EvalType">
+      <End Role="EvalType" EntitySet="EvalType" />
+      <End Role="EvalStandard" EntitySet="EvalStandard" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EvalStandard_SchoolLevel" Association="Self.FK_EvalStandard_SchoolLevel">
+      <End Role="SchoolLevel" EntitySet="SchoolLevel" />
+      <End Role="EvalStandard" EntitySet="EvalStandard" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MinistryofEducation_Country" Association="Self.FK_MinistryofEducation_Country">
+      <End Role="Country" EntitySet="Country" />
+      <End Role="MinistryofEducation" EntitySet="MinistryofEducation" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Province_Country" Association="Self.FK_Province_Country">
+      <End Role="Country" EntitySet="Country" />
+      <End Role="Province" EntitySet="Province" />
+    </AssociationSet>
+    <AssociationSet Name="FK_School_EduDepartment" Association="Self.FK_School_EduDepartment">
+      <End Role="EduDepartment" EntitySet="EduDepartment" />
+      <End Role="School" EntitySet="School" />
+    </AssociationSet>
+    <AssociationSet Name="FK_School_EduProvince" Association="Self.FK_School_EduProvince">
+      <End Role="EduProvince" EntitySet="EduProvince" />
+      <End Role="School" EntitySet="School" />
+    </AssociationSet>
+    <AssociationSet Name="FK_School_MinistryofEducation" Association="Self.FK_School_MinistryofEducation">
+      <End Role="MinistryofEducation" EntitySet="MinistryofEducation" />
+      <End Role="School" EntitySet="School" />
+    </AssociationSet>
+    <AssociationSet Name="FK_School_SchoolLevel" Association="Self.FK_School_SchoolLevel">
+      <End Role="SchoolLevel" EntitySet="SchoolLevel" />
+      <End Role="School" EntitySet="School" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserGroup_Employee_Employee" Association="Self.FK_UserGroup_Employee_Employee">
+      <End Role="Employee" EntitySet="Employee" />
+      <End Role="UserGroup_Employee" EntitySet="UserGroup_Employee" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserGroup_Employee_UserGroup" Association="Self.FK_UserGroup_Employee_UserGroup">
+      <End Role="UserGroup" EntitySet="UserGroup" />
+      <End Role="UserGroup_Employee" EntitySet="UserGroup_Employee" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserGroup_Form_Form" Association="Self.FK_UserGroup_Form_Form">
+      <End Role="Forms" EntitySet="Forms" />
+      <End Role="UserGroup_Form" EntitySet="UserGroup_Form" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserGroup_Form_UserGroup" Association="Self.FK_UserGroup_Form_UserGroup">
+      <End Role="UserGroup" EntitySet="UserGroup" />
+      <End Role="UserGroup_Form" EntitySet="UserGroup_Form" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Ward_District" Association="Self.FK_Ward_District">
+      <End Role="District" EntitySet="District" />
+      <End Role="Ward" EntitySet="Ward" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

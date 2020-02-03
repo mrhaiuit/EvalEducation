@@ -1,0 +1,762 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="EVEModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Country">
+    <Key>
+      <PropertyRef Name="CountryCode" />
+    </Key>
+    <Property Name="CountryCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CountryName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="MinistryofEducations" Relationship="Self.FK_MinistryofEducation_Country" FromRole="Country" ToRole="MinistryofEducation" />
+    <NavigationProperty Name="Provinces" Relationship="Self.FK_Province_Country" FromRole="Country" ToRole="Province" />
+  </EntityType>
+  <EntityType Name="District">
+    <Key>
+      <PropertyRef Name="DistrictInt" />
+    </Key>
+    <Property Name="DistrictInt" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DistrictName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ProvinceId" Type="Int32" />
+    <Property Name="Idx" Type="Int32" />
+    <NavigationProperty Name="Province" Relationship="Self.FK_District_Province" FromRole="District" ToRole="Province" />
+    <NavigationProperty Name="EduDepartments" Relationship="Self.FK_EduDepartment_District" FromRole="District" ToRole="EduDepartment" />
+    <NavigationProperty Name="Wards" Relationship="Self.FK_Ward_District" FromRole="District" ToRole="Ward" />
+  </EntityType>
+  <EntityType Name="EduDepartment">
+    <Key>
+      <PropertyRef Name="EduDepartmentId" />
+    </Key>
+    <Property Name="EduDepartmentId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EduDepartmentName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="DistrictId" Type="Int32" />
+    <Property Name="EduProvinceId" Type="Int32" />
+    <Property Name="Address" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Idx" Type="Int32" />
+    <NavigationProperty Name="District" Relationship="Self.FK_EduDepartment_District" FromRole="EduDepartment" ToRole="District" />
+    <NavigationProperty Name="EduProvince" Relationship="Self.FK_EduDepartment_EduProvince" FromRole="EduDepartment" ToRole="EduProvince" />
+    <NavigationProperty Name="Employees" Relationship="Self.FK_Employee_EduDepartment" FromRole="EduDepartment" ToRole="Employee" />
+    <NavigationProperty Name="Schools" Relationship="Self.FK_School_EduDepartment" FromRole="EduDepartment" ToRole="School" />
+  </EntityType>
+  <EntityType Name="EduProvince">
+    <Key>
+      <PropertyRef Name="EduProvinceId" />
+    </Key>
+    <Property Name="EduProvinceId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EduProvinceName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Idx" Type="Int32" />
+    <Property Name="ProvinceId" Type="Int32" />
+    <Property Name="MinistryofEducationaCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="EduDepartments" Relationship="Self.FK_EduDepartment_EduProvince" FromRole="EduProvince" ToRole="EduDepartment" />
+    <NavigationProperty Name="MinistryofEducation" Relationship="Self.FK_EduProvince_MinistryofEducation" FromRole="EduProvince" ToRole="MinistryofEducation" />
+    <NavigationProperty Name="Province" Relationship="Self.FK_EduProvince_Province" FromRole="EduProvince" ToRole="Province" />
+    <NavigationProperty Name="Employees" Relationship="Self.FK_Employee_EduProvince" FromRole="EduProvince" ToRole="Employee" />
+    <NavigationProperty Name="Schools" Relationship="Self.FK_School_EduProvince" FromRole="EduProvince" ToRole="School" />
+  </EntityType>
+  <EntityType Name="Employee">
+    <Key>
+      <PropertyRef Name="EmployeeId" />
+    </Key>
+    <Property Name="EmployeeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EmployeeCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Password" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="EmployeeName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="MinistryofEducationaCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="EduProvinceId" Type="Int32" />
+    <Property Name="EduDepartmentId" Type="Int32" />
+    <Property Name="SchoolId" Type="Int32" />
+    <Property Name="Active" Type="Boolean" />
+    <Property Name="Remarks" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="EduDepartment" Relationship="Self.FK_Employee_EduDepartment" FromRole="Employee" ToRole="EduDepartment" />
+    <NavigationProperty Name="EduProvince" Relationship="Self.FK_Employee_EduProvince" FromRole="Employee" ToRole="EduProvince" />
+    <NavigationProperty Name="MinistryofEducation" Relationship="Self.FK_Employee_MinistryofEducation" FromRole="Employee" ToRole="MinistryofEducation" />
+    <NavigationProperty Name="School" Relationship="Self.FK_Employee_School" FromRole="Employee" ToRole="School" />
+    <NavigationProperty Name="EvalDetails" Relationship="Self.FK_EvalDetail_Employee" FromRole="Employee" ToRole="EvalDetail" />
+    <NavigationProperty Name="UserGroups" Relationship="Self.UserGroup_Employee" FromRole="Employee" ToRole="UserGroup" />
+  </EntityType>
+  <EntityType Name="EvalCriteria">
+    <Key>
+      <PropertyRef Name="EvalCriteriaId" />
+    </Key>
+    <Property Name="EvalCriteriaId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EvalStandardId" Type="Int32" />
+    <Property Name="EvalCriteriaName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Idx" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <NavigationProperty Name="EvalStandard" Relationship="Self.FK_EvalCriteria_EvalStandard" FromRole="EvalCriteria" ToRole="EvalStandard" />
+    <NavigationProperty Name="EvalGuides" Relationship="Self.FK_EvalGuide_EvalCriteria" FromRole="EvalCriteria" ToRole="EvalGuide" />
+  </EntityType>
+  <EntityType Name="EvalDetail">
+    <Key>
+      <PropertyRef Name="EvalDetailId" />
+    </Key>
+    <Property Name="EvalDetailId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EvalMasterId" Type="Int32" />
+    <Property Name="EvalCriteriaId" Type="Int32" />
+    <Property Name="EmployeeId" Type="Int32" />
+    <Property Name="EvalResultCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Sample" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Attachment" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Name="EvalForEmployee" Type="Int32" />
+    <NavigationProperty Name="Employee" Relationship="Self.FK_EvalDetail_Employee" FromRole="EvalDetail" ToRole="Employee" />
+    <NavigationProperty Name="EvalMaster" Relationship="Self.FK_EvalDetail_EvalMaster" FromRole="EvalDetail" ToRole="EvalMaster" />
+    <NavigationProperty Name="EvalResult" Relationship="Self.FK_EvalDetail_EvalResult" FromRole="EvalDetail" ToRole="EvalResult" />
+  </EntityType>
+  <EntityType Name="EvalGuide">
+    <Key>
+      <PropertyRef Name="EvalResultCode" />
+      <PropertyRef Name="EvalCriteriaId" />
+    </Key>
+    <Property Name="EvalResultCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="EvalCriteriaId" Type="Int32" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+    <Property Name="Sample" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="EvalCriteria" Relationship="Self.FK_EvalGuide_EvalCriteria" FromRole="EvalGuide" ToRole="EvalCriteria" />
+    <NavigationProperty Name="EvalResult" Relationship="Self.FK_EvalGuide_EvalResult" FromRole="EvalGuide" ToRole="EvalResult" />
+  </EntityType>
+  <EntityType Name="EvalMaster">
+    <Key>
+      <PropertyRef Name="EvalMasterId" />
+    </Key>
+    <Property Name="EvalMasterId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Year" Type="Int32" />
+    <Property Name="EvalTypeCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="SchoolId" Type="Int32" />
+    <Property Name="FromDate" Type="DateTime" Precision="3" />
+    <Property Name="ToDate" Type="DateTime" Precision="3" />
+    <Property Name="Remark" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+    <Property Name="Active" Type="Boolean" />
+    <Property Name="EvalStateCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="EvalDetails" Relationship="Self.FK_EvalDetail_EvalMaster" FromRole="EvalMaster" ToRole="EvalDetail" />
+    <NavigationProperty Name="EvalState" Relationship="Self.FK_EvalMaster_EvalState" FromRole="EvalMaster" ToRole="EvalState" />
+    <NavigationProperty Name="EvalType" Relationship="Self.FK_EvalMaster_EvalType" FromRole="EvalMaster" ToRole="EvalType" />
+    <NavigationProperty Name="School" Relationship="Self.FK_EvalMaster_School" FromRole="EvalMaster" ToRole="School" />
+  </EntityType>
+  <EntityType Name="EvalResult">
+    <Key>
+      <PropertyRef Name="EvalResultCode" />
+    </Key>
+    <Property Name="EvalResultCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="EvalResultName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Remark" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Idx" Type="Int32" />
+    <NavigationProperty Name="EvalDetails" Relationship="Self.FK_EvalDetail_EvalResult" FromRole="EvalResult" ToRole="EvalDetail" />
+    <NavigationProperty Name="EvalGuides" Relationship="Self.FK_EvalGuide_EvalResult" FromRole="EvalResult" ToRole="EvalGuide" />
+  </EntityType>
+  <EntityType Name="EvalStandard">
+    <Key>
+      <PropertyRef Name="EvalStandardId" />
+    </Key>
+    <Property Name="EvalStandardId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EvalStandardName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="SchoolLevelCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="EvalTypeCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Idx" Type="Int32" />
+    <NavigationProperty Name="EvalCriterias" Relationship="Self.FK_EvalCriteria_EvalStandard" FromRole="EvalStandard" ToRole="EvalCriteria" />
+    <NavigationProperty Name="EvalType" Relationship="Self.FK_EvalStandard_EvalType" FromRole="EvalStandard" ToRole="EvalType" />
+    <NavigationProperty Name="SchoolLevel" Relationship="Self.FK_EvalStandard_SchoolLevel" FromRole="EvalStandard" ToRole="SchoolLevel" />
+  </EntityType>
+  <EntityType Name="EvalState">
+    <Key>
+      <PropertyRef Name="EvalStateCode" />
+    </Key>
+    <Property Name="EvalStateCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="EvalStateName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Idx" Type="Int32" />
+    <NavigationProperty Name="EvalMasters" Relationship="Self.FK_EvalMaster_EvalState" FromRole="EvalState" ToRole="EvalMaster" />
+  </EntityType>
+  <EntityType Name="EvalType">
+    <Key>
+      <PropertyRef Name="EvalTypeCode" />
+    </Key>
+    <Property Name="EvalTypeCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="EvalTypeName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="EvalMasters" Relationship="Self.FK_EvalMaster_EvalType" FromRole="EvalType" ToRole="EvalMaster" />
+    <NavigationProperty Name="EvalStandards" Relationship="Self.FK_EvalStandard_EvalType" FromRole="EvalType" ToRole="EvalStandard" />
+  </EntityType>
+  <EntityType Name="Form">
+    <Key>
+      <PropertyRef Name="FormCode" />
+    </Key>
+    <Property Name="FormCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="FormName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Idx" Type="Int32" />
+    <NavigationProperty Name="UserGroups" Relationship="Self.UserGroup_Form" FromRole="Forms" ToRole="UserGroup" />
+  </EntityType>
+  <EntityType Name="MinistryofEducation">
+    <Key>
+      <PropertyRef Name="MinistryofEducationaCode" />
+    </Key>
+    <Property Name="MinistryofEducationaCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="MinistryofEducationaName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Address" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="HotLine" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="CountryCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Country" Relationship="Self.FK_MinistryofEducation_Country" FromRole="MinistryofEducation" ToRole="Country" />
+    <NavigationProperty Name="EduProvinces" Relationship="Self.FK_EduProvince_MinistryofEducation" FromRole="MinistryofEducation" ToRole="EduProvince" />
+    <NavigationProperty Name="Employees" Relationship="Self.FK_Employee_MinistryofEducation" FromRole="MinistryofEducation" ToRole="Employee" />
+    <NavigationProperty Name="Schools" Relationship="Self.FK_School_MinistryofEducation" FromRole="MinistryofEducation" ToRole="School" />
+  </EntityType>
+  <EntityType Name="Province">
+    <Key>
+      <PropertyRef Name="ProvinceId" />
+    </Key>
+    <Property Name="ProvinceId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProvinceName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="CountryCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Idx" Type="Int32" />
+    <Property Name="PostCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Country" Relationship="Self.FK_Province_Country" FromRole="Province" ToRole="Country" />
+    <NavigationProperty Name="Districts" Relationship="Self.FK_District_Province" FromRole="Province" ToRole="District" />
+    <NavigationProperty Name="EduProvinces" Relationship="Self.FK_EduProvince_Province" FromRole="Province" ToRole="EduProvince" />
+  </EntityType>
+  <EntityType Name="School">
+    <Key>
+      <PropertyRef Name="SchoolId" />
+    </Key>
+    <Property Name="SchoolId" Type="Int32" Nullable="false" />
+    <Property Name="School1" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Address" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="EduDepartmentId" Type="Int32" />
+    <Property Name="EduProvinceId" Type="Int32" />
+    <Property Name="SchoolLevelCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PhoneNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="HotLine" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="MinistryofEducationaCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="EduDepartment" Relationship="Self.FK_School_EduDepartment" FromRole="School" ToRole="EduDepartment" />
+    <NavigationProperty Name="EduProvince" Relationship="Self.FK_School_EduProvince" FromRole="School" ToRole="EduProvince" />
+    <NavigationProperty Name="Employees" Relationship="Self.FK_Employee_School" FromRole="School" ToRole="Employee" />
+    <NavigationProperty Name="EvalMasters" Relationship="Self.FK_EvalMaster_School" FromRole="School" ToRole="EvalMaster" />
+    <NavigationProperty Name="MinistryofEducation" Relationship="Self.FK_School_MinistryofEducation" FromRole="School" ToRole="MinistryofEducation" />
+    <NavigationProperty Name="SchoolLevel" Relationship="Self.FK_School_SchoolLevel" FromRole="School" ToRole="SchoolLevel" />
+  </EntityType>
+  <EntityType Name="SchoolLevel">
+    <Key>
+      <PropertyRef Name="SchoolLevelCode" />
+    </Key>
+    <Property Name="SchoolLevelCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="SchoolLevelName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="EvalStandards" Relationship="Self.FK_EvalStandard_SchoolLevel" FromRole="SchoolLevel" ToRole="EvalStandard" />
+    <NavigationProperty Name="Schools" Relationship="Self.FK_School_SchoolLevel" FromRole="SchoolLevel" ToRole="School" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="UserGroup">
+    <Key>
+      <PropertyRef Name="UserGroupCode" />
+    </Key>
+    <Property Name="UserGroupCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="UserGroupName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Idx" Type="Int32" />
+    <NavigationProperty Name="Employees" Relationship="Self.UserGroup_Employee" FromRole="UserGroup" ToRole="Employee" />
+    <NavigationProperty Name="Forms" Relationship="Self.UserGroup_Form" FromRole="UserGroup" ToRole="Forms" />
+  </EntityType>
+  <EntityType Name="Ward">
+    <Key>
+      <PropertyRef Name="WardId" />
+    </Key>
+    <Property Name="WardId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="WardName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="DistrictId" Type="Int32" />
+    <Property Name="Idx" Type="Int32" />
+    <NavigationProperty Name="District" Relationship="Self.FK_Ward_District" FromRole="Ward" ToRole="District" />
+  </EntityType>
+  <Association Name="FK_MinistryofEducation_Country">
+    <End Role="Country" Type="Self.Country" Multiplicity="0..1" />
+    <End Role="MinistryofEducation" Type="Self.MinistryofEducation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Country">
+        <PropertyRef Name="CountryCode" />
+      </Principal>
+      <Dependent Role="MinistryofEducation">
+        <PropertyRef Name="CountryCode" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Province_Country">
+    <End Role="Country" Type="Self.Country" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Province" Type="Self.Province" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Country">
+        <PropertyRef Name="CountryCode" />
+      </Principal>
+      <Dependent Role="Province">
+        <PropertyRef Name="CountryCode" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_District_Province">
+    <End Role="Province" Type="Self.Province" Multiplicity="0..1" />
+    <End Role="District" Type="Self.District" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Province">
+        <PropertyRef Name="ProvinceId" />
+      </Principal>
+      <Dependent Role="District">
+        <PropertyRef Name="ProvinceId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EduDepartment_District">
+    <End Role="District" Type="Self.District" Multiplicity="0..1" />
+    <End Role="EduDepartment" Type="Self.EduDepartment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="District">
+        <PropertyRef Name="DistrictInt" />
+      </Principal>
+      <Dependent Role="EduDepartment">
+        <PropertyRef Name="DistrictId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Ward_District">
+    <End Role="District" Type="Self.District" Multiplicity="0..1" />
+    <End Role="Ward" Type="Self.Ward" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="District">
+        <PropertyRef Name="DistrictInt" />
+      </Principal>
+      <Dependent Role="Ward">
+        <PropertyRef Name="DistrictId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EduDepartment_EduProvince">
+    <End Role="EduProvince" Type="Self.EduProvince" Multiplicity="0..1" />
+    <End Role="EduDepartment" Type="Self.EduDepartment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EduProvince">
+        <PropertyRef Name="EduProvinceId" />
+      </Principal>
+      <Dependent Role="EduDepartment">
+        <PropertyRef Name="EduProvinceId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Employee_EduDepartment">
+    <End Role="EduDepartment" Type="Self.EduDepartment" Multiplicity="0..1" />
+    <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EduDepartment">
+        <PropertyRef Name="EduDepartmentId" />
+      </Principal>
+      <Dependent Role="Employee">
+        <PropertyRef Name="EduDepartmentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_School_EduDepartment">
+    <End Role="EduDepartment" Type="Self.EduDepartment" Multiplicity="0..1" />
+    <End Role="School" Type="Self.School" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EduDepartment">
+        <PropertyRef Name="EduDepartmentId" />
+      </Principal>
+      <Dependent Role="School">
+        <PropertyRef Name="EduDepartmentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EduProvince_MinistryofEducation">
+    <End Role="MinistryofEducation" Type="Self.MinistryofEducation" Multiplicity="0..1" />
+    <End Role="EduProvince" Type="Self.EduProvince" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MinistryofEducation">
+        <PropertyRef Name="MinistryofEducationaCode" />
+      </Principal>
+      <Dependent Role="EduProvince">
+        <PropertyRef Name="MinistryofEducationaCode" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EduProvince_Province">
+    <End Role="Province" Type="Self.Province" Multiplicity="0..1" />
+    <End Role="EduProvince" Type="Self.EduProvince" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Province">
+        <PropertyRef Name="ProvinceId" />
+      </Principal>
+      <Dependent Role="EduProvince">
+        <PropertyRef Name="ProvinceId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Employee_EduProvince">
+    <End Role="EduProvince" Type="Self.EduProvince" Multiplicity="0..1" />
+    <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EduProvince">
+        <PropertyRef Name="EduProvinceId" />
+      </Principal>
+      <Dependent Role="Employee">
+        <PropertyRef Name="EduProvinceId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_School_EduProvince">
+    <End Role="EduProvince" Type="Self.EduProvince" Multiplicity="0..1" />
+    <End Role="School" Type="Self.School" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EduProvince">
+        <PropertyRef Name="EduProvinceId" />
+      </Principal>
+      <Dependent Role="School">
+        <PropertyRef Name="EduProvinceId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Employee_MinistryofEducation">
+    <End Role="MinistryofEducation" Type="Self.MinistryofEducation" Multiplicity="0..1" />
+    <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MinistryofEducation">
+        <PropertyRef Name="MinistryofEducationaCode" />
+      </Principal>
+      <Dependent Role="Employee">
+        <PropertyRef Name="MinistryofEducationaCode" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Employee_School">
+    <End Role="School" Type="Self.School" Multiplicity="0..1" />
+    <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="School">
+        <PropertyRef Name="SchoolId" />
+      </Principal>
+      <Dependent Role="Employee">
+        <PropertyRef Name="SchoolId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EvalDetail_Employee">
+    <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
+    <End Role="EvalDetail" Type="Self.EvalDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="EmployeeId" />
+      </Principal>
+      <Dependent Role="EvalDetail">
+        <PropertyRef Name="EmployeeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EvalCriteria_EvalStandard">
+    <End Role="EvalStandard" Type="Self.EvalStandard" Multiplicity="0..1" />
+    <End Role="EvalCriteria" Type="Self.EvalCriteria" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EvalStandard">
+        <PropertyRef Name="EvalStandardId" />
+      </Principal>
+      <Dependent Role="EvalCriteria">
+        <PropertyRef Name="EvalStandardId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EvalGuide_EvalCriteria">
+    <End Role="EvalCriteria" Type="Self.EvalCriteria" Multiplicity="1" />
+    <End Role="EvalGuide" Type="Self.EvalGuide" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EvalCriteria">
+        <PropertyRef Name="EvalCriteriaId" />
+      </Principal>
+      <Dependent Role="EvalGuide">
+        <PropertyRef Name="EvalCriteriaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EvalDetail_EvalMaster">
+    <End Role="EvalMaster" Type="Self.EvalMaster" Multiplicity="0..1" />
+    <End Role="EvalDetail" Type="Self.EvalDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EvalMaster">
+        <PropertyRef Name="EvalMasterId" />
+      </Principal>
+      <Dependent Role="EvalDetail">
+        <PropertyRef Name="EvalMasterId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EvalDetail_EvalResult">
+    <End Role="EvalResult" Type="Self.EvalResult" Multiplicity="0..1" />
+    <End Role="EvalDetail" Type="Self.EvalDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EvalResult">
+        <PropertyRef Name="EvalResultCode" />
+      </Principal>
+      <Dependent Role="EvalDetail">
+        <PropertyRef Name="EvalResultCode" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EvalGuide_EvalResult">
+    <End Role="EvalResult" Type="Self.EvalResult" Multiplicity="1" />
+    <End Role="EvalGuide" Type="Self.EvalGuide" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EvalResult">
+        <PropertyRef Name="EvalResultCode" />
+      </Principal>
+      <Dependent Role="EvalGuide">
+        <PropertyRef Name="EvalResultCode" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EvalMaster_EvalState">
+    <End Role="EvalState" Type="Self.EvalState" Multiplicity="0..1" />
+    <End Role="EvalMaster" Type="Self.EvalMaster" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EvalState">
+        <PropertyRef Name="EvalStateCode" />
+      </Principal>
+      <Dependent Role="EvalMaster">
+        <PropertyRef Name="EvalStateCode" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EvalMaster_EvalType">
+    <End Role="EvalType" Type="Self.EvalType" Multiplicity="0..1" />
+    <End Role="EvalMaster" Type="Self.EvalMaster" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EvalType">
+        <PropertyRef Name="EvalTypeCode" />
+      </Principal>
+      <Dependent Role="EvalMaster">
+        <PropertyRef Name="EvalTypeCode" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EvalMaster_School">
+    <End Role="School" Type="Self.School" Multiplicity="0..1" />
+    <End Role="EvalMaster" Type="Self.EvalMaster" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="School">
+        <PropertyRef Name="SchoolId" />
+      </Principal>
+      <Dependent Role="EvalMaster">
+        <PropertyRef Name="SchoolId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EvalStandard_EvalType">
+    <End Role="EvalType" Type="Self.EvalType" Multiplicity="0..1" />
+    <End Role="EvalStandard" Type="Self.EvalStandard" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EvalType">
+        <PropertyRef Name="EvalTypeCode" />
+      </Principal>
+      <Dependent Role="EvalStandard">
+        <PropertyRef Name="EvalTypeCode" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EvalStandard_SchoolLevel">
+    <End Role="SchoolLevel" Type="Self.SchoolLevel" Multiplicity="0..1" />
+    <End Role="EvalStandard" Type="Self.EvalStandard" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SchoolLevel">
+        <PropertyRef Name="SchoolLevelCode" />
+      </Principal>
+      <Dependent Role="EvalStandard">
+        <PropertyRef Name="SchoolLevelCode" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_School_MinistryofEducation">
+    <End Role="MinistryofEducation" Type="Self.MinistryofEducation" Multiplicity="0..1" />
+    <End Role="School" Type="Self.School" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MinistryofEducation">
+        <PropertyRef Name="MinistryofEducationaCode" />
+      </Principal>
+      <Dependent Role="School">
+        <PropertyRef Name="MinistryofEducationaCode" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_School_SchoolLevel">
+    <End Role="SchoolLevel" Type="Self.SchoolLevel" Multiplicity="0..1" />
+    <End Role="School" Type="Self.School" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SchoolLevel">
+        <PropertyRef Name="SchoolLevelCode" />
+      </Principal>
+      <Dependent Role="School">
+        <PropertyRef Name="SchoolLevelCode" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="UserGroup_Employee">
+    <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
+    <End Role="UserGroup" Type="Self.UserGroup" Multiplicity="*" />
+  </Association>
+  <Association Name="UserGroup_Form">
+    <End Role="Forms" Type="Self.Form" Multiplicity="*" />
+    <End Role="UserGroup" Type="Self.UserGroup" Multiplicity="*" />
+  </Association>
+  <EntityContainer Name="EVEEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Countries" EntityType="Self.Country" />
+    <EntitySet Name="Districts" EntityType="Self.District" />
+    <EntitySet Name="EduDepartments" EntityType="Self.EduDepartment" />
+    <EntitySet Name="EduProvinces" EntityType="Self.EduProvince" />
+    <EntitySet Name="Employees" EntityType="Self.Employee" />
+    <EntitySet Name="EvalCriterias" EntityType="Self.EvalCriteria" />
+    <EntitySet Name="EvalDetails" EntityType="Self.EvalDetail" />
+    <EntitySet Name="EvalGuides" EntityType="Self.EvalGuide" />
+    <EntitySet Name="EvalMasters" EntityType="Self.EvalMaster" />
+    <EntitySet Name="EvalResults" EntityType="Self.EvalResult" />
+    <EntitySet Name="EvalStandards" EntityType="Self.EvalStandard" />
+    <EntitySet Name="EvalStates" EntityType="Self.EvalState" />
+    <EntitySet Name="EvalTypes" EntityType="Self.EvalType" />
+    <EntitySet Name="Forms" EntityType="Self.Form" />
+    <EntitySet Name="MinistryofEducations" EntityType="Self.MinistryofEducation" />
+    <EntitySet Name="Provinces" EntityType="Self.Province" />
+    <EntitySet Name="Schools" EntityType="Self.School" />
+    <EntitySet Name="SchoolLevels" EntityType="Self.SchoolLevel" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <EntitySet Name="UserGroups" EntityType="Self.UserGroup" />
+    <EntitySet Name="Wards" EntityType="Self.Ward" />
+    <AssociationSet Name="FK_MinistryofEducation_Country" Association="Self.FK_MinistryofEducation_Country">
+      <End Role="Country" EntitySet="Countries" />
+      <End Role="MinistryofEducation" EntitySet="MinistryofEducations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Province_Country" Association="Self.FK_Province_Country">
+      <End Role="Country" EntitySet="Countries" />
+      <End Role="Province" EntitySet="Provinces" />
+    </AssociationSet>
+    <AssociationSet Name="FK_District_Province" Association="Self.FK_District_Province">
+      <End Role="Province" EntitySet="Provinces" />
+      <End Role="District" EntitySet="Districts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EduDepartment_District" Association="Self.FK_EduDepartment_District">
+      <End Role="District" EntitySet="Districts" />
+      <End Role="EduDepartment" EntitySet="EduDepartments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Ward_District" Association="Self.FK_Ward_District">
+      <End Role="District" EntitySet="Districts" />
+      <End Role="Ward" EntitySet="Wards" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EduDepartment_EduProvince" Association="Self.FK_EduDepartment_EduProvince">
+      <End Role="EduProvince" EntitySet="EduProvinces" />
+      <End Role="EduDepartment" EntitySet="EduDepartments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Employee_EduDepartment" Association="Self.FK_Employee_EduDepartment">
+      <End Role="EduDepartment" EntitySet="EduDepartments" />
+      <End Role="Employee" EntitySet="Employees" />
+    </AssociationSet>
+    <AssociationSet Name="FK_School_EduDepartment" Association="Self.FK_School_EduDepartment">
+      <End Role="EduDepartment" EntitySet="EduDepartments" />
+      <End Role="School" EntitySet="Schools" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EduProvince_MinistryofEducation" Association="Self.FK_EduProvince_MinistryofEducation">
+      <End Role="MinistryofEducation" EntitySet="MinistryofEducations" />
+      <End Role="EduProvince" EntitySet="EduProvinces" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EduProvince_Province" Association="Self.FK_EduProvince_Province">
+      <End Role="Province" EntitySet="Provinces" />
+      <End Role="EduProvince" EntitySet="EduProvinces" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Employee_EduProvince" Association="Self.FK_Employee_EduProvince">
+      <End Role="EduProvince" EntitySet="EduProvinces" />
+      <End Role="Employee" EntitySet="Employees" />
+    </AssociationSet>
+    <AssociationSet Name="FK_School_EduProvince" Association="Self.FK_School_EduProvince">
+      <End Role="EduProvince" EntitySet="EduProvinces" />
+      <End Role="School" EntitySet="Schools" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Employee_MinistryofEducation" Association="Self.FK_Employee_MinistryofEducation">
+      <End Role="MinistryofEducation" EntitySet="MinistryofEducations" />
+      <End Role="Employee" EntitySet="Employees" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Employee_School" Association="Self.FK_Employee_School">
+      <End Role="School" EntitySet="Schools" />
+      <End Role="Employee" EntitySet="Employees" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EvalDetail_Employee" Association="Self.FK_EvalDetail_Employee">
+      <End Role="Employee" EntitySet="Employees" />
+      <End Role="EvalDetail" EntitySet="EvalDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EvalCriteria_EvalStandard" Association="Self.FK_EvalCriteria_EvalStandard">
+      <End Role="EvalStandard" EntitySet="EvalStandards" />
+      <End Role="EvalCriteria" EntitySet="EvalCriterias" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EvalGuide_EvalCriteria" Association="Self.FK_EvalGuide_EvalCriteria">
+      <End Role="EvalCriteria" EntitySet="EvalCriterias" />
+      <End Role="EvalGuide" EntitySet="EvalGuides" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EvalDetail_EvalMaster" Association="Self.FK_EvalDetail_EvalMaster">
+      <End Role="EvalMaster" EntitySet="EvalMasters" />
+      <End Role="EvalDetail" EntitySet="EvalDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EvalDetail_EvalResult" Association="Self.FK_EvalDetail_EvalResult">
+      <End Role="EvalResult" EntitySet="EvalResults" />
+      <End Role="EvalDetail" EntitySet="EvalDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EvalGuide_EvalResult" Association="Self.FK_EvalGuide_EvalResult">
+      <End Role="EvalResult" EntitySet="EvalResults" />
+      <End Role="EvalGuide" EntitySet="EvalGuides" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EvalMaster_EvalState" Association="Self.FK_EvalMaster_EvalState">
+      <End Role="EvalState" EntitySet="EvalStates" />
+      <End Role="EvalMaster" EntitySet="EvalMasters" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EvalMaster_EvalType" Association="Self.FK_EvalMaster_EvalType">
+      <End Role="EvalType" EntitySet="EvalTypes" />
+      <End Role="EvalMaster" EntitySet="EvalMasters" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EvalMaster_School" Association="Self.FK_EvalMaster_School">
+      <End Role="School" EntitySet="Schools" />
+      <End Role="EvalMaster" EntitySet="EvalMasters" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EvalStandard_EvalType" Association="Self.FK_EvalStandard_EvalType">
+      <End Role="EvalType" EntitySet="EvalTypes" />
+      <End Role="EvalStandard" EntitySet="EvalStandards" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EvalStandard_SchoolLevel" Association="Self.FK_EvalStandard_SchoolLevel">
+      <End Role="SchoolLevel" EntitySet="SchoolLevels" />
+      <End Role="EvalStandard" EntitySet="EvalStandards" />
+    </AssociationSet>
+    <AssociationSet Name="FK_School_MinistryofEducation" Association="Self.FK_School_MinistryofEducation">
+      <End Role="MinistryofEducation" EntitySet="MinistryofEducations" />
+      <End Role="School" EntitySet="Schools" />
+    </AssociationSet>
+    <AssociationSet Name="FK_School_SchoolLevel" Association="Self.FK_School_SchoolLevel">
+      <End Role="SchoolLevel" EntitySet="SchoolLevels" />
+      <End Role="School" EntitySet="Schools" />
+    </AssociationSet>
+    <AssociationSet Name="UserGroup_Employee" Association="Self.UserGroup_Employee">
+      <End Role="Employee" EntitySet="Employees" />
+      <End Role="UserGroup" EntitySet="UserGroups" />
+    </AssociationSet>
+    <AssociationSet Name="UserGroup_Form" Association="Self.UserGroup_Form">
+      <End Role="Forms" EntitySet="Forms" />
+      <End Role="UserGroup" EntitySet="UserGroups" />
+    </AssociationSet>
+    <EntitySet Name="LoginUsers" EntityType="EVEModel.LoginUser" />
+  </EntityContainer>
+  <EntityType Name="LoginUser">
+    <Key>
+      <PropertyRef Name="LoginID" />
+    </Key>
+    <Property Name="LoginID" Type="Guid" Nullable="false" />
+    <Property Name="IpAddress" Type="String" MaxLength="30" FixedLength="true" Unicode="false" />
+    <Property Name="HostName" Type="String" MaxLength="30" FixedLength="true" Unicode="false" />
+    <Property Name="UserName" Type="String" Nullable="false" MaxLength="100" FixedLength="true" Unicode="false" />
+    <Property Name="LoginDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="UserId" Type="String" Nullable="false" MaxLength="25" FixedLength="true" Unicode="false" />
+    <Property Name="Version" Type="String" MaxLength="15" FixedLength="true" Unicode="false" />
+    <Property Name="UserGroup" Type="String" MaxLength="4" FixedLength="true" Unicode="false" />
+    <Property Name="CrtTs" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="UpdTs" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Remarks" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+  </EntityType>
+</Schema>
