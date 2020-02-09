@@ -2,25 +2,21 @@
 using FluentValidation;
 using FluentValidation.Attributes;
 
-namespace EVE.ApiModels.Authentication.Request.Account
+namespace EVE.ApiModels.Authentication.Request
 {
     [Validator(typeof(OperatorGetByIdValidator))]
-    public class OperatorGetByIdReq : OperatorBaseReq
+    public class EmployeeGetByIdReq : EmployeeBaseReq
     {
     }
 
-    public class OperatorGetByIdValidator : AbstractValidator<OperatorGetByIdReq>
+    public class OperatorGetByIdValidator : AbstractValidator<EmployeeGetByIdReq>
     {
         public OperatorGetByIdValidator()
         {
-            RuleFor(c => c.SITE_ID)
+            RuleFor(c => c.EmployeeId)
                     .NotNull()
                     .NotEmpty()
                     .WithMessage(((int) EnumError.SiteIdIsNullOrEmpty).ToString());
-            RuleFor(c => c.OPER_NAME)
-                    .NotNull()
-                    .NotEmpty()
-                    .WithMessage(((int) EnumError.UsernameIsNullOrEmpty).ToString());
         }
     }
 }

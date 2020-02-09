@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq;
 using System.Threading.Tasks;
-using EVE.ApiModels.Authentication.Request.Account;
+using EVE.ApiModels.Authentication.Request;
 using EVE.Commons;
 using EVE.Data;
 
@@ -15,20 +15,27 @@ namespace EVE.Bussiness
 
         #region ILogonUserBE Members
 
-        public async Task<Employee> GetOperator(LogonReq req)
+        public async Task<Employee> GetEmployeeByAccount(LoginReq req)
         {
-            req.UserName = OperPwdEncode(req.UserName);
-            var users = await GetAsync(c => c.EmployeeCode == req.PassWord && c.Password == req.PassWord);
-            if(users != null
-               && users.Any())
+            try
             {
-                return users.FirstOrDefault();
+                req.PassWord = OperPwdEncode(req.PassWord);
+                var users = await GetAsync(c => c.UserName == req.UserName && c.Password == req.PassWord);
+                if (users != null
+                   && users.Any())
+                {
+                    return users.FirstOrDefault();
+                }
+                return null;
             }
+            catch(Exception ex)
+            {
 
-            return null;
+                return null;
+            }
         }
 
-        public async Task< bool> SaveLogon(LoginUser loginUser)
+        public async Task< bool> SaveLogin(LoginUser loginUser)
         {
             try
             {
@@ -46,10 +53,9 @@ namespace EVE.Bussiness
             
         }
 
-        public async Task<Employee> GetById(OperatorBaseReq req)
+        public async Task<Employee> GetById(EmployeeBaseReq req)
         {
-            var fixLengthReq = req.FixLength(_uoW.Context, nameof(Employee));
-            var operators = await GetAsync(c => string.Equals(c.SITE_ID, fixLengthReq.SITE_ID) && string.Equals(c.OPER_NAME, fixLengthReq.OPER_NAME));
+            var operators = await GetAsync(c => string.Equals(c.EmployeeId, req.EmployeeId) );
             if(operators != null
                && operators.Any())
             {

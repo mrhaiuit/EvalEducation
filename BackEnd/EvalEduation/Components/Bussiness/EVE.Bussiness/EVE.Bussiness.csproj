@@ -65,6 +65,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Authentication\Implementations\LoginBE.cs" />
+    <Compile Include="Authentication\Interfaces\IEmployeeBE.cs" />
     <Compile Include="Base\IBaseBE.cs" />
     <Compile Include="Base\BaseBE.cs" />
     <Compile Include="Authentication\Interfaces\ILoginBE.cs" />

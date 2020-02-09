@@ -66,7 +66,7 @@
       <Project>{6f4b542a-f584-43d9-a9b3-a703bab14d24}</Project>
       <Name>EVE.Data</Name>
     </ProjectReference>
-    <ProjectReference Include="..\CMS.WebApi.Shared\EVE.WebApi.Shared.csproj">
+    <ProjectReference Include="..\EVE.WebApi.Shared\EVE.WebApi.Shared.csproj">
       <Project>{ba7a75ed-1606-4f70-99b0-641d5a322bda}</Project>
       <Name>EVE.WebApi.Shared</Name>
     </ProjectReference>

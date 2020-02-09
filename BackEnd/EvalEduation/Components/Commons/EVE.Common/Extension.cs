@@ -35,7 +35,6 @@ using System.Data.Entity.Core.Metadata.Edm;
 using System.Data.Entity.Infrastructure;
 using System.Security.Cryptography.X509Certificates;
 using System.Net.Security;
-using System.Net.Security;
 using System.Security.Cryptography;
 using EVE.Commons.Attribute;
 using EVE.Data;
@@ -3658,7 +3657,41 @@ namespace EVE.Commons
         }
 
         #endregion
+        #region Security
+        public static string EncodePassword(this string passpwd)
+        {
+            string returnValue = " ";
+            int i;
+            int k;
+            double strPwd = 0;
+            string onechar;
+            var ArrPwd = new int[31];
 
+            for (i = 1; i <= passpwd.Length; i++)
+            {
+                onechar = passpwd.TrimEx().Substring(i - 1, 1);
+                if (!Information.IsNumeric(onechar))
+                {
+                    ArrPwd[i] = Strings.Asc(onechar);
+                }
+                else
+                {
+                    ArrPwd[i] = int.Parse(onechar);
+                }
+            }
+
+            for (k = 1; k <= i - 1; k++)
+            {
+                strPwd = strPwd + ArrPwd[k];
+
+                strPwd = strPwd * (k + i);
+            }
+
+            returnValue = strPwd.ToString();
+
+            return returnValue;
+        }
+        #endregion
         public static T CheckEnumEx<T>(this object value) where T : new()
         {
             if (!typeof(T).IsEnum)

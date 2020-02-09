@@ -48,19 +48,20 @@ namespace EVE.Data
         public virtual IEnumerable<T> Get(Expression<Func<T, bool>> filter = null,
                                           Func<IQueryable<T>, IOrderedQueryable<T>> orderBy = null,
                                           string includeProperties = "")
-        {IQueryable<T> query = Entities;
+        {
+            IQueryable<T> query = Entities;
 
-            if(filter != null)
+            if (filter != null)
             {
                 query = query.Where(filter);
             }
 
-            foreach (var includeProperty in includeProperties.Split(new[] {','}, StringSplitOptions.RemoveEmptyEntries))
+            foreach (var includeProperty in includeProperties.Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries))
             {
                 query = query.Include(includeProperty);
             }
 
-            if(orderBy != null)
+            if (orderBy != null)
             {
                 return orderBy(query)
                         .ToList();

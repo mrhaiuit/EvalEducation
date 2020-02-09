@@ -55,7 +55,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Authentication\Request\Account\LogonReq.cs" />
+    <Compile Include="Authentication\Request\Account\LoginReq.cs" />
     <Compile Include="Authentication\Request\Account\OperatorBaseReq.cs" />
     <Compile Include="Authentication\Request\Account\OperatorDeleteReq.cs" />
     <Compile Include="Authentication\Request\Account\OperatorGetByIdReq.cs" />

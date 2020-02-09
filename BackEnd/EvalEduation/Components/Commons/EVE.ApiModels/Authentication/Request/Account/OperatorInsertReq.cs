@@ -2,10 +2,10 @@
 using FluentValidation;
 using FluentValidation.Attributes;
 
-namespace EVE.ApiModels.Authentication.Request.Account
+namespace EVE.ApiModels.Authentication.Request
 {
     [Validator(typeof(OperatorInsertValidator))]
-    public class OperatorInsertReq : OperatorBaseReq
+    public class EmployeeInsertReq : EmployeeBaseReq
     {
         public string OWNER { get; set; }
 
@@ -36,18 +36,14 @@ namespace EVE.ApiModels.Authentication.Request.Account
         public string SUB_DEPT_CODE { get; set; }
     }
 
-    public class OperatorInsertValidator : AbstractValidator<OperatorInsertReq>
+    public class OperatorInsertValidator : AbstractValidator<EmployeeInsertReq>
     {
         public OperatorInsertValidator()
         {
-            RuleFor(c => c.SITE_ID)
+            RuleFor(c => c.EmployeeId)
                     .NotNull()
                     .NotEmpty()
                     .WithMessage(((int) EnumError.SiteIdIsNullOrEmpty).ToString());
-            RuleFor(c => c.OPER_NAME)
-                    .NotNull()
-                    .NotEmpty()
-                    .WithMessage(((int) EnumError.UsernameIsNullOrEmpty).ToString());
         }
     }
 }

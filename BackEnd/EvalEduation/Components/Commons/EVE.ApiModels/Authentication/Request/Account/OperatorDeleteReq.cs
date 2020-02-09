@@ -1,26 +1,23 @@
-﻿using EVE.Commons;
+﻿using EVE.ApiModels.Authentication.Request;
+using EVE.Commons;
 using FluentValidation;
 using FluentValidation.Attributes;
 
-namespace EVE.ApiModels.Authentication.Request.Account
+namespace EVE.ApiModels.Authentication.Request
 {
     [Validator(typeof(OperatorDeleteValidator))]
-    public class OperatorDeleteReq : OperatorBaseReq
+    public class EmployeeDeleteReq : EmployeeBaseReq
     {
     }
 
-    public class OperatorDeleteValidator : AbstractValidator<OperatorDeleteReq>
+    public class OperatorDeleteValidator : AbstractValidator<EmployeeBaseReq>
     {
         public OperatorDeleteValidator()
         {
-            RuleFor(c => c.SITE_ID)
+            RuleFor(c => c.EmployeeId)
                     .NotNull()
                     .NotEmpty()
                     .WithMessage(((int) EnumError.SiteIdIsNullOrEmpty).ToString());
-            RuleFor(c => c.OPER_NAME)
-                    .NotNull()
-                    .NotEmpty()
-                    .WithMessage(((int) EnumError.UsernameIsNullOrEmpty).ToString());
         }
     }
 }

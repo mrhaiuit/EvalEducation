@@ -4,7 +4,8 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
 using AutoMapper;
-using EVE.ApiModels.Authentication.Request.Account;
+using EVE.ApiModels.Authentication.Request;
+using EVE.Bussiness;
 using EVE.Commons;
 using EVE.Data;
 using EVE.WebApi.Authentication.Helper;
@@ -14,42 +15,44 @@ using EVE.WebApi.Shared.Response;
 namespace EVE.WebApi.Authentication.Controllers
 {
     [RoutePrefix("api/account")]
-    public class AccountController : ApiController
+    public class AccountController : BaseController
     {
-
-        public AccountController()
+        private readonly ILoginBE _loginBE;
+        public AccountController(ILoginBE loginBE,
+                               IMapper mapper) : base(mapper)
         {
+            _loginBE = loginBE;
         }
 
         [HttpPost]
         [Route("logon")]
-        public async Task<HttpResponseMessage> Logon(LogonReq req)
+        public async Task<HttpResponseMessage> Login(LoginReq req)
         {
-            //var user = await _logonUserBe.GetOperator(req);
-            //if(user != null)
-            //{
-            //    var curTime = DateTime.Now;
+            var employee = await _loginBE.GetEmployeeByAccount(req);
+            if (employee != null)
+            {
+                var curTime = DateTime.Now;
 
-            //    var logonUser = new LOGON_USER
-            //                    {
-            //                            USER_NAME = user.FULL_NAME,
-            //                            USER_ID = user.OPER_NAME,
-            //                            IP_ADDRESS = AppUtil.GetClientIp(Request),
-            //                            LOGON_DATE = curTime,
-            //                            UPD_TS = curTime
-            //                    };
+                var logonUser = new LoginUser
+                {
+                    UserName = employee.UserName,
+                    UserId = employee.EmployeeCode,
+                    IpAddress = AppUtil.GetClientIp(Request),
+                    LoginDate = curTime,
+                    UpdTs = curTime
+                };
 
-            //    _logonUserBe.SaveLogon(logonUser);
+               await _loginBE.SaveLogin(logonUser);
 
-            //    return this.OkResult(new
-            //                         {
-            //                                 logonUser.IP_ADDRESS,
-            //                                 logonUser.USER_NAME,
-            //                                 USER_ID = logonUser.USER_ID.Trim(),
-            //                                 logonUser.LOGON_DATE,
-            //                                 logonUser.UPD_TS
-            //                         });
-            //}
+                return this.OkResult(new
+                {
+                    logonUser.IpAddress,
+                    logonUser.UserName,
+                    USER_ID = logonUser.UserId.Trim(),
+                    logonUser.LoginDate,
+                    logonUser.UpdTs
+                });
+            }
 
             return this.ErrorResult(new Error(EnumError.LogonInvalid));
         }
@@ -69,7 +72,7 @@ namespace EVE.WebApi.Authentication.Controllers
         }
 
         [Route("getById")]
-        public HttpResponseMessage GetById([FromUri] OperatorGetByIdReq req)
+        public HttpResponseMessage GetById([FromUri] EmployeeGetByIdReq req)
         {
             //var agent = _logonUserBe.GetById(req);
             //if(agent != null)
@@ -81,7 +84,7 @@ namespace EVE.WebApi.Authentication.Controllers
         }
 
         [HttpPost]
-        public async Task<HttpResponseMessage> Insert(OperatorInsertReq req)
+        public async Task<HttpResponseMessage> Insert(EmployeeInsertReq req)
         {
             //var existAgent = await _logonUserBe.GetById(req);
             //if(existAgent != null)
@@ -94,7 +97,7 @@ namespace EVE.WebApi.Authentication.Controllers
         }
 
         [HttpPut]
-        public async Task<HttpResponseMessage> Update(OperatorUpdateReq req)
+        public async Task<HttpResponseMessage> Update(EmployeeUpdateReq req)
         {
             //var agent = await _logonUserBe.GetById(req);
             //if(agent == null)
@@ -110,7 +113,7 @@ namespace EVE.WebApi.Authentication.Controllers
         }
 
         [HttpDelete]
-        public async Task<HttpResponseMessage> Delete(OperatorDeleteReq req)
+        public async Task<HttpResponseMessage> Delete(EmployeeDeleteReq req)
         {
             //var agent = await _logonUserBe.GetById(req);
             //if(agent == null)

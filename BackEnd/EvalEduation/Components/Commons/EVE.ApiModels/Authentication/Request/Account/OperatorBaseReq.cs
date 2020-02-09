@@ -1,9 +1,7 @@
-﻿namespace EVE.ApiModels.Authentication.Request.Account
+﻿namespace EVE.ApiModels.Authentication.Request
 {
-    public class OperatorBaseReq
+    public class EmployeeBaseReq
     {
-        public string SITE_ID { get; set; }
-
-        public string OPER_NAME { get; set; }
+        public int EmployeeId { get; set; }
     }
 }

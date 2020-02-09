@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\DEV\\Eval-Edu\\CMS.NET\\Implementation\\TTOS_DEV\\Components\\APIs\\EVE.ApiGateway\\EVE.ApiGateway.csproj": {}
+    "C:\\DEV\\Eval-Edu\\EvalEducation\\BackEnd\\EvalEduation\\Components\\APIs\\EVE.ApiGateway\\EVE.ApiGateway.csproj": {}
   },
   "projects": {
-    "C:\\DEV\\Eval-Edu\\CMS.NET\\Implementation\\TTOS_DEV\\Components\\APIs\\EVE.ApiGateway\\EVE.ApiGateway.csproj": {
+    "C:\\DEV\\Eval-Edu\\EvalEducation\\BackEnd\\EvalEduation\\Components\\APIs\\EVE.ApiGateway\\EVE.ApiGateway.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\DEV\\Eval-Edu\\CMS.NET\\Implementation\\TTOS_DEV\\Components\\APIs\\EVE.ApiGateway\\EVE.ApiGateway.csproj",
+        "projectUniqueName": "C:\\DEV\\Eval-Edu\\EvalEducation\\BackEnd\\EvalEduation\\Components\\APIs\\EVE.ApiGateway\\EVE.ApiGateway.csproj",
         "projectName": "EVE.ApiGateway",
-        "projectPath": "C:\\DEV\\Eval-Edu\\CMS.NET\\Implementation\\TTOS_DEV\\Components\\APIs\\EVE.ApiGateway\\EVE.ApiGateway.csproj",
+        "projectPath": "C:\\DEV\\Eval-Edu\\EvalEducation\\BackEnd\\EvalEduation\\Components\\APIs\\EVE.ApiGateway\\EVE.ApiGateway.csproj",
         "packagesPath": "C:\\Users\\win\\.nuget\\packages\\",
-        "outputPath": "C:\\DEV\\Eval-Edu\\CMS.NET\\Implementation\\TTOS_DEV\\Components\\APIs\\EVE.ApiGateway\\obj\\",
+        "outputPath": "C:\\DEV\\Eval-Edu\\EvalEducation\\BackEnd\\EvalEduation\\Components\\APIs\\EVE.ApiGateway\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

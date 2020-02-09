@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using EVE.ApiModels.Authentication.Request.Account;
+using EVE.ApiModels.Authentication.Request;
 using EVE.Commons.Response;
 using EVE.Data;
 
@@ -29,15 +29,13 @@ namespace EVE.TransportLayer
         public async Task<ClientResponse<LogonResponse>> Login(string userName,
                                                                string passWord)
         {
-            var logonResponse = await HttpUtils<ClientResponse<LogonResponse>>.Post($"{AppUtil.BaseAuthenticationUrl}/account/logon", new
-                                                                                                                                      {
-                                                                                                                                              OPER_NAME
-                                                                                                                                                      = userName
-                                                                                                                                                              .Trim(),
-                                                                                                                                              OPER_PWD
-                                                                                                                                                      = passWord
-                                                                                                                                                              .Trim()
-                                                                                                                                      });
+            var logonResponse = await HttpUtils<ClientResponse<LogonResponse>>
+                .Post($"{AppUtil.BaseAuthenticationUrl}/account/logon",
+                new LoginReq
+                {
+                    UserName = userName.Trim(),
+                    PassWord = passWord.Trim()
+                });
             return logonResponse;
         }
 

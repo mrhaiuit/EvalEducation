@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="EVEModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="EVE.Data.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Country">
           <Key>
             <PropertyRef Name="CountryCode" />
@@ -67,7 +67,8 @@
           </Key>
           <Property Name="EmployeeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="EmployeeCode" Type="varchar" MaxLength="50" />
-          <Property Name="Password" Type="varchar" MaxLength="500" />
+          <Property Name="UserName" Type="varchar" MaxLength="50" />
+          <Property Name="Password" Type="varchar" MaxLength="200" />
           <Property Name="EmployeeName" Type="nvarchar" MaxLength="500" />
           <Property Name="Address" Type="nvarchar" MaxLength="50" />
           <Property Name="PhoneNumber" Type="varchar" MaxLength="50" />
@@ -77,6 +78,7 @@
           <Property Name="SchoolId" Type="int" />
           <Property Name="Active" Type="bit" />
           <Property Name="Remarks" Type="nvarchar" MaxLength="500" />
+          <Property Name="EduLevelCode" Type="varchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="EvalCriteria">
           <Key>
@@ -330,6 +332,18 @@
             </Principal>
             <Dependent Role="Employee">
               <PropertyRef Name="EduDepartmentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Employee_EduLevel">
+          <End Role="EduLevel" Type="Self.EduLevel" Multiplicity="0..1" />
+          <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EduLevel">
+              <PropertyRef Name="EduLevelCode" />
+            </Principal>
+            <Dependent Role="Employee">
+              <PropertyRef Name="EduLevelCode" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -695,7 +709,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="EVEModelStoreContainer">
+        <EntityContainer Name="EVEDataStoreContainer">
           <EntitySet Name="Country" EntityType="Self.Country" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="District" EntityType="Self.District" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="EduDepartment" EntityType="Self.EduDepartment" Schema="dbo" store:Type="Tables" />
@@ -743,6 +757,10 @@
           </AssociationSet>
           <AssociationSet Name="FK_Employee_EduDepartment" Association="Self.FK_Employee_EduDepartment">
             <End Role="EduDepartment" EntitySet="EduDepartment" />
+            <End Role="Employee" EntitySet="Employee" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Employee_EduLevel" Association="Self.FK_Employee_EduLevel">
+            <End Role="EduLevel" EntitySet="EduLevel" />
             <End Role="Employee" EntitySet="Employee" />
           </AssociationSet>
           <AssociationSet Name="FK_Employee_EduProvince" Association="Self.FK_Employee_EduProvince">
@@ -866,19 +884,19 @@
             <End Role="Ward" EntitySet="Ward" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="EVEModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="EVE.Data" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="Country">
           <Key>
             <PropertyRef Name="CountryCode" />
           </Key>
           <Property Name="CountryCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="CountryName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="MinistryofEducations" Relationship="Self.FK_MinistryofEducation_Country" FromRole="Country" ToRole="MinistryofEducation" />
+          <NavigationProperty Name="EduMinistries" Relationship="Self.FK_MinistryofEducation_Country" FromRole="Country" ToRole="EduMinistry" />
           <NavigationProperty Name="Provinces" Relationship="Self.FK_Province_Country" FromRole="Country" ToRole="Province" />
-          <NavigationProperty Name="EduMinistries" Relationship="EVEModel.FK_MinistryofEducation_Country1" FromRole="Country" ToRole="EduMinistry" />
         </EntityType>
         <EntityType Name="District">
           <Key>
@@ -906,6 +924,33 @@
           <NavigationProperty Name="EduProvince" Relationship="Self.FK_EduDepartment_EduProvince" FromRole="EduDepartment" ToRole="EduProvince" />
           <NavigationProperty Name="Employees" Relationship="Self.FK_Employee_EduDepartment" FromRole="EduDepartment" ToRole="Employee" />
           <NavigationProperty Name="Schools" Relationship="Self.FK_School_EduDepartment" FromRole="EduDepartment" ToRole="School" />
+          <NavigationProperty Name="UserGroup_Employee" Relationship="Self.FK_UserGroup_Employee_EduDepartment" FromRole="EduDepartment" ToRole="UserGroup_Employee" />
+        </EntityType>
+        <EntityType Name="EduLevel">
+          <Key>
+            <PropertyRef Name="EduLevelCode" />
+          </Key>
+          <Property Name="EduLevelCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="EduLevelName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Idx" Type="Byte" />
+          <NavigationProperty Name="Employees" Relationship="Self.FK_Employee_EduLevel" FromRole="EduLevel" ToRole="Employee" />
+          <NavigationProperty Name="UserGroups" Relationship="Self.FK_UserGroup_EduLevel" FromRole="EduLevel" ToRole="UserGroup" />
+        </EntityType>
+        <EntityType Name="EduMinistry">
+          <Key>
+            <PropertyRef Name="EduMinistryCode" />
+          </Key>
+          <Property Name="EduMinistryCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="EduMinistryName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="HotLine" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CountryCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Country" Relationship="Self.FK_MinistryofEducation_Country" FromRole="EduMinistry" ToRole="Country" />
+          <NavigationProperty Name="EduProvinces" Relationship="Self.FK_EduProvince_MinistryofEducation" FromRole="EduMinistry" ToRole="EduProvince" />
+          <NavigationProperty Name="Employees" Relationship="Self.FK_Employee_MinistryofEducation" FromRole="EduMinistry" ToRole="Employee" />
+          <NavigationProperty Name="Schools" Relationship="Self.FK_School_MinistryofEducation" FromRole="EduMinistry" ToRole="School" />
+          <NavigationProperty Name="UserGroup_Employee" Relationship="Self.FK_UserGroup_Employee_EduMinistry" FromRole="EduMinistry" ToRole="UserGroup_Employee" />
         </EntityType>
         <EntityType Name="EduProvince">
           <Key>
@@ -917,11 +962,11 @@
           <Property Name="ProvinceId" Type="Int32" />
           <Property Name="MinistryofEducationaCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="EduDepartments" Relationship="Self.FK_EduDepartment_EduProvince" FromRole="EduProvince" ToRole="EduDepartment" />
-          <NavigationProperty Name="MinistryofEducation" Relationship="Self.FK_EduProvince_MinistryofEducation" FromRole="EduProvince" ToRole="MinistryofEducation" />
+          <NavigationProperty Name="EduMinistry" Relationship="Self.FK_EduProvince_MinistryofEducation" FromRole="EduProvince" ToRole="EduMinistry" />
           <NavigationProperty Name="Province" Relationship="Self.FK_EduProvince_Province" FromRole="EduProvince" ToRole="Province" />
           <NavigationProperty Name="Employees" Relationship="Self.FK_Employee_EduProvince" FromRole="EduProvince" ToRole="Employee" />
           <NavigationProperty Name="Schools" Relationship="Self.FK_School_EduProvince" FromRole="EduProvince" ToRole="School" />
-          <NavigationProperty Name="EduMinistry" Relationship="EVEModel.FK_EduProvince_MinistryofEducation1" FromRole="EduProvince" ToRole="EduMinistry" />
+          <NavigationProperty Name="UserGroup_Employee" Relationship="Self.FK_UserGroup_Employee_EduProvince" FromRole="EduProvince" ToRole="UserGroup_Employee" />
         </EntityType>
         <EntityType Name="Employee">
           <Key>
@@ -929,7 +974,8 @@
           </Key>
           <Property Name="EmployeeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="EmployeeCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Password" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
           <Property Name="EmployeeName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
           <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="PhoneNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
@@ -939,13 +985,14 @@
           <Property Name="SchoolId" Type="Int32" />
           <Property Name="Active" Type="Boolean" />
           <Property Name="Remarks" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="EduLevelCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="EduDepartment" Relationship="Self.FK_Employee_EduDepartment" FromRole="Employee" ToRole="EduDepartment" />
+          <NavigationProperty Name="EduLevel" Relationship="Self.FK_Employee_EduLevel" FromRole="Employee" ToRole="EduLevel" />
+          <NavigationProperty Name="EduMinistry" Relationship="Self.FK_Employee_MinistryofEducation" FromRole="Employee" ToRole="EduMinistry" />
           <NavigationProperty Name="EduProvince" Relationship="Self.FK_Employee_EduProvince" FromRole="Employee" ToRole="EduProvince" />
-          <NavigationProperty Name="MinistryofEducation" Relationship="Self.FK_Employee_MinistryofEducation" FromRole="Employee" ToRole="MinistryofEducation" />
           <NavigationProperty Name="School" Relationship="Self.FK_Employee_School" FromRole="Employee" ToRole="School" />
           <NavigationProperty Name="EvalDetails" Relationship="Self.FK_EvalDetail_Employee" FromRole="Employee" ToRole="EvalDetail" />
-          <NavigationProperty Name="UserGroups" Relationship="Self.UserGroup_Employee" FromRole="Employee" ToRole="UserGroup" />
-          <NavigationProperty Name="EduMinistry" Relationship="EVEModel.FK_Employee_MinistryofEducation1" FromRole="Employee" ToRole="EduMinistry" />
+          <NavigationProperty Name="UserGroup_Employee" Relationship="Self.FK_UserGroup_Employee_Employee" FromRole="Employee" ToRole="UserGroup_Employee" />
         </EntityType>
         <EntityType Name="EvalCriteria">
           <Key>
@@ -1055,20 +1102,21 @@
           <Property Name="Idx" Type="Int32" />
           <NavigationProperty Name="UserGroups" Relationship="Self.UserGroup_Form" FromRole="Forms" ToRole="UserGroup" />
         </EntityType>
-        <EntityType Name="MinistryofEducation">
+        <EntityType Name="LoginUser">
           <Key>
-            <PropertyRef Name="MinistryofEducationaCode" />
+            <PropertyRef Name="LoginID" />
           </Key>
-          <Property Name="MinistryofEducationaCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="MinistryofEducationaName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Name="Address" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Name="PhoneNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="HotLine" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="CountryCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Country" Relationship="Self.FK_MinistryofEducation_Country" FromRole="MinistryofEducation" ToRole="Country" />
-          <NavigationProperty Name="EduProvinces" Relationship="Self.FK_EduProvince_MinistryofEducation" FromRole="MinistryofEducation" ToRole="EduProvince" />
-          <NavigationProperty Name="Employees" Relationship="Self.FK_Employee_MinistryofEducation" FromRole="MinistryofEducation" ToRole="Employee" />
-          <NavigationProperty Name="Schools" Relationship="Self.FK_School_MinistryofEducation" FromRole="MinistryofEducation" ToRole="School" />
+          <Property Name="LoginID" Type="Guid" Nullable="false" />
+          <Property Name="IpAddress" Type="String" MaxLength="30" FixedLength="true" Unicode="false" />
+          <Property Name="HostName" Type="String" MaxLength="30" FixedLength="true" Unicode="false" />
+          <Property Name="UserName" Type="String" MaxLength="100" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="LoginDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="UserId" Type="String" MaxLength="25" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="Version" Type="String" MaxLength="15" FixedLength="true" Unicode="false" />
+          <Property Name="UserGroup" Type="String" MaxLength="4" FixedLength="true" Unicode="false" />
+          <Property Name="CrtTs" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="UpdTs" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Remarks" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Province">
           <Key>
@@ -1097,12 +1145,12 @@
           <Property Name="HotLine" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="MinistryofEducationaCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="EduDepartment" Relationship="Self.FK_School_EduDepartment" FromRole="School" ToRole="EduDepartment" />
+          <NavigationProperty Name="EduMinistry" Relationship="Self.FK_School_MinistryofEducation" FromRole="School" ToRole="EduMinistry" />
           <NavigationProperty Name="EduProvince" Relationship="Self.FK_School_EduProvince" FromRole="School" ToRole="EduProvince" />
           <NavigationProperty Name="Employees" Relationship="Self.FK_Employee_School" FromRole="School" ToRole="Employee" />
           <NavigationProperty Name="EvalMasters" Relationship="Self.FK_EvalMaster_School" FromRole="School" ToRole="EvalMaster" />
-          <NavigationProperty Name="MinistryofEducation" Relationship="Self.FK_School_MinistryofEducation" FromRole="School" ToRole="MinistryofEducation" />
           <NavigationProperty Name="SchoolLevel" Relationship="Self.FK_School_SchoolLevel" FromRole="School" ToRole="SchoolLevel" />
-          <NavigationProperty Name="EduMinistry" Relationship="EVEModel.FK_School_MinistryofEducation1" FromRole="School" ToRole="EduMinistry" />
+          <NavigationProperty Name="UserGroup_Employee" Relationship="Self.FK_UserGroup_Employee_School" FromRole="School" ToRole="UserGroup_Employee" />
         </EntityType>
         <EntityType Name="SchoolLevel">
           <Key>
@@ -1130,10 +1178,28 @@
           <Property Name="UserGroupCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="UserGroupName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
           <Property Name="Idx" Type="Int32" />
-          <NavigationProperty Name="Employees" Relationship="Self.UserGroup_Employee" FromRole="UserGroup" ToRole="Employee" />
-          <NavigationProperty Name="Forms" Relationship="Self.UserGroup_Form" FromRole="UserGroup" ToRole="Forms" />
           <Property Name="EduLevelCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="EduLevel" Relationship="EVEModel.FK_UserGroup_EduLevel" FromRole="UserGroup" ToRole="EduLevel" />
+          <NavigationProperty Name="EduLevel" Relationship="Self.FK_UserGroup_EduLevel" FromRole="UserGroup" ToRole="EduLevel" />
+          <NavigationProperty Name="UserGroup_Employee" Relationship="Self.FK_UserGroup_Employee_UserGroup" FromRole="UserGroup" ToRole="UserGroup_Employee" />
+          <NavigationProperty Name="Forms" Relationship="Self.UserGroup_Form" FromRole="UserGroup" ToRole="Forms" />
+        </EntityType>
+        <EntityType Name="UserGroup_Employee">
+          <Key>
+            <PropertyRef Name="UserGroupCode" />
+            <PropertyRef Name="EmployeeId" />
+          </Key>
+          <Property Name="UserGroupCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="EmployeeId" Type="Int32" Nullable="false" />
+          <Property Name="EduMinistryCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="EduProvinceId" Type="Int32" />
+          <Property Name="EduDepartmentId" Type="Int32" />
+          <Property Name="SchoolId" Type="Int32" />
+          <NavigationProperty Name="EduDepartment" Relationship="Self.FK_UserGroup_Employee_EduDepartment" FromRole="UserGroup_Employee" ToRole="EduDepartment" />
+          <NavigationProperty Name="EduMinistry" Relationship="Self.FK_UserGroup_Employee_EduMinistry" FromRole="UserGroup_Employee" ToRole="EduMinistry" />
+          <NavigationProperty Name="EduProvince" Relationship="Self.FK_UserGroup_Employee_EduProvince" FromRole="UserGroup_Employee" ToRole="EduProvince" />
+          <NavigationProperty Name="Employee" Relationship="Self.FK_UserGroup_Employee_Employee" FromRole="UserGroup_Employee" ToRole="Employee" />
+          <NavigationProperty Name="School" Relationship="Self.FK_UserGroup_Employee_School" FromRole="UserGroup_Employee" ToRole="School" />
+          <NavigationProperty Name="UserGroup" Relationship="Self.FK_UserGroup_Employee_UserGroup" FromRole="UserGroup_Employee" ToRole="UserGroup" />
         </EntityType>
         <EntityType Name="Ward">
           <Key>
@@ -1147,12 +1213,12 @@
         </EntityType>
         <Association Name="FK_MinistryofEducation_Country">
           <End Role="Country" Type="Self.Country" Multiplicity="0..1" />
-          <End Role="MinistryofEducation" Type="Self.MinistryofEducation" Multiplicity="*" />
+          <End Role="EduMinistry" Type="Self.EduMinistry" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Country">
               <PropertyRef Name="CountryCode" />
             </Principal>
-            <Dependent Role="MinistryofEducation">
+            <Dependent Role="EduMinistry">
               <PropertyRef Name="CountryCode" />
             </Dependent>
           </ReferentialConstraint>
@@ -1243,15 +1309,87 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_UserGroup_Employee_EduDepartment">
+          <End Role="EduDepartment" Type="Self.EduDepartment" Multiplicity="0..1" />
+          <End Role="UserGroup_Employee" Type="Self.UserGroup_Employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EduDepartment">
+              <PropertyRef Name="EduDepartmentId" />
+            </Principal>
+            <Dependent Role="UserGroup_Employee">
+              <PropertyRef Name="EduDepartmentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Employee_EduLevel">
+          <End Role="EduLevel" Type="Self.EduLevel" Multiplicity="0..1" />
+          <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EduLevel">
+              <PropertyRef Name="EduLevelCode" />
+            </Principal>
+            <Dependent Role="Employee">
+              <PropertyRef Name="EduLevelCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserGroup_EduLevel">
+          <End Role="EduLevel" Type="Self.EduLevel" Multiplicity="0..1" />
+          <End Role="UserGroup" Type="Self.UserGroup" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EduLevel">
+              <PropertyRef Name="EduLevelCode" />
+            </Principal>
+            <Dependent Role="UserGroup">
+              <PropertyRef Name="EduLevelCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_EduProvince_MinistryofEducation">
-          <End Role="MinistryofEducation" Type="Self.MinistryofEducation" Multiplicity="0..1" />
+          <End Role="EduMinistry" Type="Self.EduMinistry" Multiplicity="0..1" />
           <End Role="EduProvince" Type="Self.EduProvince" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="MinistryofEducation">
-              <PropertyRef Name="MinistryofEducationaCode" />
+            <Principal Role="EduMinistry">
+              <PropertyRef Name="EduMinistryCode" />
             </Principal>
             <Dependent Role="EduProvince">
               <PropertyRef Name="MinistryofEducationaCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Employee_MinistryofEducation">
+          <End Role="EduMinistry" Type="Self.EduMinistry" Multiplicity="0..1" />
+          <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EduMinistry">
+              <PropertyRef Name="EduMinistryCode" />
+            </Principal>
+            <Dependent Role="Employee">
+              <PropertyRef Name="MinistryofEducationaCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_School_MinistryofEducation">
+          <End Role="EduMinistry" Type="Self.EduMinistry" Multiplicity="0..1" />
+          <End Role="School" Type="Self.School" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EduMinistry">
+              <PropertyRef Name="EduMinistryCode" />
+            </Principal>
+            <Dependent Role="School">
+              <PropertyRef Name="MinistryofEducationaCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserGroup_Employee_EduMinistry">
+          <End Role="EduMinistry" Type="Self.EduMinistry" Multiplicity="0..1" />
+          <End Role="UserGroup_Employee" Type="Self.UserGroup_Employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EduMinistry">
+              <PropertyRef Name="EduMinistryCode" />
+            </Principal>
+            <Dependent Role="UserGroup_Employee">
+              <PropertyRef Name="EduMinistryCode" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1291,15 +1429,15 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Employee_MinistryofEducation">
-          <End Role="MinistryofEducation" Type="Self.MinistryofEducation" Multiplicity="0..1" />
-          <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
+        <Association Name="FK_UserGroup_Employee_EduProvince">
+          <End Role="EduProvince" Type="Self.EduProvince" Multiplicity="0..1" />
+          <End Role="UserGroup_Employee" Type="Self.UserGroup_Employee" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="MinistryofEducation">
-              <PropertyRef Name="MinistryofEducationaCode" />
+            <Principal Role="EduProvince">
+              <PropertyRef Name="EduProvinceId" />
             </Principal>
-            <Dependent Role="Employee">
-              <PropertyRef Name="MinistryofEducationaCode" />
+            <Dependent Role="UserGroup_Employee">
+              <PropertyRef Name="EduProvinceId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1323,6 +1461,18 @@
               <PropertyRef Name="EmployeeId" />
             </Principal>
             <Dependent Role="EvalDetail">
+              <PropertyRef Name="EmployeeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserGroup_Employee_Employee">
+          <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
+          <End Role="UserGroup_Employee" Type="Self.UserGroup_Employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="EmployeeId" />
+            </Principal>
+            <Dependent Role="UserGroup_Employee">
               <PropertyRef Name="EmployeeId" />
             </Dependent>
           </ReferentialConstraint>
@@ -1447,18 +1597,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_School_MinistryofEducation">
-          <End Role="MinistryofEducation" Type="Self.MinistryofEducation" Multiplicity="0..1" />
-          <End Role="School" Type="Self.School" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="MinistryofEducation">
-              <PropertyRef Name="MinistryofEducationaCode" />
-            </Principal>
-            <Dependent Role="School">
-              <PropertyRef Name="MinistryofEducationaCode" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_School_SchoolLevel">
           <End Role="SchoolLevel" Type="Self.SchoolLevel" Multiplicity="0..1" />
           <End Role="School" Type="Self.School" Multiplicity="*" />
@@ -1471,9 +1609,29 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="UserGroup_Employee">
-          <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
-          <End Role="UserGroup" Type="Self.UserGroup" Multiplicity="*" />
+        <Association Name="FK_UserGroup_Employee_School">
+          <End Role="School" Type="Self.School" Multiplicity="0..1" />
+          <End Role="UserGroup_Employee" Type="Self.UserGroup_Employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="School">
+              <PropertyRef Name="SchoolId" />
+            </Principal>
+            <Dependent Role="UserGroup_Employee">
+              <PropertyRef Name="SchoolId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserGroup_Employee_UserGroup">
+          <End Role="UserGroup" Type="Self.UserGroup" Multiplicity="1" />
+          <End Role="UserGroup_Employee" Type="Self.UserGroup_Employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserGroup">
+              <PropertyRef Name="UserGroupCode" />
+            </Principal>
+            <Dependent Role="UserGroup_Employee">
+              <PropertyRef Name="UserGroupCode" />
+            </Dependent>
+          </ReferentialConstraint>
         </Association>
         <Association Name="UserGroup_Form">
           <End Role="Forms" Type="Self.Form" Multiplicity="*" />
@@ -1483,6 +1641,8 @@
           <EntitySet Name="Countries" EntityType="Self.Country" />
           <EntitySet Name="Districts" EntityType="Self.District" />
           <EntitySet Name="EduDepartments" EntityType="Self.EduDepartment" />
+          <EntitySet Name="EduLevels" EntityType="Self.EduLevel" />
+          <EntitySet Name="EduMinistries" EntityType="Self.EduMinistry" />
           <EntitySet Name="EduProvinces" EntityType="Self.EduProvince" />
           <EntitySet Name="Employees" EntityType="Self.Employee" />
           <EntitySet Name="EvalCriterias" EntityType="Self.EvalCriteria" />
@@ -1494,16 +1654,17 @@
           <EntitySet Name="EvalStates" EntityType="Self.EvalState" />
           <EntitySet Name="EvalTypes" EntityType="Self.EvalType" />
           <EntitySet Name="Forms" EntityType="Self.Form" />
-          <EntitySet Name="MinistryofEducations" EntityType="Self.MinistryofEducation" />
+          <EntitySet Name="LoginUsers" EntityType="Self.LoginUser" />
           <EntitySet Name="Provinces" EntityType="Self.Province" />
           <EntitySet Name="Schools" EntityType="Self.School" />
           <EntitySet Name="SchoolLevels" EntityType="Self.SchoolLevel" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
           <EntitySet Name="UserGroups" EntityType="Self.UserGroup" />
+          <EntitySet Name="UserGroup_Employee" EntityType="Self.UserGroup_Employee" />
           <EntitySet Name="Wards" EntityType="Self.Ward" />
           <AssociationSet Name="FK_MinistryofEducation_Country" Association="Self.FK_MinistryofEducation_Country">
             <End Role="Country" EntitySet="Countries" />
-            <End Role="MinistryofEducation" EntitySet="MinistryofEducations" />
+            <End Role="EduMinistry" EntitySet="EduMinistries" />
           </AssociationSet>
           <AssociationSet Name="FK_Province_Country" Association="Self.FK_Province_Country">
             <End Role="Country" EntitySet="Countries" />
@@ -1533,9 +1694,33 @@
             <End Role="EduDepartment" EntitySet="EduDepartments" />
             <End Role="School" EntitySet="Schools" />
           </AssociationSet>
+          <AssociationSet Name="FK_UserGroup_Employee_EduDepartment" Association="Self.FK_UserGroup_Employee_EduDepartment">
+            <End Role="EduDepartment" EntitySet="EduDepartments" />
+            <End Role="UserGroup_Employee" EntitySet="UserGroup_Employee" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Employee_EduLevel" Association="Self.FK_Employee_EduLevel">
+            <End Role="EduLevel" EntitySet="EduLevels" />
+            <End Role="Employee" EntitySet="Employees" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserGroup_EduLevel" Association="Self.FK_UserGroup_EduLevel">
+            <End Role="EduLevel" EntitySet="EduLevels" />
+            <End Role="UserGroup" EntitySet="UserGroups" />
+          </AssociationSet>
           <AssociationSet Name="FK_EduProvince_MinistryofEducation" Association="Self.FK_EduProvince_MinistryofEducation">
-            <End Role="MinistryofEducation" EntitySet="MinistryofEducations" />
+            <End Role="EduMinistry" EntitySet="EduMinistries" />
             <End Role="EduProvince" EntitySet="EduProvinces" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Employee_MinistryofEducation" Association="Self.FK_Employee_MinistryofEducation">
+            <End Role="EduMinistry" EntitySet="EduMinistries" />
+            <End Role="Employee" EntitySet="Employees" />
+          </AssociationSet>
+          <AssociationSet Name="FK_School_MinistryofEducation" Association="Self.FK_School_MinistryofEducation">
+            <End Role="EduMinistry" EntitySet="EduMinistries" />
+            <End Role="School" EntitySet="Schools" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserGroup_Employee_EduMinistry" Association="Self.FK_UserGroup_Employee_EduMinistry">
+            <End Role="EduMinistry" EntitySet="EduMinistries" />
+            <End Role="UserGroup_Employee" EntitySet="UserGroup_Employee" />
           </AssociationSet>
           <AssociationSet Name="FK_EduProvince_Province" Association="Self.FK_EduProvince_Province">
             <End Role="Province" EntitySet="Provinces" />
@@ -1549,9 +1734,9 @@
             <End Role="EduProvince" EntitySet="EduProvinces" />
             <End Role="School" EntitySet="Schools" />
           </AssociationSet>
-          <AssociationSet Name="FK_Employee_MinistryofEducation" Association="Self.FK_Employee_MinistryofEducation">
-            <End Role="MinistryofEducation" EntitySet="MinistryofEducations" />
-            <End Role="Employee" EntitySet="Employees" />
+          <AssociationSet Name="FK_UserGroup_Employee_EduProvince" Association="Self.FK_UserGroup_Employee_EduProvince">
+            <End Role="EduProvince" EntitySet="EduProvinces" />
+            <End Role="UserGroup_Employee" EntitySet="UserGroup_Employee" />
           </AssociationSet>
           <AssociationSet Name="FK_Employee_School" Association="Self.FK_Employee_School">
             <End Role="School" EntitySet="Schools" />
@@ -1560,6 +1745,10 @@
           <AssociationSet Name="FK_EvalDetail_Employee" Association="Self.FK_EvalDetail_Employee">
             <End Role="Employee" EntitySet="Employees" />
             <End Role="EvalDetail" EntitySet="EvalDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserGroup_Employee_Employee" Association="Self.FK_UserGroup_Employee_Employee">
+            <End Role="Employee" EntitySet="Employees" />
+            <End Role="UserGroup_Employee" EntitySet="UserGroup_Employee" />
           </AssociationSet>
           <AssociationSet Name="FK_EvalCriteria_EvalStandard" Association="Self.FK_EvalCriteria_EvalStandard">
             <End Role="EvalStandard" EntitySet="EvalStandards" />
@@ -1601,154 +1790,31 @@
             <End Role="SchoolLevel" EntitySet="SchoolLevels" />
             <End Role="EvalStandard" EntitySet="EvalStandards" />
           </AssociationSet>
-          <AssociationSet Name="FK_School_MinistryofEducation" Association="Self.FK_School_MinistryofEducation">
-            <End Role="MinistryofEducation" EntitySet="MinistryofEducations" />
-            <End Role="School" EntitySet="Schools" />
-          </AssociationSet>
           <AssociationSet Name="FK_School_SchoolLevel" Association="Self.FK_School_SchoolLevel">
             <End Role="SchoolLevel" EntitySet="SchoolLevels" />
             <End Role="School" EntitySet="Schools" />
           </AssociationSet>
-          <AssociationSet Name="UserGroup_Employee" Association="Self.UserGroup_Employee">
-            <End Role="Employee" EntitySet="Employees" />
+          <AssociationSet Name="FK_UserGroup_Employee_School" Association="Self.FK_UserGroup_Employee_School">
+            <End Role="School" EntitySet="Schools" />
+            <End Role="UserGroup_Employee" EntitySet="UserGroup_Employee" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserGroup_Employee_UserGroup" Association="Self.FK_UserGroup_Employee_UserGroup">
             <End Role="UserGroup" EntitySet="UserGroups" />
+            <End Role="UserGroup_Employee" EntitySet="UserGroup_Employee" />
           </AssociationSet>
           <AssociationSet Name="UserGroup_Form" Association="Self.UserGroup_Form">
             <End Role="Forms" EntitySet="Forms" />
             <End Role="UserGroup" EntitySet="UserGroups" />
           </AssociationSet>
-          <EntitySet Name="LoginUsers" EntityType="EVEModel.LoginUser" />
-          <EntitySet Name="EduLevels" EntityType="EVEModel.EduLevel" />
-          <EntitySet Name="EduMinistries" EntityType="EVEModel.EduMinistry" />
-          <AssociationSet Name="FK_MinistryofEducation_Country1" Association="EVEModel.FK_MinistryofEducation_Country1">
-            <End Role="Country" EntitySet="Countries" />
-            <End Role="EduMinistry" EntitySet="EduMinistries" />
-          </AssociationSet>
-          <AssociationSet Name="FK_UserGroup_EduLevel" Association="EVEModel.FK_UserGroup_EduLevel">
-            <End Role="EduLevel" EntitySet="EduLevels" />
-            <End Role="UserGroup" EntitySet="UserGroups" />
-          </AssociationSet>
-          <AssociationSet Name="FK_EduProvince_MinistryofEducation1" Association="EVEModel.FK_EduProvince_MinistryofEducation1">
-            <End Role="EduMinistry" EntitySet="EduMinistries" />
-            <End Role="EduProvince" EntitySet="EduProvinces" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Employee_MinistryofEducation1" Association="EVEModel.FK_Employee_MinistryofEducation1">
-            <End Role="EduMinistry" EntitySet="EduMinistries" />
-            <End Role="Employee" EntitySet="Employees" />
-          </AssociationSet>
-          <AssociationSet Name="FK_School_MinistryofEducation1" Association="EVEModel.FK_School_MinistryofEducation1">
-            <End Role="EduMinistry" EntitySet="EduMinistries" />
-            <End Role="School" EntitySet="Schools" />
-          </AssociationSet>
         </EntityContainer>
-        <EntityType Name="LoginUser">
-          <Key>
-            <PropertyRef Name="LoginID" />
-          </Key>
-          <Property Name="LoginID" Type="Guid" Nullable="false" />
-          <Property Name="IpAddress" Type="String" MaxLength="30" FixedLength="true" Unicode="false" />
-          <Property Name="HostName" Type="String" MaxLength="30" FixedLength="true" Unicode="false" />
-          <Property Name="UserName" Type="String" Nullable="false" MaxLength="100" FixedLength="true" Unicode="false" />
-          <Property Name="LoginDate" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="UserId" Type="String" Nullable="false" MaxLength="25" FixedLength="true" Unicode="false" />
-          <Property Name="Version" Type="String" MaxLength="15" FixedLength="true" Unicode="false" />
-          <Property Name="UserGroup" Type="String" MaxLength="4" FixedLength="true" Unicode="false" />
-          <Property Name="CrtTs" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="UpdTs" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="Remarks" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-        </EntityType>
-        <EntityType Name="EduLevel">
-          <Key>
-            <PropertyRef Name="EduLevelCode" />
-          </Key>
-          <Property Name="EduLevelCode" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="EduLevelName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-          <Property Name="Idx" Type="Byte" />
-          <NavigationProperty Name="UserGroups" Relationship="EVEModel.FK_UserGroup_EduLevel" FromRole="EduLevel" ToRole="UserGroup" />
-        </EntityType>
-        <EntityType Name="EduMinistry">
-          <Key>
-            <PropertyRef Name="EduMinistryCode" />
-          </Key>
-          <Property Name="EduMinistryCode" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="EduMinistryName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Name="Address" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Name="PhoneNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="HotLine" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="CountryCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Country" Relationship="EVEModel.FK_MinistryofEducation_Country1" FromRole="EduMinistry" ToRole="Country" />
-          <NavigationProperty Name="EduProvinces" Relationship="EVEModel.FK_EduProvince_MinistryofEducation1" FromRole="EduMinistry" ToRole="EduProvince" />
-          <NavigationProperty Name="Employees" Relationship="EVEModel.FK_Employee_MinistryofEducation1" FromRole="EduMinistry" ToRole="Employee" />
-          <NavigationProperty Name="Schools" Relationship="EVEModel.FK_School_MinistryofEducation1" FromRole="EduMinistry" ToRole="School" />
-        </EntityType>
-        <Association Name="FK_MinistryofEducation_Country1">
-          <End Type="EVEModel.Country" Role="Country" Multiplicity="0..1" />
-          <End Type="EVEModel.EduMinistry" Role="EduMinistry" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Country">
-              <PropertyRef Name="CountryCode" />
-            </Principal>
-            <Dependent Role="EduMinistry">
-              <PropertyRef Name="CountryCode" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_UserGroup_EduLevel">
-          <End Type="EVEModel.EduLevel" Role="EduLevel" Multiplicity="0..1" />
-          <End Type="EVEModel.UserGroup" Role="UserGroup" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="EduLevel">
-              <PropertyRef Name="EduLevelCode" />
-            </Principal>
-            <Dependent Role="UserGroup">
-              <PropertyRef Name="EduLevelCode" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_EduProvince_MinistryofEducation1">
-          <End Type="EVEModel.EduMinistry" Role="EduMinistry" Multiplicity="0..1" />
-          <End Type="EVEModel.EduProvince" Role="EduProvince" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="EduMinistry">
-              <PropertyRef Name="EduMinistryCode" />
-            </Principal>
-            <Dependent Role="EduProvince">
-              <PropertyRef Name="MinistryofEducationaCode" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Employee_MinistryofEducation1">
-          <End Type="EVEModel.EduMinistry" Role="EduMinistry" Multiplicity="0..1" />
-          <End Type="EVEModel.Employee" Role="Employee" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="EduMinistry">
-              <PropertyRef Name="EduMinistryCode" />
-            </Principal>
-            <Dependent Role="Employee">
-              <PropertyRef Name="MinistryofEducationaCode" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_School_MinistryofEducation1">
-          <End Type="EVEModel.EduMinistry" Role="EduMinistry" Multiplicity="0..1" />
-          <End Type="EVEModel.School" Role="School" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="EduMinistry">
-              <PropertyRef Name="EduMinistryCode" />
-            </Principal>
-            <Dependent Role="School">
-              <PropertyRef Name="MinistryofEducationaCode" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="EVEModelStoreContainer" CdmEntityContainer="EVEEntities">
+        <EntityContainerMapping StorageEntityContainer="EVEDataStoreContainer" CdmEntityContainer="EVEEntities">
           <EntitySetMapping Name="Countries">
-            <EntityTypeMapping TypeName="EVEModel.Country">
+            <EntityTypeMapping TypeName="EVE.Data.Country">
               <MappingFragment StoreEntitySet="Country">
                 <ScalarProperty Name="CountryCode" ColumnName="CountryCode" />
                 <ScalarProperty Name="CountryName" ColumnName="CountryName" />
@@ -1756,7 +1822,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Districts">
-            <EntityTypeMapping TypeName="EVEModel.District">
+            <EntityTypeMapping TypeName="EVE.Data.District">
               <MappingFragment StoreEntitySet="District">
                 <ScalarProperty Name="DistrictInt" ColumnName="DistrictInt" />
                 <ScalarProperty Name="DistrictName" ColumnName="DistrictName" />
@@ -1766,7 +1832,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="EduDepartments">
-            <EntityTypeMapping TypeName="EVEModel.EduDepartment">
+            <EntityTypeMapping TypeName="EVE.Data.EduDepartment">
               <MappingFragment StoreEntitySet="EduDepartment">
                 <ScalarProperty Name="EduDepartmentId" ColumnName="EduDepartmentId" />
                 <ScalarProperty Name="EduDepartmentName" ColumnName="EduDepartmentName" />
@@ -1777,8 +1843,29 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="EduLevels">
+            <EntityTypeMapping TypeName="EVE.Data.EduLevel">
+              <MappingFragment StoreEntitySet="EduLevel">
+                <ScalarProperty Name="EduLevelCode" ColumnName="EduLevelCode" />
+                <ScalarProperty Name="EduLevelName" ColumnName="EduLevelName" />
+                <ScalarProperty Name="Idx" ColumnName="Idx" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EduMinistries">
+            <EntityTypeMapping TypeName="EVE.Data.EduMinistry">
+              <MappingFragment StoreEntitySet="EduMinistry">
+                <ScalarProperty Name="EduMinistryCode" ColumnName="EduMinistryCode" />
+                <ScalarProperty Name="EduMinistryName" ColumnName="EduMinistryName" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="HotLine" ColumnName="HotLine" />
+                <ScalarProperty Name="CountryCode" ColumnName="CountryCode" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="EduProvinces">
-            <EntityTypeMapping TypeName="EVEModel.EduProvince">
+            <EntityTypeMapping TypeName="EVE.Data.EduProvince">
               <MappingFragment StoreEntitySet="EduProvince">
                 <ScalarProperty Name="EduProvinceId" ColumnName="EduProvinceId" />
                 <ScalarProperty Name="EduProvinceName" ColumnName="EduProvinceName" />
@@ -1789,10 +1876,11 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Employees">
-            <EntityTypeMapping TypeName="EVEModel.Employee">
+            <EntityTypeMapping TypeName="EVE.Data.Employee">
               <MappingFragment StoreEntitySet="Employee">
                 <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
                 <ScalarProperty Name="EmployeeCode" ColumnName="EmployeeCode" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
                 <ScalarProperty Name="Password" ColumnName="Password" />
                 <ScalarProperty Name="EmployeeName" ColumnName="EmployeeName" />
                 <ScalarProperty Name="Address" ColumnName="Address" />
@@ -1803,11 +1891,12 @@
                 <ScalarProperty Name="SchoolId" ColumnName="SchoolId" />
                 <ScalarProperty Name="Active" ColumnName="Active" />
                 <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+                <ScalarProperty Name="EduLevelCode" ColumnName="EduLevelCode" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="EvalCriterias">
-            <EntityTypeMapping TypeName="EVEModel.EvalCriteria">
+            <EntityTypeMapping TypeName="EVE.Data.EvalCriteria">
               <MappingFragment StoreEntitySet="EvalCriteria">
                 <ScalarProperty Name="EvalCriteriaId" ColumnName="EvalCriteriaId" />
                 <ScalarProperty Name="EvalStandardId" ColumnName="EvalStandardId" />
@@ -1817,7 +1906,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="EvalDetails">
-            <EntityTypeMapping TypeName="EVEModel.EvalDetail">
+            <EntityTypeMapping TypeName="EVE.Data.EvalDetail">
               <MappingFragment StoreEntitySet="EvalDetail">
                 <ScalarProperty Name="EvalDetailId" ColumnName="EvalDetailId" />
                 <ScalarProperty Name="EvalMasterId" ColumnName="EvalMasterId" />
@@ -1831,7 +1920,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="EvalGuides">
-            <EntityTypeMapping TypeName="EVEModel.EvalGuide">
+            <EntityTypeMapping TypeName="EVE.Data.EvalGuide">
               <MappingFragment StoreEntitySet="EvalGuide">
                 <ScalarProperty Name="EvalResultCode" ColumnName="EvalResultCode" />
                 <ScalarProperty Name="EvalCriteriaId" ColumnName="EvalCriteriaId" />
@@ -1841,7 +1930,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="EvalMasters">
-            <EntityTypeMapping TypeName="EVEModel.EvalMaster">
+            <EntityTypeMapping TypeName="EVE.Data.EvalMaster">
               <MappingFragment StoreEntitySet="EvalMaster">
                 <ScalarProperty Name="EvalMasterId" ColumnName="EvalMasterId" />
                 <ScalarProperty Name="Year" ColumnName="Year" />
@@ -1856,7 +1945,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="EvalResults">
-            <EntityTypeMapping TypeName="EVEModel.EvalResult">
+            <EntityTypeMapping TypeName="EVE.Data.EvalResult">
               <MappingFragment StoreEntitySet="EvalResult">
                 <ScalarProperty Name="EvalResultCode" ColumnName="EvalResultCode" />
                 <ScalarProperty Name="EvalResultName" ColumnName="EvalResultName" />
@@ -1866,7 +1955,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="EvalStandards">
-            <EntityTypeMapping TypeName="EVEModel.EvalStandard">
+            <EntityTypeMapping TypeName="EVE.Data.EvalStandard">
               <MappingFragment StoreEntitySet="EvalStandard">
                 <ScalarProperty Name="EvalStandardId" ColumnName="EvalStandardId" />
                 <ScalarProperty Name="EvalStandardName" ColumnName="EvalStandardName" />
@@ -1877,7 +1966,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="EvalStates">
-            <EntityTypeMapping TypeName="EVEModel.EvalState">
+            <EntityTypeMapping TypeName="EVE.Data.EvalState">
               <MappingFragment StoreEntitySet="EvalState">
                 <ScalarProperty Name="EvalStateCode" ColumnName="EvalStateCode" />
                 <ScalarProperty Name="EvalStateName" ColumnName="EvalStateName" />
@@ -1886,7 +1975,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="EvalTypes">
-            <EntityTypeMapping TypeName="EVEModel.EvalType">
+            <EntityTypeMapping TypeName="EVE.Data.EvalType">
               <MappingFragment StoreEntitySet="EvalType">
                 <ScalarProperty Name="EvalTypeCode" ColumnName="EvalTypeCode" />
                 <ScalarProperty Name="EvalTypeName" ColumnName="EvalTypeName" />
@@ -1894,7 +1983,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Forms">
-            <EntityTypeMapping TypeName="EVEModel.Form">
+            <EntityTypeMapping TypeName="EVE.Data.Form">
               <MappingFragment StoreEntitySet="Forms">
                 <ScalarProperty Name="FormCode" ColumnName="FormCode" />
                 <ScalarProperty Name="FormName" ColumnName="FormName" />
@@ -1902,8 +1991,25 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="LoginUsers">
+            <EntityTypeMapping TypeName="EVE.Data.LoginUser">
+              <MappingFragment StoreEntitySet="LoginUser">
+                <ScalarProperty Name="LoginID" ColumnName="LoginID" />
+                <ScalarProperty Name="IpAddress" ColumnName="IpAddress" />
+                <ScalarProperty Name="HostName" ColumnName="HostName" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="LoginDate" ColumnName="LoginDate" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Version" ColumnName="Version" />
+                <ScalarProperty Name="UserGroup" ColumnName="UserGroup" />
+                <ScalarProperty Name="CrtTs" ColumnName="CrtTs" />
+                <ScalarProperty Name="UpdTs" ColumnName="UpdTs" />
+                <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Provinces">
-            <EntityTypeMapping TypeName="EVEModel.Province">
+            <EntityTypeMapping TypeName="EVE.Data.Province">
               <MappingFragment StoreEntitySet="Province">
                 <ScalarProperty Name="ProvinceId" ColumnName="ProvinceId" />
                 <ScalarProperty Name="ProvinceName" ColumnName="ProvinceName" />
@@ -1914,7 +2020,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Schools">
-            <EntityTypeMapping TypeName="EVEModel.School">
+            <EntityTypeMapping TypeName="EVE.Data.School">
               <MappingFragment StoreEntitySet="School">
                 <ScalarProperty Name="SchoolId" ColumnName="SchoolId" />
                 <ScalarProperty Name="School1" ColumnName="School" />
@@ -1929,7 +2035,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="SchoolLevels">
-            <EntityTypeMapping TypeName="EVEModel.SchoolLevel">
+            <EntityTypeMapping TypeName="EVE.Data.SchoolLevel">
               <MappingFragment StoreEntitySet="SchoolLevel">
                 <ScalarProperty Name="SchoolLevelCode" ColumnName="SchoolLevelCode" />
                 <ScalarProperty Name="SchoolLevelName" ColumnName="SchoolLevelName" />
@@ -1937,7 +2043,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="sysdiagrams">
-            <EntityTypeMapping TypeName="EVEModel.sysdiagram">
+            <EntityTypeMapping TypeName="EVE.Data.sysdiagram">
               <MappingFragment StoreEntitySet="sysdiagrams">
                 <ScalarProperty Name="name" ColumnName="name" />
                 <ScalarProperty Name="principal_id" ColumnName="principal_id" />
@@ -1948,17 +2054,29 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="UserGroups">
-            <EntityTypeMapping TypeName="EVEModel.UserGroup">
+            <EntityTypeMapping TypeName="EVE.Data.UserGroup">
               <MappingFragment StoreEntitySet="UserGroup">
-                <ScalarProperty Name="EduLevelCode" ColumnName="EduLevelCode" />
                 <ScalarProperty Name="UserGroupCode" ColumnName="UserGroupCode" />
                 <ScalarProperty Name="UserGroupName" ColumnName="UserGroupName" />
                 <ScalarProperty Name="Idx" ColumnName="Idx" />
+                <ScalarProperty Name="EduLevelCode" ColumnName="EduLevelCode" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserGroup_Employee">
+            <EntityTypeMapping TypeName="EVE.Data.UserGroup_Employee">
+              <MappingFragment StoreEntitySet="UserGroup_Employee">
+                <ScalarProperty Name="UserGroupCode" ColumnName="UserGroupCode" />
+                <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
+                <ScalarProperty Name="EduMinistryCode" ColumnName="EduMinistryCode" />
+                <ScalarProperty Name="EduProvinceId" ColumnName="EduProvinceId" />
+                <ScalarProperty Name="EduDepartmentId" ColumnName="EduDepartmentId" />
+                <ScalarProperty Name="SchoolId" ColumnName="SchoolId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Wards">
-            <EntityTypeMapping TypeName="EVEModel.Ward">
+            <EntityTypeMapping TypeName="EVE.Data.Ward">
               <MappingFragment StoreEntitySet="Ward">
                 <ScalarProperty Name="WardId" ColumnName="WardId" />
                 <ScalarProperty Name="WardName" ColumnName="WardName" />
@@ -1967,15 +2085,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <AssociationSetMapping Name="UserGroup_Employee" TypeName="EVEModel.UserGroup_Employee" StoreEntitySet="UserGroup_Employee">
-            <EndProperty Name="Employee">
-              <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
-            </EndProperty>
-            <EndProperty Name="UserGroup">
-              <ScalarProperty Name="UserGroupCode" ColumnName="UserGroupCode" />
-            </EndProperty>
-          </AssociationSetMapping>
-          <AssociationSetMapping Name="UserGroup_Form" TypeName="EVEModel.UserGroup_Form" StoreEntitySet="UserGroup_Form">
+          <AssociationSetMapping Name="UserGroup_Form" TypeName="EVE.Data.UserGroup_Form" StoreEntitySet="UserGroup_Form">
             <EndProperty Name="Forms">
               <ScalarProperty Name="FormCode" ColumnName="FromCode" />
             </EndProperty>
@@ -1983,44 +2093,6 @@
               <ScalarProperty Name="UserGroupCode" ColumnName="UserGroupCode" />
             </EndProperty>
           </AssociationSetMapping>
-          <EntitySetMapping Name="LoginUsers">
-            <EntityTypeMapping TypeName="EVEModel.LoginUser">
-              <MappingFragment StoreEntitySet="LoginUser">
-                <ScalarProperty Name="Remarks" ColumnName="Remarks" />
-                <ScalarProperty Name="UpdTs" ColumnName="UpdTs" />
-                <ScalarProperty Name="CrtTs" ColumnName="CrtTs" />
-                <ScalarProperty Name="UserGroup" ColumnName="UserGroup" />
-                <ScalarProperty Name="Version" ColumnName="Version" />
-                <ScalarProperty Name="UserId" ColumnName="UserId" />
-                <ScalarProperty Name="LoginDate" ColumnName="LoginDate" />
-                <ScalarProperty Name="UserName" ColumnName="UserName" />
-                <ScalarProperty Name="HostName" ColumnName="HostName" />
-                <ScalarProperty Name="IpAddress" ColumnName="IpAddress" />
-                <ScalarProperty Name="LoginID" ColumnName="LoginID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="EduLevels">
-            <EntityTypeMapping TypeName="EVEModel.EduLevel">
-              <MappingFragment StoreEntitySet="EduLevel">
-                <ScalarProperty Name="Idx" ColumnName="Idx" />
-                <ScalarProperty Name="EduLevelName" ColumnName="EduLevelName" />
-                <ScalarProperty Name="EduLevelCode" ColumnName="EduLevelCode" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="EduMinistries">
-            <EntityTypeMapping TypeName="EVEModel.EduMinistry">
-              <MappingFragment StoreEntitySet="EduMinistry">
-                <ScalarProperty Name="CountryCode" ColumnName="CountryCode" />
-                <ScalarProperty Name="HotLine" ColumnName="HotLine" />
-                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
-                <ScalarProperty Name="Address" ColumnName="Address" />
-                <ScalarProperty Name="EduMinistryName" ColumnName="EduMinistryName" />
-                <ScalarProperty Name="EduMinistryCode" ColumnName="EduMinistryCode" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

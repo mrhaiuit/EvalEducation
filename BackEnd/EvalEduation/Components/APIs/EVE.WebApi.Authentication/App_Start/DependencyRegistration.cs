@@ -6,6 +6,7 @@ using System.Web.Http;
 using Autofac;
 using Autofac.Integration.WebApi;
 using AutoMapper;
+using EVE.Bussiness;
 using EVE.Data;
 
 namespace EVE.WebApi.Authentication
@@ -24,6 +25,10 @@ namespace EVE.WebApi.Authentication
             builder.RegisterGeneric(typeof(GenericRepository<>))
                    .As(typeof(IGenericRepository<>))
                    .InstancePerDependency();
+            builder.RegisterAssemblyTypes(typeof(LoginBE).Assembly)
+                   .Where(t => t.Name.EndsWith("BE"))
+                   .AsImplementedInterfaces()
+                   .InstancePerRequest();
 
             builder.RegisterType<EVEEntities>()
                    .As<DbContext>();
