@@ -65,10 +65,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Authentication\Implementations\LoginBE.cs" />
-    <Compile Include="Authentication\Interfaces\IEmployeeBE.cs" />
     <Compile Include="Base\IBaseBE.cs" />
     <Compile Include="Base\BaseBE.cs" />
     <Compile Include="Authentication\Interfaces\ILoginBE.cs" />
+    <Compile Include="Catelog\Implementations\EmployeeBE.cs" />
+    <Compile Include="Catelog\Interfaces\IEmployeeBE.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -88,8 +89,6 @@
       <Name>EVE.Data</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Catelog\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
