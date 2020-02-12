@@ -37,3 +37,11 @@ C:\DEV\Eval-Edu\EvalEducation\BackEnd\EvalEduation\Components\TTOS\bin\Debug\Use
 C:\DEV\Eval-Edu\EvalEducation\BackEnd\EvalEduation\Components\TTOS\bin\Debug\Ward.cs
 C:\DEV\Eval-Edu\EvalEducation\BackEnd\EvalEduation\Components\TTOS\bin\Debug\EVEModel.edmx.diagram
 C:\DEV\Eval-Edu\EvalEducation\BackEnd\EvalEduation\Components\TTOS\bin\Debug\App.Config
+E:\HAI\EVE\Backend\EvalEducation\BackEnd\EvalEduation\Components\TTOS\bin\Debug\App.Config
+E:\HAI\EVE\Backend\EvalEducation\BackEnd\EvalEduation\Components\TTOS\bin\Debug\EVE.Bussiness.dll.config
+E:\HAI\EVE\Backend\EvalEducation\BackEnd\EvalEduation\Components\TTOS\bin\Debug\EVE.Bussiness.dll
+E:\HAI\EVE\Backend\EvalEducation\BackEnd\EvalEduation\Components\TTOS\bin\Debug\EVE.Bussiness.pdb
+E:\HAI\EVE\Backend\EvalEducation\BackEnd\EvalEduation\Components\Bussiness\EVE.Bussiness\obj\Debug\EVE.Bussiness.csprojAssemblyReference.cache
+E:\HAI\EVE\Backend\EvalEducation\BackEnd\EvalEduation\Components\Bussiness\EVE.Bussiness\obj\Debug\EVE.Bussiness.csproj.CopyComplete
+E:\HAI\EVE\Backend\EvalEducation\BackEnd\EvalEduation\Components\Bussiness\EVE.Bussiness\obj\Debug\EVE.Bussiness.dll
+E:\HAI\EVE\Backend\EvalEducation\BackEnd\EvalEduation\Components\Bussiness\EVE.Bussiness\obj\Debug\EVE.Bussiness.pdb

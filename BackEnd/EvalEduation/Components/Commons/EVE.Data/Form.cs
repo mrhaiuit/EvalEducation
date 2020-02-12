@@ -17,14 +17,17 @@ namespace EVE.Data
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Form()
         {
-            this.UserGroups = new HashSet<UserGroup>();
+            this.UserGroup_Form = new HashSet<UserGroup_Form>();
         }
     
         public string FormCode { get; set; }
         public string FormName { get; set; }
+        public string GroupCode { get; set; }
         public Nullable<int> Idx { get; set; }
+        public string Remarks { get; set; }
     
+        public virtual FormGroup FormGroup { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<UserGroup> UserGroups { get; set; }
+        public virtual ICollection<UserGroup_Form> UserGroup_Form { get; set; }
     }
 }

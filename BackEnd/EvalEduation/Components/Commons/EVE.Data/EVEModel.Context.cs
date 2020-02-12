@@ -18,6 +18,8 @@ namespace EVE.Data
         public EVEEntities()
             : base("name=EVEEntities")
         {
+            this.Configuration.LazyLoadingEnabled = false;
+            this.Configuration.ProxyCreationEnabled = false;
         }
     
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
@@ -36,10 +38,12 @@ namespace EVE.Data
         public virtual DbSet<EvalDetail> EvalDetails { get; set; }
         public virtual DbSet<EvalGuide> EvalGuides { get; set; }
         public virtual DbSet<EvalMaster> EvalMasters { get; set; }
+        public virtual DbSet<EvalPeriod> EvalPeriods { get; set; }
         public virtual DbSet<EvalResult> EvalResults { get; set; }
         public virtual DbSet<EvalStandard> EvalStandards { get; set; }
         public virtual DbSet<EvalState> EvalStates { get; set; }
         public virtual DbSet<EvalType> EvalTypes { get; set; }
+        public virtual DbSet<FormGroup> FormGroups { get; set; }
         public virtual DbSet<Form> Forms { get; set; }
         public virtual DbSet<LoginUser> LoginUsers { get; set; }
         public virtual DbSet<Province> Provinces { get; set; }
@@ -48,6 +52,7 @@ namespace EVE.Data
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<UserGroup> UserGroups { get; set; }
         public virtual DbSet<UserGroup_Employee> UserGroup_Employee { get; set; }
+        public virtual DbSet<UserGroup_Form> UserGroup_Form { get; set; }
         public virtual DbSet<Ward> Wards { get; set; }
     }
 }

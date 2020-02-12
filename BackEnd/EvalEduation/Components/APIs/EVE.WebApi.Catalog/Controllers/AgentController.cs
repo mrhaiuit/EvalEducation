@@ -33,59 +33,59 @@ namespace EVE.WebApi.Catalog.Controllers
             return this.OkResult();
         }
 
-        [Route("getById")]
-        public async Task<HttpResponseMessage> GetById([FromUri] AgentGetByIdReq req)
-        {
-            //var agent = await _agentBe.GetById(req);
-            //if(agent != null)
-            //{
-            //    return this.OkResult(agent.RemoveWhiteSpace());
-            //}
+        //[Route("getById")]
+        //public async Task<HttpResponseMessage> GetById([FromUri] AgentGetByIdReq req)
+        //{
+        //    //var agent = await _agentBe.GetById(req);
+        //    //if(agent != null)
+        //    //{
+        //    //    return this.OkResult(agent.RemoveWhiteSpace());
+        //    //}
 
-            return this.ErrorResult(new Error(EnumError.AgentNotExist));
-        }
+        //    return this.ErrorResult(new Error(EnumError.AgentNotExist));
+        //}
 
-        [HttpPost]
-        public async Task<HttpResponseMessage> Insert(AgentInsertReq req)
-        {
-            //var existAgent = await _agentBe.GetById(req);
-            //if(existAgent != null)
-            //{
-            //    return this.ErrorResult(new Error(EnumError.AgentHasExist));
-            //}
+        //[HttpPost]
+        //public async Task<HttpResponseMessage> Insert(AgentInsertReq req)
+        //{
+        //    //var existAgent = await _agentBe.GetById(req);
+        //    //if(existAgent != null)
+        //    //{
+        //    //    return this.ErrorResult(new Error(EnumError.AgentHasExist));
+        //    //}
 
-            //_agentBe.Insert(Mapper.Map<AGENT>(req));
-            return this.OkResult();
-        }
+        //    //_agentBe.Insert(Mapper.Map<AGENT>(req));
+        //    return this.OkResult();
+        //}
 
-        [HttpPut]
-        public async Task<HttpResponseMessage> Update(AgentUpdateReq req)
-        {
-            //var agent = await _agentBe.GetById(req);
-            //if(agent == null)
-            //{
-            //    return this.ErrorResult(new Error(EnumError.AgentNotExist));
-            //}
+        //[HttpPut]
+        //public async Task<HttpResponseMessage> Update(AgentUpdateReq req)
+        //{
+        //    //var agent = await _agentBe.GetById(req);
+        //    //if(agent == null)
+        //    //{
+        //    //    return this.ErrorResult(new Error(EnumError.AgentNotExist));
+        //    //}
 
-            //Mapper.Map(req, agent);
+        //    //Mapper.Map(req, agent);
 
-            //_agentBe.Update(agent);
+        //    //_agentBe.Update(agent);
 
-            return this.OkResult();
-        }
+        //    return this.OkResult();
+        //}
 
-        [HttpDelete]
-        public async Task<HttpResponseMessage> Delete(AgentDeleteReq req)
-        {
-            //var agent = await _agentBe.GetById(req);
-            //if(agent == null)
-            //{
-            //    return this.ErrorResult(new Error(EnumError.AgentNotExist));
-            //}
+        //[HttpDelete]
+        //public async Task<HttpResponseMessage> Delete(AgentDeleteReq req)
+        //{
+        //    //var agent = await _agentBe.GetById(req);
+        //    //if(agent == null)
+        //    //{
+        //    //    return this.ErrorResult(new Error(EnumError.AgentNotExist));
+        //    //}
 
-            //_agentBe.Delete(agent);
+        //    //_agentBe.Delete(agent);
 
-            return this.OkResult();
-        }
+        //    return this.OkResult();
+        //}
     }
 }

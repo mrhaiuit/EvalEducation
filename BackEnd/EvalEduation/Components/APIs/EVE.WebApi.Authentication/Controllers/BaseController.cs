@@ -1,7 +1,7 @@
 ﻿using System.Web.Http;
 using AutoMapper;
 
-namespace EVE.WebApi.Authentication.Controllers
+namespace EVE.WebApi.Controllers
 {
     public class BaseController : ApiController
     {

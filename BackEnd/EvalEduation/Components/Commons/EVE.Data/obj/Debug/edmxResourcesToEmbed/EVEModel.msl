@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="EVEDataStoreContainer" CdmEntityContainer="EVEEntities">
+  <EntityContainerMapping StorageEntityContainer="EVEModelStoreContainer" CdmEntityContainer="EVEEntities">
     <EntitySetMapping Name="Countries">
-      <EntityTypeMapping TypeName="EVE.Data.Country">
+      <EntityTypeMapping TypeName="EVEModel.Country">
         <MappingFragment StoreEntitySet="Country">
           <ScalarProperty Name="CountryCode" ColumnName="CountryCode" />
           <ScalarProperty Name="CountryName" ColumnName="CountryName" />
@@ -10,17 +10,16 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Districts">
-      <EntityTypeMapping TypeName="EVE.Data.District">
+      <EntityTypeMapping TypeName="EVEModel.District">
         <MappingFragment StoreEntitySet="District">
-          <ScalarProperty Name="DistrictInt" ColumnName="DistrictInt" />
+          <ScalarProperty Name="DistrictId" ColumnName="DistrictId" />
           <ScalarProperty Name="DistrictName" ColumnName="DistrictName" />
           <ScalarProperty Name="ProvinceId" ColumnName="ProvinceId" />
-          <ScalarProperty Name="Idx" ColumnName="Idx" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="EduDepartments">
-      <EntityTypeMapping TypeName="EVE.Data.EduDepartment">
+      <EntityTypeMapping TypeName="EVEModel.EduDepartment">
         <MappingFragment StoreEntitySet="EduDepartment">
           <ScalarProperty Name="EduDepartmentId" ColumnName="EduDepartmentId" />
           <ScalarProperty Name="EduDepartmentName" ColumnName="EduDepartmentName" />
@@ -32,7 +31,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="EduLevels">
-      <EntityTypeMapping TypeName="EVE.Data.EduLevel">
+      <EntityTypeMapping TypeName="EVEModel.EduLevel">
         <MappingFragment StoreEntitySet="EduLevel">
           <ScalarProperty Name="EduLevelCode" ColumnName="EduLevelCode" />
           <ScalarProperty Name="EduLevelName" ColumnName="EduLevelName" />
@@ -41,7 +40,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="EduMinistries">
-      <EntityTypeMapping TypeName="EVE.Data.EduMinistry">
+      <EntityTypeMapping TypeName="EVEModel.EduMinistry">
         <MappingFragment StoreEntitySet="EduMinistry">
           <ScalarProperty Name="EduMinistryCode" ColumnName="EduMinistryCode" />
           <ScalarProperty Name="EduMinistryName" ColumnName="EduMinistryName" />
@@ -53,7 +52,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="EduProvinces">
-      <EntityTypeMapping TypeName="EVE.Data.EduProvince">
+      <EntityTypeMapping TypeName="EVEModel.EduProvince">
         <MappingFragment StoreEntitySet="EduProvince">
           <ScalarProperty Name="EduProvinceId" ColumnName="EduProvinceId" />
           <ScalarProperty Name="EduProvinceName" ColumnName="EduProvinceName" />
@@ -64,7 +63,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Employees">
-      <EntityTypeMapping TypeName="EVE.Data.Employee">
+      <EntityTypeMapping TypeName="EVEModel.Employee">
         <MappingFragment StoreEntitySet="Employee">
           <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
           <ScalarProperty Name="EmployeeCode" ColumnName="EmployeeCode" />
@@ -84,17 +83,18 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="EvalCriterias">
-      <EntityTypeMapping TypeName="EVE.Data.EvalCriteria">
+      <EntityTypeMapping TypeName="EVEModel.EvalCriteria">
         <MappingFragment StoreEntitySet="EvalCriteria">
           <ScalarProperty Name="EvalCriteriaId" ColumnName="EvalCriteriaId" />
           <ScalarProperty Name="EvalStandardId" ColumnName="EvalStandardId" />
           <ScalarProperty Name="EvalCriteriaName" ColumnName="EvalCriteriaName" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
           <ScalarProperty Name="Idx" ColumnName="Idx" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="EvalDetails">
-      <EntityTypeMapping TypeName="EVE.Data.EvalDetail">
+      <EntityTypeMapping TypeName="EVEModel.EvalDetail">
         <MappingFragment StoreEntitySet="EvalDetail">
           <ScalarProperty Name="EvalDetailId" ColumnName="EvalDetailId" />
           <ScalarProperty Name="EvalMasterId" ColumnName="EvalMasterId" />
@@ -108,7 +108,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="EvalGuides">
-      <EntityTypeMapping TypeName="EVE.Data.EvalGuide">
+      <EntityTypeMapping TypeName="EVEModel.EvalGuide">
         <MappingFragment StoreEntitySet="EvalGuide">
           <ScalarProperty Name="EvalResultCode" ColumnName="EvalResultCode" />
           <ScalarProperty Name="EvalCriteriaId" ColumnName="EvalCriteriaId" />
@@ -118,7 +118,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="EvalMasters">
-      <EntityTypeMapping TypeName="EVE.Data.EvalMaster">
+      <EntityTypeMapping TypeName="EVEModel.EvalMaster">
         <MappingFragment StoreEntitySet="EvalMaster">
           <ScalarProperty Name="EvalMasterId" ColumnName="EvalMasterId" />
           <ScalarProperty Name="Year" ColumnName="Year" />
@@ -132,8 +132,21 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="EvalPeriods">
+      <EntityTypeMapping TypeName="EVEModel.EvalPeriod">
+        <MappingFragment StoreEntitySet="EvalPeriod">
+          <ScalarProperty Name="EvalPeriodId" ColumnName="EvalPeriodId" />
+          <ScalarProperty Name="PeriodName" ColumnName="PeriodName" />
+          <ScalarProperty Name="Year" ColumnName="Year" />
+          <ScalarProperty Name="FromDate" ColumnName="FromDate" />
+          <ScalarProperty Name="ToDate" ColumnName="ToDate" />
+          <ScalarProperty Name="SchoolId" ColumnName="SchoolId" />
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="EvalResults">
-      <EntityTypeMapping TypeName="EVE.Data.EvalResult">
+      <EntityTypeMapping TypeName="EVEModel.EvalResult">
         <MappingFragment StoreEntitySet="EvalResult">
           <ScalarProperty Name="EvalResultCode" ColumnName="EvalResultCode" />
           <ScalarProperty Name="EvalResultName" ColumnName="EvalResultName" />
@@ -143,18 +156,20 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="EvalStandards">
-      <EntityTypeMapping TypeName="EVE.Data.EvalStandard">
+      <EntityTypeMapping TypeName="EVEModel.EvalStandard">
         <MappingFragment StoreEntitySet="EvalStandard">
           <ScalarProperty Name="EvalStandardId" ColumnName="EvalStandardId" />
           <ScalarProperty Name="EvalStandardName" ColumnName="EvalStandardName" />
           <ScalarProperty Name="SchoolLevelCode" ColumnName="SchoolLevelCode" />
           <ScalarProperty Name="EvalTypeCode" ColumnName="EvalTypeCode" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
           <ScalarProperty Name="Idx" ColumnName="Idx" />
+          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="EvalStates">
-      <EntityTypeMapping TypeName="EVE.Data.EvalState">
+      <EntityTypeMapping TypeName="EVEModel.EvalState">
         <MappingFragment StoreEntitySet="EvalState">
           <ScalarProperty Name="EvalStateCode" ColumnName="EvalStateCode" />
           <ScalarProperty Name="EvalStateName" ColumnName="EvalStateName" />
@@ -163,24 +178,35 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="EvalTypes">
-      <EntityTypeMapping TypeName="EVE.Data.EvalType">
+      <EntityTypeMapping TypeName="EVEModel.EvalType">
         <MappingFragment StoreEntitySet="EvalType">
           <ScalarProperty Name="EvalTypeCode" ColumnName="EvalTypeCode" />
           <ScalarProperty Name="EvalTypeName" ColumnName="EvalTypeName" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Forms">
-      <EntityTypeMapping TypeName="EVE.Data.Form">
-        <MappingFragment StoreEntitySet="Forms">
-          <ScalarProperty Name="FormCode" ColumnName="FormCode" />
-          <ScalarProperty Name="FormName" ColumnName="FormName" />
+    <EntitySetMapping Name="FormGroups">
+      <EntityTypeMapping TypeName="EVEModel.FormGroup">
+        <MappingFragment StoreEntitySet="FormGroup">
+          <ScalarProperty Name="GroupCode" ColumnName="GroupCode" />
+          <ScalarProperty Name="GroupName" ColumnName="GroupName" />
           <ScalarProperty Name="Idx" ColumnName="Idx" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="Forms">
+      <EntityTypeMapping TypeName="EVEModel.Form">
+        <MappingFragment StoreEntitySet="Forms">
+          <ScalarProperty Name="FormCode" ColumnName="FormCode" />
+          <ScalarProperty Name="FormName" ColumnName="FormName" />
+          <ScalarProperty Name="GroupCode" ColumnName="GroupCode" />
+          <ScalarProperty Name="Idx" ColumnName="Idx" />
+          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="LoginUsers">
-      <EntityTypeMapping TypeName="EVE.Data.LoginUser">
+      <EntityTypeMapping TypeName="EVEModel.LoginUser">
         <MappingFragment StoreEntitySet="LoginUser">
           <ScalarProperty Name="LoginID" ColumnName="LoginID" />
           <ScalarProperty Name="IpAddress" ColumnName="IpAddress" />
@@ -197,18 +223,20 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Provinces">
-      <EntityTypeMapping TypeName="EVE.Data.Province">
+      <EntityTypeMapping TypeName="EVEModel.Province">
         <MappingFragment StoreEntitySet="Province">
           <ScalarProperty Name="ProvinceId" ColumnName="ProvinceId" />
           <ScalarProperty Name="ProvinceName" ColumnName="ProvinceName" />
-          <ScalarProperty Name="CountryCode" ColumnName="CountryCode" />
-          <ScalarProperty Name="Idx" ColumnName="Idx" />
           <ScalarProperty Name="PostCode" ColumnName="PostCode" />
+          <ScalarProperty Name="MaQG" ColumnName="MaQG" />
+          <ScalarProperty Name="ProvinceCode" ColumnName="ProvinceCode" />
+          <ScalarProperty Name="Idx" ColumnName="Idx" />
+          <ScalarProperty Name="CountryCode" ColumnName="CountryCode" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Schools">
-      <EntityTypeMapping TypeName="EVE.Data.School">
+      <EntityTypeMapping TypeName="EVEModel.School">
         <MappingFragment StoreEntitySet="School">
           <ScalarProperty Name="SchoolId" ColumnName="SchoolId" />
           <ScalarProperty Name="School1" ColumnName="School" />
@@ -223,7 +251,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="SchoolLevels">
-      <EntityTypeMapping TypeName="EVE.Data.SchoolLevel">
+      <EntityTypeMapping TypeName="EVEModel.SchoolLevel">
         <MappingFragment StoreEntitySet="SchoolLevel">
           <ScalarProperty Name="SchoolLevelCode" ColumnName="SchoolLevelCode" />
           <ScalarProperty Name="SchoolLevelName" ColumnName="SchoolLevelName" />
@@ -231,7 +259,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="sysdiagrams">
-      <EntityTypeMapping TypeName="EVE.Data.sysdiagram">
+      <EntityTypeMapping TypeName="EVEModel.sysdiagram">
         <MappingFragment StoreEntitySet="sysdiagrams">
           <ScalarProperty Name="name" ColumnName="name" />
           <ScalarProperty Name="principal_id" ColumnName="principal_id" />
@@ -242,7 +270,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="UserGroups">
-      <EntityTypeMapping TypeName="EVE.Data.UserGroup">
+      <EntityTypeMapping TypeName="EVEModel.UserGroup">
         <MappingFragment StoreEntitySet="UserGroup">
           <ScalarProperty Name="UserGroupCode" ColumnName="UserGroupCode" />
           <ScalarProperty Name="UserGroupName" ColumnName="UserGroupName" />
@@ -252,7 +280,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="UserGroup_Employee">
-      <EntityTypeMapping TypeName="EVE.Data.UserGroup_Employee">
+      <EntityTypeMapping TypeName="EVEModel.UserGroup_Employee">
         <MappingFragment StoreEntitySet="UserGroup_Employee">
           <ScalarProperty Name="UserGroupCode" ColumnName="UserGroupCode" />
           <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
@@ -263,23 +291,23 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="UserGroup_Form">
+      <EntityTypeMapping TypeName="EVEModel.UserGroup_Form">
+        <MappingFragment StoreEntitySet="UserGroup_Form">
+          <ScalarProperty Name="UserGroupCode" ColumnName="UserGroupCode" />
+          <ScalarProperty Name="FormCode" ColumnName="FormCode" />
+          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="Wards">
-      <EntityTypeMapping TypeName="EVE.Data.Ward">
+      <EntityTypeMapping TypeName="EVEModel.Ward">
         <MappingFragment StoreEntitySet="Ward">
           <ScalarProperty Name="WardId" ColumnName="WardId" />
           <ScalarProperty Name="WardName" ColumnName="WardName" />
           <ScalarProperty Name="DistrictId" ColumnName="DistrictId" />
-          <ScalarProperty Name="Idx" ColumnName="Idx" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <AssociationSetMapping Name="UserGroup_Form" TypeName="EVE.Data.UserGroup_Form" StoreEntitySet="UserGroup_Form">
-      <EndProperty Name="Forms">
-        <ScalarProperty Name="FormCode" ColumnName="FromCode" />
-      </EndProperty>
-      <EndProperty Name="UserGroup">
-        <ScalarProperty Name="UserGroupCode" ColumnName="UserGroupCode" />
-      </EndProperty>
-    </AssociationSetMapping>
   </EntityContainerMapping>
 </Mapping>

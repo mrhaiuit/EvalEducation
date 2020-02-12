@@ -24,7 +24,9 @@ namespace EVE.Data
         public string EvalStandardName { get; set; }
         public string SchoolLevelCode { get; set; }
         public string EvalTypeCode { get; set; }
+        public Nullable<bool> Active { get; set; }
         public Nullable<int> Idx { get; set; }
+        public string Remarks { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<EvalCriteria> EvalCriterias { get; set; }
