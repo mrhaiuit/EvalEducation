@@ -1,12 +1,4 @@
 C:\DEV\Eval-Edu\CMS.NET\Implementation\TTOS_DEV\Components\Bussiness\CMS.Bussiness\obj\Debug\EVE.Bussiness.csprojAssemblyReference.cache
-C:\DEV\Eval-Edu\EvalEducation\BackEnd\EvalEduation\Components\TTOS\bin\Debug\EVE.Bussiness.dll.config
-C:\DEV\Eval-Edu\EvalEducation\BackEnd\EvalEduation\Components\TTOS\bin\Debug\EVE.Bussiness.dll
-C:\DEV\Eval-Edu\EvalEducation\BackEnd\EvalEduation\Components\TTOS\bin\Debug\EVE.Bussiness.pdb
-C:\DEV\Eval-Edu\EvalEducation\BackEnd\EvalEduation\Components\Bussiness\EVE.Bussiness\obj\Debug\EVE.Bussiness.csprojAssemblyReference.cache
-C:\DEV\Eval-Edu\EvalEducation\BackEnd\EvalEduation\Components\Bussiness\EVE.Bussiness\obj\Debug\EVE.Bussiness.csproj.CopyComplete
-C:\DEV\Eval-Edu\EvalEducation\BackEnd\EvalEduation\Components\Bussiness\EVE.Bussiness\obj\Debug\EVE.Bussiness.dll
-C:\DEV\Eval-Edu\EvalEducation\BackEnd\EvalEduation\Components\Bussiness\EVE.Bussiness\obj\Debug\EVE.Bussiness.pdb
-C:\DEV\Eval-Edu\EvalEducation\BackEnd\EvalEduation\Components\TTOS\bin\Debug\App.Config
 E:\HAI\EVE\Backend\EvalEducation\BackEnd\EvalEduation\Components\TTOS\bin\Debug\App.Config
 E:\HAI\EVE\Backend\EvalEducation\BackEnd\EvalEduation\Components\TTOS\bin\Debug\EVE.Bussiness.dll.config
 E:\HAI\EVE\Backend\EvalEducation\BackEnd\EvalEduation\Components\TTOS\bin\Debug\EVE.Bussiness.dll
@@ -15,3 +7,11 @@ E:\HAI\EVE\Backend\EvalEducation\BackEnd\EvalEduation\Components\Bussiness\EVE.B
 E:\HAI\EVE\Backend\EvalEducation\BackEnd\EvalEduation\Components\Bussiness\EVE.Bussiness\obj\Debug\EVE.Bussiness.csproj.CopyComplete
 E:\HAI\EVE\Backend\EvalEducation\BackEnd\EvalEduation\Components\Bussiness\EVE.Bussiness\obj\Debug\EVE.Bussiness.dll
 E:\HAI\EVE\Backend\EvalEducation\BackEnd\EvalEduation\Components\Bussiness\EVE.Bussiness\obj\Debug\EVE.Bussiness.pdb
+C:\DEV\Eval-Edu\EvalEducation\BackEnd\EvalEduation\Components\TTOS\bin\Debug\App.Config
+C:\DEV\Eval-Edu\EvalEducation\BackEnd\EvalEduation\Components\TTOS\bin\Debug\EVE.Bussiness.dll.config
+C:\DEV\Eval-Edu\EvalEducation\BackEnd\EvalEduation\Components\TTOS\bin\Debug\EVE.Bussiness.dll
+C:\DEV\Eval-Edu\EvalEducation\BackEnd\EvalEduation\Components\TTOS\bin\Debug\EVE.Bussiness.pdb
+C:\DEV\Eval-Edu\EvalEducation\BackEnd\EvalEduation\Components\Bussiness\EVE.Bussiness\obj\Debug\EVE.Bussiness.csprojAssemblyReference.cache
+C:\DEV\Eval-Edu\EvalEducation\BackEnd\EvalEduation\Components\Bussiness\EVE.Bussiness\obj\Debug\EVE.Bussiness.csproj.CopyComplete
+C:\DEV\Eval-Edu\EvalEducation\BackEnd\EvalEduation\Components\Bussiness\EVE.Bussiness\obj\Debug\EVE.Bussiness.dll
+C:\DEV\Eval-Edu\EvalEducation\BackEnd\EvalEduation\Components\Bussiness\EVE.Bussiness\obj\Debug\EVE.Bussiness.pdb
