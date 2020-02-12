@@ -539,4 +539,7 @@ E:\HAI\EVE\Backend\EvalEducation\BackEnd\EvalEduation\Components\APIs\EVE.WebApi
 E:\HAI\EVE\Backend\EvalEducation\BackEnd\EvalEduation\Components\APIs\EVE.WebApi.Catalog\obj\Debug\EVE.WebApi.Catalog.csproj.CopyComplete
 E:\HAI\EVE\Backend\EvalEducation\BackEnd\EvalEduation\Components\APIs\EVE.WebApi.Catalog\obj\Debug\EVE.WebApi.Catalog.dll
 E:\HAI\EVE\Backend\EvalEducation\BackEnd\EvalEduation\Components\APIs\EVE.WebApi.Catalog\obj\Debug\EVE.WebApi.Catalog.pdb
+<<<<<<< HEAD
 C:\DEV\Eval-Edu\EvalEducation\BackEnd\EvalEduation\Components\APIs\EVE.WebApi.Catalog\bin\App.Config
+=======
+>>>>>>> c55036cbda2a4ece0191f3aecf25955335de54db

@@ -136,4 +136,7 @@ E:\HAI\EVE\Backend\EvalEducation\BackEnd\EvalEduation\Components\APIs\EVE.Transp
 E:\HAI\EVE\Backend\EvalEducation\BackEnd\EvalEduation\Components\APIs\EVE.TransportLayer\obj\Debug\EVE.TransportLayer.csproj.CopyComplete
 E:\HAI\EVE\Backend\EvalEducation\BackEnd\EvalEduation\Components\APIs\EVE.TransportLayer\obj\Debug\EVE.TransportLayer.dll
 E:\HAI\EVE\Backend\EvalEducation\BackEnd\EvalEduation\Components\APIs\EVE.TransportLayer\obj\Debug\EVE.TransportLayer.pdb
+<<<<<<< HEAD
 C:\DEV\Eval-Edu\EvalEducation\BackEnd\EvalEduation\Components\APIs\EVE.TransportLayer\bin\Debug\App.Config
+=======
+>>>>>>> c55036cbda2a4ece0191f3aecf25955335de54db
