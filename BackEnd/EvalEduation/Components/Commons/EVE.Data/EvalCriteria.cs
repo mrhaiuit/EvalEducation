@@ -23,6 +23,7 @@ namespace EVE.Data
         public int EvalCriteriaId { get; set; }
         public Nullable<int> EvalStandardId { get; set; }
         public string EvalCriteriaName { get; set; }
+        public Nullable<bool> Active { get; set; }
         public string Idx { get; set; }
     
         public virtual EvalStandard EvalStandard { get; set; }

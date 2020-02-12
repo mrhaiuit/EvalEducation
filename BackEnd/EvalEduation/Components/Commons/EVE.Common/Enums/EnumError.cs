@@ -100,65 +100,65 @@ namespace EVE.Commons
         [StringValue("Khách hàng không tồn tại")]
         AgentNotExist = 500400,
 
-        [StringValue("YardArea đã tồn tại")]
-        YardAreaHasExist = 500500,
+        [StringValue("Phòng đào tạo đã tồn tại")]
+        EduDepartmentHasExist = 500500,
 
-        [StringValue("YardArea không tồn tại")]
-        YardAreaNotExist = 500600,
+        [StringValue("Phòng đào tạo không tồn tại")]
+        EduDepartmentNotExist = 500600,
 
-        [StringValue("SysCodes đã tồn tại")]
-        SysCodesHasExist = 500700,
+        [StringValue("Nhân viên đã tồn tại")]
+        EmployeeHasExist = 500700,
 
-        [StringValue("SysCodes không tồn tại")]
-        SysCodesNotExist = 500800,
+        [StringValue("Nhân viên không tồn tại")]
+        EmployeeNotExist = 500800,
 
-        [StringValue("MenuGroup đã tồn tại")]
+        [StringValue("Nhân viên đã tồn tại")]
         MenuGroupHasExist = 500900,
 
         [StringValue("MenuGroup không tồn tại")]
         MenuGroupNotExist = 500010,
 
-        [StringValue("MenuItem đã tồn tại")]
-        MenuItemHasExist = 500110,
+        [StringValue("Sở giáo dục đã tồn tại")]
+        EduProvinceHasExist = 500110,
 
-        [StringValue("MenuItem không tồn tại")]
-        MenuItemNotExist = 500210,
+        [StringValue("Sở giáo dục không tồn tại")]
+        EduProvinceNotExist = 500210,
 
-        [StringValue("OperationMethod đã tồn tại")]
-        OperationMethodHasExist = 500310,
+        [StringValue("Tiêu chí đã tồn tại")]
+        EvalCriteriaHasExist = 500310,
 
-        [StringValue("OperationMethod không tồn tại")]
-        OperationMethodNotExist = 500410,
+        [StringValue("Tiêu chí không tồn tại")]
+        EvalCriteriaNotExist = 500410,
 
-        [StringValue("LineOper đã tồn tại")]
-        LineOperHasExist = 500510,
+        [StringValue("EvalDetail đã tồn tại")]
+        EvalDetailHasExist = 500510,
 
-        [StringValue("LineOper không tồn tại")]
-        LineOperNotExist = 500610,
+        [StringValue("EvalDetail không tồn tại")]
+        EvalDetailNotExist = 500610,
 
-        [StringValue("Depot đã tồn tại")]
-        DepotHasExist = 500710,
+        [StringValue("EvalGuide đã tồn tại")]
+        EvalGuideHasExist = 500710,
 
-        [StringValue("Depot không tồn tại")]
-        DepotNotExist = 500810,
+        [StringValue("EvalGuide không tồn tại")]
+        EvalGuideNotExist = 500810,
 
-        [StringValue("Mã khách hàng đã tồn tại")]
-        CustomerHasExist = 500910,
+        [StringValue("UserGroupEmployee đã tồn tại")]
+        UserGroupEmployeeHasExist = 500910,
 
-        [StringValue("Mã khách hàng không tồn tại")]
-        CustomerNotExist = 500020,
+        [StringValue("UserGroupEmployee không tồn tại")]
+        UserGroupEmployeeNotExist = 500020,
 
-        [StringValue("Iso đã tồn tại")]
-        IsoHasExist = 500120,
+        [StringValue("EvalMaster đã tồn tại")]
+        EvalMasterHasExist = 500120,
 
-        [StringValue("Iso không tồn tại")]
-        IsoNotExist = 500220,
+        [StringValue("EvalMaster không tồn tại")]
+        EvalMasterNotExist = 500220,
 
-        [StringValue("Module code đã tồn tại")]
-        ModuleCodeHasExist = 500320,
+        [StringValue("EvalPeriod đã tồn tại")]
+        EvalPeriodHasExist = 500320,
 
-        [StringValue("Module code không tồn tại")]
-        ModuleCodeNotExist = 500420,
+        [StringValue("EvalPeriod không tồn tại")]
+        EvalPeriodNotExist = 500420,
 
         [StringValue("Phân quyền cho nhóm người dùng này đã tồn tại")]
         UserClassMenuItemHasExist = 500520,
@@ -166,11 +166,11 @@ namespace EVE.Commons
         [StringValue("Phân quyền cho nhóm người dùng này không tồn tại")]
         UserClassMenuItemNotExist = 500620,
 
-        [StringValue("Xe này đã tồn tại")]
-        TruckHasExist = 500720,
+        [StringValue("EvalResult đã tồn tại")]
+        EvalResultHasExist = 500720,
 
-        [StringValue("Xe này không tồn tại")]
-        TruckNotExist = 500820,
+        [StringValue("EvalResult không tồn tại")]
+        EvalResultNotExist = 500820,
 
         [StringValue("Nhóm người dùng cho user này không tồn tại")]
         OperatorUserClassSiteNotExist = 500920,
@@ -181,71 +181,79 @@ namespace EVE.Commons
         [StringValue("Menu item action cho nhóm người dùng này không tồn tại")]
         UserClassFormActionNotExist =500130,
 
-        [StringValue("TRUCK_TRANSACT này không tồn tại")]
-        TrkTransactNotExist = 500230,
+        [StringValue("EvalStandard này không tồn tại")]
+        EvalStandardNotExist = 500230,
 
-        [StringValue("TRUCK_TRANSACT này đã tồn tại")]
-        TrkTransactHasExist = 500330,
+        [StringValue("EvalStandard này đã tồn tại")]
+        EvalStandardHasExist = 500330,
 
-        [StringValue("Pregate Transact này không tồn tại")]
-        PregateTransactNotExist = 500430,
+        [StringValue("EvalState này không tồn tại")]
+        EvalStateNotExist = 500430,
 
-        [StringValue("Pregate Transact này đã tồn tại")]
-        PregateTransactHasExist = 500530,
+        [StringValue("EvalState này đã tồn tại")]
+        EvalStateHasExist = 500530,
 
-        [StringValue("TRK_ID này không tồn tại")]
-        TrkIdNotExist = 500430,
+        [StringValue("EvalTypeBE này không tồn tại")]
+        EvalTypeBENotExist = 500430,
 
-        [StringValue("TRK_ID này đã tồn tại")]
-        TrkIdHasExist = 500530,
+        [StringValue("EvalTypeBE này đã tồn tại")]
+        EvalTypeBEHasExist = 500530,
 
-        [StringValue("ITEM này không tồn tại")]
-        ItemNotExist = 500630,
+        [StringValue("FormGroup này không tồn tại")]
+        FormGroupNotExist = 500630,
 
-        [StringValue("ITEM này đã tồn tại")]
-        ItemHasExist = 500730,
+        [StringValue("FormGroup này đã tồn tại")]
+        FormGroupHasExist = 500730,
 
-        [StringValue("ITEM_REEFER này không tồn tại")]
-        ItemReeferNotExist = 500830,
+        [StringValue("FormCode này không tồn tại")]
+        FormsNotExist = 500830,
 
-        [StringValue("ITEM_REEFER này đã tồn tại")]
-        ItemReeferHasExist = 500930,
+        [StringValue("FormCode này đã tồn tại")]
+        FormsHasExist = 500930,
 
-        [StringValue("ITEM_CHARGES này không tồn tại")]
-        ItemChargesNotExist = 500040,
+        [StringValue("LoginUser này không tồn tại")]
+        LoginUserNotExist = 500040,
 
-        [StringValue("ITEM_CHARGES này đã tồn tại")]
-        ItemChargesHasExist = 500140,
+        [StringValue("LoginUser này đã tồn tại")]
+        LoginUserHasExist = 500140,
 
-        [StringValue("ITEM_DAMAGE này không tồn tại")]
-        ItemDamageNotExist = 500240,
+        [StringValue("School này không tồn tại")]
+        SchoolNotExist = 500240,
 
-        [StringValue("ITEM_DAMAGE này đã tồn tại")]
-        ItemDamageHasExist = 500340,
+        [StringValue("School này đã tồn tại")]
+        SchoolHasExist = 500340,
 
-        [StringValue("ITEM_LOCATION này không tồn tại")]
-        ItemLocationNotExist = 500440,
+        [StringValue("SchoolLevel này không tồn tại")]
+        SchoolLevelNotExist = 500440,
 
-        [StringValue("ITEM_LOCATION này đã tồn tại")]
-        ItemLocationHasExist = 500540,
+        [StringValue("SchoolLevel này đã tồn tại")]
+        SchoolLevelHasExist = 500540,
 
-        [StringValue("ITEM_OOG này không tồn tại")]
-        ItemOogNotExist = 500640,
+        [StringValue("UserGroup này không tồn tại")]
+        UserGroupNotExist = 500640,
 
-        [StringValue("ITEM_OOG này đã tồn tại")]
-        ItemOogHasExist = 500740,
+        [StringValue("UserGroup này đã tồn tại")]
+        UserGroupHasExist = 500740,
 
-        [StringValue("VES_CD này không tồn tại")]
-        VesselsNotExist = 500840,
+        [StringValue("UserGroupForm này không tồn tại")]
+        UserGroupFormNotExist = 500840,
 
-        [StringValue("VES_CD này đã tồn tại")]
-        VesselsHasExist = 500940,
+        [StringValue("UserGroupForm này đã tồn tại")]
+        UserGroupFormHasExist = 500940,
 
-        [StringValue("PORT này không tồn tại")]
-        PortCodeNotExist = 500050,
+        [StringValue("EvalType này không tồn tại")]
+        EvalTypeNotExist = 500050,
 
-        [StringValue("PORT này đã tồn tại")]
-        PortCodeHasExist = 500150,
+        [StringValue("Ward này không tồn tại")]
+        WardNotExist = 500060,
+        [StringValue("Province này không tồn tại")]
+        ProvinceNotExist = 500070,
+
+        [StringValue("District này không tồn tại")]
+        DistrictNotExist = 500070,
+
+        [StringValue("Country này không tồn tại")]
+        CountryNotExist = 500080,
 
         #endregion
 

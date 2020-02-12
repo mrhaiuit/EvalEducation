@@ -23,9 +23,11 @@ namespace EVE.Data
     
         public int ProvinceId { get; set; }
         public string ProvinceName { get; set; }
-        public string CountryCode { get; set; }
-        public Nullable<int> Idx { get; set; }
         public string PostCode { get; set; }
+        public Nullable<int> MaQG { get; set; }
+        public string ProvinceCode { get; set; }
+        public Nullable<byte> Idx { get; set; }
+        public string CountryCode { get; set; }
     
         public virtual Country Country { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

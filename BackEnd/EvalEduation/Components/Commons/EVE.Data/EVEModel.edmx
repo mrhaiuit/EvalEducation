@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="EVE.Data.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="EVEModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Country">
           <Key>
             <PropertyRef Name="CountryCode" />
@@ -14,12 +14,11 @@
         </EntityType>
         <EntityType Name="District">
           <Key>
-            <PropertyRef Name="DistrictInt" />
+            <PropertyRef Name="DistrictId" />
           </Key>
-          <Property Name="DistrictInt" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DistrictId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="DistrictName" Type="nvarchar" MaxLength="50" />
           <Property Name="ProvinceId" Type="int" />
-          <Property Name="Idx" Type="int" />
         </EntityType>
         <EntityType Name="EduDepartment">
           <Key>
@@ -87,6 +86,7 @@
           <Property Name="EvalCriteriaId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="EvalStandardId" Type="int" />
           <Property Name="EvalCriteriaName" Type="nvarchar" MaxLength="500" />
+          <Property Name="Active" Type="bit" />
           <Property Name="Idx" Type="nchar" MaxLength="10" />
         </EntityType>
         <EntityType Name="EvalDetail">
@@ -126,6 +126,18 @@
           <Property Name="Active" Type="bit" />
           <Property Name="EvalStateCode" Type="varchar" MaxLength="50" />
         </EntityType>
+        <EntityType Name="EvalPeriod">
+          <Key>
+            <PropertyRef Name="EvalPeriodId" />
+          </Key>
+          <Property Name="EvalPeriodId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PeriodName" Type="nvarchar" MaxLength="500" />
+          <Property Name="Year" Type="int" />
+          <Property Name="FromDate" Type="datetime" />
+          <Property Name="ToDate" Type="datetime" />
+          <Property Name="SchoolId" Type="int" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="2000" />
+        </EntityType>
         <EntityType Name="EvalResult">
           <Key>
             <PropertyRef Name="EvalResultCode" />
@@ -143,7 +155,9 @@
           <Property Name="EvalStandardName" Type="nvarchar" MaxLength="200" />
           <Property Name="SchoolLevelCode" Type="varchar" MaxLength="50" />
           <Property Name="EvalTypeCode" Type="varchar" MaxLength="50" />
+          <Property Name="Active" Type="bit" />
           <Property Name="Idx" Type="int" />
+          <Property Name="Remarks" Type="nvarchar" MaxLength="500" />
         </EntityType>
         <EntityType Name="EvalState">
           <Key>
@@ -160,13 +174,23 @@
           <Property Name="EvalTypeCode" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="EvalTypeName" Type="nvarchar" MaxLength="200" />
         </EntityType>
+        <EntityType Name="FormGroup">
+          <Key>
+            <PropertyRef Name="GroupCode" />
+          </Key>
+          <Property Name="GroupCode" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="GroupName" Type="nvarchar" MaxLength="200" />
+          <Property Name="Idx" Type="int" />
+        </EntityType>
         <EntityType Name="Forms">
           <Key>
             <PropertyRef Name="FormCode" />
           </Key>
           <Property Name="FormCode" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="FormName" Type="nvarchar" MaxLength="50" />
+          <Property Name="GroupCode" Type="varchar" MaxLength="50" />
           <Property Name="Idx" Type="int" />
+          <Property Name="Remarks" Type="nvarchar" MaxLength="500" />
         </EntityType>
         <EntityType Name="LoginUser">
           <Key>
@@ -189,16 +213,18 @@
             <PropertyRef Name="ProvinceId" />
           </Key>
           <Property Name="ProvinceId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="ProvinceName" Type="nvarchar" MaxLength="200" />
+          <Property Name="ProvinceName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="PostCode" Type="nvarchar" MaxLength="20" />
+          <Property Name="MaQG" Type="int" />
+          <Property Name="ProvinceCode" Type="nvarchar" MaxLength="10" />
+          <Property Name="Idx" Type="tinyint" />
           <Property Name="CountryCode" Type="varchar" MaxLength="50" />
-          <Property Name="Idx" Type="int" />
-          <Property Name="PostCode" Type="varchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="School">
           <Key>
             <PropertyRef Name="SchoolId" />
           </Key>
-          <Property Name="SchoolId" Type="int" Nullable="false" />
+          <Property Name="SchoolId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="School" Type="nvarchar" MaxLength="500" />
           <Property Name="Address" Type="nvarchar" MaxLength="500" />
           <Property Name="EduDepartmentId" Type="int" />
@@ -249,38 +275,26 @@
         <EntityType Name="UserGroup_Form">
           <Key>
             <PropertyRef Name="UserGroupCode" />
-            <PropertyRef Name="FromCode" />
+            <PropertyRef Name="FormCode" />
           </Key>
           <Property Name="UserGroupCode" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="FromCode" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="FormCode" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Remarks" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Ward">
           <Key>
             <PropertyRef Name="WardId" />
           </Key>
           <Property Name="WardId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="WardName" Type="nvarchar" MaxLength="500" />
+          <Property Name="WardName" Type="nvarchar" MaxLength="50" />
           <Property Name="DistrictId" Type="int" />
-          <Property Name="Idx" Type="int" />
         </EntityType>
-        <Association Name="FK_District_Province">
-          <End Role="Province" Type="Self.Province" Multiplicity="0..1" />
-          <End Role="District" Type="Self.District" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Province">
-              <PropertyRef Name="ProvinceId" />
-            </Principal>
-            <Dependent Role="District">
-              <PropertyRef Name="ProvinceId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_EduDepartment_District">
           <End Role="District" Type="Self.District" Multiplicity="0..1" />
           <End Role="EduDepartment" Type="Self.EduDepartment" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="District">
-              <PropertyRef Name="DistrictInt" />
+              <PropertyRef Name="DistrictId" />
             </Principal>
             <Dependent Role="EduDepartment">
               <PropertyRef Name="DistrictId" />
@@ -515,6 +529,30 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Forms_FormGroup">
+          <End Role="FormGroup" Type="Self.FormGroup" Multiplicity="0..1" />
+          <End Role="Forms" Type="Self.Forms" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FormGroup">
+              <PropertyRef Name="GroupCode" />
+            </Principal>
+            <Dependent Role="Forms">
+              <PropertyRef Name="GroupCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Huyen_Tinh">
+          <End Role="Province" Type="Self.Province" Multiplicity="0..1" />
+          <End Role="District" Type="Self.District" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Province">
+              <PropertyRef Name="ProvinceId" />
+            </Principal>
+            <Dependent Role="District">
+              <PropertyRef Name="ProvinceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_MinistryofEducation_Country">
           <End Role="Country" Type="Self.Country" Multiplicity="0..1" />
           <End Role="EduMinistry" Type="Self.EduMinistry" Multiplicity="*" />
@@ -528,9 +566,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Province_Country">
-          <End Role="Country" Type="Self.Country" Multiplicity="0..1">
-            <OnDelete Action="Cascade" />
-          </End>
+          <End Role="Country" Type="Self.Country" Multiplicity="0..1" />
           <End Role="Province" Type="Self.Province" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Country">
@@ -681,7 +717,7 @@
               <PropertyRef Name="FormCode" />
             </Principal>
             <Dependent Role="UserGroup_Form">
-              <PropertyRef Name="FromCode" />
+              <PropertyRef Name="FormCode" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -697,19 +733,19 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Ward_District">
+        <Association Name="FK_Xa_Huyen">
           <End Role="District" Type="Self.District" Multiplicity="0..1" />
           <End Role="Ward" Type="Self.Ward" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="District">
-              <PropertyRef Name="DistrictInt" />
+              <PropertyRef Name="DistrictId" />
             </Principal>
             <Dependent Role="Ward">
               <PropertyRef Name="DistrictId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="EVEDataStoreContainer">
+        <EntityContainer Name="EVEModelStoreContainer">
           <EntitySet Name="Country" EntityType="Self.Country" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="District" EntityType="Self.District" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="EduDepartment" EntityType="Self.EduDepartment" Schema="dbo" store:Type="Tables" />
@@ -721,10 +757,12 @@
           <EntitySet Name="EvalDetail" EntityType="Self.EvalDetail" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="EvalGuide" EntityType="Self.EvalGuide" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="EvalMaster" EntityType="Self.EvalMaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EvalPeriod" EntityType="Self.EvalPeriod" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="EvalResult" EntityType="Self.EvalResult" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="EvalStandard" EntityType="Self.EvalStandard" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="EvalState" EntityType="Self.EvalState" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="EvalType" EntityType="Self.EvalType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FormGroup" EntityType="Self.FormGroup" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Forms" EntityType="Self.Forms" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="LoginUser" EntityType="Self.LoginUser" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Province" EntityType="Self.Province" Schema="dbo" store:Type="Tables" />
@@ -735,10 +773,6 @@
           <EntitySet Name="UserGroup_Employee" EntityType="Self.UserGroup_Employee" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="UserGroup_Form" EntityType="Self.UserGroup_Form" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Ward" EntityType="Self.Ward" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK_District_Province" Association="Self.FK_District_Province">
-            <End Role="Province" EntitySet="Province" />
-            <End Role="District" EntitySet="District" />
-          </AssociationSet>
           <AssociationSet Name="FK_EduDepartment_District" Association="Self.FK_EduDepartment_District">
             <End Role="District" EntitySet="District" />
             <End Role="EduDepartment" EntitySet="EduDepartment" />
@@ -819,6 +853,14 @@
             <End Role="SchoolLevel" EntitySet="SchoolLevel" />
             <End Role="EvalStandard" EntitySet="EvalStandard" />
           </AssociationSet>
+          <AssociationSet Name="FK_Forms_FormGroup" Association="Self.FK_Forms_FormGroup">
+            <End Role="FormGroup" EntitySet="FormGroup" />
+            <End Role="Forms" EntitySet="Forms" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Huyen_Tinh" Association="Self.FK_Huyen_Tinh">
+            <End Role="Province" EntitySet="Province" />
+            <End Role="District" EntitySet="District" />
+          </AssociationSet>
           <AssociationSet Name="FK_MinistryofEducation_Country" Association="Self.FK_MinistryofEducation_Country">
             <End Role="Country" EntitySet="Country" />
             <End Role="EduMinistry" EntitySet="EduMinistry" />
@@ -879,7 +921,7 @@
             <End Role="UserGroup" EntitySet="UserGroup" />
             <End Role="UserGroup_Form" EntitySet="UserGroup_Form" />
           </AssociationSet>
-          <AssociationSet Name="FK_Ward_District" Association="Self.FK_Ward_District">
+          <AssociationSet Name="FK_Xa_Huyen" Association="Self.FK_Xa_Huyen">
             <End Role="District" EntitySet="District" />
             <End Role="Ward" EntitySet="Ward" />
           </AssociationSet>
@@ -888,7 +930,7 @@
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="EVE.Data" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="EVEModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="Country">
           <Key>
             <PropertyRef Name="CountryCode" />
@@ -900,15 +942,14 @@
         </EntityType>
         <EntityType Name="District">
           <Key>
-            <PropertyRef Name="DistrictInt" />
+            <PropertyRef Name="DistrictId" />
           </Key>
-          <Property Name="DistrictInt" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DistrictId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="DistrictName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="ProvinceId" Type="Int32" />
-          <Property Name="Idx" Type="Int32" />
-          <NavigationProperty Name="Province" Relationship="Self.FK_District_Province" FromRole="District" ToRole="Province" />
           <NavigationProperty Name="EduDepartments" Relationship="Self.FK_EduDepartment_District" FromRole="District" ToRole="EduDepartment" />
-          <NavigationProperty Name="Wards" Relationship="Self.FK_Ward_District" FromRole="District" ToRole="Ward" />
+          <NavigationProperty Name="Province" Relationship="Self.FK_Huyen_Tinh" FromRole="District" ToRole="Province" />
+          <NavigationProperty Name="Wards" Relationship="Self.FK_Xa_Huyen" FromRole="District" ToRole="Ward" />
         </EntityType>
         <EntityType Name="EduDepartment">
           <Key>
@@ -1001,6 +1042,7 @@
           <Property Name="EvalCriteriaId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="EvalStandardId" Type="Int32" />
           <Property Name="EvalCriteriaName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Active" Type="Boolean" />
           <Property Name="Idx" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
           <NavigationProperty Name="EvalStandard" Relationship="Self.FK_EvalCriteria_EvalStandard" FromRole="EvalCriteria" ToRole="EvalStandard" />
           <NavigationProperty Name="EvalGuides" Relationship="Self.FK_EvalGuide_EvalCriteria" FromRole="EvalCriteria" ToRole="EvalGuide" />
@@ -1051,6 +1093,18 @@
           <NavigationProperty Name="EvalType" Relationship="Self.FK_EvalMaster_EvalType" FromRole="EvalMaster" ToRole="EvalType" />
           <NavigationProperty Name="School" Relationship="Self.FK_EvalMaster_School" FromRole="EvalMaster" ToRole="School" />
         </EntityType>
+        <EntityType Name="EvalPeriod">
+          <Key>
+            <PropertyRef Name="EvalPeriodId" />
+          </Key>
+          <Property Name="EvalPeriodId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PeriodName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Year" Type="Int32" />
+          <Property Name="FromDate" Type="DateTime" Precision="3" />
+          <Property Name="ToDate" Type="DateTime" Precision="3" />
+          <Property Name="SchoolId" Type="Int32" />
+          <Property Name="Remark" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+        </EntityType>
         <EntityType Name="EvalResult">
           <Key>
             <PropertyRef Name="EvalResultCode" />
@@ -1070,7 +1124,9 @@
           <Property Name="EvalStandardName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
           <Property Name="SchoolLevelCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="EvalTypeCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Active" Type="Boolean" />
           <Property Name="Idx" Type="Int32" />
+          <Property Name="Remarks" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="EvalCriterias" Relationship="Self.FK_EvalCriteria_EvalStandard" FromRole="EvalStandard" ToRole="EvalCriteria" />
           <NavigationProperty Name="EvalType" Relationship="Self.FK_EvalStandard_EvalType" FromRole="EvalStandard" ToRole="EvalType" />
           <NavigationProperty Name="SchoolLevel" Relationship="Self.FK_EvalStandard_SchoolLevel" FromRole="EvalStandard" ToRole="SchoolLevel" />
@@ -1093,14 +1149,26 @@
           <NavigationProperty Name="EvalMasters" Relationship="Self.FK_EvalMaster_EvalType" FromRole="EvalType" ToRole="EvalMaster" />
           <NavigationProperty Name="EvalStandards" Relationship="Self.FK_EvalStandard_EvalType" FromRole="EvalType" ToRole="EvalStandard" />
         </EntityType>
+        <EntityType Name="FormGroup">
+          <Key>
+            <PropertyRef Name="GroupCode" />
+          </Key>
+          <Property Name="GroupCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="GroupName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Idx" Type="Int32" />
+          <NavigationProperty Name="Forms" Relationship="Self.FK_Forms_FormGroup" FromRole="FormGroup" ToRole="Forms" />
+        </EntityType>
         <EntityType Name="Form">
           <Key>
             <PropertyRef Name="FormCode" />
           </Key>
           <Property Name="FormCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="FormName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="GroupCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Idx" Type="Int32" />
-          <NavigationProperty Name="UserGroups" Relationship="Self.UserGroup_Form" FromRole="Forms" ToRole="UserGroup" />
+          <Property Name="Remarks" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="FormGroup" Relationship="Self.FK_Forms_FormGroup" FromRole="Forms" ToRole="FormGroup" />
+          <NavigationProperty Name="UserGroup_Form" Relationship="Self.FK_UserGroup_Form_Form" FromRole="Forms" ToRole="UserGroup_Form" />
         </EntityType>
         <EntityType Name="LoginUser">
           <Key>
@@ -1123,19 +1191,21 @@
             <PropertyRef Name="ProvinceId" />
           </Key>
           <Property Name="ProvinceId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="ProvinceName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="ProvinceName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PostCode" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="MaQG" Type="Int32" />
+          <Property Name="ProvinceCode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Idx" Type="Byte" />
           <Property Name="CountryCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Idx" Type="Int32" />
-          <Property Name="PostCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Country" Relationship="Self.FK_Province_Country" FromRole="Province" ToRole="Country" />
-          <NavigationProperty Name="Districts" Relationship="Self.FK_District_Province" FromRole="Province" ToRole="District" />
+          <NavigationProperty Name="Districts" Relationship="Self.FK_Huyen_Tinh" FromRole="Province" ToRole="District" />
           <NavigationProperty Name="EduProvinces" Relationship="Self.FK_EduProvince_Province" FromRole="Province" ToRole="EduProvince" />
         </EntityType>
         <EntityType Name="School">
           <Key>
             <PropertyRef Name="SchoolId" />
           </Key>
-          <Property Name="SchoolId" Type="Int32" Nullable="false" />
+          <Property Name="SchoolId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="School1" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
           <Property Name="Address" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
           <Property Name="EduDepartmentId" Type="Int32" />
@@ -1181,7 +1251,7 @@
           <Property Name="EduLevelCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="EduLevel" Relationship="Self.FK_UserGroup_EduLevel" FromRole="UserGroup" ToRole="EduLevel" />
           <NavigationProperty Name="UserGroup_Employee" Relationship="Self.FK_UserGroup_Employee_UserGroup" FromRole="UserGroup" ToRole="UserGroup_Employee" />
-          <NavigationProperty Name="Forms" Relationship="Self.UserGroup_Form" FromRole="UserGroup" ToRole="Forms" />
+          <NavigationProperty Name="UserGroup_Form" Relationship="Self.FK_UserGroup_Form_UserGroup" FromRole="UserGroup" ToRole="UserGroup_Form" />
         </EntityType>
         <EntityType Name="UserGroup_Employee">
           <Key>
@@ -1201,15 +1271,25 @@
           <NavigationProperty Name="School" Relationship="Self.FK_UserGroup_Employee_School" FromRole="UserGroup_Employee" ToRole="School" />
           <NavigationProperty Name="UserGroup" Relationship="Self.FK_UserGroup_Employee_UserGroup" FromRole="UserGroup_Employee" ToRole="UserGroup" />
         </EntityType>
+        <EntityType Name="UserGroup_Form">
+          <Key>
+            <PropertyRef Name="UserGroupCode" />
+            <PropertyRef Name="FormCode" />
+          </Key>
+          <Property Name="UserGroupCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FormCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Remarks" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Form" Relationship="Self.FK_UserGroup_Form_Form" FromRole="UserGroup_Form" ToRole="Forms" />
+          <NavigationProperty Name="UserGroup" Relationship="Self.FK_UserGroup_Form_UserGroup" FromRole="UserGroup_Form" ToRole="UserGroup" />
+        </EntityType>
         <EntityType Name="Ward">
           <Key>
             <PropertyRef Name="WardId" />
           </Key>
           <Property Name="WardId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="WardName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="WardName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="DistrictId" Type="Int32" />
-          <Property Name="Idx" Type="Int32" />
-          <NavigationProperty Name="District" Relationship="Self.FK_Ward_District" FromRole="Ward" ToRole="District" />
+          <NavigationProperty Name="District" Relationship="Self.FK_Xa_Huyen" FromRole="Ward" ToRole="District" />
         </EntityType>
         <Association Name="FK_MinistryofEducation_Country">
           <End Role="Country" Type="Self.Country" Multiplicity="0..1" />
@@ -1224,9 +1304,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Province_Country">
-          <End Role="Country" Type="Self.Country" Multiplicity="0..1">
-            <OnDelete Action="Cascade" />
-          </End>
+          <End Role="Country" Type="Self.Country" Multiplicity="0..1" />
           <End Role="Province" Type="Self.Province" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Country">
@@ -1237,7 +1315,19 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_District_Province">
+        <Association Name="FK_EduDepartment_District">
+          <End Role="District" Type="Self.District" Multiplicity="0..1" />
+          <End Role="EduDepartment" Type="Self.EduDepartment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="District">
+              <PropertyRef Name="DistrictId" />
+            </Principal>
+            <Dependent Role="EduDepartment">
+              <PropertyRef Name="DistrictId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Huyen_Tinh">
           <End Role="Province" Type="Self.Province" Multiplicity="0..1" />
           <End Role="District" Type="Self.District" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1249,24 +1339,12 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_EduDepartment_District">
-          <End Role="District" Type="Self.District" Multiplicity="0..1" />
-          <End Role="EduDepartment" Type="Self.EduDepartment" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="District">
-              <PropertyRef Name="DistrictInt" />
-            </Principal>
-            <Dependent Role="EduDepartment">
-              <PropertyRef Name="DistrictId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Ward_District">
+        <Association Name="FK_Xa_Huyen">
           <End Role="District" Type="Self.District" Multiplicity="0..1" />
           <End Role="Ward" Type="Self.Ward" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="District">
-              <PropertyRef Name="DistrictInt" />
+              <PropertyRef Name="DistrictId" />
             </Principal>
             <Dependent Role="Ward">
               <PropertyRef Name="DistrictId" />
@@ -1597,6 +1675,30 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Forms_FormGroup">
+          <End Role="FormGroup" Type="Self.FormGroup" Multiplicity="0..1" />
+          <End Role="Forms" Type="Self.Form" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FormGroup">
+              <PropertyRef Name="GroupCode" />
+            </Principal>
+            <Dependent Role="Forms">
+              <PropertyRef Name="GroupCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserGroup_Form_Form">
+          <End Role="Forms" Type="Self.Form" Multiplicity="1" />
+          <End Role="UserGroup_Form" Type="Self.UserGroup_Form" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Forms">
+              <PropertyRef Name="FormCode" />
+            </Principal>
+            <Dependent Role="UserGroup_Form">
+              <PropertyRef Name="FormCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_School_SchoolLevel">
           <End Role="SchoolLevel" Type="Self.SchoolLevel" Multiplicity="0..1" />
           <End Role="School" Type="Self.School" Multiplicity="*" />
@@ -1633,9 +1735,17 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="UserGroup_Form">
-          <End Role="Forms" Type="Self.Form" Multiplicity="*" />
-          <End Role="UserGroup" Type="Self.UserGroup" Multiplicity="*" />
+        <Association Name="FK_UserGroup_Form_UserGroup">
+          <End Role="UserGroup" Type="Self.UserGroup" Multiplicity="1" />
+          <End Role="UserGroup_Form" Type="Self.UserGroup_Form" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserGroup">
+              <PropertyRef Name="UserGroupCode" />
+            </Principal>
+            <Dependent Role="UserGroup_Form">
+              <PropertyRef Name="UserGroupCode" />
+            </Dependent>
+          </ReferentialConstraint>
         </Association>
         <EntityContainer Name="EVEEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Countries" EntityType="Self.Country" />
@@ -1649,10 +1759,12 @@
           <EntitySet Name="EvalDetails" EntityType="Self.EvalDetail" />
           <EntitySet Name="EvalGuides" EntityType="Self.EvalGuide" />
           <EntitySet Name="EvalMasters" EntityType="Self.EvalMaster" />
+          <EntitySet Name="EvalPeriods" EntityType="Self.EvalPeriod" />
           <EntitySet Name="EvalResults" EntityType="Self.EvalResult" />
           <EntitySet Name="EvalStandards" EntityType="Self.EvalStandard" />
           <EntitySet Name="EvalStates" EntityType="Self.EvalState" />
           <EntitySet Name="EvalTypes" EntityType="Self.EvalType" />
+          <EntitySet Name="FormGroups" EntityType="Self.FormGroup" />
           <EntitySet Name="Forms" EntityType="Self.Form" />
           <EntitySet Name="LoginUsers" EntityType="Self.LoginUser" />
           <EntitySet Name="Provinces" EntityType="Self.Province" />
@@ -1661,6 +1773,7 @@
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
           <EntitySet Name="UserGroups" EntityType="Self.UserGroup" />
           <EntitySet Name="UserGroup_Employee" EntityType="Self.UserGroup_Employee" />
+          <EntitySet Name="UserGroup_Form" EntityType="Self.UserGroup_Form" />
           <EntitySet Name="Wards" EntityType="Self.Ward" />
           <AssociationSet Name="FK_MinistryofEducation_Country" Association="Self.FK_MinistryofEducation_Country">
             <End Role="Country" EntitySet="Countries" />
@@ -1670,15 +1783,15 @@
             <End Role="Country" EntitySet="Countries" />
             <End Role="Province" EntitySet="Provinces" />
           </AssociationSet>
-          <AssociationSet Name="FK_District_Province" Association="Self.FK_District_Province">
-            <End Role="Province" EntitySet="Provinces" />
-            <End Role="District" EntitySet="Districts" />
-          </AssociationSet>
           <AssociationSet Name="FK_EduDepartment_District" Association="Self.FK_EduDepartment_District">
             <End Role="District" EntitySet="Districts" />
             <End Role="EduDepartment" EntitySet="EduDepartments" />
           </AssociationSet>
-          <AssociationSet Name="FK_Ward_District" Association="Self.FK_Ward_District">
+          <AssociationSet Name="FK_Huyen_Tinh" Association="Self.FK_Huyen_Tinh">
+            <End Role="Province" EntitySet="Provinces" />
+            <End Role="District" EntitySet="Districts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Xa_Huyen" Association="Self.FK_Xa_Huyen">
             <End Role="District" EntitySet="Districts" />
             <End Role="Ward" EntitySet="Wards" />
           </AssociationSet>
@@ -1790,6 +1903,14 @@
             <End Role="SchoolLevel" EntitySet="SchoolLevels" />
             <End Role="EvalStandard" EntitySet="EvalStandards" />
           </AssociationSet>
+          <AssociationSet Name="FK_Forms_FormGroup" Association="Self.FK_Forms_FormGroup">
+            <End Role="FormGroup" EntitySet="FormGroups" />
+            <End Role="Forms" EntitySet="Forms" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserGroup_Form_Form" Association="Self.FK_UserGroup_Form_Form">
+            <End Role="Forms" EntitySet="Forms" />
+            <End Role="UserGroup_Form" EntitySet="UserGroup_Form" />
+          </AssociationSet>
           <AssociationSet Name="FK_School_SchoolLevel" Association="Self.FK_School_SchoolLevel">
             <End Role="SchoolLevel" EntitySet="SchoolLevels" />
             <End Role="School" EntitySet="Schools" />
@@ -1802,9 +1923,9 @@
             <End Role="UserGroup" EntitySet="UserGroups" />
             <End Role="UserGroup_Employee" EntitySet="UserGroup_Employee" />
           </AssociationSet>
-          <AssociationSet Name="UserGroup_Form" Association="Self.UserGroup_Form">
-            <End Role="Forms" EntitySet="Forms" />
+          <AssociationSet Name="FK_UserGroup_Form_UserGroup" Association="Self.FK_UserGroup_Form_UserGroup">
             <End Role="UserGroup" EntitySet="UserGroups" />
+            <End Role="UserGroup_Form" EntitySet="UserGroup_Form" />
           </AssociationSet>
         </EntityContainer>
       </Schema>
@@ -1812,9 +1933,9 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="EVEDataStoreContainer" CdmEntityContainer="EVEEntities">
+        <EntityContainerMapping StorageEntityContainer="EVEModelStoreContainer" CdmEntityContainer="EVEEntities">
           <EntitySetMapping Name="Countries">
-            <EntityTypeMapping TypeName="EVE.Data.Country">
+            <EntityTypeMapping TypeName="EVEModel.Country">
               <MappingFragment StoreEntitySet="Country">
                 <ScalarProperty Name="CountryCode" ColumnName="CountryCode" />
                 <ScalarProperty Name="CountryName" ColumnName="CountryName" />
@@ -1822,17 +1943,16 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Districts">
-            <EntityTypeMapping TypeName="EVE.Data.District">
+            <EntityTypeMapping TypeName="EVEModel.District">
               <MappingFragment StoreEntitySet="District">
-                <ScalarProperty Name="DistrictInt" ColumnName="DistrictInt" />
+                <ScalarProperty Name="DistrictId" ColumnName="DistrictId" />
                 <ScalarProperty Name="DistrictName" ColumnName="DistrictName" />
                 <ScalarProperty Name="ProvinceId" ColumnName="ProvinceId" />
-                <ScalarProperty Name="Idx" ColumnName="Idx" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="EduDepartments">
-            <EntityTypeMapping TypeName="EVE.Data.EduDepartment">
+            <EntityTypeMapping TypeName="EVEModel.EduDepartment">
               <MappingFragment StoreEntitySet="EduDepartment">
                 <ScalarProperty Name="EduDepartmentId" ColumnName="EduDepartmentId" />
                 <ScalarProperty Name="EduDepartmentName" ColumnName="EduDepartmentName" />
@@ -1844,7 +1964,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="EduLevels">
-            <EntityTypeMapping TypeName="EVE.Data.EduLevel">
+            <EntityTypeMapping TypeName="EVEModel.EduLevel">
               <MappingFragment StoreEntitySet="EduLevel">
                 <ScalarProperty Name="EduLevelCode" ColumnName="EduLevelCode" />
                 <ScalarProperty Name="EduLevelName" ColumnName="EduLevelName" />
@@ -1853,7 +1973,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="EduMinistries">
-            <EntityTypeMapping TypeName="EVE.Data.EduMinistry">
+            <EntityTypeMapping TypeName="EVEModel.EduMinistry">
               <MappingFragment StoreEntitySet="EduMinistry">
                 <ScalarProperty Name="EduMinistryCode" ColumnName="EduMinistryCode" />
                 <ScalarProperty Name="EduMinistryName" ColumnName="EduMinistryName" />
@@ -1865,7 +1985,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="EduProvinces">
-            <EntityTypeMapping TypeName="EVE.Data.EduProvince">
+            <EntityTypeMapping TypeName="EVEModel.EduProvince">
               <MappingFragment StoreEntitySet="EduProvince">
                 <ScalarProperty Name="EduProvinceId" ColumnName="EduProvinceId" />
                 <ScalarProperty Name="EduProvinceName" ColumnName="EduProvinceName" />
@@ -1876,7 +1996,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Employees">
-            <EntityTypeMapping TypeName="EVE.Data.Employee">
+            <EntityTypeMapping TypeName="EVEModel.Employee">
               <MappingFragment StoreEntitySet="Employee">
                 <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
                 <ScalarProperty Name="EmployeeCode" ColumnName="EmployeeCode" />
@@ -1896,17 +2016,18 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="EvalCriterias">
-            <EntityTypeMapping TypeName="EVE.Data.EvalCriteria">
+            <EntityTypeMapping TypeName="EVEModel.EvalCriteria">
               <MappingFragment StoreEntitySet="EvalCriteria">
                 <ScalarProperty Name="EvalCriteriaId" ColumnName="EvalCriteriaId" />
                 <ScalarProperty Name="EvalStandardId" ColumnName="EvalStandardId" />
                 <ScalarProperty Name="EvalCriteriaName" ColumnName="EvalCriteriaName" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
                 <ScalarProperty Name="Idx" ColumnName="Idx" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="EvalDetails">
-            <EntityTypeMapping TypeName="EVE.Data.EvalDetail">
+            <EntityTypeMapping TypeName="EVEModel.EvalDetail">
               <MappingFragment StoreEntitySet="EvalDetail">
                 <ScalarProperty Name="EvalDetailId" ColumnName="EvalDetailId" />
                 <ScalarProperty Name="EvalMasterId" ColumnName="EvalMasterId" />
@@ -1920,7 +2041,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="EvalGuides">
-            <EntityTypeMapping TypeName="EVE.Data.EvalGuide">
+            <EntityTypeMapping TypeName="EVEModel.EvalGuide">
               <MappingFragment StoreEntitySet="EvalGuide">
                 <ScalarProperty Name="EvalResultCode" ColumnName="EvalResultCode" />
                 <ScalarProperty Name="EvalCriteriaId" ColumnName="EvalCriteriaId" />
@@ -1930,7 +2051,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="EvalMasters">
-            <EntityTypeMapping TypeName="EVE.Data.EvalMaster">
+            <EntityTypeMapping TypeName="EVEModel.EvalMaster">
               <MappingFragment StoreEntitySet="EvalMaster">
                 <ScalarProperty Name="EvalMasterId" ColumnName="EvalMasterId" />
                 <ScalarProperty Name="Year" ColumnName="Year" />
@@ -1944,8 +2065,21 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="EvalPeriods">
+            <EntityTypeMapping TypeName="EVEModel.EvalPeriod">
+              <MappingFragment StoreEntitySet="EvalPeriod">
+                <ScalarProperty Name="EvalPeriodId" ColumnName="EvalPeriodId" />
+                <ScalarProperty Name="PeriodName" ColumnName="PeriodName" />
+                <ScalarProperty Name="Year" ColumnName="Year" />
+                <ScalarProperty Name="FromDate" ColumnName="FromDate" />
+                <ScalarProperty Name="ToDate" ColumnName="ToDate" />
+                <ScalarProperty Name="SchoolId" ColumnName="SchoolId" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="EvalResults">
-            <EntityTypeMapping TypeName="EVE.Data.EvalResult">
+            <EntityTypeMapping TypeName="EVEModel.EvalResult">
               <MappingFragment StoreEntitySet="EvalResult">
                 <ScalarProperty Name="EvalResultCode" ColumnName="EvalResultCode" />
                 <ScalarProperty Name="EvalResultName" ColumnName="EvalResultName" />
@@ -1955,18 +2089,20 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="EvalStandards">
-            <EntityTypeMapping TypeName="EVE.Data.EvalStandard">
+            <EntityTypeMapping TypeName="EVEModel.EvalStandard">
               <MappingFragment StoreEntitySet="EvalStandard">
                 <ScalarProperty Name="EvalStandardId" ColumnName="EvalStandardId" />
                 <ScalarProperty Name="EvalStandardName" ColumnName="EvalStandardName" />
                 <ScalarProperty Name="SchoolLevelCode" ColumnName="SchoolLevelCode" />
                 <ScalarProperty Name="EvalTypeCode" ColumnName="EvalTypeCode" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
                 <ScalarProperty Name="Idx" ColumnName="Idx" />
+                <ScalarProperty Name="Remarks" ColumnName="Remarks" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="EvalStates">
-            <EntityTypeMapping TypeName="EVE.Data.EvalState">
+            <EntityTypeMapping TypeName="EVEModel.EvalState">
               <MappingFragment StoreEntitySet="EvalState">
                 <ScalarProperty Name="EvalStateCode" ColumnName="EvalStateCode" />
                 <ScalarProperty Name="EvalStateName" ColumnName="EvalStateName" />
@@ -1975,24 +2111,35 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="EvalTypes">
-            <EntityTypeMapping TypeName="EVE.Data.EvalType">
+            <EntityTypeMapping TypeName="EVEModel.EvalType">
               <MappingFragment StoreEntitySet="EvalType">
                 <ScalarProperty Name="EvalTypeCode" ColumnName="EvalTypeCode" />
                 <ScalarProperty Name="EvalTypeName" ColumnName="EvalTypeName" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Forms">
-            <EntityTypeMapping TypeName="EVE.Data.Form">
-              <MappingFragment StoreEntitySet="Forms">
-                <ScalarProperty Name="FormCode" ColumnName="FormCode" />
-                <ScalarProperty Name="FormName" ColumnName="FormName" />
+          <EntitySetMapping Name="FormGroups">
+            <EntityTypeMapping TypeName="EVEModel.FormGroup">
+              <MappingFragment StoreEntitySet="FormGroup">
+                <ScalarProperty Name="GroupCode" ColumnName="GroupCode" />
+                <ScalarProperty Name="GroupName" ColumnName="GroupName" />
                 <ScalarProperty Name="Idx" ColumnName="Idx" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Forms">
+            <EntityTypeMapping TypeName="EVEModel.Form">
+              <MappingFragment StoreEntitySet="Forms">
+                <ScalarProperty Name="FormCode" ColumnName="FormCode" />
+                <ScalarProperty Name="FormName" ColumnName="FormName" />
+                <ScalarProperty Name="GroupCode" ColumnName="GroupCode" />
+                <ScalarProperty Name="Idx" ColumnName="Idx" />
+                <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="LoginUsers">
-            <EntityTypeMapping TypeName="EVE.Data.LoginUser">
+            <EntityTypeMapping TypeName="EVEModel.LoginUser">
               <MappingFragment StoreEntitySet="LoginUser">
                 <ScalarProperty Name="LoginID" ColumnName="LoginID" />
                 <ScalarProperty Name="IpAddress" ColumnName="IpAddress" />
@@ -2009,18 +2156,20 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Provinces">
-            <EntityTypeMapping TypeName="EVE.Data.Province">
+            <EntityTypeMapping TypeName="EVEModel.Province">
               <MappingFragment StoreEntitySet="Province">
                 <ScalarProperty Name="ProvinceId" ColumnName="ProvinceId" />
                 <ScalarProperty Name="ProvinceName" ColumnName="ProvinceName" />
-                <ScalarProperty Name="CountryCode" ColumnName="CountryCode" />
-                <ScalarProperty Name="Idx" ColumnName="Idx" />
                 <ScalarProperty Name="PostCode" ColumnName="PostCode" />
+                <ScalarProperty Name="MaQG" ColumnName="MaQG" />
+                <ScalarProperty Name="ProvinceCode" ColumnName="ProvinceCode" />
+                <ScalarProperty Name="Idx" ColumnName="Idx" />
+                <ScalarProperty Name="CountryCode" ColumnName="CountryCode" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Schools">
-            <EntityTypeMapping TypeName="EVE.Data.School">
+            <EntityTypeMapping TypeName="EVEModel.School">
               <MappingFragment StoreEntitySet="School">
                 <ScalarProperty Name="SchoolId" ColumnName="SchoolId" />
                 <ScalarProperty Name="School1" ColumnName="School" />
@@ -2035,7 +2184,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="SchoolLevels">
-            <EntityTypeMapping TypeName="EVE.Data.SchoolLevel">
+            <EntityTypeMapping TypeName="EVEModel.SchoolLevel">
               <MappingFragment StoreEntitySet="SchoolLevel">
                 <ScalarProperty Name="SchoolLevelCode" ColumnName="SchoolLevelCode" />
                 <ScalarProperty Name="SchoolLevelName" ColumnName="SchoolLevelName" />
@@ -2043,7 +2192,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="sysdiagrams">
-            <EntityTypeMapping TypeName="EVE.Data.sysdiagram">
+            <EntityTypeMapping TypeName="EVEModel.sysdiagram">
               <MappingFragment StoreEntitySet="sysdiagrams">
                 <ScalarProperty Name="name" ColumnName="name" />
                 <ScalarProperty Name="principal_id" ColumnName="principal_id" />
@@ -2054,7 +2203,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="UserGroups">
-            <EntityTypeMapping TypeName="EVE.Data.UserGroup">
+            <EntityTypeMapping TypeName="EVEModel.UserGroup">
               <MappingFragment StoreEntitySet="UserGroup">
                 <ScalarProperty Name="UserGroupCode" ColumnName="UserGroupCode" />
                 <ScalarProperty Name="UserGroupName" ColumnName="UserGroupName" />
@@ -2064,7 +2213,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="UserGroup_Employee">
-            <EntityTypeMapping TypeName="EVE.Data.UserGroup_Employee">
+            <EntityTypeMapping TypeName="EVEModel.UserGroup_Employee">
               <MappingFragment StoreEntitySet="UserGroup_Employee">
                 <ScalarProperty Name="UserGroupCode" ColumnName="UserGroupCode" />
                 <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
@@ -2075,24 +2224,24 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="UserGroup_Form">
+            <EntityTypeMapping TypeName="EVEModel.UserGroup_Form">
+              <MappingFragment StoreEntitySet="UserGroup_Form">
+                <ScalarProperty Name="UserGroupCode" ColumnName="UserGroupCode" />
+                <ScalarProperty Name="FormCode" ColumnName="FormCode" />
+                <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Wards">
-            <EntityTypeMapping TypeName="EVE.Data.Ward">
+            <EntityTypeMapping TypeName="EVEModel.Ward">
               <MappingFragment StoreEntitySet="Ward">
                 <ScalarProperty Name="WardId" ColumnName="WardId" />
                 <ScalarProperty Name="WardName" ColumnName="WardName" />
                 <ScalarProperty Name="DistrictId" ColumnName="DistrictId" />
-                <ScalarProperty Name="Idx" ColumnName="Idx" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <AssociationSetMapping Name="UserGroup_Form" TypeName="EVE.Data.UserGroup_Form" StoreEntitySet="UserGroup_Form">
-            <EndProperty Name="Forms">
-              <ScalarProperty Name="FormCode" ColumnName="FromCode" />
-            </EndProperty>
-            <EndProperty Name="UserGroup">
-              <ScalarProperty Name="UserGroupCode" ColumnName="UserGroupCode" />
-            </EndProperty>
-          </AssociationSetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

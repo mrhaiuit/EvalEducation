@@ -17,7 +17,6 @@ namespace EVE.Data
         public int WardId { get; set; }
         public string WardName { get; set; }
         public Nullable<int> DistrictId { get; set; }
-        public Nullable<int> Idx { get; set; }
     
         public virtual District District { get; set; }
     }

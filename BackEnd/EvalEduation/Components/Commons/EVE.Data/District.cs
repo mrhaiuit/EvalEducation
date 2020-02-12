@@ -21,14 +21,13 @@ namespace EVE.Data
             this.Wards = new HashSet<Ward>();
         }
     
-        public int DistrictInt { get; set; }
+        public int DistrictId { get; set; }
         public string DistrictName { get; set; }
         public Nullable<int> ProvinceId { get; set; }
-        public Nullable<int> Idx { get; set; }
     
-        public virtual Province Province { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<EduDepartment> EduDepartments { get; set; }
+        public virtual Province Province { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Ward> Wards { get; set; }
     }
