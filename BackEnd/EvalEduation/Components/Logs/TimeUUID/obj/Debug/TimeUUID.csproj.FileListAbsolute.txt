@@ -1,13 +1,5 @@
-C:\DEV\Eval-Edu\CMS.NET\Implementation\TTOS_DEV\Components\Logs\TimeUUID\bin\Debug\TimeUUID.dll
-C:\DEV\Eval-Edu\CMS.NET\Implementation\TTOS_DEV\Components\Logs\TimeUUID\bin\Debug\TimeUUID.pdb
-C:\DEV\Eval-Edu\CMS.NET\Implementation\TTOS_DEV\Components\Logs\TimeUUID\obj\Debug\TimeUUID.dll
-C:\DEV\Eval-Edu\CMS.NET\Implementation\TTOS_DEV\Components\Logs\TimeUUID\obj\Debug\TimeUUID.pdb
-C:\DEV\Eval-Edu\CMS.NET\Implementation\TTOS_DEV\Components\Logs\TimeUUID\obj\Debug\TimeUUID.csprojAssemblyReference.cache
 C:\DEV\Eval-Edu\EvalEducation\BackEnd\EvalEduation\Components\Logs\TimeUUID\bin\Debug\TimeUUID.dll
 C:\DEV\Eval-Edu\EvalEducation\BackEnd\EvalEduation\Components\Logs\TimeUUID\bin\Debug\TimeUUID.pdb
 C:\DEV\Eval-Edu\EvalEducation\BackEnd\EvalEduation\Components\Logs\TimeUUID\obj\Debug\TimeUUID.dll
 C:\DEV\Eval-Edu\EvalEducation\BackEnd\EvalEduation\Components\Logs\TimeUUID\obj\Debug\TimeUUID.pdb
-E:\HAI\EVE\Backend\EvalEducation\BackEnd\EvalEduation\Components\Logs\TimeUUID\bin\Debug\TimeUUID.dll
-E:\HAI\EVE\Backend\EvalEducation\BackEnd\EvalEduation\Components\Logs\TimeUUID\bin\Debug\TimeUUID.pdb
-E:\HAI\EVE\Backend\EvalEducation\BackEnd\EvalEduation\Components\Logs\TimeUUID\obj\Debug\TimeUUID.dll
-E:\HAI\EVE\Backend\EvalEducation\BackEnd\EvalEduation\Components\Logs\TimeUUID\obj\Debug\TimeUUID.pdb
+C:\DEV\Eval-Edu\EvalEducation\BackEnd\EvalEduation\Components\Logs\TimeUUID\obj\Debug\TimeUUID.csprojAssemblyReference.cache

@@ -11,7 +11,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EVE.Commons", "..\Component
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EVE.Data", "..\Components\Commons\EVE.Data\EVE.Data.csproj", "{6F4B542A-F584-43D9-A9B3-A703BAB14D24}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EVE.WebApi", "..\Components\APIs\EVE.WebApi.Authentication\EVE.WebApi.csproj", "{DB6472C7-5ABF-491A-BED1-215A5F6E9115}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EVE.WebApi", "..\Components\APIs\EVE.WebApi\EVE.WebApi.csproj", "{DB6472C7-5ABF-491A-BED1-215A5F6E9115}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EVE.WebApi.Shared", "..\Components\APIs\EVE.WebApi.Shared\EVE.WebApi.Shared.csproj", "{BA7A75ED-1606-4F70-99B0-641D5A322BDA}"
 EndProject

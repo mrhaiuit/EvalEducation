@@ -30,7 +30,7 @@ namespace EVE.TransportLayer
                                                                string passWord)
         {
             var logonResponse = await HttpUtils<ClientResponse<LogonResponse>>
-                .Post($"{AppUtil.BaseAuthenticationUrl}/account/logon",
+                .Post($"{AppUtil.BaseAuthenticationUrl}/auth/logon",
                 new LoginReq
                 {
                     UserName = userName.Trim(),
