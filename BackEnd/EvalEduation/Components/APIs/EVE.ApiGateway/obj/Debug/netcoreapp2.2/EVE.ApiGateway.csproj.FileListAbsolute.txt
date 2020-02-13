@@ -8,7 +8,6 @@ E:\HAI\EVE\Backend\EvalEducation\BackEnd\EvalEduation\Components\APIs\EVE.ApiGat
 E:\HAI\EVE\Backend\EvalEducation\BackEnd\EvalEduation\Components\APIs\EVE.ApiGateway\bin\Debug\netcoreapp2.2\EVE.ApiGateway.runtimeconfig.dev.json
 E:\HAI\EVE\Backend\EvalEducation\BackEnd\EvalEduation\Components\APIs\EVE.ApiGateway\bin\Debug\netcoreapp2.2\EVE.ApiGateway.dll
 E:\HAI\EVE\Backend\EvalEducation\BackEnd\EvalEduation\Components\APIs\EVE.ApiGateway\bin\Debug\netcoreapp2.2\EVE.ApiGateway.pdb
-E:\HAI\EVE\Backend\EvalEducation\BackEnd\EvalEduation\Components\APIs\EVE.ApiGateway\obj\Debug\netcoreapp2.2\EVE.ApiGateway.csprojAssemblyReference.cache
 E:\HAI\EVE\Backend\EvalEducation\BackEnd\EvalEduation\Components\APIs\EVE.ApiGateway\obj\Debug\netcoreapp2.2\EVE.ApiGateway.RazorAssemblyInfo.cache
 E:\HAI\EVE\Backend\EvalEducation\BackEnd\EvalEduation\Components\APIs\EVE.ApiGateway\obj\Debug\netcoreapp2.2\EVE.ApiGateway.RazorAssemblyInfo.cs
 E:\HAI\EVE\Backend\EvalEducation\BackEnd\EvalEduation\Components\APIs\EVE.ApiGateway\obj\Debug\netcoreapp2.2\EVE.ApiGateway.AssemblyInfoInputs.cache

@@ -95,4 +95,3 @@ E:\HAI\EVE\Backend\EvalEducation\BackEnd\EvalEduation\Components\Commons\EVE.Dat
 E:\HAI\EVE\Backend\EvalEducation\BackEnd\EvalEduation\Components\Commons\EVE.Data\obj\Debug\EVE.Data.csproj.CopyComplete
 E:\HAI\EVE\Backend\EvalEducation\BackEnd\EvalEduation\Components\Commons\EVE.Data\obj\Debug\EVE.Data.dll
 E:\HAI\EVE\Backend\EvalEducation\BackEnd\EvalEduation\Components\Commons\EVE.Data\obj\Debug\EVE.Data.pdb
-E:\HAI\EVE\Backend\EvalEducation\BackEnd\EvalEduation\Components\Commons\EVE.Data\obj\Debug\EVE.Data.csprojAssemblyReference.cache
