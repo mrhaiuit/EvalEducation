@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 using EVE.ApiModels.Authentication.Request;
 using EVE.Data;
 
@@ -10,6 +11,6 @@ namespace EVE.Bussiness
 
         Task<bool> SaveLogin(LoginUser logonUser);
 
-        Task<Employee> GetById(EmployeeBaseReq req);
+        Task<List<UserGroup_Employee>> GetUserGroupByUserName(string userName);
     }
 }

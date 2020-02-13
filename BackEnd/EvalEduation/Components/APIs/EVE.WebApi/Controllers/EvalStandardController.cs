@@ -39,6 +39,18 @@ namespace EVE.WebApi.Controllers
             return this.OkResult();
         }
 
+        [Route("GetEvalCriteriaByStandard")]
+        public HttpResponseMessage GetEvalCriteriaByStandard([FromUri] int StandardId)
+        {
+            var obj = EvalStandardBE.GetEvalCriteriaByStandard(StandardId);
+            if (obj != null)
+            {
+                return this.OkResult(obj.RemoveWhiteSpace());
+            }
+
+            return this.ErrorResult(new Error(EnumError.CateriaNotExistWithStandard));
+        }
+
         [Route("getById")]
         public HttpResponseMessage GetById([FromUri] EvalStandardGetByIdReq req)
         {
