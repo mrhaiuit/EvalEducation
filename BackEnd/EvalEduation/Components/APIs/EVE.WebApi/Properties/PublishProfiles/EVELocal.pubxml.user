@@ -1,0 +1,322 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <_PublishTargetUrl>C:\DEV\PUBLISH\EVE</_PublishTargetUrl>
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="Areas/HelpPage/HelpPage.css">
+      <publishTime>02/12/2020 17:52:07</publishTime>
+    </File>
+    <File Include="Areas/HelpPage/Views/Help/Api.cshtml">
+      <publishTime>02/12/2020 17:52:06</publishTime>
+    </File>
+    <File Include="Areas/HelpPage/Views/Help/DisplayTemplates/ApiGroup.cshtml">
+      <publishTime>02/12/2020 17:52:06</publishTime>
+    </File>
+    <File Include="Areas/HelpPage/Views/Help/DisplayTemplates/CollectionModelDescription.cshtml">
+      <publishTime>02/12/2020 17:52:06</publishTime>
+    </File>
+    <File Include="Areas/HelpPage/Views/Help/DisplayTemplates/ComplexTypeModelDescription.cshtml">
+      <publishTime>02/12/2020 17:52:06</publishTime>
+    </File>
+    <File Include="Areas/HelpPage/Views/Help/DisplayTemplates/DictionaryModelDescription.cshtml">
+      <publishTime>02/12/2020 17:52:06</publishTime>
+    </File>
+    <File Include="Areas/HelpPage/Views/Help/DisplayTemplates/EnumTypeModelDescription.cshtml">
+      <publishTime>02/12/2020 17:52:06</publishTime>
+    </File>
+    <File Include="Areas/HelpPage/Views/Help/DisplayTemplates/HelpPageApiModel.cshtml">
+      <publishTime>02/12/2020 17:52:06</publishTime>
+    </File>
+    <File Include="Areas/HelpPage/Views/Help/DisplayTemplates/ImageSample.cshtml">
+      <publishTime>02/12/2020 17:52:06</publishTime>
+    </File>
+    <File Include="Areas/HelpPage/Views/Help/DisplayTemplates/InvalidSample.cshtml">
+      <publishTime>02/12/2020 17:52:06</publishTime>
+    </File>
+    <File Include="Areas/HelpPage/Views/Help/DisplayTemplates/KeyValuePairModelDescription.cshtml">
+      <publishTime>02/12/2020 17:52:06</publishTime>
+    </File>
+    <File Include="Areas/HelpPage/Views/Help/DisplayTemplates/ModelDescriptionLink.cshtml">
+      <publishTime>02/12/2020 17:52:06</publishTime>
+    </File>
+    <File Include="Areas/HelpPage/Views/Help/DisplayTemplates/Parameters.cshtml">
+      <publishTime>02/12/2020 17:52:06</publishTime>
+    </File>
+    <File Include="Areas/HelpPage/Views/Help/DisplayTemplates/Samples.cshtml">
+      <publishTime>02/12/2020 17:52:06</publishTime>
+    </File>
+    <File Include="Areas/HelpPage/Views/Help/DisplayTemplates/SimpleTypeModelDescription.cshtml">
+      <publishTime>02/12/2020 17:52:05</publishTime>
+    </File>
+    <File Include="Areas/HelpPage/Views/Help/DisplayTemplates/TextSample.cshtml">
+      <publishTime>02/12/2020 17:52:05</publishTime>
+    </File>
+    <File Include="Areas/HelpPage/Views/Help/Index.cshtml">
+      <publishTime>02/12/2020 17:52:05</publishTime>
+    </File>
+    <File Include="Areas/HelpPage/Views/Help/ResourceModel.cshtml">
+      <publishTime>02/12/2020 17:52:05</publishTime>
+    </File>
+    <File Include="Areas/HelpPage/Views/Shared/_Layout.cshtml">
+      <publishTime>02/12/2020 17:52:05</publishTime>
+    </File>
+    <File Include="Areas/HelpPage/Views/Web.config">
+      <publishTime>02/12/2020 17:52:05</publishTime>
+    </File>
+    <File Include="Areas/HelpPage/Views/_ViewStart.cshtml">
+      <publishTime>02/12/2020 17:52:05</publishTime>
+    </File>
+    <File Include="bin/Antlr3.Runtime.dll">
+      <publishTime>12/18/2016 13:55:30</publishTime>
+    </File>
+    <File Include="bin/App.Config">
+      <publishTime>02/12/2020 15:24:17</publishTime>
+    </File>
+    <File Include="bin/Autofac.dll">
+      <publishTime>02/10/2020 13:34:43</publishTime>
+    </File>
+    <File Include="bin/Autofac.Integration.WebApi.dll">
+      <publishTime>02/10/2020 13:34:43</publishTime>
+    </File>
+    <File Include="bin/Autofac.Integration.WebApi.pdb">
+      <publishTime>02/10/2020 13:34:43</publishTime>
+    </File>
+    <File Include="bin/Autofac.pdb">
+      <publishTime>02/10/2020 13:34:43</publishTime>
+    </File>
+    <File Include="bin/AutoMapper.dll">
+      <publishTime>02/10/2020 13:34:43</publishTime>
+    </File>
+    <File Include="bin/AutoMapper.pdb">
+      <publishTime>02/10/2020 13:34:43</publishTime>
+    </File>
+    <File Include="bin/Country.cs">
+      <publishTime>02/08/2020 11:13:13</publishTime>
+    </File>
+    <File Include="bin/District.cs">
+      <publishTime>02/08/2020 11:13:13</publishTime>
+    </File>
+    <File Include="bin/EduDepartment.cs">
+      <publishTime>02/08/2020 11:13:13</publishTime>
+    </File>
+    <File Include="bin/EduLevel.cs">
+      <publishTime>02/08/2020 11:13:13</publishTime>
+    </File>
+    <File Include="bin/EduMinistry.cs">
+      <publishTime>02/08/2020 11:13:13</publishTime>
+    </File>
+    <File Include="bin/EduProvince.cs">
+      <publishTime>02/08/2020 11:13:13</publishTime>
+    </File>
+    <File Include="bin/Employee.cs">
+      <publishTime>02/08/2020 11:13:13</publishTime>
+    </File>
+    <File Include="bin/EntityFramework.dll">
+      <publishTime>02/10/2020 13:34:45</publishTime>
+    </File>
+    <File Include="bin/EntityFramework.SqlServer.dll">
+      <publishTime>02/10/2020 13:34:44</publishTime>
+    </File>
+    <File Include="bin/EvalCriteria.cs">
+      <publishTime>02/08/2020 11:13:13</publishTime>
+    </File>
+    <File Include="bin/EvalDetail.cs">
+      <publishTime>02/08/2020 11:13:13</publishTime>
+    </File>
+    <File Include="bin/EvalGuide.cs">
+      <publishTime>02/08/2020 11:13:13</publishTime>
+    </File>
+    <File Include="bin/EvalMaster.cs">
+      <publishTime>02/08/2020 11:13:13</publishTime>
+    </File>
+    <File Include="bin/EvalResult.cs">
+      <publishTime>02/08/2020 11:13:13</publishTime>
+    </File>
+    <File Include="bin/EvalStandard.cs">
+      <publishTime>02/08/2020 11:13:13</publishTime>
+    </File>
+    <File Include="bin/EvalState.cs">
+      <publishTime>02/08/2020 11:13:13</publishTime>
+    </File>
+    <File Include="bin/EvalType.cs">
+      <publishTime>02/08/2020 11:13:13</publishTime>
+    </File>
+    <File Include="bin/EVE.ApiModels.dll">
+      <publishTime>02/12/2020 18:04:29</publishTime>
+    </File>
+    <File Include="bin/EVE.ApiModels.dll.config">
+      <publishTime>02/12/2020 17:53:38</publishTime>
+    </File>
+    <File Include="bin/EVE.ApiModels.pdb">
+      <publishTime>02/12/2020 18:04:29</publishTime>
+    </File>
+    <File Include="bin/EVE.Bussiness.dll">
+      <publishTime>02/12/2020 18:04:29</publishTime>
+    </File>
+    <File Include="bin/EVE.Bussiness.dll.config">
+      <publishTime>02/12/2020 17:53:39</publishTime>
+    </File>
+    <File Include="bin/EVE.Bussiness.pdb">
+      <publishTime>02/12/2020 18:04:29</publishTime>
+    </File>
+    <File Include="bin/EVE.Commons.dll">
+      <publishTime>02/12/2020 18:04:28</publishTime>
+    </File>
+    <File Include="bin/EVE.Commons.dll.config">
+      <publishTime>02/10/2020 13:34:32</publishTime>
+    </File>
+    <File Include="bin/EVE.Commons.pdb">
+      <publishTime>02/12/2020 18:04:28</publishTime>
+    </File>
+    <File Include="bin/EVE.Data.dll">
+      <publishTime>02/12/2020 18:04:27</publishTime>
+    </File>
+    <File Include="bin/EVE.Data.dll.config">
+      <publishTime>02/12/2020 15:24:17</publishTime>
+    </File>
+    <File Include="bin/EVE.Data.pdb">
+      <publishTime>02/12/2020 18:04:27</publishTime>
+    </File>
+    <File Include="bin/EVE.WebApi.Authentication.dll">
+      <publishTime>02/09/2020 08:42:21</publishTime>
+    </File>
+    <File Include="bin/EVE.WebApi.Authentication.pdb">
+      <publishTime>02/09/2020 08:42:21</publishTime>
+    </File>
+    <File Include="bin/EVE.WebApi.dll">
+      <publishTime>02/12/2020 18:04:30</publishTime>
+    </File>
+    <File Include="bin/EVE.WebApi.pdb">
+      <publishTime>02/12/2020 18:04:30</publishTime>
+    </File>
+    <File Include="bin/EVE.WebApi.Shared.dll">
+      <publishTime>02/12/2020 18:04:28</publishTime>
+    </File>
+    <File Include="bin/EVE.WebApi.Shared.dll.config">
+      <publishTime>02/10/2020 13:34:27</publishTime>
+    </File>
+    <File Include="bin/EVE.WebApi.Shared.pdb">
+      <publishTime>02/12/2020 18:04:28</publishTime>
+    </File>
+    <File Include="bin/EVEModel.Context.cs">
+      <publishTime>02/08/2020 11:13:08</publishTime>
+    </File>
+    <File Include="bin/EVEModel.cs">
+      <publishTime>02/08/2020 11:13:14</publishTime>
+    </File>
+    <File Include="bin/EVEModel.Designer.cs">
+      <publishTime>02/08/2020 11:13:15</publishTime>
+    </File>
+    <File Include="bin/EVEModel.edmx.diagram">
+      <publishTime>02/08/2020 11:13:05</publishTime>
+    </File>
+    <File Include="bin/FluentValidation.dll">
+      <publishTime>02/10/2020 13:34:45</publishTime>
+    </File>
+    <File Include="bin/FluentValidation.ValidatorAttribute.dll">
+      <publishTime>02/10/2020 13:34:45</publishTime>
+    </File>
+    <File Include="bin/FluentValidation.WebApi.dll">
+      <publishTime>02/10/2020 13:34:45</publishTime>
+    </File>
+    <File Include="bin/Form.cs">
+      <publishTime>02/08/2020 11:13:13</publishTime>
+    </File>
+    <File Include="bin/LoginUser.cs">
+      <publishTime>02/08/2020 11:13:13</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Web.Infrastructure.dll">
+      <publishTime>02/10/2020 13:34:46</publishTime>
+    </File>
+    <File Include="bin/Newtonsoft.Json.dll">
+      <publishTime>02/10/2020 13:34:47</publishTime>
+    </File>
+    <File Include="bin/Oracle.ManagedDataAccess.dll">
+      <publishTime>05/26/2018 09:48:18</publishTime>
+    </File>
+    <File Include="bin/Oracle.ManagedDataAccess.EntityFramework.dll">
+      <publishTime>05/26/2018 10:02:14</publishTime>
+    </File>
+    <File Include="bin/Province.cs">
+      <publishTime>02/08/2020 11:13:13</publishTime>
+    </File>
+    <File Include="bin/School.cs">
+      <publishTime>02/08/2020 11:13:13</publishTime>
+    </File>
+    <File Include="bin/SchoolLevel.cs">
+      <publishTime>02/08/2020 11:13:13</publishTime>
+    </File>
+    <File Include="bin/Swashbuckle.Core.dll">
+      <publishTime>02/10/2020 13:34:48</publishTime>
+    </File>
+    <File Include="bin/sysdiagram.cs">
+      <publishTime>02/08/2020 11:13:13</publishTime>
+    </File>
+    <File Include="bin/System.ComponentModel.Annotations.dll">
+      <publishTime>02/10/2020 13:34:49</publishTime>
+    </File>
+    <File Include="bin/System.Net.Http.Formatting.dll">
+      <publishTime>02/10/2020 13:34:45</publishTime>
+    </File>
+    <File Include="bin/System.Web.Helpers.dll">
+      <publishTime>02/10/2020 13:34:45</publishTime>
+    </File>
+    <File Include="bin/System.Web.Http.dll">
+      <publishTime>02/10/2020 13:34:45</publishTime>
+    </File>
+    <File Include="bin/System.Web.Http.WebHost.dll">
+      <publishTime>02/10/2020 13:34:45</publishTime>
+    </File>
+    <File Include="bin/System.Web.Mvc.dll">
+      <publishTime>02/10/2020 13:34:45</publishTime>
+    </File>
+    <File Include="bin/System.Web.Optimization.dll">
+      <publishTime>02/10/2020 13:34:45</publishTime>
+    </File>
+    <File Include="bin/System.Web.Razor.dll">
+      <publishTime>02/10/2020 13:34:45</publishTime>
+    </File>
+    <File Include="bin/System.Web.WebPages.Deployment.dll">
+      <publishTime>02/10/2020 13:34:45</publishTime>
+    </File>
+    <File Include="bin/System.Web.WebPages.dll">
+      <publishTime>02/10/2020 13:34:45</publishTime>
+    </File>
+    <File Include="bin/System.Web.WebPages.Razor.dll">
+      <publishTime>02/10/2020 13:34:45</publishTime>
+    </File>
+    <File Include="bin/UserGroup.cs">
+      <publishTime>02/08/2020 11:13:13</publishTime>
+    </File>
+    <File Include="bin/UserGroup_Employee.cs">
+      <publishTime>02/08/2020 11:13:13</publishTime>
+    </File>
+    <File Include="bin/Ward.cs">
+      <publishTime>02/08/2020 11:13:13</publishTime>
+    </File>
+    <File Include="bin/WebActivatorEx.dll">
+      <publishTime>02/10/2020 13:34:51</publishTime>
+    </File>
+    <File Include="bin/WebGrease.dll">
+      <publishTime>07/17/2013 17:03:52</publishTime>
+    </File>
+    <File Include="favicon.ico">
+      <publishTime>02/10/2020 13:34:27</publishTime>
+    </File>
+    <File Include="Global.asax">
+      <publishTime>02/10/2020 13:34:27</publishTime>
+    </File>
+    <File Include="Scripts/modernizr-2.8.3.js">
+      <publishTime>02/12/2020 17:52:02</publishTime>
+    </File>
+    <File Include="Web.config">
+      <publishTime>02/12/2020 18:04:30</publishTime>
+    </File>
+  </ItemGroup>
+</Project>
