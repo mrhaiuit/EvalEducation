@@ -11,7 +11,10 @@ namespace EVE.Bussiness
     public class LoginBE : BaseBE<Employee>, ILoginBE
     {
         private IUserGroupEmployeeBE UserGroupEmployeeBE { get; set; }
-        public LoginBE(IUnitOfWork<EVEEntities> uoW, IUserGroupEmployeeBE userGroupEmployeeBE) : base(uoW)
+        private IEmployeeBE EmployeeBE { get; set; }
+        public LoginBE(IUnitOfWork<EVEEntities> uoW, 
+            IUserGroupEmployeeBE userGroupEmployeeBE
+            ) : base(uoW)
         {
             UserGroupEmployeeBE = userGroupEmployeeBE;
         }
@@ -58,7 +61,10 @@ namespace EVE.Bussiness
 
         public async Task<List<UserGroup_Employee>> GetUserGroupByUserName(string userName)
         {
-            var obj = await UserGroupEmployeeBE.GetAsync(p => p.Employee.UserName == userName);
+            var employee = (await GetAsync(p => p.UserName == userName))?.FirstOrDefault();
+            if (employee == null)
+                return null;
+            var obj = await UserGroupEmployeeBE.GetAsync(p => p.EmployeeId == employee.EmployeeId);
             if (obj != null
                && obj.Any())
             {

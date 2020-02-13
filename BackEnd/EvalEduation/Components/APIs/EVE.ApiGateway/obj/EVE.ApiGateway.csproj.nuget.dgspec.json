@@ -1,27 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "E:\\HAI\\EVE\\Backend\\EvalEducation\\BackEnd\\EvalEduation\\Components\\APIs\\EVE.ApiGateway\\EVE.ApiGateway.csproj": {}
+    "C:\\DEV\\Eval-Edu\\EvalEducation\\BackEnd\\EvalEduation\\Components\\APIs\\EVE.ApiGateway\\EVE.ApiGateway.csproj": {}
   },
   "projects": {
-    "E:\\HAI\\EVE\\Backend\\EvalEducation\\BackEnd\\EvalEduation\\Components\\APIs\\EVE.ApiGateway\\EVE.ApiGateway.csproj": {
+    "C:\\DEV\\Eval-Edu\\EvalEducation\\BackEnd\\EvalEduation\\Components\\APIs\\EVE.ApiGateway\\EVE.ApiGateway.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\HAI\\EVE\\Backend\\EvalEducation\\BackEnd\\EvalEduation\\Components\\APIs\\EVE.ApiGateway\\EVE.ApiGateway.csproj",
+        "projectUniqueName": "C:\\DEV\\Eval-Edu\\EvalEducation\\BackEnd\\EvalEduation\\Components\\APIs\\EVE.ApiGateway\\EVE.ApiGateway.csproj",
         "projectName": "EVE.ApiGateway",
-        "projectPath": "E:\\HAI\\EVE\\Backend\\EvalEducation\\BackEnd\\EvalEduation\\Components\\APIs\\EVE.ApiGateway\\EVE.ApiGateway.csproj",
-        "packagesPath": "C:\\Users\\haitt6\\.nuget\\packages\\",
-        "outputPath": "E:\\HAI\\EVE\\Backend\\EvalEducation\\BackEnd\\EvalEduation\\Components\\APIs\\EVE.ApiGateway\\obj\\",
+        "projectPath": "C:\\DEV\\Eval-Edu\\EvalEducation\\BackEnd\\EvalEduation\\Components\\APIs\\EVE.ApiGateway\\EVE.ApiGateway.csproj",
+        "packagesPath": "C:\\Users\\win\\.nuget\\packages\\",
+        "outputPath": "C:\\DEV\\Eval-Edu\\EvalEducation\\BackEnd\\EvalEduation\\Components\\APIs\\EVE.ApiGateway\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\",
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\haitt6\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\win\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 19.1.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp2.2"
@@ -76,7 +74,7 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     }

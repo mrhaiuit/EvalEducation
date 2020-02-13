@@ -24,5 +24,17 @@ namespace EVE.Bussiness
             return null;
         }
 
+        public async Task<Employee> GetByUserName(string userName)
+        {
+            var obj = await GetAsync(c => c.UserName == userName);
+            if (obj != null
+               && obj.Any())
+            {
+                return obj.FirstOrDefault();
+            }
+
+            return null;
+        }
+
     }
 }

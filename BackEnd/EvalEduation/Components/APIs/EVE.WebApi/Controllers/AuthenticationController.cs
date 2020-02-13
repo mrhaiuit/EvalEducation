@@ -17,7 +17,7 @@ namespace EVE.WebApi.Controllers
     [RoutePrefix("auth")]
     public class AuthenticationController : BaseController
     {
-        private readonly ILoginBE _loginBE;
+        public readonly ILoginBE _loginBE;
         public AuthenticationController(ILoginBE loginBE,
                                IMapper mapper) : base(mapper)
         {
@@ -60,7 +60,7 @@ namespace EVE.WebApi.Controllers
 
         [HttpPost]
         [Route("GetUserGroupByUserName")]
-        public async Task<HttpResponseMessage> GetUserGroupByUserName(string userName)
+        public async Task<HttpResponseMessage> GetUserGroupByUserName([FromUri]string userName)
         {
             try
             {

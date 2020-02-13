@@ -64,6 +64,7 @@
     <Compile Include="Base\IBaseBE.cs" />
     <Compile Include="Base\BaseBE.cs" />
     <Compile Include="Authentication\Interfaces\ILoginBE.cs" />
+    <Compile Include="Catalog\Implementations\UserGroupEmployeeBE.cs" />
     <Compile Include="Catalog\Implementations\DistrictBE.cs" />
     <Compile Include="Catalog\Implementations\CountryBE.cs" />
     <Compile Include="Catalog\Implementations\ProvinceBE.cs" />

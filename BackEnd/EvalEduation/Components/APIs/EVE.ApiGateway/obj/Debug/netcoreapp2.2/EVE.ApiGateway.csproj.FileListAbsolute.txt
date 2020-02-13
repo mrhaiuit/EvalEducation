@@ -1,21 +1,3 @@
-E:\HAI\EVE\Backend\EvalEducation\BackEnd\EvalEduation\Components\APIs\EVE.ApiGateway\bin\Debug\netcoreapp2.2\appsettings.Development.json
-E:\HAI\EVE\Backend\EvalEducation\BackEnd\EvalEduation\Components\APIs\EVE.ApiGateway\bin\Debug\netcoreapp2.2\appsettings.json
-E:\HAI\EVE\Backend\EvalEducation\BackEnd\EvalEduation\Components\APIs\EVE.ApiGateway\bin\Debug\netcoreapp2.2\ocelot.Development.json
-E:\HAI\EVE\Backend\EvalEducation\BackEnd\EvalEduation\Components\APIs\EVE.ApiGateway\bin\Debug\netcoreapp2.2\ocelot.json
-E:\HAI\EVE\Backend\EvalEducation\BackEnd\EvalEduation\Components\APIs\EVE.ApiGateway\bin\Debug\netcoreapp2.2\Properties\launchSettings.json
-E:\HAI\EVE\Backend\EvalEducation\BackEnd\EvalEduation\Components\APIs\EVE.ApiGateway\bin\Debug\netcoreapp2.2\EVE.ApiGateway.deps.json
-E:\HAI\EVE\Backend\EvalEducation\BackEnd\EvalEduation\Components\APIs\EVE.ApiGateway\bin\Debug\netcoreapp2.2\EVE.ApiGateway.runtimeconfig.json
-E:\HAI\EVE\Backend\EvalEducation\BackEnd\EvalEduation\Components\APIs\EVE.ApiGateway\bin\Debug\netcoreapp2.2\EVE.ApiGateway.runtimeconfig.dev.json
-E:\HAI\EVE\Backend\EvalEducation\BackEnd\EvalEduation\Components\APIs\EVE.ApiGateway\bin\Debug\netcoreapp2.2\EVE.ApiGateway.dll
-E:\HAI\EVE\Backend\EvalEducation\BackEnd\EvalEduation\Components\APIs\EVE.ApiGateway\bin\Debug\netcoreapp2.2\EVE.ApiGateway.pdb
-E:\HAI\EVE\Backend\EvalEducation\BackEnd\EvalEduation\Components\APIs\EVE.ApiGateway\obj\Debug\netcoreapp2.2\EVE.ApiGateway.RazorAssemblyInfo.cache
-E:\HAI\EVE\Backend\EvalEducation\BackEnd\EvalEduation\Components\APIs\EVE.ApiGateway\obj\Debug\netcoreapp2.2\EVE.ApiGateway.RazorAssemblyInfo.cs
-E:\HAI\EVE\Backend\EvalEducation\BackEnd\EvalEduation\Components\APIs\EVE.ApiGateway\obj\Debug\netcoreapp2.2\EVE.ApiGateway.AssemblyInfoInputs.cache
-E:\HAI\EVE\Backend\EvalEducation\BackEnd\EvalEduation\Components\APIs\EVE.ApiGateway\obj\Debug\netcoreapp2.2\EVE.ApiGateway.AssemblyInfo.cs
-E:\HAI\EVE\Backend\EvalEducation\BackEnd\EvalEduation\Components\APIs\EVE.ApiGateway\obj\Debug\netcoreapp2.2\EVE.ApiGateway.RazorTargetAssemblyInfo.cache
-E:\HAI\EVE\Backend\EvalEducation\BackEnd\EvalEduation\Components\APIs\EVE.ApiGateway\obj\Debug\netcoreapp2.2\EVE.ApiGateway.dll
-E:\HAI\EVE\Backend\EvalEducation\BackEnd\EvalEduation\Components\APIs\EVE.ApiGateway\obj\Debug\netcoreapp2.2\EVE.ApiGateway.pdb
-<<<<<<< HEAD
 C:\DEV\Eval-Edu\EvalEducation\BackEnd\EvalEduation\Components\APIs\EVE.ApiGateway\bin\Debug\netcoreapp2.2\appsettings.Development.json
 C:\DEV\Eval-Edu\EvalEducation\BackEnd\EvalEduation\Components\APIs\EVE.ApiGateway\bin\Debug\netcoreapp2.2\appsettings.json
 C:\DEV\Eval-Edu\EvalEducation\BackEnd\EvalEduation\Components\APIs\EVE.ApiGateway\bin\Debug\netcoreapp2.2\ocelot.Development.json
@@ -26,7 +8,6 @@ C:\DEV\Eval-Edu\EvalEducation\BackEnd\EvalEduation\Components\APIs\EVE.ApiGatewa
 C:\DEV\Eval-Edu\EvalEducation\BackEnd\EvalEduation\Components\APIs\EVE.ApiGateway\bin\Debug\netcoreapp2.2\EVE.ApiGateway.runtimeconfig.dev.json
 C:\DEV\Eval-Edu\EvalEducation\BackEnd\EvalEduation\Components\APIs\EVE.ApiGateway\bin\Debug\netcoreapp2.2\EVE.ApiGateway.dll
 C:\DEV\Eval-Edu\EvalEducation\BackEnd\EvalEduation\Components\APIs\EVE.ApiGateway\bin\Debug\netcoreapp2.2\EVE.ApiGateway.pdb
-C:\DEV\Eval-Edu\EvalEducation\BackEnd\EvalEduation\Components\APIs\EVE.ApiGateway\obj\Debug\netcoreapp2.2\EVE.ApiGateway.csprojAssemblyReference.cache
 C:\DEV\Eval-Edu\EvalEducation\BackEnd\EvalEduation\Components\APIs\EVE.ApiGateway\obj\Debug\netcoreapp2.2\EVE.ApiGateway.RazorAssemblyInfo.cache
 C:\DEV\Eval-Edu\EvalEducation\BackEnd\EvalEduation\Components\APIs\EVE.ApiGateway\obj\Debug\netcoreapp2.2\EVE.ApiGateway.RazorAssemblyInfo.cs
 C:\DEV\Eval-Edu\EvalEducation\BackEnd\EvalEduation\Components\APIs\EVE.ApiGateway\obj\Debug\netcoreapp2.2\EVE.ApiGateway.AssemblyInfoInputs.cache
@@ -34,5 +15,3 @@ C:\DEV\Eval-Edu\EvalEducation\BackEnd\EvalEduation\Components\APIs\EVE.ApiGatewa
 C:\DEV\Eval-Edu\EvalEducation\BackEnd\EvalEduation\Components\APIs\EVE.ApiGateway\obj\Debug\netcoreapp2.2\EVE.ApiGateway.RazorTargetAssemblyInfo.cache
 C:\DEV\Eval-Edu\EvalEducation\BackEnd\EvalEduation\Components\APIs\EVE.ApiGateway\obj\Debug\netcoreapp2.2\EVE.ApiGateway.dll
 C:\DEV\Eval-Edu\EvalEducation\BackEnd\EvalEduation\Components\APIs\EVE.ApiGateway\obj\Debug\netcoreapp2.2\EVE.ApiGateway.pdb
-=======
->>>>>>> 4ef71715cb36c91a12143fca26000ccb33e1a0e8

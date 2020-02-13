@@ -6,7 +6,7 @@ namespace EVE.Bussiness
 {
     public interface IEmployeeBE : IBaseBE<Employee>
     {
-
+        Task<Employee> GetByUserName(string userName);
         Task<Employee> GetById(EmployeeBaseReq req);
     }
 }
