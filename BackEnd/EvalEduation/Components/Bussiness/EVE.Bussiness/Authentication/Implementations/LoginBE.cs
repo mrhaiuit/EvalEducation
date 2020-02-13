@@ -19,7 +19,7 @@ namespace EVE.Bussiness
         {
             try
             {
-                req.PassWord = OperPwdEncode(req.PassWord);
+                req.PassWord = req.PassWord.EncodePassword();
                 var users = await GetAsync(c => c.UserName == req.UserName && c.Password == req.PassWord);
                 if (users != null
                    && users.Any())
@@ -66,46 +66,5 @@ namespace EVE.Bussiness
         }
 
         #endregion
-
-        //------------------------------------------------------------------------------------------------------------------------------
-        /// <summary>
-        ///     Encode input string to value number
-        /// </summary>
-        /// <param name="passpwd"></param>
-        /// <returns></returns>
-        private string OperPwdEncode(string passpwd)
-        {
-            string returnValue = " ";
-            int i = 1;
-            int k;
-            double strPwd = 0;
-            var ArrPwd = new int[31];
-
-            foreach (char ch in passpwd)
-            {
-                if(ch.ToString()
-                     .IsNumber())
-                {
-                    ArrPwd[i] = ch.CheckIntEx();
-                }
-                else
-                {
-                    ArrPwd[i] = ch;
-                }
-
-                i++;
-            }
-
-            for (k = 1; k <= i - 1; k++)
-            {
-                strPwd = strPwd + ArrPwd[k];
-
-                strPwd = strPwd * (k + i);
-            }
-
-            returnValue = strPwd.ToString();
-
-            return returnValue;
-        }
     }
 }
