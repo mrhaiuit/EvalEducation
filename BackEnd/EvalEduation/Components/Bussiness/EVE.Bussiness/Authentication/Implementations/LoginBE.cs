@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using EVE.ApiModels.Authentication.Request;
@@ -9,8 +10,10 @@ namespace EVE.Bussiness
 {
     public class LoginBE : BaseBE<Employee>, ILoginBE
     {
-        public LoginBE(IUnitOfWork<EVEEntities> uoW) : base(uoW)
+        private IUserGroupEmployeeBE UserGroupEmployeeBE { get; set; }
+        public LoginBE(IUnitOfWork<EVEEntities> uoW, IUserGroupEmployeeBE userGroupEmployeeBE) : base(uoW)
         {
+            UserGroupEmployeeBE = userGroupEmployeeBE;
         }
 
         #region ILogonUserBE Members
@@ -35,31 +38,31 @@ namespace EVE.Bussiness
             }
         }
 
-        public async Task< bool> SaveLogin(LoginUser loginUser)
+        public async Task<bool> SaveLogin(LoginUser loginUser)
         {
             try
             {
                 var logonRepository = _uoW.Repository<LoginUser>();
-              var result=  logonRepository.Insert(loginUser);
+                var result = logonRepository.Insert(loginUser);
                 if (result != null)
                     return true;
                 else
                     return false;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 return false;
             }
-            
+
         }
 
-        public async Task<Employee> GetById(EmployeeBaseReq req)
+        public async Task<List<UserGroup_Employee>> GetUserGroupByUserName(string userName)
         {
-            var operators = await GetAsync(c => string.Equals(c.EmployeeId, req.EmployeeId) );
-            if(operators != null
-               && operators.Any())
+            var obj = await UserGroupEmployeeBE.GetAsync(p => p.Employee.UserName == userName);
+            if (obj != null
+               && obj.Any())
             {
-                return operators.FirstOrDefault();
+                return obj.ToList();
             }
 
             return null;

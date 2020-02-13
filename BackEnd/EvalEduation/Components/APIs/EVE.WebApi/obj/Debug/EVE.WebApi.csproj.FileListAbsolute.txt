@@ -70,6 +70,7 @@ E:\HAI\EVE\Backend\EvalEducation\BackEnd\EvalEduation\Components\APIs\EVE.WebApi
 E:\HAI\EVE\Backend\EvalEducation\BackEnd\EvalEduation\Components\APIs\EVE.WebApi\obj\Debug\EVE.WebApi.csproj.CopyComplete
 E:\HAI\EVE\Backend\EvalEducation\BackEnd\EvalEduation\Components\APIs\EVE.WebApi\obj\Debug\EVE.WebApi.dll
 E:\HAI\EVE\Backend\EvalEducation\BackEnd\EvalEduation\Components\APIs\EVE.WebApi\obj\Debug\EVE.WebApi.pdb
+<<<<<<< HEAD
 C:\DEV\Eval-Edu\EvalEducation\BackEnd\EvalEduation\Components\APIs\EVE.WebApi\bin\App.Config
 C:\DEV\Eval-Edu\EvalEducation\BackEnd\EvalEduation\Components\APIs\EVE.WebApi\bin\EVE.WebApi.dll.config
 C:\DEV\Eval-Edu\EvalEducation\BackEnd\EvalEduation\Components\APIs\EVE.WebApi\bin\EVE.WebApi.dll
@@ -142,3 +143,5 @@ C:\DEV\Eval-Edu\EvalEducation\BackEnd\EvalEduation\Components\APIs\EVE.WebApi\ob
 C:\DEV\Eval-Edu\EvalEducation\BackEnd\EvalEduation\Components\APIs\EVE.WebApi\obj\Debug\EVE.WebApi.csproj.CopyComplete
 C:\DEV\Eval-Edu\EvalEducation\BackEnd\EvalEduation\Components\APIs\EVE.WebApi\obj\Debug\EVE.WebApi.dll
 C:\DEV\Eval-Edu\EvalEducation\BackEnd\EvalEduation\Components\APIs\EVE.WebApi\obj\Debug\EVE.WebApi.pdb
+=======
+>>>>>>> 4ef71715cb36c91a12143fca26000ccb33e1a0e8
