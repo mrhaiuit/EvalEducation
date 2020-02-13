@@ -255,6 +255,12 @@ namespace EVE.Commons
         [StringValue("Country này không tồn tại")]
         CountryNotExist = 500080,
 
+        [StringValue("User này chưa được cấp quyền")]
+        UserNotGrandPermission = 500090,
+
+        [StringValue("Không tồn tại tiêu chí của tiêu chuẩn này")]
+        CateriaNotExistWithStandard = 500100,
+
         #endregion
 
 

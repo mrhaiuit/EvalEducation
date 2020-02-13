@@ -26,7 +26,7 @@ namespace EVE.WebApi.Controllers
 
         [HttpPost]
         [Route("logon")]
-        public async Task<HttpResponseMessage> Login(LoginReq req)
+        public async Task<HttpResponseMessage> Logon(LoginReq req)
         {
             var employee = await _loginBE.GetEmployeeByAccount(req);
             if (employee != null)
@@ -57,6 +57,24 @@ namespace EVE.WebApi.Controllers
             return this.ErrorResult(new Error(EnumError.LogonInvalid));
         }
 
-       
+
+        [HttpPost]
+        [Route("GetUserGroupByUserName")]
+        public async Task<HttpResponseMessage> GetUserGroupByUserName(string userName)
+        {
+            try
+            {
+                var obj = await _loginBE.GetUserGroupByUserName(userName);
+                if (obj == null || !obj.Any())
+                {
+                    return this.ErrorResult(new Error(EnumError.UserNotGrandPermission));
+                }
+                return this.OkResult(obj);
+            }
+            catch(Exception ex)
+            {
+                return this.ErrorResult(new Error("", ex.Message));
+            }
+        }
     }
 }

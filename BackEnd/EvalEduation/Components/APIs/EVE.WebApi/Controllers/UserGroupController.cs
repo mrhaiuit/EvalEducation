@@ -40,12 +40,24 @@ namespace EVE.WebApi.Controllers
         }
 
         [Route("getById")]
-        public HttpResponseMessage GetById([FromUri] UserGroupGetByIdReq req)
+        public async Task<HttpResponseMessage> GetById([FromUri] UserGroupGetByIdReq req)
         {
-            var obj = UserGroupBE.GetById(req);
+            var obj = await UserGroupBE.GetById(req);
             if (obj != null)
             {
                 return this.OkResult(obj.RemoveWhiteSpace());
+            }
+
+            return this.ErrorResult(new Error(EnumError.UserGroupNotExist));
+        }
+
+        [Route("GetFormsByUserGroup")]
+        public async Task<HttpResponseMessage> GetFormsByUserGroup([FromUri] string userGroup)
+        {
+            var obj = await UserGroupBE.GetFormsByUserGroup(userGroup);
+            if (obj != null)
+            {
+                return this.OkResult(obj);
             }
 
             return this.ErrorResult(new Error(EnumError.UserGroupNotExist));

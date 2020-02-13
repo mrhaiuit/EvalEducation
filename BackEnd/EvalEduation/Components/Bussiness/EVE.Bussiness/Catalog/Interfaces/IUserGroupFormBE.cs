@@ -6,7 +6,6 @@ namespace EVE.Bussiness
 {
     public interface IUserGroupFormBE : IBaseBE<UserGroup_Form>
     {
-
         Task<UserGroup_Form> GetById(UserGroupFormBaseReq req);
     }
 }

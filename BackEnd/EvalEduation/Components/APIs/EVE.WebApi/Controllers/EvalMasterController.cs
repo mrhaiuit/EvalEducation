@@ -18,12 +18,15 @@ namespace EVE.WebApi.Controllers
     [RoutePrefix("EvalMaster")]
     public class EvalMasterController : BaseController
     {
+        private readonly IEvalDetailBE EvalDetailBE;
         private readonly IEvalMasterBE EvalMasterBE;
-        public EvalMasterController(IEvalMasterBE _EvalMasterBE,
-                               IMapper mapper) : base(mapper)
+        public EvalMasterController(IEvalDetailBE evalDetailBE,
+                                    IEvalMasterBE evalMasterBE,
+                                    IMapper mapper) : base(mapper)
         {
-            EvalMasterBE = _EvalMasterBE;
-        }
+            EvalDetailBE = evalDetailBE;
+            EvalMasterBE = evalMasterBE;
+        } 
 
         [Route("all")]
         public async Task<HttpResponseMessage> GetAll()
@@ -37,6 +40,18 @@ namespace EVE.WebApi.Controllers
             }
 
             return this.OkResult();
+        }
+
+        [Route("getEvalDetailByMasterId")]
+        public HttpResponseMessage GetEvalDetailByMasterId([FromUri] int masterId)
+        {
+            var obj = EvalMasterBE.GetEvalDetailByMasterId(masterId);
+            if (obj != null)
+            {
+                return this.OkResult(obj.RemoveWhiteSpace());
+            }
+
+            return this.ErrorResult(new Error(EnumError.EvalDetailNotExist));
         }
 
         [Route("getById")]
