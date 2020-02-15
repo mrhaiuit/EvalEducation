@@ -77,10 +77,12 @@
     <Compile Include="Enums\CustomTypeEditorBrowsable.cs" />
     <Compile Include="Enums\enDialogQuestions.cs" />
     <Compile Include="Enums\EnumError.cs" />
+    <Compile Include="Enums\EnumSchoolLevel.cs" />
+    <Compile Include="Enums\EnumEvalResult.cs" />
     <Compile Include="Enums\EnumFormActionType.cs" />
     <Compile Include="Enums\SingleEnumClass.cs" />
     <Compile Include="Enums\SysCodeRef.cs" />
-    <Compile Include="Enums\SysCodeType.cs" />
+    <Compile Include="Enums\EnumEvalLevel.cs" />
     <Compile Include="Extension.cs" />
     <Compile Include="ExtensionMethods.cs" />
     <Compile Include="Global.cs" />

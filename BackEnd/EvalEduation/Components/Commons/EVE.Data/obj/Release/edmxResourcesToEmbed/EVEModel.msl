@@ -62,26 +62,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Employees">
-      <EntityTypeMapping TypeName="EVEModel.Employee">
-        <MappingFragment StoreEntitySet="Employee">
-          <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
-          <ScalarProperty Name="EmployeeCode" ColumnName="EmployeeCode" />
-          <ScalarProperty Name="UserName" ColumnName="UserName" />
-          <ScalarProperty Name="Password" ColumnName="Password" />
-          <ScalarProperty Name="EmployeeName" ColumnName="EmployeeName" />
-          <ScalarProperty Name="Address" ColumnName="Address" />
-          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
-          <ScalarProperty Name="MinistryofEducationaCode" ColumnName="MinistryofEducationaCode" />
-          <ScalarProperty Name="EduProvinceId" ColumnName="EduProvinceId" />
-          <ScalarProperty Name="EduDepartmentId" ColumnName="EduDepartmentId" />
-          <ScalarProperty Name="SchoolId" ColumnName="SchoolId" />
-          <ScalarProperty Name="Active" ColumnName="Active" />
-          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
-          <ScalarProperty Name="EduLevelCode" ColumnName="EduLevelCode" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="EvalCriterias">
       <EntityTypeMapping TypeName="EVEModel.EvalCriteria">
         <MappingFragment StoreEntitySet="EvalCriteria">
@@ -90,20 +70,6 @@
           <ScalarProperty Name="EvalCriteriaName" ColumnName="EvalCriteriaName" />
           <ScalarProperty Name="Active" ColumnName="Active" />
           <ScalarProperty Name="Idx" ColumnName="Idx" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="EvalDetails">
-      <EntityTypeMapping TypeName="EVEModel.EvalDetail">
-        <MappingFragment StoreEntitySet="EvalDetail">
-          <ScalarProperty Name="EvalDetailId" ColumnName="EvalDetailId" />
-          <ScalarProperty Name="EvalMasterId" ColumnName="EvalMasterId" />
-          <ScalarProperty Name="EvalCriteriaId" ColumnName="EvalCriteriaId" />
-          <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
-          <ScalarProperty Name="EvalResultCode" ColumnName="EvalResultCode" />
-          <ScalarProperty Name="Sample" ColumnName="Sample" />
-          <ScalarProperty Name="Attachment" ColumnName="Attachment" />
-          <ScalarProperty Name="EvalForEmployee" ColumnName="EvalForEmployee" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -238,6 +204,7 @@
     <EntitySetMapping Name="Schools">
       <EntityTypeMapping TypeName="EVEModel.School">
         <MappingFragment StoreEntitySet="School">
+          <ScalarProperty Name="WardId" ColumnName="WardId" />
           <ScalarProperty Name="SchoolId" ColumnName="SchoolId" />
           <ScalarProperty Name="School1" ColumnName="School" />
           <ScalarProperty Name="Address" ColumnName="Address" />
@@ -306,6 +273,55 @@
           <ScalarProperty Name="WardId" ColumnName="WardId" />
           <ScalarProperty Name="WardName" ColumnName="WardName" />
           <ScalarProperty Name="DistrictId" ColumnName="DistrictId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Employees">
+      <EntityTypeMapping TypeName="EVEModel.Employee">
+        <MappingFragment StoreEntitySet="Employee">
+          <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="Sex" ColumnName="Sex" />
+          <ScalarProperty Name="Birthday" ColumnName="Birthday" />
+          <ScalarProperty Name="PositionCode" ColumnName="PositionCode" />
+          <ScalarProperty Name="EduLevelCode" ColumnName="EduLevelCode" />
+          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="SchoolId" ColumnName="SchoolId" />
+          <ScalarProperty Name="EduDepartmentId" ColumnName="EduDepartmentId" />
+          <ScalarProperty Name="EduProvinceId" ColumnName="EduProvinceId" />
+          <ScalarProperty Name="MinistryofEducationaCode" ColumnName="MinistryofEducationaCode" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="EmployeeName" ColumnName="EmployeeName" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="EmployeeCode" ColumnName="EmployeeCode" />
+          <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EvalDetails">
+      <EntityTypeMapping TypeName="EVEModel.EvalDetail">
+        <MappingFragment StoreEntitySet="EvalDetail">
+          <ScalarProperty Name="EvalForEmployee" ColumnName="EvalForEmployee" />
+          <ScalarProperty Name="Attachment" ColumnName="Attachment" />
+          <ScalarProperty Name="Sample" ColumnName="Sample" />
+          <ScalarProperty Name="EvalResultCode" ColumnName="EvalResultCode" />
+          <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
+          <ScalarProperty Name="EvalCriteriaId" ColumnName="EvalCriteriaId" />
+          <ScalarProperty Name="EvalMasterId" ColumnName="EvalMasterId" />
+          <ScalarProperty Name="EvalDetailId" ColumnName="EvalDetailId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Positions">
+      <EntityTypeMapping TypeName="EVEModel.Position">
+        <MappingFragment StoreEntitySet="Position">
+          <ScalarProperty Name="EduLevelCode" ColumnName="EduLevelCode" />
+          <ScalarProperty Name="PositionName" ColumnName="PositionName" />
+          <ScalarProperty Name="PositionCode" ColumnName="PositionCode" />
+          <ScalarProperty Name="PositionId" ColumnName="PositionId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

@@ -4,16 +4,14 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="23da066c19b945018affa92ec2bc39e7" Name="Diagram1">
+      <Diagram DiagramId="23da066c19b945018affa92ec2bc39e7" Name="Diagram1" ZoomLevel="73">
         <EntityTypeShape EntityType="EVEModel.Country" Width="1.5" PointX="0.75" PointY="8.625" IsExpanded="true" />
         <EntityTypeShape EntityType="EVEModel.District" Width="1.5" PointX="5.25" PointY="10.375" IsExpanded="true" />
         <EntityTypeShape EntityType="EVEModel.EduDepartment" Width="1.5" PointX="7.5" PointY="6.625" IsExpanded="true" />
         <EntityTypeShape EntityType="EVEModel.EduLevel" Width="1.5" PointX="7.5" PointY="3.625" IsExpanded="true" />
         <EntityTypeShape EntityType="EVEModel.EduMinistry" Width="1.5" PointX="3" PointY="6.125" IsExpanded="true" />
         <EntityTypeShape EntityType="EVEModel.EduProvince" Width="1.5" PointX="5.25" PointY="5.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="EVEModel.Employee" Width="1.5" PointX="9.75" PointY="5.375" IsExpanded="true" />
         <EntityTypeShape EntityType="EVEModel.EvalCriteria" Width="1.5" PointX="20.25" PointY="11.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="EVEModel.EvalDetail" Width="1.5" PointX="15" PointY="6.25" IsExpanded="true" />
         <EntityTypeShape EntityType="EVEModel.EvalGuide" Width="1.5" PointX="22.5" PointY="6.875" IsExpanded="true" />
         <EntityTypeShape EntityType="EVEModel.EvalMaster" Width="1.5" PointX="15" PointY="1.125" IsExpanded="true" />
         <EntityTypeShape EntityType="EVEModel.EvalPeriod" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
@@ -38,26 +36,17 @@
         <AssociationConnector Association="EVEModel.FK_Huyen_Tinh" ManuallyRouted="false" />
         <AssociationConnector Association="EVEModel.FK_Xa_Huyen" ManuallyRouted="false" />
         <AssociationConnector Association="EVEModel.FK_EduDepartment_EduProvince" ManuallyRouted="false" />
-        <AssociationConnector Association="EVEModel.FK_Employee_EduDepartment" ManuallyRouted="false" />
         <AssociationConnector Association="EVEModel.FK_School_EduDepartment" ManuallyRouted="false" />
         <AssociationConnector Association="EVEModel.FK_UserGroup_Employee_EduDepartment" ManuallyRouted="false" />
-        <AssociationConnector Association="EVEModel.FK_Employee_EduLevel" ManuallyRouted="false" />
         <AssociationConnector Association="EVEModel.FK_UserGroup_EduLevel" ManuallyRouted="false" />
         <AssociationConnector Association="EVEModel.FK_EduProvince_MinistryofEducation" ManuallyRouted="false" />
-        <AssociationConnector Association="EVEModel.FK_Employee_MinistryofEducation" ManuallyRouted="false" />
         <AssociationConnector Association="EVEModel.FK_School_MinistryofEducation" ManuallyRouted="false" />
         <AssociationConnector Association="EVEModel.FK_UserGroup_Employee_EduMinistry" ManuallyRouted="false" />
         <AssociationConnector Association="EVEModel.FK_EduProvince_Province" ManuallyRouted="false" />
-        <AssociationConnector Association="EVEModel.FK_Employee_EduProvince" ManuallyRouted="false" />
         <AssociationConnector Association="EVEModel.FK_School_EduProvince" ManuallyRouted="false" />
         <AssociationConnector Association="EVEModel.FK_UserGroup_Employee_EduProvince" ManuallyRouted="false" />
-        <AssociationConnector Association="EVEModel.FK_Employee_School" ManuallyRouted="false" />
-        <AssociationConnector Association="EVEModel.FK_EvalDetail_Employee" ManuallyRouted="false" />
-        <AssociationConnector Association="EVEModel.FK_UserGroup_Employee_Employee" ManuallyRouted="false" />
         <AssociationConnector Association="EVEModel.FK_EvalCriteria_EvalStandard" ManuallyRouted="false" />
         <AssociationConnector Association="EVEModel.FK_EvalGuide_EvalCriteria" ManuallyRouted="false" />
-        <AssociationConnector Association="EVEModel.FK_EvalDetail_EvalMaster" ManuallyRouted="false" />
-        <AssociationConnector Association="EVEModel.FK_EvalDetail_EvalResult" ManuallyRouted="false" />
         <AssociationConnector Association="EVEModel.FK_EvalGuide_EvalResult" ManuallyRouted="false" />
         <AssociationConnector Association="EVEModel.FK_EvalMaster_EvalState" ManuallyRouted="false" />
         <AssociationConnector Association="EVEModel.FK_EvalMaster_EvalType" ManuallyRouted="false" />
@@ -70,6 +59,17 @@
         <AssociationConnector Association="EVEModel.FK_UserGroup_Employee_School" ManuallyRouted="false" />
         <AssociationConnector Association="EVEModel.FK_UserGroup_Employee_UserGroup" ManuallyRouted="false" />
         <AssociationConnector Association="EVEModel.FK_UserGroup_Form_UserGroup" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="EVEModel.Employee" Width="1.5" PointX="18" PointY="0.75" />
+        <AssociationConnector Association="EVEModel.FK_Employee_EduDepartment" />
+        <AssociationConnector Association="EVEModel.FK_Employee_EduLevel" />
+        <AssociationConnector Association="EVEModel.FK_Employee_MinistryofEducation" />
+        <AssociationConnector Association="EVEModel.FK_Employee_EduProvince" />
+        <AssociationConnector Association="EVEModel.FK_Employee_School" />
+        <AssociationConnector Association="EVEModel.FK_UserGroup_Employee_Employee" />
+        <EntityTypeShape EntityType="EVEModel.EvalDetail" Width="1.5" PointX="20.25" PointY="2.5" />
+        <AssociationConnector Association="EVEModel.FK_EvalDetail_Employee" />
+        <AssociationConnector Association="EVEModel.FK_EvalDetail_EvalMaster" />
+        <EntityTypeShape EntityType="EVEModel.Position" Width="1.5" PointX="7.375" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

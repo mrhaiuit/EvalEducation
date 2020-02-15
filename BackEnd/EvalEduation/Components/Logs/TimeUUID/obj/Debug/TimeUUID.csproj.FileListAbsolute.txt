@@ -1,5 +1,5 @@
 C:\DEV\Eval-Edu\EvalEducation\BackEnd\EvalEduation\Components\Logs\TimeUUID\bin\Debug\TimeUUID.dll
 C:\DEV\Eval-Edu\EvalEducation\BackEnd\EvalEduation\Components\Logs\TimeUUID\bin\Debug\TimeUUID.pdb
-C:\DEV\Eval-Edu\EvalEducation\BackEnd\EvalEduation\Components\Logs\TimeUUID\obj\Debug\TimeUUID.csprojAssemblyReference.cache
 C:\DEV\Eval-Edu\EvalEducation\BackEnd\EvalEduation\Components\Logs\TimeUUID\obj\Debug\TimeUUID.dll
 C:\DEV\Eval-Edu\EvalEducation\BackEnd\EvalEduation\Components\Logs\TimeUUID\obj\Debug\TimeUUID.pdb
+C:\DEV\Eval-Edu\EvalEducation\BackEnd\EvalEduation\Components\Logs\TimeUUID\obj\Debug\TimeUUID.csprojAssemblyReference.cache

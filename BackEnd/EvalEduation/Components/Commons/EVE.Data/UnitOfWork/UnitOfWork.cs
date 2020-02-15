@@ -38,6 +38,7 @@ namespace EVE.Data
         public UnitOfWork()
         {
             Context = new TContext();
+            Context.Configuration.LazyLoadingEnabled = false;
         }
 
         public Dictionary<Type, object> Repositories

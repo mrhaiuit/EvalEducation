@@ -261,6 +261,10 @@ namespace EVE.Commons
         [StringValue("Không tồn tại tiêu chí của tiêu chuẩn này")]
         CateriaNotExistWithStandard = 500100,
 
+        [StringValue("Chức danh này không tồn tại")]
+        PositionNotExist = 500110,
+        
+
         #endregion
 
 

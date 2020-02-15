@@ -25,6 +25,5 @@ namespace EVE.Data
     
         public virtual Employee Employee { get; set; }
         public virtual EvalMaster EvalMaster { get; set; }
-        public virtual EvalResult EvalResult { get; set; }
     }
 }

@@ -201,6 +201,7 @@
     <Compile Include="AutoMapper\MapperProfile.cs" />
     <Compile Include="Controllers\CountryController.cs" />
     <Compile Include="Controllers\DistrictController.cs" />
+    <Compile Include="Controllers\PositionController.cs" />
     <Compile Include="Controllers\ProvinceController.cs" />
     <Compile Include="Controllers\WardController.cs" />
     <Compile Include="Controllers\UserGroupFormController.cs" />
@@ -270,6 +271,7 @@
     <Content Include="Areas\HelpPage\Views\Help\Api.cshtml" />
     <None Include="packages.config" />
     <None Include="Properties\PublishProfiles\Authentication.pubxml" />
+    <None Include="Properties\PublishProfiles\CustomProfile.pubxml" />
     <None Include="Properties\PublishProfiles\EVELocal.pubxml" />
     <None Include="Properties\PublishProfiles\ftpEVE.pubxml" />
   </ItemGroup>

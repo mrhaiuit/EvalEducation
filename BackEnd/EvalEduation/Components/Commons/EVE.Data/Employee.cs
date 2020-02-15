@@ -17,8 +17,8 @@ namespace EVE.Data
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Employee()
         {
-            this.EvalDetails = new HashSet<EvalDetail>();
             this.UserGroup_Employee = new HashSet<UserGroup_Employee>();
+            this.EvalDetails = new HashSet<EvalDetail>();
         }
     
         public int EmployeeId { get; set; }
@@ -35,6 +35,11 @@ namespace EVE.Data
         public Nullable<bool> Active { get; set; }
         public string Remarks { get; set; }
         public string EduLevelCode { get; set; }
+        public string PositionCode { get; set; }
+        public Nullable<System.DateTime> Birthday { get; set; }
+        public Nullable<bool> Sex { get; set; }
+        public Nullable<System.DateTime> CreateDate { get; set; }
+        public Nullable<int> CreateBy { get; set; }
     
         public virtual EduDepartment EduDepartment { get; set; }
         public virtual EduLevel EduLevel { get; set; }
@@ -42,8 +47,8 @@ namespace EVE.Data
         public virtual EduProvince EduProvince { get; set; }
         public virtual School School { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<EvalDetail> EvalDetails { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<UserGroup_Employee> UserGroup_Employee { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<EvalDetail> EvalDetails { get; set; }
     }
 }

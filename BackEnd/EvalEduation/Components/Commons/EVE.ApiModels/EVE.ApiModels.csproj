@@ -56,6 +56,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Authentication\Request\Account\LoginReq.cs" />
+    <Compile Include="Catalog\Request\Position\PositionByCodeAndLevelReq.cs" />
+    <Compile Include="Catalog\Request\Position\PositionBaseReq.cs" />
     <Compile Include="Catalog\Request\District\DistrictBaseReq.cs" />
     <Compile Include="Catalog\Request\EvalCriteria\GetGuideOfCriteriaReq.cs" />
     <Compile Include="Catalog\Request\Province\ProvinceBaseReq.cs" />

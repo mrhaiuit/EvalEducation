@@ -21,6 +21,11 @@ namespace EVE.ApiModels.Authentication.Request
         public Nullable<bool> Active { get; set; }
         public string Remarks { get; set; }
         public string EduLevelCode { get; set; }
+        public string PositionCode { get; set; }
+        public Nullable<System.DateTime> Birthday { get; set; }
+        public Nullable<bool> Sex { get; set; }
+        public Nullable<System.DateTime> CreateDate { get; set; }
+        public Nullable<int> CreateBy { get; set; }
     }
 
     public class OperatorInsertValidator : AbstractValidator<EmployeeInsertReq>

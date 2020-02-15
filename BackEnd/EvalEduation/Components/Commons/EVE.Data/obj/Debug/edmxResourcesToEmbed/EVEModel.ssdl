@@ -73,6 +73,11 @@
     <Property Name="Active" Type="bit" />
     <Property Name="Remarks" Type="nvarchar" MaxLength="500" />
     <Property Name="EduLevelCode" Type="varchar" MaxLength="50" />
+    <Property Name="PositionCode" Type="varchar" MaxLength="50" />
+    <Property Name="Birthday" Type="datetime" />
+    <Property Name="Sex" Type="bit" />
+    <Property Name="CreateDate" Type="datetime" />
+    <Property Name="CreateBy" Type="int" />
   </EntityType>
   <EntityType Name="EvalCriteria">
     <Key>
@@ -203,6 +208,15 @@
     <Property Name="UpdTs" Type="date" Nullable="false" />
     <Property Name="Remarks" Type="nvarchar" MaxLength="250" />
   </EntityType>
+  <EntityType Name="Position">
+    <Key>
+      <PropertyRef Name="PositionId" />
+    </Key>
+    <Property Name="PositionId" Type="int" Nullable="false" />
+    <Property Name="PositionCode" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="PositionName" Type="nvarchar" MaxLength="200" />
+    <Property Name="EduLevelCode" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
   <EntityType Name="Province">
     <Key>
       <PropertyRef Name="ProvinceId" />
@@ -228,6 +242,7 @@
     <Property Name="PhoneNumber" Type="varchar" MaxLength="20" />
     <Property Name="HotLine" Type="varchar" MaxLength="20" />
     <Property Name="MinistryofEducationaCode" Type="varchar" MaxLength="50" />
+    <Property Name="WardId" Type="int" />
   </EntityType>
   <EntityType Name="SchoolLevel">
     <Key>
@@ -425,18 +440,6 @@
       </Principal>
       <Dependent Role="EvalDetail">
         <PropertyRef Name="EvalMasterId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_EvalDetail_EvalResult">
-    <End Role="EvalResult" Type="Self.EvalResult" Multiplicity="0..1" />
-    <End Role="EvalDetail" Type="Self.EvalDetail" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="EvalResult">
-        <PropertyRef Name="EvalResultCode" />
-      </Principal>
-      <Dependent Role="EvalDetail">
-        <PropertyRef Name="EvalResultCode" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -760,6 +763,7 @@
     <EntitySet Name="FormGroup" EntityType="Self.FormGroup" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Forms" EntityType="Self.Forms" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="LoginUser" EntityType="Self.LoginUser" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Position" EntityType="Self.Position" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Province" EntityType="Self.Province" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="School" EntityType="Self.School" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="SchoolLevel" EntityType="Self.SchoolLevel" Schema="dbo" store:Type="Tables" />
@@ -814,10 +818,6 @@
     </AssociationSet>
     <AssociationSet Name="FK_EvalDetail_EvalMaster" Association="Self.FK_EvalDetail_EvalMaster">
       <End Role="EvalMaster" EntitySet="EvalMaster" />
-      <End Role="EvalDetail" EntitySet="EvalDetail" />
-    </AssociationSet>
-    <AssociationSet Name="FK_EvalDetail_EvalResult" Association="Self.FK_EvalDetail_EvalResult">
-      <End Role="EvalResult" EntitySet="EvalResult" />
       <End Role="EvalDetail" EntitySet="EvalDetail" />
     </AssociationSet>
     <AssociationSet Name="FK_EvalGuide_EvalCriteria" Association="Self.FK_EvalGuide_EvalCriteria">

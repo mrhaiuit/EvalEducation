@@ -30,10 +30,10 @@ namespace EVE.Data
         public Nullable<bool> Active { get; set; }
         public string EvalStateCode { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<EvalDetail> EvalDetails { get; set; }
         public virtual EvalState EvalState { get; set; }
         public virtual EvalType EvalType { get; set; }
         public virtual School School { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<EvalDetail> EvalDetails { get; set; }
     }
 }
