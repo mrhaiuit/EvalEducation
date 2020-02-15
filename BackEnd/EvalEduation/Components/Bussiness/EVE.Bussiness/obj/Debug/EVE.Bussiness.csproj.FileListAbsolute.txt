@@ -48,7 +48,6 @@ C:\DEV\Eval-Edu\EvalEducation\BackEnd\EvalEduation\Components\Bussiness\EVE.Buss
 C:\DEV\Eval-Edu\EvalEducation\BackEnd\EvalEduation\Components\Bussiness\EVE.Bussiness\bin\Debug\EVE.Bussiness.dll
 C:\DEV\Eval-Edu\EvalEducation\BackEnd\EvalEduation\Components\Bussiness\EVE.Bussiness\bin\Debug\EVE.Bussiness.pdb
 C:\DEV\Eval-Edu\EvalEducation\BackEnd\EvalEduation\Components\Bussiness\EVE.Bussiness\bin\Debug\Autofac.dll
-C:\DEV\Eval-Edu\EvalEducation\BackEnd\EvalEduation\Components\Bussiness\EVE.Bussiness\bin\Debug\AutoMapper.dll
 C:\DEV\Eval-Edu\EvalEducation\BackEnd\EvalEduation\Components\Bussiness\EVE.Bussiness\bin\Debug\EntityFramework.dll
 C:\DEV\Eval-Edu\EvalEducation\BackEnd\EvalEduation\Components\Bussiness\EVE.Bussiness\bin\Debug\EntityFramework.SqlServer.dll
 C:\DEV\Eval-Edu\EvalEducation\BackEnd\EvalEduation\Components\Bussiness\EVE.Bussiness\bin\Debug\EVE.ApiModels.dll
@@ -65,8 +64,6 @@ C:\DEV\Eval-Edu\EvalEducation\BackEnd\EvalEduation\Components\Bussiness\EVE.Buss
 C:\DEV\Eval-Edu\EvalEducation\BackEnd\EvalEduation\Components\Bussiness\EVE.Bussiness\bin\Debug\EVE.Data.dll.config
 C:\DEV\Eval-Edu\EvalEducation\BackEnd\EvalEduation\Components\Bussiness\EVE.Bussiness\bin\Debug\Autofac.pdb
 C:\DEV\Eval-Edu\EvalEducation\BackEnd\EvalEduation\Components\Bussiness\EVE.Bussiness\bin\Debug\Autofac.xml
-C:\DEV\Eval-Edu\EvalEducation\BackEnd\EvalEduation\Components\Bussiness\EVE.Bussiness\bin\Debug\AutoMapper.pdb
-C:\DEV\Eval-Edu\EvalEducation\BackEnd\EvalEduation\Components\Bussiness\EVE.Bussiness\bin\Debug\AutoMapper.xml
 C:\DEV\Eval-Edu\EvalEducation\BackEnd\EvalEduation\Components\Bussiness\EVE.Bussiness\bin\Debug\EntityFramework.xml
 C:\DEV\Eval-Edu\EvalEducation\BackEnd\EvalEduation\Components\Bussiness\EVE.Bussiness\bin\Debug\EntityFramework.SqlServer.xml
 C:\DEV\Eval-Edu\EvalEducation\BackEnd\EvalEduation\Components\Bussiness\EVE.Bussiness\bin\Debug\FluentValidation.xml

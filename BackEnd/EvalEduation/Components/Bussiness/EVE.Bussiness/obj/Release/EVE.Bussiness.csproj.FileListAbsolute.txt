@@ -3,7 +3,6 @@ C:\DEV\Eval-Edu\EvalEducation\BackEnd\EvalEduation\Components\Bussiness\EVE.Buss
 C:\DEV\Eval-Edu\EvalEducation\BackEnd\EvalEduation\Components\Bussiness\EVE.Bussiness\bin\Release\EVE.Bussiness.dll
 C:\DEV\Eval-Edu\EvalEducation\BackEnd\EvalEduation\Components\Bussiness\EVE.Bussiness\bin\Release\EVE.Bussiness.pdb
 C:\DEV\Eval-Edu\EvalEducation\BackEnd\EvalEduation\Components\Bussiness\EVE.Bussiness\bin\Release\Autofac.dll
-C:\DEV\Eval-Edu\EvalEducation\BackEnd\EvalEduation\Components\Bussiness\EVE.Bussiness\bin\Release\AutoMapper.dll
 C:\DEV\Eval-Edu\EvalEducation\BackEnd\EvalEduation\Components\Bussiness\EVE.Bussiness\bin\Release\EntityFramework.dll
 C:\DEV\Eval-Edu\EvalEducation\BackEnd\EvalEduation\Components\Bussiness\EVE.Bussiness\bin\Release\EntityFramework.SqlServer.dll
 C:\DEV\Eval-Edu\EvalEducation\BackEnd\EvalEduation\Components\Bussiness\EVE.Bussiness\bin\Release\EVE.ApiModels.dll
@@ -20,8 +19,6 @@ C:\DEV\Eval-Edu\EvalEducation\BackEnd\EvalEduation\Components\Bussiness\EVE.Buss
 C:\DEV\Eval-Edu\EvalEducation\BackEnd\EvalEduation\Components\Bussiness\EVE.Bussiness\bin\Release\EVE.Data.dll.config
 C:\DEV\Eval-Edu\EvalEducation\BackEnd\EvalEduation\Components\Bussiness\EVE.Bussiness\bin\Release\Autofac.pdb
 C:\DEV\Eval-Edu\EvalEducation\BackEnd\EvalEduation\Components\Bussiness\EVE.Bussiness\bin\Release\Autofac.xml
-C:\DEV\Eval-Edu\EvalEducation\BackEnd\EvalEduation\Components\Bussiness\EVE.Bussiness\bin\Release\AutoMapper.pdb
-C:\DEV\Eval-Edu\EvalEducation\BackEnd\EvalEduation\Components\Bussiness\EVE.Bussiness\bin\Release\AutoMapper.xml
 C:\DEV\Eval-Edu\EvalEducation\BackEnd\EvalEduation\Components\Bussiness\EVE.Bussiness\bin\Release\EntityFramework.xml
 C:\DEV\Eval-Edu\EvalEducation\BackEnd\EvalEduation\Components\Bussiness\EVE.Bussiness\bin\Release\EntityFramework.SqlServer.xml
 C:\DEV\Eval-Edu\EvalEducation\BackEnd\EvalEduation\Components\Bussiness\EVE.Bussiness\bin\Release\FluentValidation.xml

@@ -26,7 +26,6 @@ C:\DEV\Eval-Edu\EvalEducation\BackEnd\EvalEduation\Components\Commons\EVE.ApiMod
 C:\DEV\Eval-Edu\EvalEducation\BackEnd\EvalEduation\Components\Commons\EVE.ApiModels\bin\Release\Autofac.pdb
 C:\DEV\Eval-Edu\EvalEducation\BackEnd\EvalEduation\Components\Commons\EVE.ApiModels\bin\Release\Autofac.xml
 C:\DEV\Eval-Edu\EvalEducation\BackEnd\EvalEduation\Components\Commons\EVE.ApiModels\bin\Release\EntityFramework.xml
-C:\DEV\Eval-Edu\EvalEducation\BackEnd\EvalEduation\Components\Commons\EVE.ApiModels\bin\Release\AutoMapper.pdb
 C:\DEV\Eval-Edu\EvalEducation\BackEnd\EvalEduation\Components\Commons\EVE.ApiModels\bin\Release\AutoMapper.xml
 C:\DEV\Eval-Edu\EvalEducation\BackEnd\EvalEduation\Components\Commons\EVE.ApiModels\bin\Release\System.Net.Http.Formatting.xml
 C:\DEV\Eval-Edu\EvalEducation\BackEnd\EvalEduation\Components\Commons\EVE.ApiModels\obj\Release\EVE.ApiModels.csprojAssemblyReference.cache

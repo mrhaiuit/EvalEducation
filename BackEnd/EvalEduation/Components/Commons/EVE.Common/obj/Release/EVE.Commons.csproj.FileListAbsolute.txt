@@ -15,7 +15,6 @@ C:\DEV\Eval-Edu\EvalEducation\BackEnd\EvalEduation\Components\Commons\EVE.Common
 C:\DEV\Eval-Edu\EvalEducation\BackEnd\EvalEduation\Components\Commons\EVE.Common\bin\Release\EntityFramework.xml
 C:\DEV\Eval-Edu\EvalEducation\BackEnd\EvalEduation\Components\Commons\EVE.Common\bin\Release\EntityFramework.SqlServer.xml
 C:\DEV\Eval-Edu\EvalEducation\BackEnd\EvalEduation\Components\Commons\EVE.Common\bin\Release\Newtonsoft.Json.xml
-C:\DEV\Eval-Edu\EvalEducation\BackEnd\EvalEduation\Components\Commons\EVE.Common\bin\Release\AutoMapper.pdb
 C:\DEV\Eval-Edu\EvalEducation\BackEnd\EvalEduation\Components\Commons\EVE.Common\bin\Release\AutoMapper.xml
 C:\DEV\Eval-Edu\EvalEducation\BackEnd\EvalEduation\Components\Commons\EVE.Common\obj\Release\EVE.Commons.csprojAssemblyReference.cache
 C:\DEV\Eval-Edu\EvalEducation\BackEnd\EvalEduation\Components\Commons\EVE.Common\obj\Release\EVE.Commons.csproj.CopyComplete

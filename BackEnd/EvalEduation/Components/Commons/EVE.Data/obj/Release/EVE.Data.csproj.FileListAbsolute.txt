@@ -8,7 +8,6 @@ C:\DEV\Eval-Edu\EvalEducation\BackEnd\EvalEduation\Components\Commons\EVE.Data\b
 C:\DEV\Eval-Edu\EvalEducation\BackEnd\EvalEduation\Components\Commons\EVE.Data\bin\Release\EntityFramework.SqlServer.dll
 C:\DEV\Eval-Edu\EvalEducation\BackEnd\EvalEduation\Components\Commons\EVE.Data\bin\Release\Autofac.pdb
 C:\DEV\Eval-Edu\EvalEducation\BackEnd\EvalEduation\Components\Commons\EVE.Data\bin\Release\Autofac.xml
-C:\DEV\Eval-Edu\EvalEducation\BackEnd\EvalEduation\Components\Commons\EVE.Data\bin\Release\AutoMapper.pdb
 C:\DEV\Eval-Edu\EvalEducation\BackEnd\EvalEduation\Components\Commons\EVE.Data\bin\Release\AutoMapper.xml
 C:\DEV\Eval-Edu\EvalEducation\BackEnd\EvalEduation\Components\Commons\EVE.Data\bin\Release\EntityFramework.xml
 C:\DEV\Eval-Edu\EvalEducation\BackEnd\EvalEduation\Components\Commons\EVE.Data\bin\Release\EntityFramework.SqlServer.xml

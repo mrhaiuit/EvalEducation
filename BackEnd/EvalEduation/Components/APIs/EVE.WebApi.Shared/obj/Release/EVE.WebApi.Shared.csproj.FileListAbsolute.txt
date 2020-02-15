@@ -35,7 +35,6 @@ C:\DEV\Eval-Edu\EvalEducation\BackEnd\EvalEduation\Components\APIs\EVE.WebApi.Sh
 C:\DEV\Eval-Edu\EvalEducation\BackEnd\EvalEduation\Components\APIs\EVE.WebApi.Shared\bin\Release\Autofac.xml
 C:\DEV\Eval-Edu\EvalEducation\BackEnd\EvalEduation\Components\APIs\EVE.WebApi.Shared\bin\Release\EVE.Data.pdb
 C:\DEV\Eval-Edu\EvalEducation\BackEnd\EvalEduation\Components\APIs\EVE.WebApi.Shared\bin\Release\EVE.Data.dll.config
-C:\DEV\Eval-Edu\EvalEducation\BackEnd\EvalEduation\Components\APIs\EVE.WebApi.Shared\bin\Release\AutoMapper.pdb
 C:\DEV\Eval-Edu\EvalEducation\BackEnd\EvalEduation\Components\APIs\EVE.WebApi.Shared\bin\Release\AutoMapper.xml
 C:\DEV\Eval-Edu\EvalEducation\BackEnd\EvalEduation\Components\APIs\EVE.WebApi.Shared\obj\Release\EVE.WebApi.Shared.csprojAssemblyReference.cache
 C:\DEV\Eval-Edu\EvalEducation\BackEnd\EvalEduation\Components\APIs\EVE.WebApi.Shared\obj\Release\EVE.WebApi.Shared.csproj.CopyComplete
