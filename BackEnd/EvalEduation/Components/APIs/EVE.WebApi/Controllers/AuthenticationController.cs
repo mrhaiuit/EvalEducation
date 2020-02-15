@@ -32,9 +32,9 @@ namespace EVE.WebApi.Controllers
             if (employee != null)
             {
                 var curTime = DateTime.Now;
-
                 var logonUser = new LoginUser
                 {
+                    LoginID = new Guid(),
                     UserName = employee.UserName,
                     UserId = employee.EmployeeCode,
                     IpAddress = AppUtil.GetClientIp(Request),
@@ -48,7 +48,7 @@ namespace EVE.WebApi.Controllers
                 {
                     logonUser.IpAddress,
                     logonUser.UserName,
-                    USER_ID = logonUser.UserId.Trim(),
+                    logonUser.UserId,
                     logonUser.LoginDate,
                     logonUser.UpdTs
                 });
@@ -58,7 +58,7 @@ namespace EVE.WebApi.Controllers
         }
 
 
-        [HttpPost]
+        [HttpGet]
         [Route("GetUserGroupByUserName")]
         public async Task<HttpResponseMessage> GetUserGroupByUserName([FromUri]string userName)
         {
