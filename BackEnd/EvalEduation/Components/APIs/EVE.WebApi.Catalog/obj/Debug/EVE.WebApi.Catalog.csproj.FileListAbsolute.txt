@@ -59,7 +59,6 @@ C:\DEV\Eval-Edu\EvalEducation\BackEnd\EvalEduation\Components\APIs\EVE.WebApi.Ca
 C:\DEV\Eval-Edu\EvalEducation\BackEnd\EvalEduation\Components\APIs\EVE.WebApi.Catalog\bin\EVE.ApiModels.dll
 C:\DEV\Eval-Edu\EvalEducation\BackEnd\EvalEduation\Components\APIs\EVE.WebApi.Catalog\bin\EVE.Commons.dll
 C:\DEV\Eval-Edu\EvalEducation\BackEnd\EvalEduation\Components\APIs\EVE.WebApi.Catalog\bin\EVE.Data.dll
-C:\DEV\Eval-Edu\EvalEducation\BackEnd\EvalEduation\Components\APIs\EVE.WebApi.Catalog\bin\EVE.LogManagement.dll
 C:\DEV\Eval-Edu\EvalEducation\BackEnd\EvalEduation\Components\APIs\EVE.WebApi.Catalog\bin\EVE.WebApi.Shared.dll
 C:\DEV\Eval-Edu\EvalEducation\BackEnd\EvalEduation\Components\APIs\EVE.WebApi.Catalog\bin\FluentValidation.dll
 C:\DEV\Eval-Edu\EvalEducation\BackEnd\EvalEduation\Components\APIs\EVE.WebApi.Catalog\bin\FluentValidation.ValidatorAttribute.dll
@@ -85,17 +84,12 @@ C:\DEV\Eval-Edu\EvalEducation\BackEnd\EvalEduation\Components\APIs\EVE.WebApi.Ca
 C:\DEV\Eval-Edu\EvalEducation\BackEnd\EvalEduation\Components\APIs\EVE.WebApi.Catalog\bin\System.Web.WebPages.Razor.dll
 C:\DEV\Eval-Edu\EvalEducation\BackEnd\EvalEduation\Components\APIs\EVE.WebApi.Catalog\bin\WebActivatorEx.dll
 C:\DEV\Eval-Edu\EvalEducation\BackEnd\EvalEduation\Components\APIs\EVE.WebApi.Catalog\bin\WebGrease.dll
-C:\DEV\Eval-Edu\EvalEducation\BackEnd\EvalEduation\Components\APIs\EVE.WebApi.Catalog\bin\Serilog.dll
-C:\DEV\Eval-Edu\EvalEducation\BackEnd\EvalEduation\Components\APIs\EVE.WebApi.Catalog\bin\Serilog.Sinks.File.dll
-C:\DEV\Eval-Edu\EvalEducation\BackEnd\EvalEduation\Components\APIs\EVE.WebApi.Catalog\bin\TimeUUID.dll
 C:\DEV\Eval-Edu\EvalEducation\BackEnd\EvalEduation\Components\APIs\EVE.WebApi.Catalog\bin\EVE.ApiModels.pdb
 C:\DEV\Eval-Edu\EvalEducation\BackEnd\EvalEduation\Components\APIs\EVE.WebApi.Catalog\bin\EVE.ApiModels.dll.config
 C:\DEV\Eval-Edu\EvalEducation\BackEnd\EvalEduation\Components\APIs\EVE.WebApi.Catalog\bin\EVE.Commons.pdb
 C:\DEV\Eval-Edu\EvalEducation\BackEnd\EvalEduation\Components\APIs\EVE.WebApi.Catalog\bin\EVE.Commons.dll.config
 C:\DEV\Eval-Edu\EvalEducation\BackEnd\EvalEduation\Components\APIs\EVE.WebApi.Catalog\bin\EVE.Data.pdb
 C:\DEV\Eval-Edu\EvalEducation\BackEnd\EvalEduation\Components\APIs\EVE.WebApi.Catalog\bin\EVE.Data.dll.config
-C:\DEV\Eval-Edu\EvalEducation\BackEnd\EvalEduation\Components\APIs\EVE.WebApi.Catalog\bin\EVE.LogManagement.pdb
-C:\DEV\Eval-Edu\EvalEducation\BackEnd\EvalEduation\Components\APIs\EVE.WebApi.Catalog\bin\EVE.LogManagement.dll.config
 C:\DEV\Eval-Edu\EvalEducation\BackEnd\EvalEduation\Components\APIs\EVE.WebApi.Catalog\bin\EVE.WebApi.Shared.pdb
 C:\DEV\Eval-Edu\EvalEducation\BackEnd\EvalEduation\Components\APIs\EVE.WebApi.Catalog\bin\EVE.WebApi.Shared.dll.config
 C:\DEV\Eval-Edu\EvalEducation\BackEnd\EvalEduation\Components\APIs\EVE.WebApi.Catalog\bin\Antlr3.Runtime.pdb
@@ -105,7 +99,6 @@ C:\DEV\Eval-Edu\EvalEducation\BackEnd\EvalEduation\Components\APIs\EVE.WebApi.Ca
 C:\DEV\Eval-Edu\EvalEducation\BackEnd\EvalEduation\Components\APIs\EVE.WebApi.Catalog\bin\Autofac.Extras.DynamicProxy.xml
 C:\DEV\Eval-Edu\EvalEducation\BackEnd\EvalEduation\Components\APIs\EVE.WebApi.Catalog\bin\Autofac.Integration.WebApi.pdb
 C:\DEV\Eval-Edu\EvalEducation\BackEnd\EvalEduation\Components\APIs\EVE.WebApi.Catalog\bin\Autofac.Integration.WebApi.xml
-C:\DEV\Eval-Edu\EvalEducation\BackEnd\EvalEduation\Components\APIs\EVE.WebApi.Catalog\bin\AutoMapper.pdb
 C:\DEV\Eval-Edu\EvalEducation\BackEnd\EvalEduation\Components\APIs\EVE.WebApi.Catalog\bin\AutoMapper.xml
 C:\DEV\Eval-Edu\EvalEducation\BackEnd\EvalEduation\Components\APIs\EVE.WebApi.Catalog\bin\Castle.Core.xml
 C:\DEV\Eval-Edu\EvalEducation\BackEnd\EvalEduation\Components\APIs\EVE.WebApi.Catalog\bin\EntityFramework.xml
@@ -126,10 +119,6 @@ C:\DEV\Eval-Edu\EvalEducation\BackEnd\EvalEduation\Components\APIs\EVE.WebApi.Ca
 C:\DEV\Eval-Edu\EvalEducation\BackEnd\EvalEduation\Components\APIs\EVE.WebApi.Catalog\bin\System.Web.WebPages.xml
 C:\DEV\Eval-Edu\EvalEducation\BackEnd\EvalEduation\Components\APIs\EVE.WebApi.Catalog\bin\System.Web.WebPages.Deployment.xml
 C:\DEV\Eval-Edu\EvalEducation\BackEnd\EvalEduation\Components\APIs\EVE.WebApi.Catalog\bin\System.Web.WebPages.Razor.xml
-C:\DEV\Eval-Edu\EvalEducation\BackEnd\EvalEduation\Components\APIs\EVE.WebApi.Catalog\bin\Serilog.pdb
-C:\DEV\Eval-Edu\EvalEducation\BackEnd\EvalEduation\Components\APIs\EVE.WebApi.Catalog\bin\Serilog.xml
-C:\DEV\Eval-Edu\EvalEducation\BackEnd\EvalEduation\Components\APIs\EVE.WebApi.Catalog\bin\Serilog.Sinks.File.xml
-C:\DEV\Eval-Edu\EvalEducation\BackEnd\EvalEduation\Components\APIs\EVE.WebApi.Catalog\bin\TimeUUID.pdb
 C:\DEV\Eval-Edu\EvalEducation\BackEnd\EvalEduation\Components\APIs\EVE.WebApi.Catalog\obj\Debug\EVE.WebApi.Catalog.csprojAssemblyReference.cache
 C:\DEV\Eval-Edu\EvalEducation\BackEnd\EvalEduation\Components\APIs\EVE.WebApi.Catalog\obj\Debug\EVE.WebApi.Catalog.csproj.CopyComplete
 C:\DEV\Eval-Edu\EvalEducation\BackEnd\EvalEduation\Components\APIs\EVE.WebApi.Catalog\obj\Debug\EVE.WebApi.Catalog.dll

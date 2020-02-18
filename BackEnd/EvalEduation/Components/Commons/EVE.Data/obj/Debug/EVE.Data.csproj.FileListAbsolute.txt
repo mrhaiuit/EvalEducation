@@ -14,4 +14,3 @@ C:\DEV\Eval-Edu\EvalEducation\BackEnd\EvalEduation\Components\Commons\EVE.Data\b
 C:\DEV\Eval-Edu\EvalEducation\BackEnd\EvalEduation\Components\Commons\EVE.Data\obj\Debug\EVE.Data.csproj.CopyComplete
 C:\DEV\Eval-Edu\EvalEducation\BackEnd\EvalEduation\Components\Commons\EVE.Data\obj\Debug\EVE.Data.dll
 C:\DEV\Eval-Edu\EvalEducation\BackEnd\EvalEduation\Components\Commons\EVE.Data\obj\Debug\EVE.Data.pdb
-C:\DEV\Eval-Edu\EvalEducation\BackEnd\EvalEduation\Components\Commons\EVE.Data\obj\Debug\EVE.Data.csprojAssemblyReference.cache

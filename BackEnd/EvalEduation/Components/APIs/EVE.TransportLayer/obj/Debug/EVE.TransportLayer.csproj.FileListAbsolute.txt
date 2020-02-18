@@ -27,7 +27,6 @@ C:\DEV\Eval-Edu\EvalEducation\BackEnd\EvalEduation\Components\APIs\EVE.Transport
 C:\DEV\Eval-Edu\EvalEducation\BackEnd\EvalEduation\Components\APIs\EVE.TransportLayer\bin\Debug\Autofac.xml
 C:\DEV\Eval-Edu\EvalEducation\BackEnd\EvalEduation\Components\APIs\EVE.TransportLayer\bin\Debug\EntityFramework.xml
 C:\DEV\Eval-Edu\EvalEducation\BackEnd\EvalEduation\Components\APIs\EVE.TransportLayer\bin\Debug\Newtonsoft.Json.xml
-C:\DEV\Eval-Edu\EvalEducation\BackEnd\EvalEduation\Components\APIs\EVE.TransportLayer\bin\Debug\AutoMapper.pdb
 C:\DEV\Eval-Edu\EvalEducation\BackEnd\EvalEduation\Components\APIs\EVE.TransportLayer\bin\Debug\AutoMapper.xml
 C:\DEV\Eval-Edu\EvalEducation\BackEnd\EvalEduation\Components\APIs\EVE.TransportLayer\bin\Debug\System.Web.Http.xml
 C:\DEV\Eval-Edu\EvalEducation\BackEnd\EvalEduation\Components\APIs\EVE.TransportLayer\bin\Debug\System.Net.Http.Formatting.xml

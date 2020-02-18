@@ -9,7 +9,6 @@ using Autofac.Integration.WebApi;
 using AutoMapper;
 using Castle.DynamicProxy;
 using EVE.Data;
-using EVE.LogManagement.AutoWriteLog;
 
 namespace EVE.WebApi.Catalog
 {
@@ -33,9 +32,9 @@ namespace EVE.WebApi.Catalog
                    .As<DbContext>()
                    .SingleInstance();
 
-            builder.Register(c => new CallLogger(AppDomain.CurrentDomain.RelativeSearchPath))
-                   .Named<IInterceptor>("log-calls");
-            RegisterMaps(builder);
+            //builder.Register(c => new CallLogger(AppDomain.CurrentDomain.RelativeSearchPath))
+            //       .Named<IInterceptor>("log-calls");
+            //RegisterMaps(builder);
 
             var container = builder.Build();
 

@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using EVE.Commons.Response;
-using EVE.Data;
 
 namespace EVE.TransportLayer
 {

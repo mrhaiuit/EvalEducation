@@ -140,7 +140,6 @@
     <Compile Include="LoginUser.cs">
       <DependentUpon>EVEModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Logon\LogonResponse.cs" />
     <Compile Include="Position.cs">
       <DependentUpon>EVEModel.tt</DependentUpon>
     </Compile>

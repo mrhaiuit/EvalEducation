@@ -15,4 +15,3 @@ C:\DEV\Eval-Edu\EvalEducation\BackEnd\EvalEduation\Components\APIs\EVE.ApiGatewa
 C:\DEV\Eval-Edu\EvalEducation\BackEnd\EvalEduation\Components\APIs\EVE.ApiGateway\obj\Debug\netcoreapp2.2\EVE.ApiGateway.RazorTargetAssemblyInfo.cache
 C:\DEV\Eval-Edu\EvalEducation\BackEnd\EvalEduation\Components\APIs\EVE.ApiGateway\obj\Debug\netcoreapp2.2\EVE.ApiGateway.dll
 C:\DEV\Eval-Edu\EvalEducation\BackEnd\EvalEduation\Components\APIs\EVE.ApiGateway\obj\Debug\netcoreapp2.2\EVE.ApiGateway.pdb
-C:\DEV\Eval-Edu\EvalEducation\BackEnd\EvalEduation\Components\APIs\EVE.ApiGateway\obj\Debug\netcoreapp2.2\EVE.ApiGateway.csprojAssemblyReference.cache
