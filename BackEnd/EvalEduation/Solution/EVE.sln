@@ -7,19 +7,19 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "APIs", "APIs", "{24A87333-1
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Libraries", "Libraries", "{37A3351D-C18A-4135-9B4E-F3380E3060E8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EVE.Commons", "..\Components\Commons\EVE.Common\EVE.Commons.csproj", "{3B38F3F7-1C80-4009-8D68-7D9E4D3520DC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EVE.Commons", "..\Components\EVE.Common\EVE.Commons.csproj", "{3B38F3F7-1C80-4009-8D68-7D9E4D3520DC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EVE.Data", "..\Components\Commons\EVE.Data\EVE.Data.csproj", "{6F4B542A-F584-43D9-A9B3-A703BAB14D24}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EVE.Data", "..\Components\EVE.Data\EVE.Data.csproj", "{6F4B542A-F584-43D9-A9B3-A703BAB14D24}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EVE.WebApi", "..\Components\APIs\EVE.WebApi\EVE.WebApi.csproj", "{DB6472C7-5ABF-491A-BED1-215A5F6E9115}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EVE.WebApi", "..\Components\EVE.WebApi\EVE.WebApi.csproj", "{DB6472C7-5ABF-491A-BED1-215A5F6E9115}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EVE.WebApi.Shared", "..\Components\APIs\EVE.WebApi.Shared\EVE.WebApi.Shared.csproj", "{BA7A75ED-1606-4F70-99B0-641D5A322BDA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EVE.WebApi.Shared", "..\Components\EVE.WebApi.Shared\EVE.WebApi.Shared.csproj", "{BA7A75ED-1606-4F70-99B0-641D5A322BDA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EVE.WebApi.Catalog", "..\Components\APIs\EVE.WebApi.Catalog\EVE.WebApi.Catalog.csproj", "{E6F43455-7760-4D84-996A-8C1076386100}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EVE.WebApi.Catalog", "..\Components\EVE.WebApi.Catalog\EVE.WebApi.Catalog.csproj", "{E6F43455-7760-4D84-996A-8C1076386100}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EVE.ApiGateway", "..\Components\APIs\EVE.ApiGateway\EVE.ApiGateway.csproj", "{FE90D189-F2F7-4571-84E0-56CD9C3E8A43}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EVE.ApiGateway", "..\Components\EVE.ApiGateway\EVE.ApiGateway.csproj", "{FE90D189-F2F7-4571-84E0-56CD9C3E8A43}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EVE.TransportLayer", "..\Components\APIs\EVE.TransportLayer\EVE.TransportLayer.csproj", "{2BFBD7FF-AF53-454D-9DDF-68B26611685A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EVE.TransportLayer", "..\Components\EVE.TransportLayer\EVE.TransportLayer.csproj", "{2BFBD7FF-AF53-454D-9DDF-68B26611685A}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Logs", "Logs", "{533C5807-9FED-4971-B8E5-21DA93580D57}"
 EndProject
@@ -27,11 +27,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EVE.LogManagement", "..\Com
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TimeUUID", "..\Components\Logs\TimeUUID\TimeUUID.csproj", "{D3433835-CA3E-41DF-8E49-5855FF682898}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EVE.ApiModels", "..\Components\Commons\EVE.ApiModels\EVE.ApiModels.csproj", "{5C9C5935-E0CE-4E3B-B30E-B7D27D49A768}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EVE.ApiModels", "..\Components\EVE.ApiModels\EVE.ApiModels.csproj", "{5C9C5935-E0CE-4E3B-B30E-B7D27D49A768}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Bussiness", "Bussiness", "{C2C86B40-52F3-42A5-9B67-5F8ED97497A5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EVE.Bussiness", "..\Components\Bussiness\EVE.Bussiness\EVE.Bussiness.csproj", "{3A2A6E63-7FA5-4D1A-B8EC-E29665B010F3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EVE.Bussiness", "..\Components\EVE.Bussiness\EVE.Bussiness.csproj", "{3A2A6E63-7FA5-4D1A-B8EC-E29665B010F3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
